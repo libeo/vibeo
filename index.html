@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>HTML5 MediaElement</title>	
+	
+	<script src="build/jquery.js"></script>	
+	<script src="build/mediaelement-and-player.js"></script>
+	<link rel="stylesheet" href="build/mediaelementplayer.css" />
+</head>
+<body>
+    
+<video width="640" height="360" id="player2" poster="media/echo-hereweare.jpg" controls="controls" preload="none">
+	<!-- MP4 source must come first for iOS -->
+	<source type="video/mp4" src="media/echo-hereweare.mp4" />
+	<!-- WebM for Firefox 4 and Opera -->
+	<source type="video/webm" src="media/echo-hereweare.webm" />
+	<!-- OGG for Firefox 3 -->
+	<source type="video/ogg" src="media/echo-hereweare.ogv" />
+    <track kind="subtitles" src="media/mediaelement.srt" srclang="en" />
+	<!-- Fallback flash player for no-HTML5 browsers with JavaScript turned off -->
+	<object width="640" height="360" type="application/x-shockwave-flash" data="build/flashmediaelement.swf"> 		
+		<param name="movie" value="build/flashmediaelement.swf" /> 
+		<param name="flashvars" value="controls=true&amp;file=media/echo-hereweare.mp4" /> 		
+		<!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
+		<img src="media/echo-hereweare.jpg" width="640" height="360" alt="Here we are" 
+			title="No video playback capabilities" />
+	</object>    
+</video>
+
+<script>
+
+$('video').mediaelementplayer({
+	startVolume: 0.1,
+    // auto-select this language (instead of starting with "None")
+	startLanguage:'en',
+    //alwaysShowControls:true,
+    //playpauseText:'test'
+    playText:'Jouer',
+    pauseText:'Pauser'
+});
+
+</script>
+
+</body>
+</html>
