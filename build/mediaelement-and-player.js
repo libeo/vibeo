@@ -2037,12 +2037,12 @@ if (typeof jQuery != 'undefined') {
 					
 						// show/hide controls
 						t.container
-							.bind('mouseenter mouseover', function () {
+							.bind('mouseenter mouseover focusin', function () {
 								if (t.controlsEnabled) {
 									if (!t.options.alwaysShowControls) {								
 										t.killControlsTimer('enter');
 										t.showControls();
-										t.startControlsTimer(2500);		
+										t.container.focus();
 									}
 								}
 							})
@@ -2057,7 +2057,7 @@ if (typeof jQuery != 'undefined') {
 									}
 								}
 							})
-							.bind('mouseleave', function () {
+							.bind('mouseleave focusout', function () {
 								if (t.controlsEnabled) {
 									if (!t.media.paused && !t.options.alwaysShowControls) {
 										t.startControlsTimer(1000);								
@@ -2540,7 +2540,9 @@ if (typeof jQuery != 'undefined') {
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
-		playpauseText: 'Play/Pause'
+		playpauseText: 'Play/Pause',
+		playText: 'Play',
+		pauseText: 'Pause',
 	});
 
 	// PLAY/pause BUTTON
@@ -2550,7 +2552,8 @@ if (typeof jQuery != 'undefined') {
 				t = this,
 				play = 
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
-					'<button type="button" aria-controls="' + t.id + '" title="' + t.options.playpauseText + '"></button>' +
+					'<button id="btnplaypause" type="button" aria-controls="' + t.id + '" title="' + t.options.playText +
+						'" aria-live="polite">'+t.options.playText+'</button>' +
 				'</div>')
 				.appendTo(controls)
 				.click(function(e) {
@@ -2566,17 +2569,25 @@ if (typeof jQuery != 'undefined') {
 				});
 
 			media.addEventListener('play',function() {
+				$('#btnplaypause').attr('title',t.options.pauseText);
+				$('#btnplaypause').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 			media.addEventListener('playing',function() {
+				$('#btnplaypause').attr('title',t.options.pauseText);
+				$('#btnplaypause').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 
 
 			media.addEventListener('pause',function() {
+				$('#btnplaypause').attr('title',t.options.playText);
+				$('#btnplaypause').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
 			media.addEventListener('paused',function() {
+				$('#btnplaypause').attr('title',t.options.playText);
+				$('#btnplaypause').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
 		}
