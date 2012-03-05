@@ -1,3 +1,6 @@
+body {
+	font-size: 1.5em;
+}
 .mejs-container {
 	position: relative;
 	background: #000;
@@ -108,7 +111,7 @@
 	background: none;
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
+	padding: 5px 0;
 	bottom: 0;
 	left: 0;
 	background: url(background.png);
@@ -119,23 +122,19 @@
 	background: -o-linear-gradient(top, rgba(50,50,50,0.7), rgba(0,0,0,0.7)); 
 	background: -ms-linear-gradient(top, rgba(50,50,50,0.7), rgba(0,0,0,0.7)); 	
 	background: linear-gradient(rgba(50,50,50,0.7), rgba(0,0,0,0.7)); 	
-	height: 30px;
 	width: 100%;
 }
-.mejs-container .mejs-controls  div {
+.mejs-container .mejs-controls div {
 	list-style-type: none;
 	background-image: none;
-	display: block;
-	float: left;
+	display: inline-block;
 	margin: 0;
 	padding: 0;
-	width: 26px;
-	height: 26px;
-	font-size: 11px;
-	line-height: 11px;
+	font-size: 0.917em;
 	background: 0;
 	font-family: Helvetica, Arial;
 	border: 0;
+	vertical-align: middle;
 }
 
 .mejs-controls .mejs-button button {
@@ -144,9 +143,7 @@
 	font-size: 0;
 	line-height: 0;
 	text-decoration: none;
-	margin: 7px 5px;
 	padding: 0;
-	position: absolute;
 	height: 16px;
 	width: 16px;
 	border: 0;
@@ -160,25 +157,20 @@
 
 /* End: CONTROL BAR */
 
+.mejs-container .mejs-controls > div {
+	display: table-cell;
+	text-align: center;
+	padding: 0 5px;
+}
+
 /* Start: Time (current / duration) */
 .mejs-container .mejs-controls .mejs-time {
 	color: #fff;
-	display: block;
-	height: 17px;
-	width: auto;
-	padding: 8px 3px 0 3px ;
-	overflow: hidden;
 	text-align: center;
-	padding: auto 4px;
 }
 .mejs-container .mejs-controls .mejs-time span {
-	font-size: 11px;
+	font-size: 0.917em;
 	color: #fff;
-	line-height: 12px;
-	display: block;
-	float: left;
-	margin: 1px 2px 0 0;
-	width: auto;
 }
 /* End: Time (current / duration) */
 
@@ -201,12 +193,13 @@
 
 /* Start: Progress bar */
 .mejs-controls div.mejs-time-rail {
-	width: 200px;
-	padding-top: 5px;
+	width: 100% !important;
+}
+.mejs-controls .mejs-time-rail .mejs-time-total {
+	width: 100% !important;
 }
 .mejs-controls .mejs-time-rail span {
 	display: block;
-	position: absolute;
 	width: 180px;
 	height: 10px;
 	-webkit-border-radius: 2px;
@@ -214,8 +207,11 @@
 	border-radius: 2px;
 	cursor: pointer;
 }
+.mejs-controls .mejs-time-rail > span > span {
+	position: absolute;
+}
 .mejs-controls .mejs-time-rail .mejs-time-total {
-	margin: 5px;
+	position: relative;
 	background: #333;
 	background: rgba(50,50,50,0.8);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.8)), to(rgba(60,60,60,0.8)));
@@ -270,21 +266,22 @@
 	position: absolute;
 	display: none;
 	background: #eee;
-	width: 36px;
-	height: 17px;
+	width: auto;
+	height: auto;
 	border: solid 1px #333;
-	top: -26px;
-	margin-left: -18px;
+	top: -2.3em;
 	text-align: center;
 	color: #111;
+	padding: 0.2em 0.2em 0;
+	left: 0;
+	margin-left: -1.49em;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float-current {
-	margin: 2px;
-	width: 30px;
+	width: auto;
+	height: auto;
 	display: block;
 	text-align: center;
-	left: 0;
 }
 .mejs-controls .mejs-time-rail .mejs-time-float-corner {
 	position: absolute;
@@ -292,14 +289,14 @@
 	width: 0;
 	height: 0;
 	line-height: 0;
-	border: solid 5px #eee;
+	border: solid 0.35em #eee;
 	border-color: #eee transparent transparent transparent;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	border-radius: 0;
-	top: 15px;
-	left: 13px;
-
+	bottom:-0.57em;
+	left: 50%;
+	margin-left: -0.3em;
 }
 
 
@@ -494,7 +491,7 @@
 	border: 0;
 }
 .mejs-chapters .mejs-chapter .mejs-chapter-block {
-	font-size: 11px;
+	font-size: 0.917em;
 	color: #fff;
 	padding: 5px;
 	display: block;
@@ -650,4 +647,12 @@
 .mejs-contextmenu .mejs-contextmenu-item:hover {
 	background: #2C7C91;
 	color: #fff;
+}
+
+
+/* IE FIXES */
+
+.ie7 .mejs-container .mejs-controls div {
+	display: inline;
+	zoom:1;
 }

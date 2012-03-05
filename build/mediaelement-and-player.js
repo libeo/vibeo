@@ -1186,7 +1186,6 @@ mejs.HtmlMediaElementShim = {
 			
 			// DEMO Code. Does NOT work.
 			case 'vimeo':
-				console.log('vimeoid');
 				
 				pluginMediaElement.vimeoid = playback.url.substr(playback.url.lastIndexOf('/')+1);
 				
@@ -1912,7 +1911,6 @@ if (typeof jQuery != 'undefined') {
 			t.killControlsTimer('start');
 
 			t.controlsTimer = setTimeout(function() {
-				//console.log('timer fired');
 				t.hideControls();
 				t.killControlsTimer('hide');
 			}, timeout);
@@ -1998,6 +1996,11 @@ if (typeof jQuery != 'undefined') {
 				// reset all layers and controls
 				t.setPlayerSize(t.width, t.height);
 				t.setControlsSize();
+				
+				// resize controls on text zoom
+				$('.mejs-currenttime').resize(function(){
+					t.setControlsSize();
+				});
 				
 
 				// controls fade
@@ -2542,7 +2545,7 @@ if (typeof jQuery != 'undefined') {
 	$.extend(mejs.MepDefaults, {
 		playpauseText: 'Play/Pause',
 		playText: 'Play',
-		pauseText: 'Pause',
+		pauseText: 'Pause'
 	});
 
 	// PLAY/pause BUTTON
@@ -2552,8 +2555,7 @@ if (typeof jQuery != 'undefined') {
 				t = this,
 				play = 
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
-					'<button id="btnplaypause" type="button" aria-controls="' + t.id + '" title="' + t.options.playText +
-						'" aria-live="polite">'+t.options.playText+'</button>' +
+					'<button id="btnplaypause" type="button" aria-controls="' + t.id + '" aria-live="polite">'+t.options.playText+'</button>' +
 				'</div>')
 				.appendTo(controls)
 				.click(function(e) {
@@ -2569,24 +2571,20 @@ if (typeof jQuery != 'undefined') {
 				});
 
 			media.addEventListener('play',function() {
-				$('#btnplaypause').attr('title',t.options.pauseText);
 				$('#btnplaypause').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 			media.addEventListener('playing',function() {
-				$('#btnplaypause').attr('title',t.options.pauseText);
 				$('#btnplaypause').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 
 
 			media.addEventListener('pause',function() {
-				$('#btnplaypause').attr('title',t.options.playText);
 				$('#btnplaypause').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
 			media.addEventListener('paused',function() {
-				$('#btnplaypause').attr('title',t.options.playText);
 				$('#btnplaypause').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
@@ -2766,7 +2764,12 @@ if (typeof jQuery != 'undefined') {
 				percent = Math.min(1, Math.max(0, percent));
 				// update loaded bar
 				if (t.loaded && t.total) {
+					console.log();
+					/*if($(".ie7").length || $(".ie6").length){
+						
+					}*/
 					t.loaded.width(t.total.width() * percent);
+					console.log(percent*100);
 				}
 			}
 		},
@@ -2888,7 +2891,7 @@ if (typeof jQuery != 'undefined') {
 			var t = this,
 				mute = 
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '" title="' + t.options.muteText + '"></button>'+
+					'<button type="button" aria-controls="' + t.id + '">'+t.options.muteText+'</button>'+
 					'<div class="mejs-volume-slider">'+ // outer background
 						'<div class="mejs-volume-total"></div>'+ // line background
 						'<div class="mejs-volume-current"></div>'+ // current volume
@@ -3100,8 +3103,8 @@ if (typeof jQuery != 'undefined') {
 				normalWidth = 0,
 				container = player.container,						
 				fullscreenBtn = 
-					$('<div class="mejs-button mejs-fullscreen-button">' + 
-						'<button type="button" aria-controls="' + t.id + '" title="' + t.options.fullscreenText + '"></button>' + 
+					$('<div class="mejs-button mejs-fullscreen-button">' +
+						'<button type="button" aria-controls="' + t.id + '">'+t.options.fullscreenText+'</button>' +
 					'</div>')
 					.appendTo(controls);
 				
@@ -3495,7 +3498,7 @@ if (typeof jQuery != 'undefined') {
 			player.captionsText = player.captions.find('.mejs-captions-text');
 			player.captionsButton = 
 					$('<div class="mejs-button mejs-captions-button">'+
-						'<button type="button" aria-controls="' + t.id + '" title="' + t.options.tracksText + '"></button>'+
+						'<button type="button" aria-controls="' + t.id + '">'+t.options.tracksText+'</button>'+
 						'<div class="mejs-captions-selector">'+
 							'<ul>'+
 								'<li>'+
@@ -4141,4 +4144,3 @@ $.extend(mejs.MepDefaults,
 	});
 	
 })(mejs.$);
-
