@@ -2,7 +2,7 @@
 
 	$.extend(mejs.MepDefaults, {
 		playpauseText: 'Play/Pause',
-		playText: 'Play/Pause',
+		playText: 'Play',
 		pauseText: 'Pause'
 	});
 
