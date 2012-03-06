@@ -1186,6 +1186,7 @@ mejs.HtmlMediaElementShim = {
 			
 			// DEMO Code. Does NOT work.
 			case 'vimeo':
+				//console.log('vimeoid');
 				
 				pluginMediaElement.vimeoid = playback.url.substr(playback.url.lastIndexOf('/')+1);
 				
@@ -1481,6 +1482,7 @@ function onYouTubePlayerReady(id) {
 
 window.mejs = mejs;
 window.MediaElement = mejs.MediaElement;
+
 
 /*!
  * MediaElementPlayer
@@ -1911,6 +1913,7 @@ if (typeof jQuery != 'undefined') {
 			t.killControlsTimer('start');
 
 			t.controlsTimer = setTimeout(function() {
+				//console.log('timer fired');
 				t.hideControls();
 				t.killControlsTimer('hide');
 			}, timeout);
@@ -2001,7 +2004,6 @@ if (typeof jQuery != 'undefined') {
 				$('.mejs-currenttime').resize(function(){
 					t.setControlsSize();
 				});
-				
 
 				// controls fade
 				if (t.isVideo) {
@@ -2540,11 +2542,12 @@ if (typeof jQuery != 'undefined') {
 	window.MediaElementPlayer = mejs.MediaElementPlayer;
 
 })(mejs.$);
+
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
 		playpauseText: 'Play/Pause',
-		playText: 'Play',
+		playText: 'Play/Pause',
 		pauseText: 'Pause'
 	});
 
@@ -2555,7 +2558,7 @@ if (typeof jQuery != 'undefined') {
 				t = this,
 				play = 
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
-					'<button id="btnplaypause" type="button" aria-controls="' + t.id + '" aria-live="polite">'+t.options.playText+'</button>' +
+					'<button id="btnplaypause" type="button" aria-controlsEnabled="' + t.id + '" aria-live="polite">'+t.options.playText+'</button>' +
 				'</div>')
 				.appendTo(controls)
 				.click(function(e) {
@@ -2592,6 +2595,7 @@ if (typeof jQuery != 'undefined') {
 	});
 	
 })(mejs.$);
+
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
@@ -2766,7 +2770,7 @@ if (typeof jQuery != 'undefined') {
 				if (t.loaded && t.total) {
 					console.log();
 					/*if($(".ie7").length || $(".ie6").length){
-						
+
 					}*/
 					t.loaded.width(t.total.width() * percent);
 					console.log(percent*100);
@@ -2793,6 +2797,7 @@ if (typeof jQuery != 'undefined') {
 		}	
 	});
 })(mejs.$);
+
 (function($) {
 	
 	// options
@@ -4144,3 +4149,4 @@ $.extend(mejs.MepDefaults,
 	});
 	
 })(mejs.$);
+

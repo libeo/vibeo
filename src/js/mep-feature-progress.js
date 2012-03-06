@@ -139,7 +139,7 @@
 				// update loaded bar
 				if (t.loaded && t.total) {
 					console.log();
-					/*if($(".ie7").length || $("bar.ie6").length){
+					/*if($(".ie7").length || $(".ie6").length){
 
 					}*/
 					t.loaded.width(t.total.width() * percent);
