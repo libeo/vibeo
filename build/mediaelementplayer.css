@@ -201,7 +201,7 @@ body {
 .mejs-controls .mejs-time-rail span {
 	display: block;
 	width: 180px;
-	height: 10px;
+	height: 0.6em;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
