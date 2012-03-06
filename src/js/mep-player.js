@@ -498,6 +498,10 @@
 				t.setPlayerSize(t.width, t.height);
 				t.setControlsSize();
 				
+				// resize controls on text zoom
+				$('.mejs-currenttime').resize(function(){
+					t.setControlsSize();
+				});
 
 				// controls fade
 				if (t.isVideo) {
@@ -536,12 +540,12 @@
 					
 						// show/hide controls
 						t.container
-							.bind('mouseenter mouseover', function () {
+							.bind('mouseenter mouseover focusin', function () {
 								if (t.controlsEnabled) {
 									if (!t.options.alwaysShowControls) {								
 										t.killControlsTimer('enter');
 										t.showControls();
-										t.startControlsTimer(2500);		
+										t.container.focus();
 									}
 								}
 							})
@@ -556,7 +560,7 @@
 									}
 								}
 							})
-							.bind('mouseleave', function () {
+							.bind('mouseleave focusout', function () {
 								if (t.controlsEnabled) {
 									if (!t.media.paused && !t.options.alwaysShowControls) {
 										t.startControlsTimer(1000);								
