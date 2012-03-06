@@ -2768,12 +2768,12 @@ if (typeof jQuery != 'undefined') {
 				percent = Math.min(1, Math.max(0, percent));
 				// update loaded bar
 				if (t.loaded && t.total) {
-					console.log();
+					//console.log();
 					/*if($(".ie7").length || $(".ie6").length){
 
 					}*/
 					t.loaded.width(t.total.width() * percent);
-					console.log(percent*100);
+					//console.log(percent*100);
 				}
 			}
 		},
