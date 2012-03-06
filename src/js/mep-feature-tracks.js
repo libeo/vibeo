@@ -72,8 +72,11 @@
 
 			if (!player.options.alwaysShowControls) {
 				// move with controls
+				var hover_timeout;
 				player.container
 					.bind('mouseenter', function () {
+						clearTimeout(hover_timeout);
+						hover_timeout = null;
 						// push captions above controls
 						player.container.find('.mejs-captions-position').addClass('mejs-captions-position-hover');
 
@@ -81,7 +84,11 @@
 					.bind('mouseleave', function () {
 						if (!media.paused) {
 							// move back to normal place
-							player.container.find('.mejs-captions-position').removeClass('mejs-captions-position-hover');
+							if(!hover_timeout) {
+								hover_timeout = setTimeout(function() {
+									player.container.find('.mejs-captions-position').removeClass('mejs-captions-position-hover');
+								}, 1300);
+							}
 						}
 					});
 			} else {
