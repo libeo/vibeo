@@ -51,10 +51,7 @@
 				else {
 					// Get the last language track used.
 					// Use the startLanguage option if none was previously selected
-					lang = player.captions.attr('lang');
-					if(lang === null) {
-						lang = player.options.startLanguage;
-					}
+					lang = player.captions.attr('lang') || player.options.startLanguage;
 
 					for (i=0; i<player.tracks.length; i++) {
 						if (player.tracks[i].srclang == lang) {
