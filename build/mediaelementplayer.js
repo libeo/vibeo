@@ -2027,35 +2027,63 @@ if (typeof jQuery != 'undefined') {
 							'</ul>'+
 						'</div>'+
 					'</div>')
-						.appendTo(controls)
-						
-						// hover
-						.hover(function() {
-							$(this).find('.mejs-captions-selector').css('visibility','visible');
-						}, function() {
-							$(this).find('.mejs-captions-selector').css('visibility','hidden');
-						})					
-						
-						// handle clicks to the language radio buttons
-						.delegate('input[type=radio]','click',function() {
-							lang = this.value;
+						.appendTo(controls);
 
-							if (lang == 'none') {
-								player.selectedTrack = null;
-							} else {
-								for (i=0; i<player.tracks.length; i++) {
-									if (player.tracks[i].srclang == lang) {
-										player.selectedTrack = player.tracks[i];
-										player.captions.attr('lang', player.selectedTrack.srclang);
-										player.displayCaptions();
-										break;
-									}
-								}
+			// Toggle captions on click
+			player.captionsButton.children('button').click(function() {
+				if(player.selectedTrack !== null) {
+					player.selectedTrack = null;
+					$("#" + player.id + "_captions_none").attr("checked","checked");
+				}
+				else {
+					// Get the last language track used.
+					// Use the startLanguage option if none was previously selected
+					lang = player.captions.attr('lang');
+					if(lang === null) {
+						lang = player.options.startLanguage;
+					}
+
+					for (i=0; i<player.tracks.length; i++) {
+						if (player.tracks[i].srclang == lang) {
+							player.selectedTrack = player.tracks[i];
+							player.captions.attr('lang', player.selectedTrack.srclang);
+							player.displayCaptions();
+							$("#" + player.id + "_captions_" + lang).attr("checked","checked");
+							break;
+						}
+					}
+				}
+			});
+
+			if(player.options.showCaptionPopup) {
+				// hover
+				player.captionsButton.hover(function() {
+					$(this).find('.mejs-captions-selector').css('visibility','visible');
+				}, function() {
+					$(this).find('.mejs-captions-selector').css('visibility','hidden');
+				})
+
+				// handle clicks to the language radio buttons
+				.delegate('input[type=radio]','click',function() {
+					lang = this.value;
+
+					if (lang == 'none') {
+						player.selectedTrack = null;
+					} else {
+						for (i=0; i<player.tracks.length; i++) {
+							if (player.tracks[i].srclang == lang) {
+								player.selectedTrack = player.tracks[i];
+								player.captions.attr('lang', player.selectedTrack.srclang);
+								player.displayCaptions();
+								break;
 							}
-						});
-						//.bind('mouseenter', function() {
-						//	player.captionsButton.find('.mejs-captions-selector').css('visibility','visible')
-						//});
+						}
+					}
+				});
+				//.bind('mouseenter', function() {
+				//	player.captionsButton.find('.mejs-captions-selector').css('visibility','visible')
+				//});
+			}
 
 			if (!player.options.alwaysShowControls) {
 				// move with controls
@@ -2670,3 +2698,4 @@ $.extend(mejs.MepDefaults,
 	});
 	
 })(mejs.$);
+
