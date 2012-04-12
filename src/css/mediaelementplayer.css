@@ -193,10 +193,10 @@ body {
 
 /* Start: Progress bar */
 .mejs-controls div.mejs-time-rail {
-	width: 100% !important;
+	width: 100%;
 }
 .mejs-controls .mejs-time-rail .mejs-time-total {
-	width: 100% !important;
+	width: 100%;
 }
 .mejs-controls .mejs-time-rail span {
 	display: block;
@@ -654,4 +654,6 @@ body {
 .ie7 .mejs-container .mejs-controls div {
 	display: inline;
 	zoom:1;
+    margin: 0 5px;
+    padding: 0;
 }
