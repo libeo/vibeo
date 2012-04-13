@@ -207,11 +207,16 @@ body {
 	border-radius: 2px;
 	cursor: pointer;
 }
+.mejs-controls .mejs-time-rail > span {
+    position: relative;
+}
+
 .mejs-controls .mejs-time-rail > span > span {
 	position: absolute;
+    top: 0;
+    left: 0;
 }
 .mejs-controls .mejs-time-rail .mejs-time-total {
-	position: relative;
 	background: #333;
 	background: rgba(50,50,50,0.8);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.8)), to(rgba(60,60,60,0.8)));
