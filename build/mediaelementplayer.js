@@ -620,6 +620,20 @@ if (typeof jQuery != 'undefined') {
 						
 						t.hasFocus = true;
 				},false);
+
+                // check if we focused on the player using the keyboard and give it the focus
+				media.addEventListener('focus', function() {
+						// go through all other players
+						for (var i=0, il=mejs.players.length; i<il; i++) {
+							var p = mejs.players[i];
+							if (p.id != t.id && t.options.pauseOtherPlayers && !p.paused && !p.ended) {
+								p.pause();
+							}
+							p.hasFocus = false;
+						}
+						
+						t.hasFocus = true;
+				});
 								
 
 				// ended for all
@@ -965,7 +979,6 @@ if (typeof jQuery != 'undefined') {
 								player.hasFocus = false;
 						}
 				});
-			
 		},
 
 		findTracks: function() {
