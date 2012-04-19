@@ -561,6 +561,7 @@ if (typeof jQuery != 'undefined') {
 									if (!t.options.alwaysShowControls) {								
 										t.killControlsTimer('enter');
 										t.showControls();
+										t.startControlsTimer(2500);
 										//t.container.focus();
 									}
 								}
