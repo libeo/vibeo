@@ -545,7 +545,7 @@
 									if (!t.options.alwaysShowControls) {								
 										t.killControlsTimer('enter');
 										t.showControls();
-										t.container.focus();
+										//t.container.focus();
 									}
 								}
 							})

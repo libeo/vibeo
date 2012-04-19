@@ -163,6 +163,7 @@ body {
 	padding: 0 5px;
 }
 
+/* Remove padding on the rail */
 .mejs-container .mejs-controls .mejs-time-rail {
     padding: 0;
 }
