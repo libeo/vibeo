@@ -2099,14 +2099,14 @@ if (typeof jQuery != 'undefined') {
 				// move with controls
 				var hover_timeout;
 				player.container
-					.bind('mouseenter', function () {
+					.bind('mouseenter mouseover focusin', function () {
 						clearTimeout(hover_timeout);
 						hover_timeout = null;
 						// push captions above controls
 						player.container.find('.mejs-captions-position').addClass('mejs-captions-position-hover');
 
 					})
-					.bind('mouseleave', function () {
+					.bind('mouseleave focusout', function () {
 						if (!media.paused) {
 							// move back to normal place
 							if(!hover_timeout) {
