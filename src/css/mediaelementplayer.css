@@ -140,12 +140,13 @@ body {
 .mejs-controls .mejs-button button {
 	cursor: pointer;
 	display: block;
-	font-size: 0;
+	font-size: 100%;
+	text-indent: -9999em;
 	line-height: 0;
 	text-decoration: none;
 	padding: 0;
-	height: 16px;
-	width: 16px;
+	height: 1em;
+	width: 1em;
 	border: 0;
 }
 
