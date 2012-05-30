@@ -3,6 +3,20 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="tracé" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="14.293px" height="12.453px" viewBox="0 0 14.293 12.453" enable-background="new 0 0 14.293 12.453" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+@font-face{font-family:'ArialMT';src:url("data:;base64,\
+T1RUTwACACAAAQAAQ0ZGIN63HmgAAABYAAABbmNtYXAACQCYAAAALAAAACwAAAABAAAAAwAAAAwA\
+BAAgAAAABAAEAAEAAABj//8AAABj////ngABAAAAAAEABAIAAQEBCEFyaWFsTVQAAQEBOfgbAfgY\
+BPgcDBUc+q/9LRwQABwIDAUeoABIgoEl/4uLHqAASIKBJf+LiwwH91oPjBD3XRGL+AISAAIBAWVy\
+QXJpYWwoUikgVHJhZGVtYXJrIG9mIFRoZSBNb25vdHlwZSBDb3Jwb3JhdGlvbiBwbGMgcmVnaXN0\
+ZXJlZCBpbiB0aGUgVVMgUGF0ICYgVE0gT2ZmLiBhbmQgZWxzZXdoZXJlLi9GU1R5cGUgMCBkZWYA\
+AAAARAACAQEdoBwGAPeUFhwFAPqUHPsAB/50qxX6VBwEwP5UBg76lPnQ+BkV90V0ePsOWSw8RhlG\
+Oylo+wgb+yX7CbvqMx8y6l/3HPdFGvcHnu+x4R6x4cXM2bYIttjgoOYb9wfqblHUH9RQujigIPtD\
+cBh60m7BYa8Ir2BYnU8bMEJrSlIfUkpvJPshGvsjpiTCSh5KwtJr4xvSxqG2uh+6tqnOmOUIDgAA\
+")}
+]]>
+</style>
 <rect x="0.5" y="0.5" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" width="13.293" height="11.453"/>
 <text transform="matrix(1 0 0 1 2.209 8.9453)" fill="#FFFFFF" font-family="'ArialMT'" font-size="10">cc</text>
 </svg>
