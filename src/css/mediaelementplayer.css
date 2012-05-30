@@ -147,7 +147,7 @@ body {
 	height: 16px;
 	width: 16px;
 	border: 0;
-	background: transparent url(controls.png) no-repeat;
+	background-size: contain;
 }
 
 /* :focus for accessibility */
@@ -182,17 +182,17 @@ body {
 
 /* Start: Play/pause */
 .mejs-controls .mejs-play button {
-	background-position:0 0;
+	background: transparent url(controls/play.svg) no-repeat;
 }
 .mejs-controls .mejs-pause button {
-	background-position:0 -16px;
+	background: transparent url(controls/pause.svg) no-repeat;
 }
 /* End: Play/pause */
 
 
 /* Stop */
 .mejs-controls .mejs-stop button {
-	background-position: -112px 0;
+	background: transparent url(controls/stop.svg) no-repeat;
 }
 /* End: Play/pause */
 
@@ -321,10 +321,10 @@ body {
 
 /* Start: Fullscreen */
 .mejs-controls .mejs-fullscreen-button button {
-	background-position:-32px 0;
+	background: transparent url(controls/fullscreen.svg) no-repeat;
 }
 .mejs-controls .mejs-unfullscreen button {
-	background-position:-32px -16px;
+	background: transparent url(controls/unfullscreen.svg) no-repeat;
 }
 /* End: Fullscreen */
 
@@ -334,11 +334,11 @@ body {
 }
 
 .mejs-controls .mejs-mute button {
-	background-position:-16px -16px;
+	background: transparent url(controls/mute.svg) no-repeat;
 }
 
 .mejs-controls .mejs-unmute button {
-	background-position:-16px 0;
+	background: transparent url(controls/unmute.svg) no-repeat;
 }
 
 .mejs-controls .mejs-volume-button {
@@ -418,7 +418,7 @@ body {
 }
 
 .mejs-controls .mejs-captions-button button {
-	background-position:-48px 0;
+	background: transparent url(controls/caption.svg) no-repeat;
 }
 .mejs-controls .mejs-captions-button .mejs-captions-selector {
 	visibility: hidden;
@@ -603,26 +603,26 @@ body {
 
 /* Start: Loop */
 .mejs-controls .mejs-loop-off button{
-	background-position: -64px -16px;
+	background: transparent url(controls/loopoff.svg) no-repeat;
 }
 .mejs-controls .mejs-loop-on button {
-	background-position: -64px 0;
+	background: transparent url(controls/loopon.svg) no-repeat;
 }
 /* End: Loop */
 
 /* Start: backlight */
 .mejs-controls .mejs-backlight-off button{
-	background-position: -80px -16px;
+	background: transparent url(controls/backlightoff.svg) no-repeat;
 }
 .mejs-controls .mejs-backlight-on button {
-	background-position: -80px 0;
+	background: transparent url(controls/backlighton.svg) no-repeat;
 }
 /* End: backlight */
 
 
 /* Start: picture controls */
 .mejs-controls .mejs-picturecontrols-button{
-	background-position: -96px 0;
+	background: transparent url(controls/picturecontrols.svg) no-repeat;
 }
 /* End: picture controls */
 
