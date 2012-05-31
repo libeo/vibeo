@@ -116,6 +116,12 @@ tmp_file.write(src_file.read())
 tmp_file.close()
 os.system("java -jar yuicompressor-2.4.2.jar ../build/mediaelementplayer.css -o ../build/mediaelementplayer.min.css --charset utf-8 -v")
 
+src_file = open('css/mediaelementplayernosvg.css','r')
+tmp_file = open('../build/mediaelementplayernosvg.css','w')
+tmp_file.write(src_file.read())
+tmp_file.close()
+os.system("java -jar yuicompressor-2.4.2.jar ../build/mediaelementplayernosvg.css -o ../build/mediaelementplayernosvg.min.css --charset utf-8 -v")
+
 #COPY skin files
 print('Copying Skin Files')
 shutil.copy2('css/controls.png','../build/controls.png')

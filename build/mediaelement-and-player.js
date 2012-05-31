@@ -2571,7 +2571,7 @@ if (typeof jQuery != 'undefined') {
 				t = this,
 				play = 
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
-					'<button id="btnplaypause" type="button" aria-controlsEnabled="' + t.id + '" aria-live="polite">'+t.options.playText+'</button>' +
+					'<button id="btnplaypause" type="button" aria-controlsEnabled="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.playText+'</span></button>' +
 				'</div>')
 				.appendTo(controls)
 				.click(function(e) {
@@ -2587,21 +2587,21 @@ if (typeof jQuery != 'undefined') {
 				});
 
 			media.addEventListener('play',function() {
-				$('#btnplaypause').text(t.options.pauseText);
+				$('#btnplaypause span').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 			media.addEventListener('playing',function() {
-				$('#btnplaypause').text(t.options.pauseText);
+				$('#btnplaypause span').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 
 
 			media.addEventListener('pause',function() {
-				$('#btnplaypause').text(t.options.playText);
+				$('#btnplaypause span').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
 			media.addEventListener('paused',function() {
-				$('#btnplaypause').text(t.options.playText);
+				$('#btnplaypause span').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
 		}
@@ -2909,7 +2909,7 @@ if (typeof jQuery != 'undefined') {
 			var t = this,
 				mute = 
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '">'+t.options.muteText+'</button>'+
+					'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.muteText+'</span></button>'+
 					'<div class="mejs-volume-slider">'+ // outer background
 						'<div class="mejs-volume-total"></div>'+ // line background
 						'<div class="mejs-volume-current"></div>'+ // current volume
@@ -3122,7 +3122,7 @@ if (typeof jQuery != 'undefined') {
 				container = player.container,						
 				fullscreenBtn = 
 					$('<div class="mejs-button mejs-fullscreen-button">' +
-						'<button type="button" aria-controls="' + t.id + '">'+t.options.fullscreenText+'</button>' +
+						'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.fullscreenText+'</span></button>' +
 					'</div>')
 					.appendTo(controls);
 				
@@ -3516,7 +3516,7 @@ if (typeof jQuery != 'undefined') {
 			player.captionsText = player.captions.find('.mejs-captions-text');
 			player.captionsButton = 
 					$('<div class="mejs-button mejs-captions-button">'+
-						'<button type="button" aria-controls="' + t.id + '">'+t.options.tracksText+'</button>'+
+						'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.tracksText+'</span></button>'+
 						'<div class="mejs-captions-selector">'+
 							'<ul>'+
 								'<li>'+
