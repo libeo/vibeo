@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<?xml-stylesheet type="text/css" href="../svg-stylesheet.css" ?>
 <svg version="1.1" id="tracé" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	  viewBox="0 0 12.169 12.171" enable-background="new 0 0 12.169 12.171" xml:space="preserve">
-<g>
+<g  >
 	<polygon fill="#FFFFFF" points="4.117,0 0.055,4.172 4.117,4.172 	"/>
 	<polygon fill="#FFFFFF" points="7.998,0.056 7.998,4.118 12.169,4.118 	"/>
 	<polygon fill="#FFFFFF" points="4.172,12.116 4.172,8.054 0,8.054 	"/>

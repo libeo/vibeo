@@ -30,7 +30,7 @@
 			player.captionsText = player.captions.find('.mejs-captions-text');
 			player.captionsButton = 
 					$('<div class="mejs-button mejs-captions-button">'+
-						'<button type="button" aria-controls="' + t.id + '">'+t.options.tracksText+'</button>'+
+						'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.tracksText+'</span></button>'+
 						'<div class="mejs-captions-selector">'+
 							'<ul>'+
 								'<li>'+

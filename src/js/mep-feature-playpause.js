@@ -13,7 +13,7 @@
 				t = this,
 				play = 
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
-					'<button id="btnplaypause" type="button" aria-controlsEnabled="' + t.id + '" aria-live="polite">'+t.options.playText+'</button>' +
+					'<button id="btnplaypause" type="button" aria-controlsEnabled="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.playText+'</span></button>' +
 				'</div>')
 				.appendTo(controls)
 				.click(function(e) {
@@ -29,21 +29,21 @@
 				});
 
 			media.addEventListener('play',function() {
-				$('#btnplaypause').text(t.options.pauseText);
+				$('#btnplaypause span').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 			media.addEventListener('playing',function() {
-				$('#btnplaypause').text(t.options.pauseText);
+				$('#btnplaypause span').text(t.options.pauseText);
 				play.removeClass('mejs-play').addClass('mejs-pause');
 			}, false);
 
 
 			media.addEventListener('pause',function() {
-				$('#btnplaypause').text(t.options.playText);
+				$('#btnplaypause span').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
 			media.addEventListener('paused',function() {
-				$('#btnplaypause').text(t.options.playText);
+				$('#btnplaypause span').text(t.options.playText);
 				play.removeClass('mejs-pause').addClass('mejs-play');
 			}, false);
 		}
