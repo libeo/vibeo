@@ -127,4 +127,7 @@ shutil.copy2('css/controls-ted.png','../build/controls-ted.png')
 shutil.copy2('css/controls-wmp.png','../build/controls-wmp.png')
 shutil.copy2('css/controls-wmp-bg.png','../build/controls-wmp-bg.png')
 
+shutil.rmtree('../build/controls', True)
+shutil.copytree('css/controls','../build/controls')
+
 print('DONE!')
