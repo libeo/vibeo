@@ -50,7 +50,7 @@
 				container = player.container,						
 				fullscreenBtn = 
 					$('<div class="mejs-button mejs-fullscreen-button">' +
-						'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.fullscreenText+'</span></button>' +
+						'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.fullscreenText+'</span></button>' +
 					'</div>')
 					.appendTo(controls);
 				
