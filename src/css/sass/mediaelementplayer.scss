@@ -1,0 +1,657 @@
+@import "compass";
+
+// ************* SASS CONFIGURATION VARIABLES *************
+
+//background
+$background: "background.png";
+
+//loading overlay
+$overlay-loading-start: #323232;
+$overlay-loading-end: black;
+$overlay-loading-opacity: 0.9;
+
+//background controls
+$background-controls-start: #323232;
+$background-controls-end: black;
+$background-controls-opacity: 0.7;
+
+// *** time rail ***
+
+//total time bar
+$total-time-start: #1e1e1e;
+$total-time-end: #3c3c3c;
+
+//loaded time progess bar
+$time-loaded-start: #2c7c91;
+$time-loaded-end: #4eb7d4;
+
+//current time  bar
+$time-current-start: white;
+$time-current-end: #c8c8c8;
+
+//time rail opacity
+$time-rail-opacity: 0.8;
+
+//chapters
+$chapter-start: #323232;
+$chapter-end: black;
+$chapter-opacity: 0.7;
+
+$chapter-hover-start: #666666;
+$chapter-hover-end: #323232;
+$chapter-hover-opacity: 0.6;
+
+// ************* END OF SASS CONFIGURATION VARIABLES *************
+
+body {
+  font-size: 1.5em; }
+
+.mejs-container {
+  position: relative;
+  background: #000;
+  font-family: Helvetica, Arial; }
+
+.me-plugin {
+  position: absolute; }
+
+.mejs-embed {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000;
+    overflow: hidden; } }
+
+.mejs-container-fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1000;
+  .mejs-mediaelement, video {
+    width: 100%;
+    height: 100%; } }
+
+/* Start: LAYERS */
+
+.mejs-background {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.mejs-mediaelement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.mejs-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  img {
+    border: 0;
+    padding: 0;
+    border: 0;
+    display: block; } }
+
+.mejs-overlay {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.mejs-overlay-play {
+  cursor: pointer; }
+
+.mejs-overlay-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  background: url(bigplay.png) no-repeat; }
+
+.mejs-overlay:hover .mejs-overlay-button {
+  background-position: 0 -100px; }
+
+.mejs-overlay-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  background: mix($overlay-loading-start, $overlay-loading-end);
+  background: rgba($overlay-loading-end, $overlay-loading-opacity);
+  @include background-image(linear-gradient(rgba($overlay-loading-start, $overlay-loading-opacity), rgba($overlay-loading-end, $overlay-loading-opacity)));
+  @include filter-gradient($overlay-loading-start, $overlay-loading-end);
+  span {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: transparent url(loading.gif) 50% 50% no-repeat; } }
+
+/* End: LAYERS */
+
+/* Start: CONTROL BAR */
+
+.mejs-container .mejs-controls {
+  position: absolute;
+  background: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 0;
+  bottom: 0;
+  left: 0;
+  background: url($background);
+  background: rgba($background-controls-end, $background-controls-opacity);
+  @include background-image(linear-gradient(rgba($background-controls-start, $background-controls-opacity), rgba($background-controls-end, $background-controls-opacity)));
+  @include filter-gradient($background-controls-start, $background-controls-end);
+  width: 100%;
+  div {
+    list-style-type: none;
+    background-image: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 0.917em;
+    background: 0;
+    font-family: Helvetica, Arial;
+    border: 0;
+    vertical-align: middle; } }
+
+.mejs-controls button {
+  cursor: pointer;
+  display: block;
+  font-size: 100%;
+  line-height: 0;
+  text-decoration: none;
+  padding: 0;
+  height: 1em;
+  width: 1em;
+  border: 0;
+  &:focus {
+    outline: solid 1px yellow; } }
+
+/* :focus for accessibility */
+
+/* End: CONTROL BAR */
+
+.mejs-container .mejs-controls {
+  > div {
+    display: table-cell;
+    text-align: center;
+    padding: 0 5px; }
+  .mejs-time-rail {
+    padding: 0; }
+  .mejs-time {
+    color: #fff;
+    text-align: center;
+    span {
+      font-size: 0.917em;
+      color: #fff; } } }
+
+/* Remove padding on the rail */
+
+/* Start: Time (current / duration) */
+
+/* End: Time (current / duration) */
+
+/* Start: Play/pause */
+
+/* background for IE */
+.no-svg {
+  .mejs-controls {
+    .mejs-play button {
+      background: url(controls/play.png) no-repeat center center; }
+    .mejs-pause button {
+      background: url(controls/pause.png) no-repeat center center; }
+    .mejs-stop button {
+      background: url(controls/stop.png) no-repeat center center; }
+    .mejs-fullscreen-button button {
+      background: url(controls/fullscreen.png) no-repeat center center; }
+    .mejs-unfullscreen button {
+      background: url(controls/unfullscreen.png) no-repeat center center; }
+    .mejs-volume-button {}
+    .mejs-mute button {
+      background: url(controls/mute.png) no-repeat center center; }
+    .mejs-unmute button {
+      background: url(controls/unmute.png) no-repeat center center; }
+    .mejs-captions-button {
+      position: relative;
+      button {
+        background: transparent url(controls/caption.png) no-repeat center center; } }
+    .mejs-loop-off button {
+      background: transparent url(controls/loopoff.png) no-repeat center center;
+      background-size: contain; }
+    .mejs-loop-on button {
+      background: transparent url(controls/loopon.png) no-repeat center center;
+      background-size: contain; }
+    .mejs-backlight-off button {
+      background: transparent url(controls/backlightoff.png) no-repeat center center;
+      background-size: contain; }
+    .mejs-backlight-on button {
+      background: transparent url(controls/backlighton.png) no-repeat center center;
+      background-size: contain; }
+    .mejs-picturecontrols-button {
+      background: transparent url(controls/picturecontrols.png) no-repeat center center;
+      background-size: contain; } } }
+
+/* normal background */
+.mejs-controls {
+  .mejs-play button {
+    background: transparent url(controls/play.svg) no-repeat;
+    background-size: contain; }
+  .mejs-pause button {
+    background: transparent url(controls/pause.svg) no-repeat;
+    background-size: contain; }
+  .mejs-stop button {
+    background: transparent url(controls/stop.svg) no-repeat;
+    background-size: contain; }
+  div.mejs-time-rail {
+    width: 100%; }
+  .mejs-time-rail {
+    .mejs-time-total {
+      width: 100%; }
+    span {
+      display: block;
+      width: 180px;
+      height: 0.6em;
+      @include border-radius(2px);
+      cursor: pointer; }
+    > span {
+      position: relative;
+      > span {
+        position: absolute;
+        top: 0;
+        left: 0; } }
+    .mejs-time-total {
+      background: mix($total-time-start, $total-time-end);
+      background: rgba($total-time-end, $time-rail-opacity);
+      @include background-image(linear-gradient(rgba($total-time-start, $time-rail-opacity), rgba($total-time-end, $time-rail-opacity)));
+      @include filter-gradient($total-time-start, $total-time-end); }
+    .mejs-time-loaded {
+      width: 0;
+      background: mix($time-loaded-start, $time-loaded-end);
+      background: rgba($time-loaded-end, $time-rail-opacity);
+      @include background-image(linear-gradient(rgba($time-loaded-start, $time-rail-opacity), rgba($time-loaded-end, $time-rail-opacity)));
+      @include filter-gradient($time-loaded-start, $time-loaded-end); }
+    .mejs-time-current {
+      width: 0;
+      background: mix($time-current-start, $time-current-end);
+      background: rgba($time-current-end, $time-rail-opacity);
+      @include background-image(linear-gradient(rgba($time-current-start, $time-rail-opacity), rgba($time-current-end, $time-rail-opacity)));
+      @include filter-gradient($time-current-start, $time-current-end); }
+    .mejs-time-handle {
+      display: none;
+      position: absolute;
+      margin: 0;
+      width: 10px;
+      background: #fff;
+      @include border-radius(5px);
+      cursor: pointer;
+      border: solid 2px #333;
+      top: -2px;
+      text-align: center; }
+    .mejs-time-float {
+      position: absolute;
+      display: none;
+      background: #eee;
+      width: auto;
+      height: auto;
+      border: solid 1px #333;
+      top: -2.3em;
+      text-align: center;
+      color: #111;
+      padding: 0.2em 0.2em 0;
+      left: 0;
+      margin-left: -1.49em; }
+    .mejs-time-float-current {
+      width: auto;
+      height: auto;
+      display: block;
+      text-align: center; }
+    .mejs-time-float-corner {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      line-height: 0;
+      border: solid 0.35em #eee;
+      border-color: #eee transparent transparent transparent;
+      @include border-radius(0);
+      bottom: -0.57em;
+      left: 50%;
+      margin-left: -0.3em; } }
+  .mejs-fullscreen-button button {
+    background: transparent url(controls/fullscreen.svg) no-repeat;
+    background-size: contain; }
+  .mejs-unfullscreen button {
+    background: transparent url(controls/unfullscreen.svg) no-repeat;
+    background-size: contain; }
+  .mejs-volume-button {}
+  .mejs-mute button {
+    background: transparent url(controls/mute.svg) no-repeat;
+    background-size: contain; }
+  .mejs-unmute button {
+    background: transparent url(controls/unmute.svg) no-repeat;
+    background-size: contain; }
+  .mejs-volume-button {
+    position: relative;
+    .mejs-volume-slider {
+      display: none;
+      height: 115px;
+      width: 25px;
+      background: url($background);
+      background: rgba(50, 50, 50, 0.7);
+      @include border-radius(0);
+      top: -105px;
+      z-index: 1;
+      position: absolute;
+      margin: 0; }
+    &:hover {
+      @include border-radius(0 0 4px 4px); }
+    .mejs-volume-slider {
+      .mejs-volume-total {
+        position: absolute;
+        left: 11px;
+        top: 8px;
+        width: 2px;
+        height: 100px;
+        background: #ddd;
+        background: rgba(255, 255, 255, 0.5);
+        margin: 0; }
+      .mejs-volume-current {
+        position: absolute;
+        left: 11px;
+        top: 8px;
+        width: 2px;
+        height: 100px;
+        background: #ddd;
+        background: rgba(255, 255, 255, 0.9);
+        margin: 0; }
+      .mejs-volume-handle {
+        position: absolute;
+        left: 4px;
+        top: -3px;
+        width: 16px;
+        height: 6px;
+        background: #ddd;
+        background: rgba(255, 255, 255, 0.9);
+        cursor: N-resize;
+        @include border-radius(1px);
+        margin: 0; } } }
+  .mejs-captions-button {
+    position: relative;
+    button {
+      background: transparent url(controls/caption.svg) no-repeat;
+      background-size: contain; }
+    .mejs-captions-selector {
+      visibility: hidden;
+      position: absolute;
+      bottom: 26px;
+      right: -10px;
+      width: 130px;
+      height: 100px;
+      background: url($background);
+      background: rgba(50, 50, 50, 0.7);
+      border: solid 1px transparent;
+      padding: 10px;
+      overflow: hidden;
+      @include border-radius(0);
+      ul {
+        margin: 0;
+        padding: 0;
+        display: block;
+        list-style-type: none !important;
+        overflow: hidden;
+        li {
+          margin: 0 0 6px 0;
+          padding: 0;
+          list-style-type: none !important;
+          display: block;
+          color: #fff;
+          overflow: hidden;
+          input {
+            clear: both;
+            float: left;
+            margin: 3px 3px 0 5px; }
+          label {
+            width: 100px;
+            float: left;
+            padding: 4px 0 0 0;
+            line-height: 15px;
+            font-family: helvetica, arial;
+            font-size: 10px; } } } }
+    .mejs-captions-translations {
+      font-size: 10px;
+      margin: 0 0 5px 0; } } }
+
+/* End: Play/pause */
+
+/* Stop */
+
+/* End: Play/pause */
+
+/* Start: Progress bar */
+
+/*
+.mejs-controls .mejs-time-rail:hover .mejs-time-handle {
+	visibility:visible;
+}
+*/
+/* End: Progress bar */
+
+/* Start: Fullscreen */
+
+/* End: Fullscreen */
+
+/* Start: Mute/Volume */
+
+/*
+.mejs-controls .mejs-volume-button:hover .mejs-volume-slider {
+	display: block;
+}
+*/
+
+/* End: Mute/Volume */
+
+/* Start: TRACK (Captions and Chapters) */
+
+/*
+.mejs-controls .mejs-captions-button:hover  .mejs-captions-selector {
+	visibility: visible;
+}
+*/
+
+.mejs-chapters {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -xborder-right: solid 1px #fff;
+  width: 10000px;
+  .mejs-chapter {
+    position: absolute;
+    float: left;
+    background: $chapter-end;
+    background: rgba($chapter-end, $chapter-opacity);
+    @include background-image(linear-gradient(rgba($chapter-start, $chapter-opacity), rgba($chapter-end, $chapter-opacity)));
+    @include filter-gradient($chapter-start, $chapter-end);
+    overflow: hidden;
+    border: 0;
+    .mejs-chapter-block {
+      font-size: 0.917em;
+      color: #fff;
+      padding: 5px;
+      display: block;
+      border-right: solid 1px #333;
+      border-bottom: solid 1px #333;
+      cursor: pointer; }
+    .mejs-chapter-block-last {
+      border-right: none; }
+    .mejs-chapter-block {
+      &:hover {
+        background: $chapter-hover-end;
+        background: rgba($chapter-hover-end, $chapter-hover-opacity);
+        @include background-image(linear-gradient(rgba($chapter-hover-start, $chapter-hover-opacity), rgba($chapter-hover-end, $chapter-hover-opacity)));
+        @include filter-gradient($chapter-hover-start, $chapter-hover-end); }
+      .ch-title {
+        font-size: 12px;
+        font-weight: bold;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 0 0 3px 0;
+        line-height: 12px; }
+      .ch-timespan {
+        font-size: 12px;
+        line-height: 12px;
+        margin: 3px 0 4px 0;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis; } } } }
+
+.mejs-captions-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  /*font-weight: bold;*/
+  line-height: 22px;
+  font-size: 12px;
+  color: #fff;
+  a {
+    color: #fff;
+    text-decoration: underline; }
+  &[lang=ar] {
+    font-size: 20px;
+    font-weight: normal; } }
+
+.mejs-captions-position {
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+  left: 0; }
+
+.mejs-captions-position-hover {
+  bottom: 3em; }
+
+.mejs-captions-text {
+  padding: 3px 5px;
+  background: url($background);
+  background: rgba(20, 20, 20, 0.8); }
+
+/* End: TRACK (Captions and Chapters) */
+
+.mejs-clear {
+  clear: both; }
+
+/* Start: ERROR */
+
+.me-cannotplay {
+  a {
+    color: #fff;
+    font-weight: bold; }
+  span {
+    padding: 15px;
+    display: block; } }
+
+/* End: ERROR */
+
+/* Start: Loop */
+
+.mejs-controls {
+  .mejs-loop-off button {
+    background: transparent url(controls/loopoff.svg) no-repeat;
+    background-size: contain; }
+  .mejs-loop-on button {
+    background: transparent url(controls/loopon.svg) no-repeat;
+    background-size: contain; }
+  .mejs-backlight-off button {
+    background: transparent url(controls/backlightoff.svg) no-repeat;
+    background-size: contain; }
+  .mejs-backlight-on button {
+    background: transparent url(controls/backlighton.svg) no-repeat;
+    background-size: contain; }
+  .mejs-picturecontrols-button {
+    background: transparent url(controls/picturecontrols.svg) no-repeat;
+    background-size: contain; } }
+
+/* End: Loop */
+
+/* Start: backlight */
+
+/* End: backlight */
+
+/* Start: picture controls */
+
+/* End: picture controls */
+
+/* context menu */
+
+.mejs-contextmenu {
+  position: absolute;
+  width: 150px;
+  padding: 10px;
+  @include border-radius(4px);
+  top: 0;
+  left: 0;
+  background: #fff;
+  border: solid 1px #999;
+  z-index: 1001;
+  /* make sure it shows on fullscreen */
+  .mejs-contextmenu-separator {
+    height: 1px;
+    font-size: 0;
+    margin: 5px 6px;
+    background: #333; }
+  .mejs-contextmenu-item {
+    font-family: Helvetica, Arial;
+    font-size: 12px;
+    padding: 4px 6px;
+    cursor: pointer;
+    color: #333;
+    &:hover {
+      background: #2C7C91;
+      color: #fff; } } }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  &.focusable {
+    &:active, &:focus {
+      clip: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      position: static;
+      width: auto; } } }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+
+/* IE FIXES */
+
+.ie7 div {
+  display: inline;
+  zoom: 1;
+  margin: 0 5px;
+  padding: 0; }

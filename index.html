@@ -4,24 +4,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>HTML5 MediaElement</title>	
+	<title>Lecteur vibéo</title>	
 	
 	<script src="build/jquery.js"></script>	
 	<script src="build/mediaelement-and-player.js"></script>
 	<script src="build/jquery.ba-resize.min.js"></script>
 	<script src="build/modernizr-2.5.3.js"></script>
-	<!-- <link rel="stylesheet" href="build/mediaelementplayer.css" /> -->
-	<script type="text/javascript">
-		Modernizr.load({
-		  test: Modernizr.svg,
-		  yep : 'build/mediaelementplayer.css',
-		  nope: 'build/mediaelementplayernosvg.css'
-		});
-	</script>	
+	<link rel="stylesheet" href="build/mediaelementplayer.css" />
 </head>
 <body>
     
 <h1>Lecteur Vidéo Libéo</h1>
+<a href="#">Lien avant le vidéo</a>
 <video width="640" height="360" id="player2" poster="media/echo-hereweare.jpg" controls="controls" preload="none">
 	<!-- MP4 source must come first for iOS -->
 	<source type="video/mp4" src="media/echo-hereweare.mp4" />
@@ -40,6 +34,8 @@
 	</object>    
 </video>
 
+<a href="#">Lien après le vidéo</a>
+
 <script>
 
 $('video').mediaelementplayer({
@@ -50,6 +46,11 @@ $('video').mediaelementplayer({
     //playpauseText:'test'
     playText:'Jouer',
     pauseText:'Pauser',
+    playText:'Jouer',
+    pauseText:'Mettre en pause',
+    fullscreenText: 'Plein écran',
+    muteText: 'Basculer de volume',
+	tracksText: 'Sous-titres',
     showCaptionPopup: false
 });
 
