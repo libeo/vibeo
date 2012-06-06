@@ -399,8 +399,13 @@ mejs.HtmlMediaElement = {
 	},
 
 	setVideoSize: function (width, height) {
+
 		this.width = width;
-		this.height = height;
+		if(player.options.overlayControls) {
+			this.height = height;
+		}else{
+			this.height = height + t.controls.outerHeight();
+		}
 	}
 };
 
@@ -1540,6 +1545,8 @@ if (typeof jQuery != 'undefined') {
 		autosizeProgress : true,
 		// Hide controls when playing and mouse is not over the video
 		alwaysShowControls: false,
+		// option to set if controls overlay the video or not
+		overlayControls: true,
 		// force iPad's native controls
 		iPadUseNativeControls: false,
 		// force iPad's native controls
@@ -1814,7 +1821,7 @@ if (typeof jQuery != 'undefined') {
 				}
 
 				// set the size, while we wait for the plugins to load below
-				t.setPlayerSize(t.width, t.height);
+				t.setPlayerSize(t.width,t.height);
 				
 				// create MediaElementShim
 				meOptions.pluginWidth = t.height;
@@ -2256,10 +2263,15 @@ if (typeof jQuery != 'undefined') {
 			
 			
 			} else {
-
+				if(!t.options.overlayControls){
+					t.container
+						.width(t.width)
+						.height(parseInt(t.height)+ t.controls.outerHeight());
+				} else {
 				t.container
 					.width(t.width)
 					.height(t.height);
+				}
 	
 				t.layers.children('.mejs-layer')
 					.width(t.width)
@@ -2909,7 +2921,7 @@ if (typeof jQuery != 'undefined') {
 			var t = this,
 				mute = 
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.muteText+'</span></button>'+
+					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteText+'</span></button>'+
 					'<div class="mejs-volume-slider">'+ // outer background
 						'<div class="mejs-volume-total"></div>'+ // line background
 						'<div class="mejs-volume-current"></div>'+ // current volume
@@ -3122,7 +3134,7 @@ if (typeof jQuery != 'undefined') {
 				container = player.container,						
 				fullscreenBtn = 
 					$('<div class="mejs-button mejs-fullscreen-button">' +
-						'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.fullscreenText+'</span></button>' +
+						'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.fullscreenText+'</span></button>' +
 					'</div>')
 					.appendTo(controls);
 				
@@ -3581,7 +3593,7 @@ if (typeof jQuery != 'undefined') {
 				//});
 			}
 
-			if (!player.options.alwaysShowControls) {
+			if (!player.options.alwaysShowControls && player.options.overlayControls) {
 				// move with controls
 				var hover_timeout;
 				player.container
@@ -3602,7 +3614,7 @@ if (typeof jQuery != 'undefined') {
 							}
 						}
 					});
-			} else {
+			} else if(player.options.overlayControls) {
 				player.container.find('.mejs-captions-position').addClass('mejs-captions-position-hover');
 			}
 

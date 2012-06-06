@@ -38,6 +38,8 @@
 		autosizeProgress : true,
 		// Hide controls when playing and mouse is not over the video
 		alwaysShowControls: false,
+		// option to set if controls overlay the video or not
+		overlayControls: true,
 		// force iPad's native controls
 		iPadUseNativeControls: false,
 		// force iPad's native controls
@@ -312,7 +314,7 @@
 				}
 
 				// set the size, while we wait for the plugins to load below
-				t.setPlayerSize(t.width, t.height);
+				t.setPlayerSize(t.width,t.height);
 				
 				// create MediaElementShim
 				meOptions.pluginWidth = t.height;
@@ -754,10 +756,15 @@
 			
 			
 			} else {
-
+				if(!t.options.overlayControls){
+					t.container
+						.width(t.width)
+						.height(parseInt(t.height)+ t.controls.outerHeight());
+				} else {
 				t.container
 					.width(t.width)
 					.height(t.height);
+				}
 	
 				t.layers.children('.mejs-layer')
 					.width(t.width)

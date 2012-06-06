@@ -95,7 +95,7 @@
 				//});
 			}
 
-			if (!player.options.alwaysShowControls) {
+			if (!player.options.alwaysShowControls && player.options.overlayControls) {
 				// move with controls
 				var hover_timeout;
 				player.container
@@ -116,7 +116,7 @@
 							}
 						}
 					});
-			} else {
+			} else if(player.options.overlayControls) {
 				player.container.find('.mejs-captions-position').addClass('mejs-captions-position-hover');
 			}
 

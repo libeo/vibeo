@@ -399,8 +399,13 @@ mejs.HtmlMediaElement = {
 	},
 
 	setVideoSize: function (width, height) {
+
 		this.width = width;
-		this.height = height;
+		if(player.options.overlayControls) {
+			this.height = height;
+		}else{
+			this.height = height + t.controls.outerHeight();
+		}
 	}
 };
 
