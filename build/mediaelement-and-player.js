@@ -399,13 +399,8 @@ mejs.HtmlMediaElement = {
 	},
 
 	setVideoSize: function (width, height) {
-
 		this.width = width;
-		if(player.options.overlayControls) {
-			this.height = height;
-		}else{
-			this.height = height + t.controls.outerHeight();
-		}
+		this.height = height;
 	}
 };
 
@@ -3473,6 +3468,10 @@ if (typeof jQuery != 'undefined') {
 				t.$media
 					.width(normalWidth)
 					.height(normalHeight);
+			} else if(!t.options.overlayControls) {
+				t.$media
+					.width(normalWidth)
+					.height(parseInt(normalHeight) - t.controls.outerHeight());
 			} else {
 				t.container.find('object embed')
 					.width(normalWidth)

@@ -389,6 +389,10 @@
 				t.$media
 					.width(normalWidth)
 					.height(normalHeight);
+			} else if(!t.options.overlayControls) {
+				t.$media
+					.width(normalWidth)
+					.height(parseInt(normalHeight) - t.controls.outerHeight());
 			} else {
 				t.container.find('object embed')
 					.width(normalWidth)
