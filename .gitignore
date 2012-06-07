@@ -1,6 +1,7 @@
 # silverlight stuff
 src/silverlight/obj/*
 src/silverlight/Bin/*
+src/css/.sass-cache*
 build/AppManifest.xaml
 build/SilverlightMediaElementTestPage.html
 build/SilverlightMediaElement.pdb
