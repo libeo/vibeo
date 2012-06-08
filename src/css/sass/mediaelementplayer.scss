@@ -234,20 +234,15 @@ body {
       button {
         background: transparent url(controls/caption.png) no-repeat center center; } }
     .mejs-loop-off button {
-      background: transparent url(controls/loopoff.png) no-repeat center center;
-      background-size: contain; }
+      background: transparent url(controls/loopoff.png) no-repeat center center; }
     .mejs-loop-on button {
-      background: transparent url(controls/loopon.png) no-repeat center center;
-      background-size: contain; }
+      background: transparent url(controls/loopon.png) no-repeat center center; }
     .mejs-backlight-off button {
-      background: transparent url(controls/backlightoff.png) no-repeat center center;
-      background-size: contain; }
+      background: transparent url(controls/backlightoff.png) no-repeat center center; }
     .mejs-backlight-on button {
-      background: transparent url(controls/backlighton.png) no-repeat center center;
-      background-size: contain; }
+      background: transparent url(controls/backlighton.png) no-repeat center center;}
     .mejs-picturecontrols-button {
-      background: transparent url(controls/picturecontrols.png) no-repeat center center;
-      background-size: contain; } } }
+      background: transparent url(controls/picturecontrols.png) no-repeat center center; } } }
 
 /* normal background */
 .mejs-controls {
@@ -306,8 +301,7 @@ body {
       top: -2px;
       text-align: center; }
     .mejs-time-handle-rewind, .mejs-time-handle-forward {
-      &:focus {
-        visibility: visible; }}
+    }
 
     .mejs-time-float {
       position: absolute;
