@@ -242,7 +242,12 @@ body {
     .mejs-backlight-on button {
       background: transparent url(controls/backlighton.png) no-repeat center center;}
     .mejs-picturecontrols-button {
-      background: transparent url(controls/picturecontrols.png) no-repeat center center; } } }
+      background: transparent url(controls/picturecontrols.png) no-repeat center center; } 
+    .mejs-time-handle-rewind {
+      background: transparent url(controls/rail_-.png) no-repeat center center; }
+    .mejs-time-handle-forward {
+      background: transparent url(controls/rail_+.png) no-repeat center center; }
+    } }
 
 /* normal background */
 .mejs-controls {
@@ -300,7 +305,23 @@ body {
       border: solid 2px #333;
       top: -2px;
       text-align: center; }
-    .mejs-time-handle-rewind, .mejs-time-handle-forward {
+    .mejs-time-handle-rewind{
+      background: transparent url(controls/rail_-.svg) no-repeat;
+      background-size: contain;
+      height: 0.8em;
+      width: 0.8em;
+      position: absolute;
+      left: -0.6em;
+      top: -0.1em;
+    } 
+    .mejs-time-handle-forward {
+      background: transparent url(controls/rail_+.svg) no-repeat;
+      background-size: contain;
+      height: 0.8em;
+      width: 0.8em;
+      position: absolute;
+      right: -0.6em;
+      top: -0.1em;
     }
 
     .mejs-time-float {
