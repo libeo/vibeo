@@ -1172,8 +1172,8 @@ if (typeof jQuery != 'undefined') {
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-time-handle">' +
-						'<span class="mejs-time-handle-rewind visuallyhidden" tabindex="0">Rewind</span>' + 
-						'<span class="mejs-time-handle-forward visuallyhidden" tabindex="0">Forward</span>' + 
+						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0"><span class="visuallyhidden">Rewind</span></button>' + 
+						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0"><span class="visuallyhidden">Forward</span></button>' + 
 					'</span>'+
 					'<span class="mejs-time-float">' + 
 						'<span class="mejs-time-float-current">00:00</span>' + 
@@ -1258,13 +1258,13 @@ if (typeof jQuery != 'undefined') {
 
 			//fire events when the button is pressed
 			handleRewind.keyup(function(e){
-				if(e.which === 13 || e.which === 32 && media.readyState > 0){
+				if((e.which === 13 || e.which === 32) && media.readyState > 0){
 					//rewind the video of 10 seconds
 					media.setCurrentTime(media.currentTime-=10);
 				}
 			});
 			handleForward.keyup(function(e){
-				if(e.which === 13 || e.which === 32 && media.readyState > 0){
+				if((e.which === 13 || e.which === 32) && media.readyState > 0){
 					//forward the video of 10 seconds
 					media.setCurrentTime(media.currentTime+=10);
 				}
