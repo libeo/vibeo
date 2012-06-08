@@ -181,8 +181,9 @@ body {
   height: 1em;
   width: 1em;
   border: 0;
-  &:focus {
-    outline: solid 1px yellow; } }
+  //&:focus {
+    //outline: solid 1px yellow; } 
+  }
 
 /* :focus for accessibility */
 
@@ -294,7 +295,7 @@ body {
       @include background-image(linear-gradient(rgba($time-current-start, $time-rail-opacity), rgba($time-current-end, $time-rail-opacity)));
       @include filter-gradient($time-current-start, $time-current-end); }
     .mejs-time-handle {
-      display: none;
+      //display: none;
       position: absolute;
       margin: 0;
       width: 10px;
@@ -304,6 +305,10 @@ body {
       border: solid 2px #333;
       top: -2px;
       text-align: center; }
+    .mejs-time-handle-rewind, .mejs-time-handle-forward {
+      &:focus {
+        visibility: visible; }}
+
     .mejs-time-float {
       position: absolute;
       display: none;

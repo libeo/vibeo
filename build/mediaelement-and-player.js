@@ -2657,7 +2657,10 @@ if (typeof jQuery != 'undefined') {
 				'<span class="mejs-time-total">'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
-					'<span class="mejs-time-handle"></span>'+
+					'<span class="mejs-time-handle">' +
+						'<span class="mejs-time-handle-rewind visuallyhidden" tabindex="0">Rewind</span>' + 
+						'<span class="mejs-time-handle-forward visuallyhidden" tabindex="0">Forward</span>' + 
+					'</span>'+
 					'<span class="mejs-time-float">' + 
 						'<span class="mejs-time-float-current">00:00</span>' + 
 						'<span class="mejs-time-float-corner"></span>' + 
@@ -2672,6 +2675,8 @@ if (typeof jQuery != 'undefined') {
 				loaded  = controls.find('.mejs-time-loaded'),
 				current  = controls.find('.mejs-time-current'),
 				handle  = controls.find('.mejs-time-handle'),
+				handleRewind = handle.find('.mejs-time-handle-rewind'),
+				handleForward = handle.find('.mejs-time-handle-forward'),
 				timefloat  = controls.find('.mejs-time-float'),
 				timefloatcurrent  = controls.find('.mejs-time-float-current'),
 				handleMouseMove = function (e) {
@@ -2727,6 +2732,30 @@ if (typeof jQuery != 'undefined') {
 					mouseIsOver = false;
 					timefloat.hide();
 				});
+			//handlebar main focus
+			handle.focusin(function(e) {
+				handleRewind.removeClass('visuallyhidden');
+				handleForward.removeClass('visuallyhidden');
+			});
+			handle.focusout(function(e) {
+				handleRewind.addClass('visuallyhidden');
+				handleForward.addClass('visuallyhidden');
+			});
+
+			//fire events when the button is pressed
+			handleRewind.keyup(function(e){
+				if(e.which === 13 || e.which === 32 && media.readyState > 0){
+					//rewind the video of 10 seconds
+					media.setCurrentTime(media.currentTime-=10);
+				}
+			});
+			handleForward.keyup(function(e){
+				if(e.which === 13 || e.which === 32 && media.readyState > 0){
+					//forward the video of 10 seconds
+					media.setCurrentTime(media.currentTime+=10);
+				}
+			});
+			
 
 			$(document)
 				.bind('mouseup', function (e) {
