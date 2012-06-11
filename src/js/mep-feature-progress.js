@@ -100,13 +100,13 @@
 
 			//fire events when the button is pressed
 			handleRewind.click(function(e){
-				if(media.readyState > 0){
+				if(media.duration > 0){
 					//rewind the video of 10 seconds
 					media.setCurrentTime(media.currentTime-=10);
 				}
 			});
 			handleForward.click(function(e){
-				if(media.readyState > 0){
+				if(media.duration > 0){
 					//forward the video of 10 seconds
 					media.setCurrentTime(media.currentTime+=10);
 				}
