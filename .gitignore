@@ -10,3 +10,5 @@ newfeatures/*
 !build/jquery.js
 !build/modernizr-2.5.3.js
 !build/jquery.ba-resize.min.js
+!build/flashmediaelement.swf
+!build/silverlightmediaelement.xap

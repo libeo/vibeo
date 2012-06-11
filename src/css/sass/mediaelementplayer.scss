@@ -242,12 +242,13 @@ body {
     .mejs-backlight-on button {
       background: transparent url(controls/backlighton.png) no-repeat center center;}
     .mejs-picturecontrols-button {
-      background: transparent url(controls/picturecontrols.png) no-repeat center center; } 
-    .mejs-time-handle-rewind {
-      background: transparent url(controls/rail_-.png) no-repeat center center; }
-    .mejs-time-handle-forward {
-      background: transparent url(controls/rail_+.png) no-repeat center center; }
-    } }
+      background: transparent url(controls/picturecontrols.png) no-repeat center center; }
+    .mejs-time-rail {
+      .mejs-time-handle-rewind {
+        background: transparent url(controls/rail_-.png) no-repeat center center; }
+      .mejs-time-handle-forward {
+        background: transparent url(controls/rail_+.png) no-repeat center center; }
+    } }}
 
 /* normal background */
 .mejs-button button:focus {

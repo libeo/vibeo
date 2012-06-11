@@ -13,7 +13,7 @@
 				'<span class="mejs-time-total">'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
-					'<span class="mejs-time-handle">' +
+					'<span class="mejs-button mejs-time-handle">' +
 						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' + 
 						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' + 
 					'</span>'+
