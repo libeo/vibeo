@@ -287,7 +287,7 @@ body {
 }
 /* line 261, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-play button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 263, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-pause button {
@@ -296,7 +296,7 @@ body {
 }
 /* line 266, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-pause button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 268, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-stop button {
@@ -305,7 +305,7 @@ body {
 }
 /* line 271, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-stop button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 273, sass/mediaelementplayer.scss */
 .mejs-controls div.mejs-time-rail {
@@ -395,7 +395,7 @@ body {
   text-align: center;
 }
 /* line 318, sass/mediaelementplayer.scss */
-.mejs-controls .mejs-time-rail .mejs-time-handle-rewind button {
+.mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
   background: transparent url(controls/rail_-.svg) no-repeat;
   background-color: #333333;
   background-size: contain;
@@ -406,11 +406,11 @@ body {
   top: -0.1em;
 }
 /* line 327, sass/mediaelementplayer.scss */
-.mejs-controls .mejs-time-rail .mejs-time-handle-rewind button:focus {
-  background-color: #aaaaaa;
+.mejs-controls .mejs-time-rail .mejs-time-handle-rewind:focus {
+  background-color: #666666;
 }
 /* line 329, sass/mediaelementplayer.scss */
-.mejs-controls .mejs-time-rail .mejs-time-handle-forward button {
+.mejs-controls .mejs-time-rail .mejs-time-handle-forward {
   background: transparent url(controls/rail_+.svg) no-repeat;
   background-color: #333333;
   background-size: contain;
@@ -421,8 +421,8 @@ body {
   top: -0.1em;
 }
 /* line 338, sass/mediaelementplayer.scss */
-.mejs-controls .mejs-time-rail .mejs-time-handle-forward button:focus {
-  background-color: #aaaaaa;
+.mejs-controls .mejs-time-rail .mejs-time-handle-forward:focus {
+  background-color: #666666;
 }
 /* line 340, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-float {
@@ -471,7 +471,7 @@ body {
 }
 /* line 373, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-fullscreen-button button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 375, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unfullscreen button {
@@ -480,7 +480,7 @@ body {
 }
 /* line 378, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unfullscreen button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 381, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-mute button {
@@ -489,7 +489,7 @@ body {
 }
 /* line 384, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-mute button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 386, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unmute button {
@@ -498,7 +498,7 @@ body {
 }
 /* line 389, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unmute button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 391, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button {
@@ -579,7 +579,7 @@ body {
 }
 /* line 441, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button button:focus {
-  background-color: #aaaaaa;
+  background-color: #666666;
 }
 /* line 443, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector {
