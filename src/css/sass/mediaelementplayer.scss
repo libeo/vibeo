@@ -250,6 +250,10 @@ body {
     } }
 
 /* normal background */
+.mejs-button button:focus {
+    outline-color: #E59700;
+    outline-style: solid;
+    outline-width: 2px;    }
 .mejs-controls {
   .mejs-play button {
     background: transparent url(controls/play.svg) no-repeat;
