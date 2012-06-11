@@ -1,4 +1,10 @@
 (function($) {
+
+	$.extend(mejs.MepDefaults, {
+		rewindText: 'Rewind',
+		forwardText: 'Forward'
+	});
+
 	// progress/loaded bar
 	$.extend(MediaElementPlayer.prototype, {
 		buildprogress: function(player, controls, layers, media) {
@@ -8,8 +14,8 @@
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-time-handle">' +
-						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0"><span class="visuallyhidden">Rewind</span></button>' + 
-						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0"><span class="visuallyhidden">Forward</span></button>' + 
+						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' + 
+						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' + 
 					'</span>'+
 					'<span class="mejs-time-float">' + 
 						'<span class="mejs-time-float-current">00:00</span>' + 
@@ -93,14 +99,14 @@
 			});
 
 			//fire events when the button is pressed
-			handleRewind.keyup(function(e){
-				if((e.which === 13 || e.which === 32) && media.readyState > 0){
+			handleRewind.click(function(e){
+				if(media.readyState > 0){
 					//rewind the video of 10 seconds
 					media.setCurrentTime(media.currentTime-=10);
 				}
 			});
-			handleForward.keyup(function(e){
-				if((e.which === 13 || e.which === 32) && media.readyState > 0){
+			handleForward.click(function(e){
+				if(media.readyState > 0){
 					//forward the video of 10 seconds
 					media.setCurrentTime(media.currentTime+=10);
 				}
