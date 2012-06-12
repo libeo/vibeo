@@ -5,14 +5,16 @@ body {
 
 /* line 53, sass/mediaelementplayer.scss */
 .mejs-container {
-  position: relative;
-  background: #000;
-  font-family: Helvetica, Arial;
+	position: relative;
+	background: #000;
+	font-family: Helvetica, Arial;
+	text-align: left;
+	vertical-align: top;
 }
 
 /* line 58, sass/mediaelementplayer.scss */
 .me-plugin {
-  position: absolute;
+	position: absolute;
 }
 
 /* line 61, sass/mediaelementplayer.scss */
@@ -60,11 +62,11 @@ body {
 
 /* line 95, sass/mediaelementplayer.scss */
 .mejs-mediaelement {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;	
 }
 
 /* line 102, sass/mediaelementplayer.scss */
@@ -111,22 +113,21 @@ body {
 
 /* line 132, sass/mediaelementplayer.scss */
 .mejs-overlay-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80px;
-  height: 80px;
-  margin: -40px 0 0 -40px;
-  background: #191919;
-  background: rgba(0, 0, 0, 0.9);
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(50, 50, 50, 0.9)), color-stop(100%, rgba(0, 0, 0, 0.9)));
-  background-image: -webkit-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
-  background-image: -moz-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
-  background-image: -o-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
-  background-image: -ms-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
-  background-image: linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF323232', endColorstr='#FF000000');
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80px;
+	height: 80px;
+	margin: -40px 0 0 -40px;
+	background: #333;
+	background: url(background.png);
+	background: rgba(0, 0, 0, 0.9);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(50,50,50,0.9)), to(rgba(0,0,0,0.9))); 
+	background: -webkit-linear-gradient(top, rgba(50,50,50,0.9), rgba(0,0,0,0.9));
+	background: -moz-linear-gradient(top, rgba(50,50,50,0.9), rgba(0,0,0,0.9));
+	background: -o-linear-gradient(top, rgba(50,50,50,0.9), rgba(0,0,0,0.9));
+	background: -ms-linear-gradient(top, rgba(50,50,50,0.9), rgba(0,0,0,0.9));	
+	background: linear-gradient(rgba(50,50,50,0.9), rgba(0,0,0,0.9)); 	
 }
 /* line 143, sass/mediaelementplayer.scss */
 .mejs-overlay-loading span {
@@ -200,8 +201,14 @@ body {
 }
 /* line 203, sass/mediaelementplayer.scss */
 .mejs-container .mejs-controls .mejs-time {
-  color: #fff;
-  text-align: center;
+	color: #fff;
+	display: block;
+	height: 17px;
+	width: auto;
+	padding: 8px 3px 0 3px ;
+	overflow: hidden;
+	text-align: center;
+	padding: auto 4px;
 }
 /* line 206, sass/mediaelementplayer.scss */
 .mejs-container .mejs-controls .mejs-time span {
@@ -339,44 +346,41 @@ body {
 }
 /* line 291, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-total {
-  background: #2d2d2d;
-  background: rgba(60, 60, 60, 0.8);
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(30, 30, 30, 0.8)), color-stop(100%, rgba(60, 60, 60, 0.8)));
-  background-image: -webkit-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
-  background-image: -moz-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
-  background-image: -o-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
-  background-image: -ms-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
-  background-image: linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF1E1E1E', endColorstr='#FF3C3C3C');
+	margin: 5px;
+	background: #333;
+	background: rgba(50,50,50,0.8);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.8)), to(rgba(60,60,60,0.8)));
+	background: -webkit-linear-gradient(top, rgba(30,30,30,0.8), rgba(60,60,60,0.8)); 
+	background: -moz-linear-gradient(top, rgba(30,30,30,0.8), rgba(60,60,60,0.8));
+	background: -o-linear-gradient(top, rgba(30,30,30,0.8), rgba(60,60,60,0.8));
+	background: -ms-linear-gradient(top, rgba(30,30,30,0.8), rgba(60,60,60,0.8));
+	background: linear-gradient(rgba(30,30,30,0.8), rgba(60,60,60,0.8)); 	
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#1E1E1E,endColorstr=#3C3C3C);
 }
-/* line 296, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
-  width: 0;
-  background: #3d99b2;
-  background: rgba(78, 183, 212, 0.8);
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(44, 124, 145, 0.8)), color-stop(100%, rgba(78, 183, 212, 0.8)));
-  background-image: -webkit-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
-  background-image: -moz-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
-  background-image: -o-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
-  background-image: -ms-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
-  background-image: linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF2C7C91', endColorstr='#FF4EB7D4');
+	background: #3caac8;
+	background: rgba(60,170,200,0.8);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(44,124,145,0.8)), to(rgba(78,183,212,0.8))); 
+	background: -webkit-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
+	background: -moz-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
+	background: -o-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
+	background: -ms-linear-gradient(top, rgba(44,124,145,0.8), rgba(78,183,212,0.8));
+	background: linear-gradient(rgba(44,124,145,0.8), rgba(78,183,212,0.8)); 	
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#2C7C91,endColorstr=#4EB7D4);
+	width: 0;
 }
 /* line 302, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-current {
-  width: 0;
-  background: #e3e3e3;
-  background: rgba(200, 200, 200, 0.8);
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.8)), color-stop(100%, rgba(200, 200, 200, 0.8)));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
-  background-image: -o-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
-  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFC8C8C8');
+	width: 0;
+	background: #fff;
+	background: rgba(255,255,255,0.8);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.9)), to(rgba(200,200,200,0.8)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8)); 
+	background: -o-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	background: -ms-linear-gradient(top, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	background: linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#FFFFFF,endColorstr=#C8C8C8);	
 }
 /* line 308, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle {
@@ -568,7 +572,13 @@ body {
   border-radius: 1px;
   margin: 0;
 }
-/* line 437, sass/mediaelementplayer.scss */
+
+/* End: Mute/Volume */
+
+
+
+
+/* Start: TRACK (Captions and Chapters) */
 .mejs-controls .mejs-captions-button {
   position: relative;
 }
@@ -665,11 +675,11 @@ body {
 */
 /* line 522, sass/mediaelementplayer.scss */
 .mejs-chapters {
-  position: absolute;
-  top: 0;
-  left: 0;
-  -xborder-right: solid 1px #fff;
-  width: 10000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-xborder-right: solid 1px #fff;
+	width: 10000px;
 }
 /* line 528, sass/mediaelementplayer.scss */
 .mejs-chapters .mejs-chapter {
@@ -865,36 +875,4 @@ body {
 .mejs-contextmenu .mejs-contextmenu-item:hover {
   background: #2C7C91;
   color: #fff;
-}
-
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-/* line 675, sass/mediaelementplayer.scss */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-/* line 685, sass/mediaelementplayer.scss */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-/* IE FIXES */
-/* line 697, sass/mediaelementplayer.scss */
-.ie7 div {
-  display: inline;
-  zoom: 1;
-  margin: 0 5px;
-  padding: 0;
 }
