@@ -100,8 +100,8 @@
 					mouseIsOver = false;
 					if (!mouseIsDown) {
 						$(document).unbind('.dur');
-
-					timefloat.hide();
+						timefloat.hide();
+					}
 				});
 			//handlebar main focus
 			handle.focusin(function(e) {
