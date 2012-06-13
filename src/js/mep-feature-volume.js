@@ -2,6 +2,8 @@
 
 	$.extend(mejs.MepDefaults, {
 		muteText: 'Mute Toggle',
+		volumeUpText: 'Volume Up',
+		volumeDownText: 'Volume Down',
 		hideVolumeOnTouchDevices: true,
 		
 		audioVolume: 'horizontal',
@@ -23,10 +25,10 @@
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
 					'<button type="button" aria-controls="' + t.id + '" title="' + t.options.muteText + '"></button>'+
 				'</div>' +
-				'<div class="mejs-horizontal-volume-slider">'+ // outer background
-					'<div class="mejs-horizontal-volume-total"></div>'+ // line background
-					'<div class="mejs-horizontal-volume-current"></div>'+ // current volume
-					'<div class="mejs-horizontal-volume-handle"></div>'+ // handle
+				'<div class="mejs-volume-slider horizontal">'+ // outer background
+					'<div class="mejs-volume-total"></div>'+ // line background
+					'<div class="mejs-volume-current"></div>'+ // current volume
+					'<div class="mejs-volume-handle"></div>'+ // handle
 				'</div>'
 				)
 					.appendTo(controls) :
@@ -35,16 +37,20 @@
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
 					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteText+'</span></button>'+
 					'<div class="mejs-volume-slider">'+ // outer background
+						'<button class="mejs-volume-minus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeDownText+'</span></button>'+ // volume down
 						'<div class="mejs-volume-total"></div>'+ // line background
 						'<div class="mejs-volume-current"></div>'+ // current volume
 						'<div class="mejs-volume-handle"></div>'+ // handle
+						'<button class="mejs-volume-plus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeUpText+'</span></button>'+ // volume up
 					'</div>'+
 				'</div>')
 					.appendTo(controls),
-			volumeSlider = t.container.find('.mejs-volume-slider, .mejs-horizontal-volume-slider'),
-			volumeTotal = t.container.find('.mejs-volume-total, .mejs-horizontal-volume-total'),
-			volumeCurrent = t.container.find('.mejs-volume-current, .mejs-horizontal-volume-current'),
-			volumeHandle = t.container.find('.mejs-volume-handle, .mejs-horizontal-volume-handle'),
+			volumeSlider = t.container.find('.mejs-volume-slider'),
+			volumeTotal = t.container.find('.mejs-volume-total'),
+			volumeCurrent = t.container.find('.mejs-volume-current'),
+			volumeHandle = t.container.find('.mejs-volume-handle'),
+			volumePlus = t.container.find('.mejs-volume-plus'),
+			volumeMinus = t.container.find('.mejs-volume-minus'),
 
 			positionVolumeHandle = function(volume, secondTry) {
 
@@ -110,7 +116,7 @@
 				var volume = null,
 					totalOffset = volumeTotal.offset();
 				
-				// calculate the new volume based on the moust position
+				// calculate the new volume based on the mouse position
 				if (mode == 'vertical') {
 				
 					var
@@ -152,7 +158,7 @@
 
 			// SLIDER
 			
-			mute
+			/*mute
 				.hover(function() {
 					volumeSlider.show();
 					mouseIsOver = true;
@@ -162,8 +168,56 @@
 					if (!mouseIsDown && mode == 'vertical')	{
 						volumeSlider.hide();
 					}
+				})
+				.children('button')
+				.bind('focus', function(e) {
+					volumeSlider.show();
+					mouseIsOver = true;
+				})
+				.bind('blur', function(e) {
+					mouseIsOver = false;	
+						
+					if (!mouseIsDown && mode == 'vertical')	{
+						volumeSlider.hide();
+					}
+				}); */
+
+			mute
+				.bind('mouseenter', function(e) {
+					volumeSlider.show();
+					mouseIsOver = true;
+				})
+				.bind('mouseleave', function(e) {
+					mouseIsOver = false;	
+						
+					if (!mouseIsDown && mode == 'vertical')	{
+						volumeSlider.hide();
+					}
+				})
+				.children('button')
+				.bind('focus', function(e) {
+					volumeSlider.show();
+					mouseIsOver = true;
 				});
 			
+			volumePlus
+				.click(function(e){
+					var newVolume = Math.min(media.volume + 0.1, 1);
+					media.setVolume(newVolume);
+				});
+			volumeMinus
+				.click(function(e){
+					var newVolume = Math.min(media.volume + 0.1, 1);
+					media.setVolume(newVolume);
+				});
+
+			$(document).on('focus', 'button,a', {volumeSlider: volumeSlider}, function(e){
+				if($(this).closest(mute).length == 0){
+					e.data.volumeSlider.hide();
+				}
+
+			});
+
 			volumeSlider
 				.bind('mouseover', function() {
 					mouseIsOver = true;	
