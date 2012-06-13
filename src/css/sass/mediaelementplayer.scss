@@ -15,11 +15,19 @@ $background-controls-start: #323232;
 $background-controls-end: black;
 $background-controls-opacity: 0.7;
 
+//volume contols
+$bg-volume: black;
+
+
 // *** time rail ***
 
 //total time bar
 $total-time-start: #1e1e1e;
 $total-time-end: #3c3c3c;
+
+//buffering bar
+$background-buffering: white;
+$buffering-opacity: 0.15;
 
 //loaded time progess bar
 $time-loaded-start: #2c7c91;
@@ -32,6 +40,9 @@ $time-current-end: #c8c8c8;
 //time rail opacity
 $time-rail-opacity: 0.8;
 
+//rewind/forward
+$time-nav-bg: #333333;
+
 //chapters
 $chapter-start: #323232;
 $chapter-end: black;
@@ -43,7 +54,6 @@ $chapter-hover-opacity: 0.6;
 
 //Control buttons background color on focus
 $buttons-focus-bg: #666;
-$time-nav-bg: #333333;
 
 // ************* END OF SASS CONFIGURATION VARIABLES *************
 
@@ -252,25 +262,30 @@ body {
         background: transparent url(controls/rail_-.png) no-repeat center center; background-color: $time-nav-bg;}
       .mejs-time-handle-forward {
         background: transparent url(controls/rail_+.png) no-repeat center center; background-color: $time-nav-bg;}
-    } }}
+    .mejs-volume-slider, .mejs-volume-slider.horizontal {
+      .mejs-volume-plus {
+        background: transparent url(controls/volume_+.png) no-repeat center center; background-color: $bg-volume;}
+      .mejs-volume-minus {
+        background: transparent url(controls/volume_-.png) no-repeat center center; background-color: $bg-volume;}
+    } }}}
 
 /* normal background */
 .mejs-controls {
   .mejs-play button {
     background: transparent url(controls/play.svg) no-repeat;
-    background-size: contain; }
-  .mejs-play button:focus {
-    background-color: $buttons-focus-bg;}
+    background-size: contain;
+    &:focus {
+      background-color: $buttons-focus-bg;}}
   .mejs-pause button {
     background: transparent url(controls/pause.svg) no-repeat;
-    background-size: contain; }
-  .mejs-pause button:focus {
-    background-color: $buttons-focus-bg;}
+    background-size: contain; 
+    &:focus {
+      background-color: $buttons-focus-bg;}}
   .mejs-stop button {
     background: transparent url(controls/stop.svg) no-repeat;
-    background-size: contain; }
-  .mejs-stop button:focus {
-    background-color: $buttons-focus-bg;}
+    background-size: contain; 
+    &:focus {
+      background-color: $buttons-focus-bg;}}
   div.mejs-time-rail {
     width: 100%; }
   .mejs-time-rail {
@@ -293,6 +308,27 @@ body {
       background: rgba($total-time-end, $time-rail-opacity);
       @include background-image(linear-gradient(rgba($total-time-start, $time-rail-opacity), rgba($total-time-end, $time-rail-opacity)));
       @include filter-gradient($total-time-start, $total-time-end); }
+    .mejs-time-buffering {
+      width:100%;
+      background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+      @include background-image(linear-gradient(rgba($time-loaded-start, 0.5), rgba($time-loaded-start, 0.7)));
+      @include filter-gradient($time-loaded-start, $time-loaded-end); }
+    .mejs-time-current {
+      -webkit-background-size: 15px 15px;
+      -moz-background-size: 15px 15px;
+      -o-background-size: 15px 15px;
+      background-size: 15px 15px;
+      -webkit-animation: buffering-stripes 2s linear infinite;
+      -moz-animation: buffering-stripes 2s linear infinite;
+      -ms-animation: buffering-stripes 2s linear infinite;
+      -o-animation: buffering-stripes 2s linear infinite;
+      animation: buffering-stripes 2s linear infinite;}
+
+    @-webkit-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @-moz-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @-ms-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @-o-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
     .mejs-time-loaded {
       width: 0;
       background: mix($time-loaded-start, $time-loaded-end);
@@ -324,9 +360,9 @@ body {
       width: 0.8em;
       position: absolute;
       left: -0.6em;
-      top: -0.1em; } 
-    .mejs-time-handle-rewind:focus {
-      background-color: $buttons-focus-bg;}
+      top: -0.1em;  
+      &:focus {
+      background-color: $buttons-focus-bg;}}
     .mejs-time-handle-forward {
       background: transparent url(controls/rail_+.svg) no-repeat;
       background-color: $time-nav-bg;
@@ -335,9 +371,9 @@ body {
       width: 0.8em;
       position: absolute;
       right: -0.6em;
-      top: -0.1em;    }
-    .mejs-time-handle-forward:focus {
-      background-color: $buttons-focus-bg;}
+      top: -0.1em;
+      &:focus {
+      background-color: $buttons-focus-bg;}}
     .mejs-time-float {
       position: absolute;
       display: none;
@@ -370,35 +406,36 @@ body {
       margin-left: -0.3em; } }
   .mejs-fullscreen-button button {
     background: transparent url(controls/fullscreen.svg) no-repeat;
-    background-size: contain; }
-  .mejs-fullscreen-button button:focus {
-    background-color: $buttons-focus-bg;}
+    background-size: contain; 
+    &:focus {
+     background-color: $buttons-focus-bg;}}
   .mejs-unfullscreen button {
     background: transparent url(controls/unfullscreen.svg) no-repeat;
-    background-size: contain; }
-  .mejs-unfullscreen button:focus {
-    background-color: $buttons-focus-bg;}
+    background-size: contain; 
+    &:focus {
+     background-color: $buttons-focus-bg;}}
   .mejs-volume-button {}
   .mejs-mute button {
     background: transparent url(controls/mute.svg) no-repeat;
-    background-size: contain; }
-  .mejs-mute button:focus {
-    background-color: $buttons-focus-bg;}
+    background-size: contain; 
+   &:focus {
+      background-color: $buttons-focus-bg;}}
   .mejs-unmute button {
     background: transparent url(controls/unmute.svg) no-repeat;
-    background-size: contain; }
-  .mejs-unmute button:focus {
-    background-color: $buttons-focus-bg;}
+    background-size: contain; 
+    &:focus {
+      background-color: $buttons-focus-bg;}}
   .mejs-volume-button {
     position: relative;
+     /* vertical version */
     .mejs-volume-slider {
       display: none;
-      height: 115px;
-      width: 25px;
+      height: 7.4em;
+      width: 1em;
       background: url($background);
       background: rgba(50, 50, 50, 0.7);
       @include border-radius(0);
-      top: -105px;
+      bottom: 1em;
       z-index: 1;
       position: absolute;
       margin: 0; }
@@ -407,33 +444,92 @@ body {
     .mejs-volume-slider {
       .mejs-volume-total {
         position: absolute;
-        left: 11px;
-        top: 8px;
-        width: 2px;
-        height: 100px;
+        left: 0.5em;
+        top: 1.2em;
+        width: 0.1em;
+        height: 5.7em;
         background: #ddd;
         background: rgba(255, 255, 255, 0.5);
         margin: 0; }
       .mejs-volume-current {
         position: absolute;
-        left: 11px;
-        top: 8px;
-        width: 2px;
-        height: 100px;
+        left: 0.5em;
+        top: 1.2em;
+        width: 0.1em;
+        height: 5.7em;
         background: #ddd;
         background: rgba(255, 255, 255, 0.9);
         margin: 0; }
       .mejs-volume-handle {
         position: absolute;
-        left: 4px;
-        top: -3px;
-        width: 16px;
+        left: 0.15em;
+        top: -0.2em;
+        width: 0.8em;
         height: 6px;
         background: #ddd;
         background: rgba(255, 255, 255, 0.9);
-        cursor: N-resize;
+        cursor: n-resize;
         @include border-radius(1px);
-        margin: 0; } } }
+        margin: 0;} 
+      .mejs-volume-plus {
+        background: transparent url(controls/volume_+.svg) no-repeat;
+        background-color: rgba($bg-volume, 0.3);
+        background-size: contain;
+        height: 0.8em;
+        width: 0.8em;
+        position: absolute;
+        left: 0.1em;
+        top: 0.1em;
+        &:focus {
+          background-color: $buttons-focus-bg;}}
+      .mejs-volume-minus{
+        background: transparent url(controls/volume_-.svg) no-repeat;
+        background-color: rgba($bg-volume, 0.3);
+        background-size: contain;
+        height: 0.8em;
+        width: 0.8em;
+        position: absolute;
+        left: 0.1em;
+        bottom: 0.1em;
+        &:focus {
+          background-color: $buttons-focus-bg;}}
+        }
+    .mejs-volume-slider.horizontal {
+      border:1px solid red;
+      width: 7.4em;
+      height: 1em;
+      bottom: 0.9em;
+      left: -4.3em;
+      background: rgba(50, 50, 50, 0.9);
+      .mejs-volume-total {
+        top: 0.5em;
+        left: 1.2em;
+        height: 0.1em;
+        width: 5.7em;}
+     .mejs-volume-current {
+        left: 1.2em;
+        top: 0.5em;
+        height: 0.1em;
+        width: 5.7em;}
+      .mejs-volume-handle {
+        cursor: e-resize;
+        top: 0.15em;
+        left: 1.1em;
+        height: 0.8em;
+        width: 6px;}
+      .mejs-volume-plus{
+        left: 6.5em;
+        top: 0.1em;}
+      .mejs-volume-minus{
+        left: 0.1em;
+        top: 0.1em;}
+    } } 
+
+
+   
+
+/* End: Mute/Volume */
+
   .mejs-captions-button {
     position: relative;
     button {
@@ -669,6 +765,59 @@ body {
     &:hover {
       background: #2C7C91;
       color: #fff; } } }
+
+.mejs-controls .mejs-sourcechooser-button {
+  position: relative;
+}
+
+.mejs-controls .mejs-sourcechooser-button button {
+  background-position: -128px 0;
+}
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
+  visibility: hidden;
+  position: absolute;
+  bottom: 26px;
+  right: -10px;
+  width: 130px;
+  height: 100px;
+  background: url(background.png);
+  background: rgba(50,50,50,0.7);
+  border: solid 1px transparent;
+  padding: 10px;
+  overflow: hidden;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul {
+  margin: 0;
+  padding: 0;
+  display: block;
+  list-style-type: none !important;
+  overflow: hidden;
+}
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li{
+  margin: 0 0 6px 0;
+  padding: 0;
+  list-style-type: none !important;
+  display:block;
+  color: #fff;
+  overflow: hidden;
+}
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input{
+  clear: both;
+  float: left;
+  margin: 3px 3px 0 5px;
+}
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label{
+  width: 100px;
+  float: left;
+  padding: 4px 0 0 0;
+  line-height: 15px;
+  font-family: helvetica, arial;
+  font-size: 10px;
+}
 
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
 
