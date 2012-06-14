@@ -261,13 +261,15 @@ body {
       .mejs-time-handle-rewind {
         background: transparent url(controls/rail_-.png) no-repeat center center; background-color: $time-nav-bg;}
       .mejs-time-handle-forward {
-        background: transparent url(controls/rail_+.png) no-repeat center center; background-color: $time-nav-bg;}
-    .mejs-volume-slider, .mejs-volume-slider.horizontal {
-      .mejs-volume-plus {
-        background: transparent url(controls/volume_+.png) no-repeat center center; background-color: $bg-volume;}
-      .mejs-volume-minus {
-        background: transparent url(controls/volume_-.png) no-repeat center center; background-color: $bg-volume;}
-    } }}}
+        background: transparent url(controls/rail_+.png) no-repeat center center; background-color: $time-nav-bg;}}
+    .mejs-volume-button {
+      .mejs-volume-slider, .mejs-volume-slider.horizontal {
+        background-color: $time-nav-bg;
+        .mejs-volume-plus {
+          background: transparent url(controls/volume_+.png) no-repeat center center; background-color: $bg-volume;}
+        .mejs-volume-minus {
+          background: transparent url(controls/volume_-.png) no-repeat center center; background-color: $bg-volume;}}
+    } }}
 
 /* normal background */
 .mejs-controls {
@@ -495,11 +497,10 @@ body {
           background-color: $buttons-focus-bg;}}
         }
     .mejs-volume-slider.horizontal {
-      border:1px solid red;
       width: 7.4em;
       height: 1em;
       bottom: 0.9em;
-      left: -4.3em;
+      margin-left: -4.5em;
       background: rgba(50, 50, 50, 0.9);
       .mejs-volume-total {
         top: 0.5em;
