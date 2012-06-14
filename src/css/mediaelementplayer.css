@@ -281,120 +281,124 @@ body {
   background-color: #333333;
 }
 /* line 266, sass/mediaelementplayer.scss */
-.no-svg .mejs-controls .mejs-time-rail .mejs-volume-slider .mejs-volume-plus, .no-svg .mejs-controls .mejs-time-rail .mejs-volume-slider.horizontal .mejs-volume-plus {
+.no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal {
+  background-color: #333333;
+}
+/* line 268, sass/mediaelementplayer.scss */
+.no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-plus {
   background: transparent url(controls/volume_+.png) no-repeat center center;
   background-color: black;
 }
-/* line 268, sass/mediaelementplayer.scss */
-.no-svg .mejs-controls .mejs-time-rail .mejs-volume-slider .mejs-volume-minus, .no-svg .mejs-controls .mejs-time-rail .mejs-volume-slider.horizontal .mejs-volume-minus {
+/* line 270, sass/mediaelementplayer.scss */
+.no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
   background: transparent url(controls/volume_-.png) no-repeat center center;
   background-color: black;
 }
 
 /* normal background */
-/* line 273, sass/mediaelementplayer.scss */
+/* line 275, sass/mediaelementplayer.scss */
 .mejs-controls {
   /* End: Mute/Volume */
 }
-/* line 274, sass/mediaelementplayer.scss */
+/* line 276, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-play button {
   background: transparent url(controls/play.svg) no-repeat;
   background-size: contain;
 }
-/* line 277, sass/mediaelementplayer.scss */
+/* line 279, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-play button:focus {
   background-color: #666666;
 }
-/* line 279, sass/mediaelementplayer.scss */
+/* line 281, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-pause button {
   background: transparent url(controls/pause.svg) no-repeat;
   background-size: contain;
 }
-/* line 282, sass/mediaelementplayer.scss */
+/* line 284, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-pause button:focus {
   background-color: #666666;
 }
-/* line 284, sass/mediaelementplayer.scss */
+/* line 286, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-stop button {
   background: transparent url(controls/stop.svg) no-repeat;
   background-size: contain;
 }
-/* line 287, sass/mediaelementplayer.scss */
+/* line 289, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-stop button:focus {
   background-color: #666666;
 }
-/* line 289, sass/mediaelementplayer.scss */
+/* line 291, sass/mediaelementplayer.scss */
 .mejs-controls div.mejs-time-rail {
   width: 100%;
 }
-/* line 291, sass/mediaelementplayer.scss */
+/* line 293, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail {
   @-webkit-keyframes buffering-stripes {
-    /* line 327, sass/mediaelementplayer.scss */
+    /* line 329, sass/mediaelementplayer.scss */
     from {
       background-position: 0 0;
     }
 
-    /* line 327, sass/mediaelementplayer.scss */
+    /* line 329, sass/mediaelementplayer.scss */
     to {
       background-position: 30px 0;
     }
 }
 
   @-moz-keyframes buffering-stripes {
-    /* line 328, sass/mediaelementplayer.scss */
+    /* line 330, sass/mediaelementplayer.scss */
     from {
       background-position: 0 0;
     }
 
-    /* line 328, sass/mediaelementplayer.scss */
+    /* line 330, sass/mediaelementplayer.scss */
     to {
       background-position: 30px 0;
     }
 }
 
   @-ms-keyframes buffering-stripes {
-    /* line 329, sass/mediaelementplayer.scss */
+    /* line 331, sass/mediaelementplayer.scss */
     from {
       background-position: 0 0;
     }
 
-    /* line 329, sass/mediaelementplayer.scss */
+    /* line 331, sass/mediaelementplayer.scss */
     to {
       background-position: 30px 0;
     }
 }
 
   @-o-keyframes buffering-stripes {
-    /* line 330, sass/mediaelementplayer.scss */
+    /* line 332, sass/mediaelementplayer.scss */
     from {
       background-position: 0 0;
     }
 
-    /* line 330, sass/mediaelementplayer.scss */
+    /* line 332, sass/mediaelementplayer.scss */
     to {
       background-position: 30px 0;
     }
 }
 
   @keyframes buffering-stripes {
-    /* line 331, sass/mediaelementplayer.scss */
+    /* line 333, sass/mediaelementplayer.scss */
     from {
       background-position: 0 0;
     }
 
-    /* line 331, sass/mediaelementplayer.scss */
+    /* line 333, sass/mediaelementplayer.scss */
     to {
       background-position: 30px 0;
     }
 }
 
 }
-/* line 292, sass/mediaelementplayer.scss */
+/* line 294, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-total {
   width: 100%;
 }
-/* line 294, sass/mediaelementplayer.scss */
+/* line 296, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail span {
   display: block;
   width: 180px;
@@ -406,17 +410,17 @@ body {
   border-radius: 2px;
   cursor: pointer;
 }
-/* line 300, sass/mediaelementplayer.scss */
+/* line 302, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail > span {
   position: relative;
 }
-/* line 302, sass/mediaelementplayer.scss */
+/* line 304, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail > span > span {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 306, sass/mediaelementplayer.scss */
+/* line 308, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-total {
   background: #2d2d2d;
   background: rgba(60, 60, 60, 0.8);
@@ -429,7 +433,7 @@ body {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF1E1E1E', endColorstr='#FF3C3C3C');
 }
-/* line 311, sass/mediaelementplayer.scss */
+/* line 313, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-buffering {
   width: 100%;
   background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -442,7 +446,7 @@ body {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF2C7C91', endColorstr='#FF4EB7D4');
 }
-/* line 316, sass/mediaelementplayer.scss */
+/* line 318, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-current {
   -webkit-background-size: 15px 15px;
   -moz-background-size: 15px 15px;
@@ -454,7 +458,7 @@ body {
   -o-animation: buffering-stripes 2s linear infinite;
   animation: buffering-stripes 2s linear infinite;
 }
-/* line 332, sass/mediaelementplayer.scss */
+/* line 334, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
   width: 0;
   background: #3d99b2;
@@ -468,7 +472,7 @@ body {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF2C7C91', endColorstr='#FF4EB7D4');
 }
-/* line 338, sass/mediaelementplayer.scss */
+/* line 340, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-current {
   width: 0;
   background: #e3e3e3;
@@ -482,7 +486,7 @@ body {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFC8C8C8');
 }
-/* line 344, sass/mediaelementplayer.scss */
+/* line 346, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle {
   position: absolute;
   margin: 0;
@@ -498,7 +502,7 @@ body {
   top: -2px;
   text-align: center;
 }
-/* line 355, sass/mediaelementplayer.scss */
+/* line 357, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
   background: transparent url(controls/rail_-.svg) no-repeat;
   background-color: #333333;
@@ -509,11 +513,11 @@ body {
   left: -0.6em;
   top: -0.1em;
 }
-/* line 364, sass/mediaelementplayer.scss */
+/* line 366, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-rewind:focus {
   background-color: #666666;
 }
-/* line 366, sass/mediaelementplayer.scss */
+/* line 368, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-forward {
   background: transparent url(controls/rail_+.svg) no-repeat;
   background-color: #333333;
@@ -524,11 +528,11 @@ body {
   right: -0.6em;
   top: -0.1em;
 }
-/* line 375, sass/mediaelementplayer.scss */
+/* line 377, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-forward:focus {
   background-color: #666666;
 }
-/* line 377, sass/mediaelementplayer.scss */
+/* line 379, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-float {
   position: absolute;
   display: none;
@@ -543,14 +547,14 @@ body {
   left: 0;
   margin-left: -1.49em;
 }
-/* line 390, sass/mediaelementplayer.scss */
+/* line 392, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-float-current {
   width: auto;
   height: auto;
   display: block;
   text-align: center;
 }
-/* line 395, sass/mediaelementplayer.scss */
+/* line 397, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-time-rail .mejs-time-float-corner {
   position: absolute;
   display: block;
@@ -568,48 +572,48 @@ body {
   left: 50%;
   margin-left: -0.3em;
 }
-/* line 407, sass/mediaelementplayer.scss */
+/* line 409, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-fullscreen-button button {
   background: transparent url(controls/fullscreen.svg) no-repeat;
   background-size: contain;
 }
-/* line 410, sass/mediaelementplayer.scss */
+/* line 412, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-fullscreen-button button:focus {
   background-color: #666666;
 }
-/* line 412, sass/mediaelementplayer.scss */
+/* line 414, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unfullscreen button {
   background: transparent url(controls/unfullscreen.svg) no-repeat;
   background-size: contain;
 }
-/* line 415, sass/mediaelementplayer.scss */
+/* line 417, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unfullscreen button:focus {
   background-color: #666666;
 }
-/* line 418, sass/mediaelementplayer.scss */
+/* line 420, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-mute button {
   background: transparent url(controls/mute.svg) no-repeat;
   background-size: contain;
 }
-/* line 421, sass/mediaelementplayer.scss */
+/* line 423, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-mute button:focus {
   background-color: #666666;
 }
-/* line 423, sass/mediaelementplayer.scss */
+/* line 425, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unmute button {
   background: transparent url(controls/unmute.svg) no-repeat;
   background-size: contain;
 }
-/* line 426, sass/mediaelementplayer.scss */
+/* line 428, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-unmute button:focus {
   background-color: #666666;
 }
-/* line 428, sass/mediaelementplayer.scss */
+/* line 430, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button {
   position: relative;
   /* vertical version */
 }
-/* line 431, sass/mediaelementplayer.scss */
+/* line 433, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider {
   display: none;
   height: 7.4em;
@@ -626,7 +630,7 @@ body {
   position: absolute;
   margin: 0;
 }
-/* line 442, sass/mediaelementplayer.scss */
+/* line 444, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button:hover {
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
@@ -634,7 +638,7 @@ body {
   -o-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
 }
-/* line 445, sass/mediaelementplayer.scss */
+/* line 447, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-total {
   position: absolute;
   left: 0.5em;
@@ -645,7 +649,7 @@ body {
   background: rgba(255, 255, 255, 0.5);
   margin: 0;
 }
-/* line 454, sass/mediaelementplayer.scss */
+/* line 456, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-current {
   position: absolute;
   left: 0.5em;
@@ -656,7 +660,7 @@ body {
   background: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
-/* line 463, sass/mediaelementplayer.scss */
+/* line 465, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-handle {
   position: absolute;
   left: 0.15em;
@@ -673,7 +677,7 @@ body {
   border-radius: 1px;
   margin: 0;
 }
-/* line 474, sass/mediaelementplayer.scss */
+/* line 476, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus {
   background: transparent url(controls/volume_+.svg) no-repeat;
   background-color: rgba(0, 0, 0, 0.3);
@@ -684,11 +688,11 @@ body {
   left: 0.1em;
   top: 0.1em;
 }
-/* line 483, sass/mediaelementplayer.scss */
+/* line 485, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus:focus {
   background-color: #666666;
 }
-/* line 485, sass/mediaelementplayer.scss */
+/* line 487, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus {
   background: transparent url(controls/volume_-.svg) no-repeat;
   background-color: rgba(0, 0, 0, 0.3);
@@ -699,34 +703,33 @@ body {
   left: 0.1em;
   bottom: 0.1em;
 }
-/* line 494, sass/mediaelementplayer.scss */
+/* line 496, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus:focus {
   background-color: #666666;
 }
-/* line 497, sass/mediaelementplayer.scss */
+/* line 499, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal {
-  border: 1px solid red;
   width: 7.4em;
   height: 1em;
   bottom: 0.9em;
-  left: -4.3em;
+  margin-left: -4.5em;
   background: rgba(50, 50, 50, 0.9);
 }
-/* line 504, sass/mediaelementplayer.scss */
+/* line 505, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-total {
   top: 0.5em;
   left: 1.2em;
   height: 0.1em;
   width: 5.7em;
 }
-/* line 509, sass/mediaelementplayer.scss */
+/* line 510, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-current {
   left: 1.2em;
   top: 0.5em;
   height: 0.1em;
   width: 5.7em;
 }
-/* line 514, sass/mediaelementplayer.scss */
+/* line 515, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-handle {
   cursor: e-resize;
   top: 0.15em;
@@ -734,30 +737,30 @@ body {
   height: 0.8em;
   width: 6px;
 }
-/* line 520, sass/mediaelementplayer.scss */
+/* line 521, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-plus {
   left: 6.5em;
   top: 0.1em;
 }
-/* line 523, sass/mediaelementplayer.scss */
+/* line 524, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
   left: 0.1em;
   top: 0.1em;
 }
-/* line 533, sass/mediaelementplayer.scss */
+/* line 534, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button {
   position: relative;
 }
-/* line 535, sass/mediaelementplayer.scss */
+/* line 536, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button button {
   background: transparent url(controls/caption.svg) no-repeat;
   background-size: contain;
 }
-/* line 538, sass/mediaelementplayer.scss */
+/* line 539, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button button:focus {
   background-color: #666666;
 }
-/* line 540, sass/mediaelementplayer.scss */
+/* line 541, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector {
   visibility: hidden;
   position: absolute;
@@ -776,7 +779,7 @@ body {
   -o-border-radius: 0;
   border-radius: 0;
 }
-/* line 553, sass/mediaelementplayer.scss */
+/* line 554, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul {
   margin: 0;
   padding: 0;
@@ -784,7 +787,7 @@ body {
   list-style-type: none !important;
   overflow: hidden;
 }
-/* line 559, sass/mediaelementplayer.scss */
+/* line 560, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul li {
   margin: 0 0 6px 0;
   padding: 0;
@@ -793,13 +796,13 @@ body {
   color: #fff;
   overflow: hidden;
 }
-/* line 566, sass/mediaelementplayer.scss */
+/* line 567, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul li input {
   clear: both;
   float: left;
   margin: 3px 3px 0 5px;
 }
-/* line 570, sass/mediaelementplayer.scss */
+/* line 571, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul li label {
   width: 100px;
   float: left;
@@ -808,7 +811,7 @@ body {
   font-family: helvetica, arial;
   font-size: 10px;
 }
-/* line 577, sass/mediaelementplayer.scss */
+/* line 578, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-translations {
   font-size: 10px;
   margin: 0 0 5px 0;
@@ -839,7 +842,7 @@ body {
 	visibility: visible;
 }
 */
-/* line 618, sass/mediaelementplayer.scss */
+/* line 619, sass/mediaelementplayer.scss */
 .mejs-chapters {
   position: absolute;
   top: 0;
@@ -847,7 +850,7 @@ body {
   -xborder-right: solid 1px #fff;
   width: 10000px;
 }
-/* line 624, sass/mediaelementplayer.scss */
+/* line 625, sass/mediaelementplayer.scss */
 .mejs-chapters .mejs-chapter {
   position: absolute;
   float: left;
@@ -864,7 +867,7 @@ body {
   overflow: hidden;
   border: 0;
 }
-/* line 633, sass/mediaelementplayer.scss */
+/* line 634, sass/mediaelementplayer.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block {
   font-size: 0.917em;
   color: #fff;
@@ -874,11 +877,11 @@ body {
   border-bottom: solid 1px #333;
   cursor: pointer;
 }
-/* line 641, sass/mediaelementplayer.scss */
+/* line 642, sass/mediaelementplayer.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block-last {
   border-right: none;
 }
-/* line 644, sass/mediaelementplayer.scss */
+/* line 645, sass/mediaelementplayer.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block:hover {
   background: #323232;
   background: rgba(50, 50, 50, 0.6);
@@ -891,7 +894,7 @@ body {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF666666', endColorstr='#FF323232');
 }
-/* line 649, sass/mediaelementplayer.scss */
+/* line 650, sass/mediaelementplayer.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block .ch-title {
   font-size: 12px;
   font-weight: bold;
@@ -901,7 +904,7 @@ body {
   margin: 0 0 3px 0;
   line-height: 12px;
 }
-/* line 657, sass/mediaelementplayer.scss */
+/* line 658, sass/mediaelementplayer.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block .ch-timespan {
   font-size: 12px;
   line-height: 12px;
@@ -911,7 +914,7 @@ body {
   text-overflow: ellipsis;
 }
 
-/* line 665, sass/mediaelementplayer.scss */
+/* line 666, sass/mediaelementplayer.scss */
 .mejs-captions-layer {
   position: absolute;
   bottom: 0;
@@ -922,18 +925,18 @@ body {
   font-size: 12px;
   color: #fff;
 }
-/* line 674, sass/mediaelementplayer.scss */
+/* line 675, sass/mediaelementplayer.scss */
 .mejs-captions-layer a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 677, sass/mediaelementplayer.scss */
+/* line 678, sass/mediaelementplayer.scss */
 .mejs-captions-layer[lang=ar] {
   font-size: 20px;
   font-weight: normal;
 }
 
-/* line 681, sass/mediaelementplayer.scss */
+/* line 682, sass/mediaelementplayer.scss */
 .mejs-captions-position {
   position: absolute;
   width: 100%;
@@ -941,12 +944,12 @@ body {
   left: 0;
 }
 
-/* line 687, sass/mediaelementplayer.scss */
+/* line 688, sass/mediaelementplayer.scss */
 .mejs-captions-position-hover {
   bottom: 3em;
 }
 
-/* line 690, sass/mediaelementplayer.scss */
+/* line 691, sass/mediaelementplayer.scss */
 .mejs-captions-text {
   padding: 3px 5px;
   background: url("background.png");
@@ -954,18 +957,18 @@ body {
 }
 
 /* End: TRACK (Captions and Chapters) */
-/* line 697, sass/mediaelementplayer.scss */
+/* line 698, sass/mediaelementplayer.scss */
 .mejs-clear {
   clear: both;
 }
 
 /* Start: ERROR */
-/* line 703, sass/mediaelementplayer.scss */
+/* line 704, sass/mediaelementplayer.scss */
 .me-cannotplay a {
   color: #fff;
   font-weight: bold;
 }
-/* line 706, sass/mediaelementplayer.scss */
+/* line 707, sass/mediaelementplayer.scss */
 .me-cannotplay span {
   padding: 15px;
   display: block;
@@ -973,27 +976,27 @@ body {
 
 /* End: ERROR */
 /* Start: Loop */
-/* line 715, sass/mediaelementplayer.scss */
+/* line 716, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-loop-off button {
   background: transparent url(controls/loopoff.svg) no-repeat;
   background-size: contain;
 }
-/* line 718, sass/mediaelementplayer.scss */
+/* line 719, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-loop-on button {
   background: transparent url(controls/loopon.svg) no-repeat;
   background-size: contain;
 }
-/* line 721, sass/mediaelementplayer.scss */
+/* line 722, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-backlight-off button {
   background: transparent url(controls/backlightoff.svg) no-repeat;
   background-size: contain;
 }
-/* line 724, sass/mediaelementplayer.scss */
+/* line 725, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-backlight-on button {
   background: transparent url(controls/backlighton.svg) no-repeat;
   background-size: contain;
 }
-/* line 727, sass/mediaelementplayer.scss */
+/* line 728, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-picturecontrols-button {
   background: transparent url(controls/picturecontrols.svg) no-repeat;
   background-size: contain;
@@ -1005,7 +1008,7 @@ body {
 /* Start: picture controls */
 /* End: picture controls */
 /* context menu */
-/* line 743, sass/mediaelementplayer.scss */
+/* line 744, sass/mediaelementplayer.scss */
 .mejs-contextmenu {
   position: absolute;
   width: 150px;
@@ -1022,14 +1025,14 @@ body {
   z-index: 1001;
   /* make sure it shows on fullscreen */
 }
-/* line 754, sass/mediaelementplayer.scss */
+/* line 755, sass/mediaelementplayer.scss */
 .mejs-contextmenu .mejs-contextmenu-separator {
   height: 1px;
   font-size: 0;
   margin: 5px 6px;
   background: #333;
 }
-/* line 759, sass/mediaelementplayer.scss */
+/* line 760, sass/mediaelementplayer.scss */
 .mejs-contextmenu .mejs-contextmenu-item {
   font-family: Helvetica, Arial;
   font-size: 12px;
@@ -1037,23 +1040,23 @@ body {
   cursor: pointer;
   color: #333;
 }
-/* line 765, sass/mediaelementplayer.scss */
+/* line 766, sass/mediaelementplayer.scss */
 .mejs-contextmenu .mejs-contextmenu-item:hover {
   background: #2C7C91;
   color: #fff;
 }
 
-/* line 769, sass/mediaelementplayer.scss */
+/* line 770, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-sourcechooser-button {
   position: relative;
 }
 
-/* line 773, sass/mediaelementplayer.scss */
+/* line 774, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-sourcechooser-button button {
   background-position: -128px 0;
 }
 
-/* line 776, sass/mediaelementplayer.scss */
+/* line 777, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
   visibility: hidden;
   position: absolute;
@@ -1071,7 +1074,7 @@ body {
   border-radius: 0;
 }
 
-/* line 793, sass/mediaelementplayer.scss */
+/* line 794, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul {
   margin: 0;
   padding: 0;
@@ -1080,7 +1083,7 @@ body {
   overflow: hidden;
 }
 
-/* line 800, sass/mediaelementplayer.scss */
+/* line 801, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li {
   margin: 0 0 6px 0;
   padding: 0;
@@ -1090,14 +1093,14 @@ body {
   overflow: hidden;
 }
 
-/* line 808, sass/mediaelementplayer.scss */
+/* line 809, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input {
   clear: both;
   float: left;
   margin: 3px 3px 0 5px;
 }
 
-/* line 813, sass/mediaelementplayer.scss */
+/* line 814, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label {
   width: 100px;
   float: left;
@@ -1108,7 +1111,7 @@ body {
 }
 
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-/* line 824, sass/mediaelementplayer.scss */
+/* line 825, sass/mediaelementplayer.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1119,7 +1122,7 @@ body {
   position: absolute;
   width: 1px;
 }
-/* line 834, sass/mediaelementplayer.scss */
+/* line 835, sass/mediaelementplayer.scss */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   clip: auto;
   height: auto;
@@ -1131,7 +1134,7 @@ body {
 
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
 /* IE FIXES */
-/* line 846, sass/mediaelementplayer.scss */
+/* line 847, sass/mediaelementplayer.scss */
 .ie7 div {
   display: inline;
   zoom: 1;
