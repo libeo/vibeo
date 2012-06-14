@@ -278,7 +278,12 @@
 					// normal way of moving it into place (doesn't work on iOS)
 					t.container.find('.mejs-mediaelement').append(t.$media);
 				}
-
+				//remove the tabindex if present
+				var videoContainer = t.container.find('video');
+				var attr = videoContainer.attr('tabindex');
+				if (attr == 0){
+					videoContainer.removeAttr('tabindex');
+				}
 				// find parts
 				t.controls = t.container.find('.mejs-controls');
 				t.layers = t.container.find('.mejs-layers');
