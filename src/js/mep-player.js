@@ -188,7 +188,6 @@
 		controlsAreVisible: true,
 
 		init: function() {
-
 			var
 				t = this,
 				mf = mejs.MediaFeatures,
@@ -279,11 +278,13 @@
 					t.container.find('.mejs-mediaelement').append(t.$media);
 				}
 				//remove the tabindex if present
-				var videoContainer = t.container.find('video');
-				var attr = videoContainer.attr('tabindex');
-				if (attr == 0){
-					videoContainer.removeAttr('tabindex');
-				}
+				setTimeout(function () {
+					var videoContainer = t.container.find('video');
+					var attr = videoContainer.attr('tabindex');
+					if (attr == 0){
+						videoContainer.removeAttr('tabindex');
+					}
+				},200);
 				// find parts
 				t.controls = t.container.find('.mejs-controls');
 				t.layers = t.container.find('.mejs-layers');
