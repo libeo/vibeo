@@ -199,7 +199,7 @@
 					volumeSlider.show();
 					mouseIsOver = true;
 				});
-			
+			//keayboard support for volume control
 			volumePlus
 				.click(function(e){
 					var newVolume = Math.min(media.volume + 0.1, 1);
@@ -207,7 +207,7 @@
 				});
 			volumeMinus
 				.click(function(e){
-					var newVolume = Math.min(media.volume + 0.1, 1);
+					var newVolume = Math.max(media.volume - 0.1, 0);
 					media.setVolume(newVolume);
 				});
 
@@ -215,7 +215,6 @@
 				if($(this).closest(mute).length == 0){
 					e.data.volumeSlider.hide();
 				}
-
 			});
 
 			volumeSlider
@@ -243,7 +242,7 @@
 
 
 			// MUTE button
-			mute.find('button').click(function() {
+			mute.find(':first').click(function() {
 				media.setMuted( !media.muted );
 			});
 
