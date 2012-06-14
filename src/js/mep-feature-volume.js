@@ -23,12 +23,14 @@
 				
 				// horizontal version
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '" title="' + t.options.muteText + '"></button>'+
-				'</div>' +
-				'<div class="mejs-volume-slider horizontal">'+ // outer background
-					'<div class="mejs-volume-total"></div>'+ // line background
-					'<div class="mejs-volume-current"></div>'+ // current volume
-					'<div class="mejs-volume-handle"></div>'+ // handle
+					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteText+'</span></button>'+
+					'<div class="mejs-volume-slider horizontal">'+ // outer background
+						'<button class="mejs-volume-minus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeDownText+'</span></button>'+ // volume down
+						'<div class="mejs-volume-total"></div>'+ // line background
+						'<div class="mejs-volume-current"></div>'+ // current volume
+						'<div class="mejs-volume-handle"></div>'+ // handle
+						'<button class="mejs-volume-plus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeUpText+'</span></button>'+ // volume up
+					'</div>' +
 				'</div>'
 				)
 					.appendTo(controls) :
@@ -239,7 +241,6 @@
 						
 					return false;
 				});
-
 
 			// MUTE button
 			mute.find(':first').click(function() {
