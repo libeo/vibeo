@@ -54,13 +54,11 @@
 			volumePlus = t.container.find('.mejs-volume-plus'),
 			volumeMinus = t.container.find('.mejs-volume-minus'),
 
-			positionVolumeHandle = function(volume, secondTry) {
+			positionVolumeHandle = function(volume) {
 
-				if (!volumeSlider.is(':visible') && typeof secondTry != 'undefined') {
+				var volumeSliderIsVisible = volumeSlider.is(':visible');
+				if (!volumeSliderIsVisible) {
 					volumeSlider.show();
-					positionVolumeHandle(volume, true);
-					volumeSlider.hide()
-					return;
 				}
 			
 				// correct to 0-1
@@ -111,6 +109,9 @@
 	
 					// rezize the current part of the volume bar
 					volumeCurrent.width( newLeft );
+				}
+				if (!volumeSliderIsVisible) {
+					volumeSlider.hide();
 				}
 			},
 			handleVolumeMove = function(e) {
