@@ -15,9 +15,20 @@ $background-controls-start: #323232;
 $background-controls-end: black;
 $background-controls-opacity: 0.7;
 
-//volume contols
-$bg-volume: black;
+//background controls buttons on focus
+$buttons-focus-bg: #666;
 
+//volume contols
+$volume-plus-minus-bg: black;
+$volume-plus-minus-opacity: 0.3;
+$volume-slider-bg: #323232;
+$volume-total-bg: #fff;
+$volume-current-bg: #fff;
+$volume-handle-bg: #fff;
+$volume-slider-opacity: 0.8;
+$volume-total-opacity: 0.5;
+$volume-current-opacity: 0.9;
+$volume-handle-opacity: 1;
 
 // *** time rail ***
 
@@ -28,6 +39,9 @@ $total-time-end: #3c3c3c;
 //buffering bar
 $background-buffering: white;
 $buffering-opacity: 0.15;
+$buffering-start: #ddd;
+$buffering-end: #ddd;
+$buffering-gradient-opacity: 0.2;
 
 //loaded time progess bar
 $time-loaded-start: #2c7c91;
@@ -51,9 +65,6 @@ $chapter-opacity: 0.7;
 $chapter-hover-start: #666666;
 $chapter-hover-end: #323232;
 $chapter-hover-opacity: 0.6;
-
-//Control buttons background color on focus
-$buttons-focus-bg: #666;
 
 // ************* END OF SASS CONFIGURATION VARIABLES *************
 
@@ -196,7 +207,7 @@ body {
   width: 1em;
   border: 0;
   //&:focus {
-    //outline: solid 1px yellow; } 
+    //outline: solid 1px yellow; }
   }
 
 /* :focus for accessibility */
@@ -217,13 +228,6 @@ body {
       font-size: 0.917em;
       color: #fff; } } }
 
-/* Remove padding on the rail */
-
-/* Start: Time (current / duration) */
-
-/* End: Time (current / duration) */
-
-/* Start: Play/pause */
 
 /* background for IE */
 .no-svg {
@@ -264,30 +268,34 @@ body {
         background: transparent url(controls/rail_+.png) no-repeat center center; background-color: $time-nav-bg;}}
     .mejs-volume-button {
       .mejs-volume-slider, .mejs-volume-slider.horizontal {
-        background-color: $time-nav-bg;
+        background-color: $volume-slider-bg;
         .mejs-volume-plus {
-          background: transparent url(controls/volume_+.png) no-repeat center center; background-color: $bg-volume;}
+          background: transparent url(controls/volume_+.png) no-repeat center center; background-color: $volume-plus-minus-bg;}
         .mejs-volume-minus {
-          background: transparent url(controls/volume_-.png) no-repeat center center; background-color: $bg-volume;}}
+          background: transparent url(controls/volume_-.png) no-repeat center center; background-color: $volume-plus-minus-bg;}}
     } }}
 
 /* normal background */
 .mejs-controls {
+  //play
   .mejs-play button {
     background: transparent url(controls/play.svg) no-repeat;
     background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
+  //pause
   .mejs-pause button {
     background: transparent url(controls/pause.svg) no-repeat;
-    background-size: contain; 
+    background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
+  //stop
   .mejs-stop button {
     background: transparent url(controls/stop.svg) no-repeat;
-    background-size: contain; 
+    background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
+  /*Start: time trail*/
   div.mejs-time-rail {
     width: 100%; }
   .mejs-time-rail {
@@ -312,9 +320,9 @@ body {
       @include filter-gradient($total-time-start, $total-time-end); }
     .mejs-time-buffering {
       width:100%;
-      background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-      @include background-image(linear-gradient(rgba($time-loaded-start, 0.5), rgba($time-loaded-start, 0.7)));
-      @include filter-gradient($time-loaded-start, $time-loaded-end); }
+      background: rgba($background-buffering, $buffering-opacity);
+      @include background-image(linear-gradient(rgba($buffering-start, $buffering-gradient-opacity), rgba($buffering-end, $buffering-gradient-opacity)));
+      @include filter-gradient($buffering-start, $buffering-end); }
     .mejs-time-current {
       -webkit-background-size: 15px 15px;
       -moz-background-size: 15px 15px;
@@ -362,7 +370,7 @@ body {
       width: 0.8em;
       position: absolute;
       left: -0.6em;
-      top: -0.1em;  
+      top: -0.1em;
       &:focus {
       background-color: $buttons-focus-bg;}}
     .mejs-time-handle-forward {
@@ -406,25 +414,28 @@ body {
       bottom: -0.57em;
       left: 50%;
       margin-left: -0.3em; } }
+  /*End:; time trail*/
+  //fullscreen
   .mejs-fullscreen-button button {
     background: transparent url(controls/fullscreen.svg) no-repeat;
-    background-size: contain; 
+    background-size: contain;
     &:focus {
      background-color: $buttons-focus-bg;}}
   .mejs-unfullscreen button {
     background: transparent url(controls/unfullscreen.svg) no-repeat;
-    background-size: contain; 
+    background-size: contain;
     &:focus {
      background-color: $buttons-focus-bg;}}
+  /*Start: volume control*/
   .mejs-volume-button {}
   .mejs-mute button {
     background: transparent url(controls/mute.svg) no-repeat;
-    background-size: contain; 
+    background-size: contain;
    &:focus {
       background-color: $buttons-focus-bg;}}
   .mejs-unmute button {
     background: transparent url(controls/unmute.svg) no-repeat;
-    background-size: contain; 
+    background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
   .mejs-volume-button {
@@ -435,7 +446,7 @@ body {
       height: 7.4em;
       width: 1em;
       background: url($background);
-      background: rgba(50, 50, 50, 0.7);
+      background: rgba($volume-slider-bg, $volume-slider-opacity);
       @include border-radius(0);
       bottom: 1em;
       z-index: 1;
@@ -451,7 +462,7 @@ body {
         width: 0.1em;
         height: 5.7em;
         background: #ddd;
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba($volume-total-bg, $volume-total-opacity);
         margin: 0; }
       .mejs-volume-current {
         position: absolute;
@@ -460,7 +471,7 @@ body {
         width: 0.1em;
         height: 5.7em;
         background: #ddd;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba($volume-current-bg, $volume-current-opacity);
         margin: 0; }
       .mejs-volume-handle {
         position: absolute;
@@ -469,13 +480,13 @@ body {
         width: 0.8em;
         height: 6px;
         background: #ddd;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba($volume-handle-bg, $volume-handle-opacity);
         cursor: n-resize;
         @include border-radius(1px);
-        margin: 0;} 
+        margin: 0;}
       .mejs-volume-plus {
         background: transparent url(controls/volume_+.svg) no-repeat;
-        background-color: rgba($bg-volume, 0.3);
+        background-color: rgba($volume-plus-minus-bg, $volume-plus-minus-opacity);
         background-size: contain;
         height: 0.8em;
         width: 0.8em;
@@ -486,7 +497,7 @@ body {
           background-color: $buttons-focus-bg;}}
       .mejs-volume-minus{
         background: transparent url(controls/volume_-.svg) no-repeat;
-        background-color: rgba($bg-volume, 0.3);
+        background-color: rgba($volume-plus-minus-bg, $volume-plus-minus-opacity);
         background-size: contain;
         height: 0.8em;
         width: 0.8em;
@@ -496,12 +507,12 @@ body {
         &:focus {
           background-color: $buttons-focus-bg;}}
         }
+    /*horizontal version*/
     .mejs-volume-slider.horizontal {
       width: 7.4em;
       height: 1em;
-      bottom: 0.9em;
+      bottom: 1.3em;
       margin-left: -4.5em;
-      background: rgba(50, 50, 50, 0.9);
       .mejs-volume-total {
         top: 0.5em;
         left: 1.2em;
@@ -524,13 +535,10 @@ body {
       .mejs-volume-minus{
         left: 0.1em;
         top: 0.1em;}
-    } } 
+    } }
+    /*End: volume control*/
 
-
-   
-
-/* End: Mute/Volume */
-
+  /* End: TRACK (Captions and Chapters) */
   .mejs-captions-button {
     position: relative;
     button {
@@ -578,43 +586,6 @@ body {
     .mejs-captions-translations {
       font-size: 10px;
       margin: 0 0 5px 0; } } }
-
-/* End: Play/pause */
-
-/* Stop */
-
-/* End: Play/pause */
-
-/* Start: Progress bar */
-
-/*
-.mejs-controls .mejs-time-rail:hover .mejs-time-handle {
-	visibility:visible;
-}
-*/
-/* End: Progress bar */
-
-/* Start: Fullscreen */
-
-/* End: Fullscreen */
-
-/* Start: Mute/Volume */
-
-/*
-.mejs-controls .mejs-volume-button:hover .mejs-volume-slider {
-	display: block;
-}
-*/
-
-/* End: Mute/Volume */
-
-/* Start: TRACK (Captions and Chapters) */
-
-/*
-.mejs-controls .mejs-captions-button:hover  .mejs-captions-selector {
-	visibility: visible;
-}
-*/
 
 .mejs-chapters {
   position: absolute;
@@ -669,14 +640,14 @@ body {
   left: 0;
   text-align: center;
   /*font-weight: bold;*/
-  line-height: 22px;
-  font-size: 12px;
+  line-height: 1.375em;
+  font-size: 0.65em;
   color: #fff;
   a {
     color: #fff;
     text-decoration: underline; }
   &[lang=ar] {
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: normal; } }
 
 .mejs-captions-position {
@@ -686,7 +657,7 @@ body {
   left: 0; }
 
 .mejs-captions-position-hover {
-  bottom: 3em; }
+  bottom: 2em; }
 
 .mejs-captions-text {
   padding: 3px 5px;
@@ -759,7 +730,7 @@ body {
     background: #333; }
   .mejs-contextmenu-item {
     font-family: Helvetica, Arial;
-    font-size: 12px;
+    font-size: 0.75em;
     padding: 4px 6px;
     cursor: pointer;
     color: #333;
@@ -815,9 +786,9 @@ body {
   width: 100px;
   float: left;
   padding: 4px 0 0 0;
-  line-height: 15px;
+  line-height: 0.9375em;
   font-family: helvetica, arial;
-  font-size: 10px;
+  font-size: 0.625em;
 }
 
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
