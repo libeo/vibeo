@@ -193,7 +193,7 @@
 				.bind('mouseleave', function(e) {
 					mouseIsOver = false;	
 						
-					if (!mouseIsDown && mode == 'vertical')	{
+					if (!mouseIsDown)	{
 						volumeSlider.hide();
 					}
 				})
