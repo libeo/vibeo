@@ -1,15 +1,15 @@
 (function($) {
 
-	// add extra default options 
+	// add extra default options
 	$.extend(mejs.MepDefaults, {
 		// this will automatically turn on a <track>
 		startLanguage: '',
-		
+
 		tracksText: 'Captions/Subtitles'
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
-	
+
 		hasChapters: false,
 
 		buildtracks: function(player, controls, layers, media) {
@@ -21,14 +21,14 @@
 
 			var t= this, i, options = '';
 
-			player.chapters = 
+			player.chapters =
 					$('<div class="mejs-chapters mejs-layer"></div>')
 						.prependTo(layers).hide();
-			player.captions = 
+			player.captions =
 					$('<div class="mejs-captions-layer mejs-layer"><div class="mejs-captions-position"><span class="mejs-captions-text"></span></div></div>')
 						.prependTo(layers).hide();
 			player.captionsText = player.captions.find('.mejs-captions-text');
-			player.captionsButton = 
+			player.captionsButton =
 					$('<div class="mejs-button mejs-captions-button">'+
 						'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.tracksText+'</span></button>'+
 						'<div class="mejs-captions-selector">'+
@@ -46,6 +46,8 @@
 			player.captionsButton.children('button').click(function() {
 				if(player.selectedTrack !== null) {
 					player.selectedTrack = null;
+					//remove current caption
+					player.captionsText.empty();
 					$("#" + player.id + "_captions_none").attr("checked","checked");
 				}
 				else {
@@ -124,7 +126,7 @@
 			player.selectedTrack = null;
 			player.isLoadingTrack = false;
 
-			
+
 
 			// add to list
 			for (i=0; i<player.tracks.length; i++) {
@@ -160,7 +162,7 @@
 						});
 					}
 				});
-				
+
 			// check for autoplay
 			if (player.node.getAttribute('autoplay') !== null) {
 				player.chapters.css('visibility','hidden');
@@ -229,10 +231,10 @@
 
 		enableTrackButton: function(lang, label) {
 			var t = this;
-			
+
 			if (label === '') {
 				label = mejs.language.codes[lang] || lang;
-			}			
+			}
 
 			t.captionsButton
 				.find('input[value=' + lang + ']')
@@ -301,7 +303,7 @@
 		},
 
 		displayChapters: function() {
-			var 
+			var
 				t = this,
 				i;
 
@@ -315,7 +317,7 @@
 		},
 
 		drawChapters: function(chapters) {
-			var 
+			var
 				t = this,
 				i,
 				dur,
@@ -341,10 +343,10 @@
 				//}
 
 				t.chapters.append( $(
-					'<div class="mejs-chapter" rel="' + chapters.entries.times[i].start + '" style="left: ' + usedPercent.toString() + '%;width: ' + percent.toString() + '%;">' + 
-						'<div class="mejs-chapter-block' + ((i==chapters.entries.times.length-1) ? ' mejs-chapter-block-last' : '') + '">' + 
-							'<span class="ch-title">' + chapters.entries.text[i] + '</span>' + 
-							'<span class="ch-time">' + mejs.Utility.secondsToTimeCode(chapters.entries.times[i].start) + '&ndash;' + mejs.Utility.secondsToTimeCode(chapters.entries.times[i].stop) + '</span>' + 
+					'<div class="mejs-chapter" rel="' + chapters.entries.times[i].start + '" style="left: ' + usedPercent.toString() + '%;width: ' + percent.toString() + '%;">' +
+						'<div class="mejs-chapter-block' + ((i==chapters.entries.times.length-1) ? ' mejs-chapter-block-last' : '') + '">' +
+							'<span class="ch-title">' + chapters.entries.text[i] + '</span>' +
+							'<span class="ch-time">' + mejs.Utility.secondsToTimeCode(chapters.entries.times[i].start) + '&ndash;' + mejs.Utility.secondsToTimeCode(chapters.entries.times[i].stop) + '</span>' +
 						'</div>' +
 					'</div>'));
 				usedPercent += percent;
@@ -353,7 +355,7 @@
 			t.chapters.find('div.mejs-chapter').click(function() {
 				t.media.setCurrentTime( parseFloat( $(this).attr('rel') ) );
 				if (t.media.paused) {
-					t.media.play(); 
+					t.media.play();
 				}
 			});
 
@@ -428,7 +430,7 @@
 	Parses WebVVT format which should be formatted as
 	================================
 	WEBVTT
-	
+
 	1
 	00:00:01,1 --> 00:00:05,000
 	A line of text
@@ -436,7 +438,7 @@
 	2
 	00:01:15,1 --> 00:02:05,000
 	A second line of text
-	
+
 	===============================
 
 	Adapted from: http://www.delphiki.com/html5/playr
@@ -452,7 +454,7 @@
 			return text.split(regex);
 		},
 		parse: function(trackText) {
-			var 
+			var
 				i = 0,
 				lines = this.split2(trackText, /\r?\n/),
 				entries = {text:[], times:[]},
@@ -464,8 +466,8 @@
 				if (this.pattern_identifier.exec(lines[i])){
 					// skip to the next line where the start --> end time code should be
 					i++;
-					timecode = this.pattern_timecode.exec(lines[i]);				
-					
+					timecode = this.pattern_timecode.exec(lines[i]);
+
 					if (timecode && i<lines.length){
 						i++;
 						// grab all the (possibly multi-line) text that follows
@@ -491,13 +493,13 @@
 			return entries;
 		}
 	};
-	
+
 	// test for browsers with bad String.split method.
 	if ('x\n\ny'.split(/\n/gi).length != 3) {
 		// add super slow IE8 and below version
 		mejs.TrackFormatParser.split2 = function(text, regex) {
-			var 
-				parts = [], 
+			var
+				parts = [],
 				chunk = '',
 				i;
 
@@ -511,6 +513,6 @@
 			parts.push(chunk);
 			return parts;
 		}
-	}	
+	}
 
 })(mejs.$);

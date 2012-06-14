@@ -28,33 +28,33 @@ mejs.MediaFeatures = {
 		for (i=0; i<html5Elements.length; i++) {
 			v = document.createElement(html5Elements[i]);
 		}
-		
+
 		t.supportsMediaTag = (typeof v.canPlayType !== 'undefined' || t.isBustedAndroid);
 
 		// detect native JavaScript fullscreen (Safari/Firefox only, Chrome still fails)
-		
+
 		// iOS
 		t.hasSemiNativeFullScreen = (typeof v.webkitEnterFullscreen !== 'undefined');
-		
+
 		// Webkit/firefox
 		t.hasWebkitNativeFullScreen = (typeof v.webkitRequestFullScreen !== 'undefined');
 		t.hasMozNativeFullScreen = (typeof v.mozRequestFullScreen !== 'undefined');
-		
+
 		t.hasTrueNativeFullScreen = (t.hasWebkitNativeFullScreen || t.hasMozNativeFullScreen);
 		t.nativeFullScreenEnabled = t.hasTrueNativeFullScreen;
 		if (t.hasMozNativeFullScreen) {
 			t.nativeFullScreenEnabled = v.mozFullScreenEnabled;
 		}
-		
-		
+
+
 		if (this.isChrome) {
 			t.hasSemiNativeFullScreen = false;
 		}
-		
+
 		if (t.hasTrueNativeFullScreen) {
 			t.fullScreenEventName = (t.hasWebkitNativeFullScreen) ? 'webkitfullscreenchange' : 'mozfullscreenchange';
-			
-			
+
+
 			t.isFullScreen = function() {
 				if (v.mozRequestFullScreen) {
 					return d.mozFullScreen;
@@ -62,33 +62,33 @@ mejs.MediaFeatures = {
 					return d.webkitIsFullScreen;
 				}
 			}
-					
+
 			t.requestFullScreen = function(el) {
-		
+
 				if (t.hasWebkitNativeFullScreen) {
 					el.webkitRequestFullScreen();
 				} else if (t.hasMozNativeFullScreen) {
 					el.mozRequestFullScreen();
 				}
 			}
-			
-			t.cancelFullScreen = function() {				
+
+			t.cancelFullScreen = function() {
 				if (t.hasWebkitNativeFullScreen) {
 					document.webkitCancelFullScreen();
 				} else if (t.hasMozNativeFullScreen) {
 					document.mozCancelFullScreen();
 				}
-			}	
-			
+			}
+
 		}
-		
-		
+
+
 		// OS X 10.5 can't do this even if it says it can :(
 		if (t.hasSemiNativeFullScreen && ua.match(/mac os x 10_5/i)) {
 			t.hasNativeFullScreen = false;
 			t.hasSemiNativeFullScreen = false;
 		}
-		
+
 	}
 };
 mejs.MediaFeatures.init();

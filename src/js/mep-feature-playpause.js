@@ -9,22 +9,22 @@
 	// PLAY/pause BUTTON
 	$.extend(MediaElementPlayer.prototype, {
 		buildplaypause: function(player, controls, layers, media) {
-			var 
+			var
 				t = this,
-				play = 
+				play =
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
 					'<button id="btnplaypause" type="button" aria-controlsEnabled="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.playText+'</span></button>' +
 				'</div>')
 				.appendTo(controls)
 				.click(function(e) {
 					e.preventDefault();
-				
+
 					if (media.paused) {
 						media.play();
 					} else {
 						media.pause();
 					}
-					
+
 					return false;
 				});
 
@@ -48,5 +48,5 @@
 			}, false);
 		}
 	});
-	
+
 })(mejs.$);
