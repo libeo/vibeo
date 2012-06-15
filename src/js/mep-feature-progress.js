@@ -111,8 +111,8 @@
 			handle.focusout(function(e) {
 				handleRewind.addClass('visuallyhidden');
 				handleForward.addClass('visuallyhidden');
-				handleRewind.children('span').text('Reculer');
-				handleForward.children('span').text('Avancer');
+				handleRewind.children('span').text('t.options.handleRewind');
+				handleForward.children('span').text('t.options.handleForward');
 			});
 
 			//fire events when the button is pressed
