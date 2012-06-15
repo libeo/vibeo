@@ -15,8 +15,8 @@
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-button mejs-time-handle">' +
-						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0" aria-controlsenabled="mep_0" aria-live="assertive"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
-						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0" aria-controlsenabled="mep_0" aria-live="assertive"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
+						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0" aria-live="polite"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
+						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0" aria-live="polite"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
 					'</span>'+
 					'<span class="mejs-time-float">' +
 						'<span class="mejs-time-float-current">00:00</span>' +
@@ -111,6 +111,8 @@
 			handle.focusout(function(e) {
 				handleRewind.addClass('visuallyhidden');
 				handleForward.addClass('visuallyhidden');
+				handleRewind.children('span').text('Reculer');
+				handleForward.children('span').text('Avancer');
 			});
 
 			//fire events when the button is pressed
@@ -118,14 +120,14 @@
 				if(media.duration > 0){
 					//rewind the video of 10 seconds
 					media.setCurrentTime(media.currentTime-=10);
-					$(this).children('span').text(mejs.Utility.secondsToTimeCode(t.media.currentTime));
+					handleRewind.children('span').text(mejs.Utility.secondsToTimeCode(t.media.currentTime));
 				}
 			});
 			handleForward.click(function(e){
 				if(media.duration > 0){
 					//forward the video of 10 seconds
 					media.setCurrentTime(media.currentTime+=10);
-					$(this).children('span').text(t.media.currentTime);
+					handleForward.children('span').text(mejs.Utility.secondsToTimeCode(t.media.currentTime));
 				}
 			});
 
