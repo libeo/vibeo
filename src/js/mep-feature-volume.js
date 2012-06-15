@@ -1,7 +1,8 @@
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
-		muteText: 'Mute Toggle',
+		muteTextMute: 'Mute',
+		muteTextUnmute: 'Unmute',
 		volumeUpText: 'Volume Up',
 		volumeDownText: 'Volume Down',
 		hideVolumeOnTouchDevices: true,
@@ -23,7 +24,7 @@
 
 				// horizontal version
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteText+'</span></button>'+
+					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteTextMute+'</span></button>'+
 					'<div class="mejs-volume-slider horizontal">'+ // outer background
 						'<button class="mejs-volume-minus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeDownText+'</span></button>'+ // volume down
 						'<div class="mejs-volume-total"></div>'+ // line background
@@ -37,7 +38,7 @@
 
 				// vertical version
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteText+'</span></button>'+
+					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteTextMute+'</span></button>'+
 					'<div class="mejs-volume-slider">'+ // outer background
 						'<button class="mejs-volume-minus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeDownText+'</span></button>'+ // volume down
 						'<div class="mejs-volume-total"></div>'+ // line background
@@ -161,30 +162,6 @@
 
 			// SLIDER
 
-			/*mute
-				.hover(function() {
-					volumeSlider.show();
-					mouseIsOver = true;
-				}, function() {
-					mouseIsOver = false;
-
-					if (!mouseIsDown && mode == 'vertical')	{
-						volumeSlider.hide();
-					}
-				})
-				.children('button')
-				.bind('focus', function(e) {
-					volumeSlider.show();
-					mouseIsOver = true;
-				})
-				.bind('blur', function(e) {
-					mouseIsOver = false;
-
-					if (!mouseIsDown && mode == 'vertical')	{
-						volumeSlider.hide();
-					}
-				}); */
-
 			mute
 				.bind('mouseenter', function(e) {
 					volumeSlider.show();
@@ -250,13 +227,16 @@
 
 			// listen for volume change events from other sources
 			media.addEventListener('volumechange', function(e) {
+				var volumeSpan = mute.children('button').children('span');
 				if (!mouseIsDown) {
 					if (media.muted) {
 						positionVolumeHandle(0);
 						mute.removeClass('mejs-mute').addClass('mejs-unmute');
+						volumeSpan.text(t.options.muteTextUnmute);
 					} else {
 						positionVolumeHandle(media.volume);
 						mute.removeClass('mejs-unmute').addClass('mejs-mute');
+						volumeSpan.text(t.options.muteTextMute);
 					}
 				}
 			}, false);

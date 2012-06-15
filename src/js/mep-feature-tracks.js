@@ -5,7 +5,8 @@
 		// this will automatically turn on a <track>
 		startLanguage: '',
 
-		tracksText: 'Captions/Subtitles'
+		tracksTextTurnOn: 'Captions/Subtitles On',
+		tracksTextTurnOff: 'Captions/Subtitles Off'
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
@@ -30,7 +31,7 @@
 			player.captionsText = player.captions.find('.mejs-captions-text');
 			player.captionsButton =
 					$('<div class="mejs-button mejs-captions-button">'+
-						'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.tracksText+'</span></button>'+
+						'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.tracksTextTurnOn+'</span></button>'+
 						'<div class="mejs-captions-selector">'+
 							'<ul>'+
 								'<li>'+
@@ -41,11 +42,13 @@
 						'</div>'+
 					'</div>')
 						.appendTo(controls);
+			player.captionsLegend = player.captionsButton.find('span');
 
 			// Toggle captions on click
 			player.captionsButton.children('button').click(function() {
 				if(player.selectedTrack !== null) {
 					player.selectedTrack = null;
+					player.captionsLegend.text(t.options.tracksTextTurnOn);
 					//remove current caption
 					player.captionsText.empty();
 					$("#" + player.id + "_captions_none").attr("checked","checked");
@@ -64,6 +67,7 @@
 							break;
 						}
 					}
+					player.captionsLegend.text(t.options.tracksTextTurnOff);
 				}
 			});
 
