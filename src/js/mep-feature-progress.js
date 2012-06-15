@@ -15,8 +15,8 @@
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-button mejs-time-handle">' +
-						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0" aria-live="polite"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
-						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0" aria-live="polite"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
+						'<button class="mejs-time-handle-rewind visuallyhidden" aria-live="polite"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
+						'<button class="mejs-time-handle-forward visuallyhidden" aria-live="polite"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
 					'</span>'+
 					'<span class="mejs-time-float">' +
 						'<span class="mejs-time-float-current" aria-live="polite">00:00</span>' +
@@ -111,8 +111,8 @@
 			handle.focusout(function(e) {
 				handleRewind.addClass('visuallyhidden');
 				handleForward.addClass('visuallyhidden');
-				handleRewind.children('span').text('Reculer');
-				handleForward.children('span').text('Avancer');
+				handleRewind.children('span').text(t.options.rewindText);
+				handleForward.children('span').text(t.options.forwardText);
 			});
 
 			//fire events when the button is pressed
