@@ -15,8 +15,8 @@
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-button mejs-time-handle">' +
-						'<button class="mejs-time-handle-rewind visuallyhidden"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
-						'<button class="mejs-time-handle-forward visuallyhidden"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
+						'<button class="mejs-time-handle-rewind visuallyhidden" tabindex="0" aria-controlsenabled="mep_0" aria-live="assertive"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
+						'<button class="mejs-time-handle-forward visuallyhidden" tabindex="0" aria-controlsenabled="mep_0" aria-live="assertive"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
 					'</span>'+
 					'<span class="mejs-time-float">' +
 						'<span class="mejs-time-float-current">00:00</span>' +
@@ -118,12 +118,14 @@
 				if(media.duration > 0){
 					//rewind the video of 10 seconds
 					media.setCurrentTime(media.currentTime-=10);
+					$(this).children('span').text(mejs.Utility.secondsToTimeCode(t.media.currentTime));
 				}
 			});
 			handleForward.click(function(e){
 				if(media.duration > 0){
 					//forward the video of 10 seconds
 					media.setCurrentTime(media.currentTime+=10);
+					$(this).children('span').text(t.media.currentTime);
 				}
 			});
 
