@@ -19,7 +19,7 @@
 						'<button class="mejs-time-handle-forward visuallyhidden"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
 					'</span>'+
 					'<span class="mejs-time-float">' +
-						'<span class="mejs-time-float-current">00:00</span>' +
+						'<span class="mejs-time-float-current" aria-live="polite">00:00</span>' +
 						'<span class="mejs-time-float-corner"></span>' +
 					'</span>'+
 				'</span>'+

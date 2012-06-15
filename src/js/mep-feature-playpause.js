@@ -13,7 +13,7 @@
 				t = this,
 				play =
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
-					'<button id="btnplaypause" type="button" aria-controlsEnabled="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.playText+'</span></button>' +
+					'<button id="btnplaypause" type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.playText+'</span></button>' +
 				'</div>')
 				.appendTo(controls)
 				.click(function(e) {
