@@ -3,5 +3,6 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="tracé" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 14.341 12.712" enable-background="new 0 0 14.341 12.712" xml:space="preserve">
-<polygon fill="#FFFFFF" points="5.096,3.972 1.42,3.972 1.42,8.74 5.096,8.74 5.096,8.773 7.938,11.407 7.938,6.355 7.938,1.305 "/>
+<polygon fill="#FFFFFF" points="4.857,3.659 0.701,3.659 0.701,9.052 4.857,9.052 4.857,9.09 8.071,12.068 8.071,6.355 8.071,0.644 
+	"/>
 </svg>

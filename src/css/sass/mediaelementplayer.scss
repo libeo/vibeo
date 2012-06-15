@@ -17,6 +17,7 @@ $background-controls-opacity: 0.7;
 
 //background controls buttons on focus
 $buttons-focus-bg: #666;
+$buttons-active-bg: #323232;
 
 //volume contols
 $volume-plus-minus-bg: black;
@@ -546,6 +547,7 @@ body {
       background-size: contain; }
     button:focus {
     background-color: $buttons-focus-bg;}
+    .activeButton { background-color: $buttons-active-bg;}
     .mejs-captions-selector {
       visibility: hidden;
       position: absolute;

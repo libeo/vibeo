@@ -52,11 +52,13 @@
 					//remove current caption
 					player.captionsText.empty();
 					$("#" + player.id + "_captions_none").attr("checked","checked");
+					$(this).removeClass('activeButton');
 				}
 				else {
 					// Get the last language track used.
 					// Use the startLanguage option if none was previously selected
 					lang = player.captions.attr('lang') || player.options.startLanguage;
+					$(this).addClass('activeButton');
 
 					for (i=0; i<player.tracks.length; i++) {
 						if (player.tracks[i].srclang == lang) {
