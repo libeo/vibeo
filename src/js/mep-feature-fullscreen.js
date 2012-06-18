@@ -3,7 +3,8 @@
 	$.extend(mejs.MepDefaults, {
 		usePluginFullScreen: true,
 		newWindowCallback: function() { return '';},
-		fullscreenText: 'Fullscreen'
+		fullscreenText: 'Fullscreen',
+		unFullscreenText: 'Exit FullScreen'
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
@@ -379,7 +380,8 @@
 			if (t.fullscreenBtn) {
 				t.fullscreenBtn
 					.removeClass('mejs-fullscreen')
-					.addClass('mejs-unfullscreen');
+					.addClass('mejs-unfullscreen')
+					.children('button').children('span').text(t.options.unFullscreenText);
 			}
 
 			t.setControlsSize();
@@ -433,7 +435,8 @@
 
 			t.fullscreenBtn
 				.removeClass('mejs-unfullscreen')
-				.addClass('mejs-fullscreen');
+				.addClass('mejs-fullscreen')
+				.children('button').children('span').text(t.options.fullscreenText);
 
 			t.setControlsSize();
 			t.isFullScreen = false;
