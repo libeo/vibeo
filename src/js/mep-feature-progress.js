@@ -142,18 +142,18 @@
 				var readerTime = "";
 				if (tTempTime.length > 2) {
 					if (tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + t.options.hours;
+						readerTime += tTempTime[0] + ' ' + t.options.hours;
 					}
 					if (tTempTime[1] != "00"){
-						readerTime += tTempTime[1] + t.options.minutes;
+						readerTime += tTempTime[1] + ' ' +  t.options.minutes;
 					}
-					readerTime += tTempTime[2] + t.options.seconds;
+					readerTime += tTempTime[2] + ' ' +  t.options.seconds;
 				}
 				else {
 					if (tTempTime.length > 2 && tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + t.options.minutes;
+						readerTime += tTempTime[0] + ' ' +  t.options.minutes;
 					}
-					readerTime += tTempTime[1] + t.options.seconds;
+					readerTime += tTempTime[1] + ' ' +  t.options.seconds;
 				}
 				return readerTime;
 			}
