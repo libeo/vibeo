@@ -2,7 +2,11 @@
 
 	$.extend(mejs.MepDefaults, {
 		rewindText: 'Rewind',
-		forwardText: 'Forward'
+		forwardText: 'Forward',
+		hour: 'hours',
+		minutes: 'minutes',
+		seconds: 'seconds',
+		seekDistance: 0.1
 	});
 
 	// progress/loaded bar
@@ -117,17 +121,18 @@
 
 			//fire events when the button is pressed
 			handleRewind.click(function(e){
-				if(media.duration > 0){
-					//rewind the video of 10 seconds
-					media.setCurrentTime(media.currentTime-=10);
+				if (!isNaN(media.duration) && media.duration > 0) {
+					// 5%
+					var newTime = Math.max(media.currentTime - (media.duration * t.options.seekDistance), 0);
+					media.setCurrentTime(newTime);
 					handleRewind.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
 				}
 			});
 			handleForward.click(function(e){
-				if(media.duration > 0){
-					//forward the video of 10 seconds
-					media.setCurrentTime(media.currentTime+=10);
-					
+				if (!isNaN(media.duration) && media.duration > 0) {
+					// 5%
+					var newTime = Math.min(media.currentTime + (media.duration * t.options.seekDistance), media.duration);
+					media.setCurrentTime(newTime);
 					handleForward.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
 				}
 			});
@@ -137,18 +142,18 @@
 				var readerTime = "";
 				if (tTempTime.length > 2) {
 					if (tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + " heures ";
-					}					
-					if (tTempTime[1] != "00"){
-						readerTime += tTempTime[1] + " minutes ";
+						readerTime += tTempTime[0] + t.options.hours;
 					}
-					readerTime += tTempTime[2] + " secondes";
+					if (tTempTime[1] != "00"){
+						readerTime += tTempTime[1] + t.options.minutes;
+					}
+					readerTime += tTempTime[2] + t.options.seconds;
 				}
 				else {
 					if (tTempTime.length > 2 && tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + " minutes ";
+						readerTime += tTempTime[0] + t.options.minutes;
 					}
-					readerTime += tTempTime[1] + " secondes";
+					readerTime += tTempTime[1] + t.options.seconds;
 				}
 				return readerTime;
 			}
