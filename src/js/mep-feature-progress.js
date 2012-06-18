@@ -120,18 +120,38 @@
 				if(media.duration > 0){
 					//rewind the video of 10 seconds
 					media.setCurrentTime(media.currentTime-=10);
-					handleRewind.children('span').text(mejs.Utility.secondsToTimeCode(t.media.currentTime));
+					handleRewind.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
 				}
 			});
 			handleForward.click(function(e){
 				if(media.duration > 0){
 					//forward the video of 10 seconds
 					media.setCurrentTime(media.currentTime+=10);
-					handleForward.children('span').text(mejs.Utility.secondsToTimeCode(t.media.currentTime));
+					
+					handleForward.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
 				}
 			});
 
-
+			function formatTimeForScreenReaders(time){
+				var tTempTime = time.split(":");
+				var readerTime = "";
+				if (tTempTime.length > 2) {
+					if (tTempTime[0] != "00"){
+						readerTime += tTempTime[0] + " heures ";
+					}					
+					if (tTempTime[1] != "00"){
+						readerTime += tTempTime[1] + " minutes ";
+					}
+					readerTime += tTempTime[2] + " secondes";
+				}
+				else {
+					if (tTempTime.length > 2 && tTempTime[0] != "00"){
+						readerTime += tTempTime[0] + " minutes ";
+					}
+					readerTime += tTempTime[1] + " secondes";
+				}
+				return readerTime;
+			}
 			$(document)
 				.bind('mouseup', function (e) {
 					mouseIsDown = false;
