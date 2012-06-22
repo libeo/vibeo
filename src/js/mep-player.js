@@ -95,7 +95,7 @@
 								if (!isNaN(media.duration) && media.duration > 0) {
 										if (player.isVideo) {
 												player.showControls();
-												player.startControlsTimer();
+												//player.startControlsTimer();
 										}
 
 										// 5%
@@ -113,7 +113,7 @@
 								if (!isNaN(media.duration) && media.duration > 0) {
 										if (player.isVideo) {
 												player.showControls();
-												player.startControlsTimer();
+												//player.startControlsTimer();
 										}
 
 										// 5%
