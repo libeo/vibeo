@@ -83,6 +83,26 @@ mejs.Utility = {
 
 		return tc_in_seconds;
 	},
+	formatTimeForScreenReaders: function(time, hours, minutes, seconds){
+		var tTempTime = time.split(":");
+		var readerTime = "";
+		if (tTempTime.length > 2) {
+			if (tTempTime[0] != "00"){
+				readerTime += tTempTime[0] + ' ' + hours;
+			}
+			if (tTempTime[1] != "00"){
+				readerTime += tTempTime[1] + ' ' +  minutes;
+			}
+			readerTime += tTempTime[2] + ' ' +  seconds;
+		}
+		else {
+			if (tTempTime.length > 2 && tTempTime[0] != "00"){
+				readerTime += tTempTime[0] + ' ' +  minutes;
+			}
+			readerTime += tTempTime[1] + ' ' +  seconds;
+		}
+		return readerTime;
+	},
 
 	/* borrowed from SWFObject: http://code.google.com/p/swfobject/source/browse/trunk/swfobject/src/swfobject.js#474 */
 	removeSwf: function(id) {

@@ -18,9 +18,10 @@
 					'<span class="mejs-time-buffering"></span>'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
+					'<span class="mejs-time-temp visuallyhidden" aria-live="polite" aria-hidden="false"></span>' +
 					'<span class="mejs-button mejs-time-handle">' +
-						'<button class="mejs-time-handle-rewind visuallyhidden" aria-live="polite"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
-						'<button class="mejs-time-handle-forward visuallyhidden" aria-live="polite"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
+						'<button class="mejs-time-handle-rewind visuallyhidden" aria-live="polite"><span class="visuallyhidden" aria-live="polite" aria-hidden="false">'+this.options.rewindText+'</span></button>' +
+						'<button class="mejs-time-handle-forward visuallyhidden" aria-live="polite"><span class="visuallyhidden" aria-live="polite" aria-hidden="false">'+this.options.forwardText+'</span></button>' +
 					'</span>'+
 					'<span class="mejs-time-float">' +
 						'<span class="mejs-time-float-current">00:00</span>' +
@@ -125,7 +126,7 @@
 					// 5%
 					var newTime = Math.max(media.currentTime - (media.duration * t.options.seekDistance), 0);
 					media.setCurrentTime(newTime);
-					handleRewind.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
+					handleRewind.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds));
 				}
 			});
 			handleForward.click(function(e){
@@ -133,30 +134,10 @@
 					// 5%
 					var newTime = Math.min(media.currentTime + (media.duration * t.options.seekDistance), media.duration);
 					media.setCurrentTime(newTime);
-					handleForward.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
+					handleForward.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds));
 				}
 			});
 
-			function formatTimeForScreenReaders(time){
-				var tTempTime = time.split(":");
-				var readerTime = "";
-				if (tTempTime.length > 2) {
-					if (tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + ' ' + t.options.hours;
-					}
-					if (tTempTime[1] != "00"){
-						readerTime += tTempTime[1] + ' ' +  t.options.minutes;
-					}
-					readerTime += tTempTime[2] + ' ' +  t.options.seconds;
-				}
-				else {
-					if (tTempTime.length > 2 && tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + ' ' +  t.options.minutes;
-					}
-					readerTime += tTempTime[1] + ' ' +  t.options.seconds;
-				}
-				return readerTime;
-			}
 			$(document)
 				.bind('mouseup', function (e) {
 					mouseIsDown = false;

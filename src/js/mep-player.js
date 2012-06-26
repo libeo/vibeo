@@ -33,6 +33,10 @@
 		showTimecodeFrameCount: false,
 		// used when showTimecodeFrameCount is set to true
 		framesPerSecond: 25,
+		// time unit for screen reader
+		hour: 'hours',
+		minutes: 'minutes',
+		seconds: 'seconds',
 
 		// automatically calculate the width of the progress bar based on the sizes of other elements
 		autosizeProgress : true,
@@ -97,10 +101,10 @@
 												player.showControls();
 												//player.startControlsTimer();
 										}
-
 										// 5%
 										var newTime = Math.max(media.currentTime - (media.duration * 0.05), 0);
 										media.setCurrentTime(newTime);
+										$('.mejs-time-temp').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(newTime), player.options.hours, player.options.minutes, player.options.seconds));
 								}
 						}
 				},
@@ -119,6 +123,7 @@
 										// 5%
 										var newTime = Math.min(media.currentTime + (media.duration * 0.05), media.duration);
 										media.setCurrentTime(newTime);
+										$('.mejs-time-temp').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(newTime), player.options.hours, player.options.minutes, player.options.seconds));
 								}
 						}
 				},
