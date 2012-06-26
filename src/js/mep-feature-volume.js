@@ -116,7 +116,6 @@
 				}
 			},
 			handleVolumeMove = function(e) {
-
 				var volume = null,
 					totalOffset = volumeTotal.offset();
 
@@ -165,6 +164,8 @@
 			mute
 				.bind('mouseenter', function(e) {
 					volumeSlider.show();
+					console.log(media.volume);
+					positionVolumeHandle(media.volume);
 					mouseIsOver = true;
 				})
 				.bind('mouseleave', function(e) {
@@ -196,7 +197,6 @@
 					e.data.volumeSlider.hide();
 				}
 			});
-
 			volumeSlider
 				.bind('mouseover', function() {
 					mouseIsOver = true;
