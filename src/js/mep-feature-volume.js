@@ -164,7 +164,6 @@
 			mute
 				.bind('mouseenter', function(e) {
 					volumeSlider.show();
-					console.log(media.volume);
 					positionVolumeHandle(media.volume);
 					mouseIsOver = true;
 				})
