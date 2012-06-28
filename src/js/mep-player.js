@@ -50,6 +50,8 @@
 		iPhoneUseNativeControls: false,
 		// force Android's native controls
 		AndroidUseNativeControls: false,
+		//tooltip
+		tooltip: 'Help',
 		// features to show
 		features: ['playpause','current','progress','duration','tracks','volume','fullscreen'],
 		// only for dynamic
@@ -247,6 +249,10 @@
 					$('<div id="' + t.id + '" class="mejs-container">'+
 						'<div class="mejs-inner">'+
 							'<div class="mejs-mediaelement"></div>'+
+							'<div class="mejs-button mejs-tooltip">'+
+								'<button type="button" aria-live="polite"><span class="visuallyhidden">'+ t.options.tooltip +'</span></button>'+
+								'<span class="bubble-text">'+ t.options.tooltip +'</span>'+
+							'</div>'+
 							'<div class="mejs-layers"></div>'+
 							'<div class="mejs-controls"></div>'+
 							'<div class="mejs-clear"></div>'+
@@ -333,11 +339,24 @@
 				meOptions.pluginHeight = t.width;
 			}
 
+			popuptooltip = function(event){
+				$('.bubble-text').show('fast');
+				$('.bubble-text').css('display', 'block');
+			}
 
+			hidetooltip = function(event){
+				$('.bubble-text').hide('fast');
+			}
+
+			$('.mejs-tooltip').mouseenter(popuptooltip);
+			$('.mejs-tooltip').focusin(popuptooltip);
+			$('.mejs-tooltip').mouseleave(hidetooltip);
+			$('.mejs-tooltip').focusout(hidetooltip);
 
 			// create MediaElement shim
 			mejs.MediaElement(t.$media[0], meOptions);
 		},
+
 
 		showControls: function(doAnimation) {
 			var t = this;

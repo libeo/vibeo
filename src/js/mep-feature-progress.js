@@ -20,8 +20,8 @@
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-time-temp visuallyhidden" aria-live="polite" aria-hidden="false"></span>' +
 					'<span class="mejs-button mejs-time-handle">' +
-						'<button class="mejs-time-handle-rewind visuallyhidden" aria-live="polite" aria-atomic="true"><span class="visuallyhidden" aria-live="polite">'+this.options.rewindText+'</span></button>' +
-						'<button class="mejs-time-handle-forward visuallyhidden" aria-live="polite"></button>' +
+						'<button class="mejs-time-handle-rewind visuallyhidden" aria-live="polite"><span class="visuallyhidden" aria-live="polite" aria-hidden="false">'+this.options.rewindText+'</span></button>' +
+						'<button class="mejs-time-handle-forward visuallyhidden" aria-live="polite"><span class="visuallyhidden" aria-live="polite" aria-hidden="false">'+this.options.forwardText+'</span></button>' +
 					'</span>'+
 					'<span class="mejs-time-float">' +
 						'<span class="mejs-time-float-current">00:00</span>' +
@@ -134,7 +134,7 @@
 					// 5%
 					var newTime = Math.min(media.currentTime + (media.duration * t.options.seekDistance), media.duration);
 					media.setCurrentTime(newTime);
-					handleForward.append('<span class="visuallyhidden" aria-live="polite" aria-atomic="true">'+(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds))+'</span>');
+					handleForward.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds));
 				}
 			});
 

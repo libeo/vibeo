@@ -10,6 +10,10 @@ $overlay-loading-start: #323232;
 $overlay-loading-end: black;
 $overlay-loading-opacity: 0.9;
 
+//tooltip
+$tooltip-bg-color: #ffffff;
+$tooltip-font-color: #000000;
+
 //background controls
 $background-controls-start: #323232;
 $background-controls-end: black;
@@ -71,6 +75,8 @@ $chapter-hover-opacity: 0.6;
 
 body {
   font-size: 1.5em; }
+
+.invisible {display: none;}
 
 .mejs-container {
   position: relative;
@@ -197,7 +203,7 @@ body {
     border: 0;
     vertical-align: middle; } }
 
-.mejs-controls button {
+.mejs-controls button, .mejs-tooltip button {
   cursor: pointer;
   display: block;
   font-size: 100%;
@@ -232,6 +238,7 @@ body {
 
 /* background for IE */
 .no-svg {
+  .mejs-tooltip { background: url(controls/tooltip.png) no-repeat center center; }
   .mejs-controls {
     .mejs-play button {
       background: url(controls/play.png) no-repeat center center; }
@@ -275,6 +282,41 @@ body {
         .mejs-volume-minus {
           background: transparent url(controls/volume_-.png) no-repeat center center; background-color: $volume-plus-minus-bg;}}
     } }}
+
+//Tooltip
+.mejs-tooltip {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1000;
+  button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 0.6em;
+    width: 0.6em;
+    background: transparent url(controls/tooltip.svg) no-repeat; 
+    opacity:0.2;
+    filter:alpha(opacity=20);
+   &:focus, &:hover {
+     opacity:1;
+     filter:alpha(opacity=100);}
+}}
+.bubble-text {
+  border-radius: 10px;
+  display: none;
+  width: 8em;
+  position: absolute;
+  bottom: -1.3em;
+  right: 0.8em;
+  padding: 0.4em;
+  color: $tooltip-font-color;
+  background-color: $tooltip-bg-color;
+  text-align: left;
+  font-size: 0.6em;
+  line-height: 1em;
+   z-index: 1001;
+}
 
 /* normal background */
 .mejs-controls {
