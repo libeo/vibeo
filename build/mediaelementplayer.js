@@ -49,6 +49,10 @@ if (typeof jQuery != 'undefined') {
 		showTimecodeFrameCount: false,
 		// used when showTimecodeFrameCount is set to true
 		framesPerSecond: 25,
+		// time unit for screen reader
+		hour: 'hours',
+		minutes: 'minutes',
+		seconds: 'seconds',
 
 		// automatically calculate the width of the progress bar based on the sizes of other elements
 		autosizeProgress : true,
@@ -62,6 +66,8 @@ if (typeof jQuery != 'undefined') {
 		iPhoneUseNativeControls: false,
 		// force Android's native controls
 		AndroidUseNativeControls: false,
+		//tooltip
+		tooltip: 'Help',
 		// features to show
 		features: ['playpause','current','progress','duration','tracks','volume','fullscreen'],
 		// only for dynamic
@@ -111,12 +117,12 @@ if (typeof jQuery != 'undefined') {
 								if (!isNaN(media.duration) && media.duration > 0) {
 										if (player.isVideo) {
 												player.showControls();
-												player.startControlsTimer();
+												//player.startControlsTimer();
 										}
-
 										// 5%
 										var newTime = Math.max(media.currentTime - (media.duration * 0.05), 0);
 										media.setCurrentTime(newTime);
+										$('.mejs-time-temp').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(newTime), player.options.hours, player.options.minutes, player.options.seconds));
 								}
 						}
 				},
@@ -129,12 +135,13 @@ if (typeof jQuery != 'undefined') {
 								if (!isNaN(media.duration) && media.duration > 0) {
 										if (player.isVideo) {
 												player.showControls();
-												player.startControlsTimer();
+												//player.startControlsTimer();
 										}
 
 										// 5%
 										var newTime = Math.min(media.currentTime + (media.duration * 0.05), media.duration);
 										media.setCurrentTime(newTime);
+										$('.mejs-time-temp').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(newTime), player.options.hours, player.options.minutes, player.options.seconds));
 								}
 						}
 				},
@@ -258,6 +265,10 @@ if (typeof jQuery != 'undefined') {
 					$('<div id="' + t.id + '" class="mejs-container">'+
 						'<div class="mejs-inner">'+
 							'<div class="mejs-mediaelement"></div>'+
+							'<div class="mejs-button mejs-tooltip">'+
+								'<button type="button" aria-live="polite"><span class="visuallyhidden">'+ t.options.tooltip +'</span></button>'+
+								'<span class="bubble-text">'+ t.options.tooltip +'</span>'+
+							'</div>'+
 							'<div class="mejs-layers"></div>'+
 							'<div class="mejs-controls"></div>'+
 							'<div class="mejs-clear"></div>'+
@@ -344,11 +355,24 @@ if (typeof jQuery != 'undefined') {
 				meOptions.pluginHeight = t.width;
 			}
 
+			popuptooltip = function(event){
+				$('.bubble-text').show('fast');
+				$('.bubble-text').css('display', 'block');
+			}
 
+			hidetooltip = function(event){
+				$('.bubble-text').hide('fast');
+			}
+
+			$('.mejs-tooltip').mouseenter(popuptooltip);
+			$('.mejs-tooltip').focusin(popuptooltip);
+			$('.mejs-tooltip').mouseleave(hidetooltip);
+			$('.mejs-tooltip').focusout(hidetooltip);
 
 			// create MediaElement shim
 			mejs.MediaElement(t.$media[0], meOptions);
 		},
+
 
 		showControls: function(doAnimation) {
 			var t = this;
@@ -1214,9 +1238,10 @@ if (typeof jQuery != 'undefined') {
 					'<span class="mejs-time-buffering"></span>'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
+					'<span class="mejs-time-temp visuallyhidden" aria-live="polite" aria-hidden="false"></span>' +
 					'<span class="mejs-button mejs-time-handle">' +
-						'<button class="mejs-time-handle-rewind visuallyhidden" aria-live="polite"><span class="visuallyhidden">'+this.options.rewindText+'</span></button>' +
-						'<button class="mejs-time-handle-forward visuallyhidden" aria-live="polite"><span class="visuallyhidden">'+this.options.forwardText+'</span></button>' +
+						'<button class="mejs-time-handle-rewind visuallyhidden" aria-live="polite"><span class="visuallyhidden" aria-live="polite" aria-hidden="false">'+this.options.rewindText+'</span></button>' +
+						'<button class="mejs-time-handle-forward visuallyhidden" aria-live="polite"><span class="visuallyhidden" aria-live="polite" aria-hidden="false">'+this.options.forwardText+'</span></button>' +
 					'</span>'+
 					'<span class="mejs-time-float">' +
 						'<span class="mejs-time-float-current">00:00</span>' +
@@ -1321,7 +1346,7 @@ if (typeof jQuery != 'undefined') {
 					// 5%
 					var newTime = Math.max(media.currentTime - (media.duration * t.options.seekDistance), 0);
 					media.setCurrentTime(newTime);
-					handleRewind.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
+					handleRewind.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds));
 				}
 			});
 			handleForward.click(function(e){
@@ -1329,30 +1354,10 @@ if (typeof jQuery != 'undefined') {
 					// 5%
 					var newTime = Math.min(media.currentTime + (media.duration * t.options.seekDistance), media.duration);
 					media.setCurrentTime(newTime);
-					handleForward.children('span').text(formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime)));
+					handleForward.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds));
 				}
 			});
 
-			function formatTimeForScreenReaders(time){
-				var tTempTime = time.split(":");
-				var readerTime = "";
-				if (tTempTime.length > 2) {
-					if (tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + ' ' + t.options.hours;
-					}
-					if (tTempTime[1] != "00"){
-						readerTime += tTempTime[1] + ' ' +  t.options.minutes;
-					}
-					readerTime += tTempTime[2] + ' ' +  t.options.seconds;
-				}
-				else {
-					if (tTempTime.length > 2 && tTempTime[0] != "00"){
-						readerTime += tTempTime[0] + ' ' +  t.options.minutes;
-					}
-					readerTime += tTempTime[1] + ' ' +  t.options.seconds;
-				}
-				return readerTime;
-			}
 			$(document)
 				.bind('mouseup', function (e) {
 					mouseIsDown = false;
@@ -1564,13 +1569,13 @@ if (typeof jQuery != 'undefined') {
 
 				// vertical version
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteTextMute+'</span></button>'+
+					'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.muteTextMute+'</span></button>'+
 					'<div class="mejs-volume-slider">'+ // outer background
 						'<button class="mejs-volume-minus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeDownText+'</span></button>'+ // volume down
 						'<div class="mejs-volume-total"></div>'+ // line background
 						'<div class="mejs-volume-current"></div>'+ // current volume
 						'<div class="mejs-volume-handle"></div>'+ // handle
-						'<button class="mejs-volume-plus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeUpText+'</span></button>'+ // volume up
+						'<button class="mejs-volume-plus"><span class="visuallyhidden">'+t.options.volumeUpText+'</span></button>'+ // volume up
 					'</div>'+
 				'</div>')
 					.appendTo(controls),
@@ -1642,7 +1647,6 @@ if (typeof jQuery != 'undefined') {
 				}
 			},
 			handleVolumeMove = function(e) {
-
 				var volume = null,
 					totalOffset = volumeTotal.offset();
 
@@ -1691,6 +1695,7 @@ if (typeof jQuery != 'undefined') {
 			mute
 				.bind('mouseenter', function(e) {
 					volumeSlider.show();
+					positionVolumeHandle(media.volume);
 					mouseIsOver = true;
 				})
 				.bind('mouseleave', function(e) {
@@ -1722,7 +1727,6 @@ if (typeof jQuery != 'undefined') {
 					e.data.volumeSlider.hide();
 				}
 			});
-
 			volumeSlider
 				.bind('mouseover', function() {
 					mouseIsOver = true;
