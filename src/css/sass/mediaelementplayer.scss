@@ -305,7 +305,7 @@ body {
 .bubble-text {
   border-radius: 10px;
   display: none;
-  width: 8em;
+  max-width: 8em;
   position: absolute;
   bottom: -1.3em;
   right: 0.8em;
