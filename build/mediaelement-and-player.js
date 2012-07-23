@@ -2975,9 +2975,9 @@ if (typeof jQuery != 'undefined') {
 				// update bar and handle
 				if (t.total && t.handle) {
 					var
-						newWidth = t.total.width() * t.media.currentTime / t.media.duration,
-						handlePos = newWidth - (t.handle.outerWidth(true) / 2);
-
+						newWidth = (t.total.width() - t.handle.outerWidth(true)) * t.media.currentTime / t.media.duration,
+						handlePos = newWidth;
+					
 					t.current.width(newWidth);
 					t.handle.css('left', handlePos);
 				}
