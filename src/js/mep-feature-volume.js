@@ -38,7 +38,7 @@
 
 				// vertical version
 				$('<div class="mejs-button mejs-volume-button mejs-mute">'+
-					'<button type="button" aria-controls="' + t.id + '"><span class="visuallyhidden">'+t.options.muteTextMute+'</span></button>'+
+					'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.muteTextMute+'</span></button>'+
 					'<div class="mejs-volume-slider">'+ // outer background
 						'<button class="mejs-volume-minus" aria-live="polite"><span class="visuallyhidden">'+t.options.volumeDownText+'</span></button>'+ // volume down
 						'<div class="mejs-volume-total"></div>'+ // line background
@@ -179,7 +179,7 @@
 					volumeSlider.show();
 					mouseIsOver = true;
 				});
-			//keayboard support for volume control
+			//keyboard support for volume control
 			volumePlus
 				.click(function(e){
 					var newVolume = Math.min(media.volume + 0.1, 1);
@@ -196,6 +196,7 @@
 					e.data.volumeSlider.hide();
 				}
 			});
+			//this is used to counter aria live problem reading the parent button each time button is pressed
 			volumeSlider
 				.bind('mouseover', function() {
 					mouseIsOver = true;
@@ -220,10 +221,16 @@
 				});
 
 			// MUTE button
-			mute.find(':first').click(function() {
-				media.setMuted( !media.muted );
+			mute.find(':first')
+				.click(function() {
+					media.setMuted( !media.muted )
+				})
+				.focus(function(){
+					$(this).attr('aria-live', 'polite')
+				})
+				.blur(function(){
+					$(this).attr('aria-live','off')
 			});
-
 			// listen for volume change events from other sources
 			media.addEventListener('volumechange', function(e) {
 				var volumeSpan = mute.children('button').children('span');
