@@ -67,7 +67,7 @@
 		keyActions: [
 				{
 						keys: [
-								32, // SPACE
+								//32, // SPACE
 								179 // GOOGLE play/pause button
 							  ],
 						action: function(player, media) {
