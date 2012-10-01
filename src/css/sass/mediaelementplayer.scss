@@ -83,9 +83,6 @@ body {
   background: #000;
   font-family: Helvetica, Arial; }
 
-#application {
-	padding-bottom:1.4em; }
-
 .me-plugin {
   position: absolute; }
 
@@ -186,9 +183,8 @@ body {
   background: none;
   list-style-type: none;
   margin: 0;
-  padding: 0.2em 0;
-  bottom: -1.4em;
-  height:1em;
+  padding: 5px 0;
+  bottom: 0;
   left: 0;
   background: url($background);
   background: rgba($background-controls-end, $background-controls-opacity);
