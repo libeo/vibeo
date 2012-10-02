@@ -15,8 +15,8 @@ $tooltip-bg-color: #ffffff;
 $tooltip-font-color: #000000;
 
 //background controls
-$background-controls-start: #5B5154;
-$background-controls-end: #5B5154;
+$background-controls-start: #222;
+$background-controls-end: #222;
 $background-controls-opacity: 1;
 
 //background controls buttons on focus
@@ -26,7 +26,7 @@ $buttons-active-bg: #323232;
 //volume contols
 $volume-plus-minus-bg: black;
 $volume-plus-minus-opacity: 0.3;
-$volume-slider-bg: #5B5154;
+$volume-slider-bg: #222;
 $volume-total-bg: #fff;
 $volume-current-bg: #fff;
 $volume-handle-bg: #fff;
@@ -49,8 +49,8 @@ $buffering-end: #ddd;
 $buffering-gradient-opacity: 0.2;
 
 //loaded time progess bar
-$time-loaded-start: #231F20;
-$time-loaded-end: #231F20;
+$time-loaded-start: #5b5b5b;
+$time-loaded-end: #5b5b5b;
 
 //current time  bar
 $time-current-start: #FFFFFF;
@@ -60,13 +60,13 @@ $time-current-end: #FFFFFF;
 $time-rail-opacity: 1;
 
 //time hanfle show / hide
-$mejs-time-handle-opacity: 0;
+$mejs-time-handle-opacity: 1;
 
 //rewind/forward
-$time-nav-bg: #333333;
+$time-nav-bg: transparent;
 
 //chapters
-$chapter-start: #323232;
+$chapter-start: #666666 ;
 $chapter-end: black;
 $chapter-opacity: 0.7;
 
@@ -401,10 +401,10 @@ $chapter-hover-opacity: 0.6;
       margin: 0;
       width: 10px;
       background: #fff;
-      @include border-radius(5px);
+      @include border-radius(0);
       cursor: pointer;
-      border: solid 2px #333;
-      top: -2px;
+      border: 0;
+      top: 0px;
       text-align: center; }
     .mejs-time-handle-rewind {
       background: transparent url(controls-grey/rail_-.svg) no-repeat;
@@ -413,8 +413,8 @@ $chapter-hover-opacity: 0.6;
       height: 0.8em;
       width: 0.8em;
       position: absolute;
-      left: -0.6em;
-      top: -0.1em;
+      left: -0.2em;
+      top: -0.2em;
       &:focus {
       background-color: $buttons-focus-bg;}}
     .mejs-time-handle-forward {
@@ -424,8 +424,8 @@ $chapter-hover-opacity: 0.6;
       height: 0.8em;
       width: 0.8em;
       position: absolute;
-      right: -0.6em;
-      top: -0.1em;
+      right: -1em;
+      top: -0.2em;
       &:focus {
       background-color: $buttons-focus-bg;}}
     .mejs-time-float {
@@ -553,7 +553,7 @@ $chapter-hover-opacity: 0.6;
         }
     /*horizontal version*/
     .mejs-volume-slider.horizontal {
-      width: 7.4em;
+      width: 7.6em;
       height: 1em;
       bottom: 1.3em;
       margin-left: -4.5em;
