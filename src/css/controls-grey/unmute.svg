@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 90 612 612" enable-background="new 0 90 612 612" xml:space="preserve">
+<g id="unmute">
+	
+		<polygon fill="#FFFFFF" stroke="#FFFFFF" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+		29.027,301.571 29.027,494.453 179.387,494.453 324.089,613.771 324.089,183.385 176.585,300.925 	"/>
+	
+		<path fill="#FFFFFF" stroke="#FFFFFF" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M486.844,580.574l-20.963-38.643l10.455,19.35l-10.725-19.24c2.264-1.188,54.701-32.875,54.701-144.057
+		c0-113.12-54.27-153.431-56.588-155.048l25.115-36.163c3.07,2.102,75.395,53.516,75.395,191.21
+		C564.234,537.137,489.971,578.902,486.844,580.574z"/>
+</g>
+<g id="mute" display="none">
+	
+		<line display="inline" fill="none" stroke="#FFFFFF" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" x1="598.607" y1="124.083" x2="95.653" y2="623.916"/>
+	<path display="inline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="60" stroke-linejoin="round" stroke-miterlimit="10" d="
+		M507.186,320.622c6.24,20.832,10.787,46.055,10.787,77.778c0,109.137-51.502,140.334-53.721,141.549l9.779,17.504l11.051,20.355
+		c3.121-1.639,76.037-42.723,76.037-179.408c0-47.111-8.832-83.277-20.146-111.355L507.186,320.622z"/>
+	<g display="inline">
+		<polygon fill="#FFFFFF" stroke="#FFFFFF" stroke-width="60" stroke-linejoin="round" stroke-miterlimit="10" points="
+			325.293,290.007 325.293,187.481 180.308,303.014 35.322,303.649 35.322,493.049 120.928,493.049 		"/>
+		<polygon fill="#FFFFFF" stroke="#FFFFFF" stroke-width="60" stroke-linejoin="round" stroke-miterlimit="10" points="
+			265.332,560.994 325.293,610.381 325.293,501.404 		"/>
+	</g>
+	<g display="inline">
+		<path fill="none" stroke="#FFFFFF" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" d="M122.409,623.916"/>
+		<path fill="none" stroke="#FFFFFF" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" d="M122.409,623.916"/>
+	</g>
+	<g display="inline">
+		<path fill="none" stroke="#FFFFFF" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" d="M602.973,147.03"/>
+		<path fill="none" stroke="#FFFFFF" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" d="M602.973,147.03"/>
+	</g>
+</g>
+</svg>
