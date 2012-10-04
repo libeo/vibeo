@@ -3385,26 +3385,37 @@ if (typeof jQuery != 'undefined') {
 					}
 				});
 			}
-
+			
 			var t = this,
 				normalHeight = 0,
 				normalWidth = 0,
 				container = player.container,
+				btnGuards = '<button class="guard visuallyhidden">Quitter le mode plein écran</button>',
 				fullscreenBtn =
 					$('<div class="mejs-button mejs-fullscreen-button">' +
 						'<button type="button" aria-controls="' + t.id + '" aria-live="polite"><span class="visuallyhidden">'+t.options.fullscreenText+'</span></button>' +
 					'</div>')
 					.appendTo(controls);
-
+			
+			// Check focus on guards button to quit fullscreen mode
+			$("#"+t.id).parent().on('focus','button.guard',function(){
+				fullscreenBtn.trigger('click');
+			});
+			
 				if (t.media.pluginType === 'native' || (!t.options.usePluginFullScreen && !mejs.MediaFeatures.isFirefox)) {
 
 					fullscreenBtn.click(function() {
 						var isFullScreen = (mejs.MediaFeatures.hasTrueNativeFullScreen && mejs.MediaFeatures.isFullScreen()) || player.isFullScreen;
-
+						
 						if (isFullScreen) {
 							player.exitFullScreen();
+							// Remove guards
+							$("#"+t.id).parent().find('button.guard').remove();
 						} else {
 							player.enterFullScreen();
+							// Add guards to quit fullscreen on focus
+							$('#'+t.id).before(btnGuards);
+							$('#'+t.id).after(btnGuards);
 						}
 					});
 
