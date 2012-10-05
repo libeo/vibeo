@@ -126,7 +126,8 @@
 					// 5%
 					var newTime = Math.max(media.currentTime - (media.duration * t.options.seekDistance), 0);
 					media.setCurrentTime(newTime);
-					handleRewind.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds));
+					handleRewind.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds)+
+						' de '+mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.duration), t.options.hours, t.options.minutes, t.options.seconds));
 				}
 			});
 			handleForward.click(function(e){
@@ -134,7 +135,8 @@
 					// 5%
 					var newTime = Math.min(media.currentTime + (media.duration * t.options.seekDistance), media.duration);
 					media.setCurrentTime(newTime);
-					handleForward.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds));
+					handleForward.children('span').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.currentTime), t.options.hours, t.options.minutes, t.options.seconds)+
+						' de '+mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(t.media.duration), t.options.hours, t.options.minutes, t.options.seconds));
 				}
 			});
 
