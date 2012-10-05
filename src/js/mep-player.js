@@ -249,10 +249,10 @@
 					$('<div id="' + t.id + '" class="mejs-container">'+
 						'<div class="mejs-inner">'+
 							'<div class="mejs-mediaelement"></div>'+
-							'<div class="mejs-button mejs-tooltip">'+
+							/*'<div class="mejs-button mejs-tooltip">'+
 								'<button type="button" aria-live="polite"><span class="visuallyhidden">'+ t.options.tooltip +'</span></button>'+
 								'<span class="bubble-text">'+ t.options.tooltip +'</span>'+
-							'</div>'+
+							'</div>'+*/
 							'<div class="mejs-layers"></div>'+
 							'<div class="mejs-controls"></div>'+
 							'<div class="mejs-clear"></div>'+
