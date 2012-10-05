@@ -3,7 +3,7 @@ src/silverlight/obj/*
 src/silverlight/Bin/*
 #Sass cache
 src/css/.sass-cache*
-build/*
+
 tests/*
 newfeatures/*
 #exceptions
