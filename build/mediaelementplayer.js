@@ -1859,7 +1859,7 @@ if (typeof jQuery != 'undefined') {
 					.appendTo(controls);
 			
 			// Check focus on guards button to quit fullscreen mode
-			$("#"+t.id).parent().on('focus','button.guard',function(){
+			t.container.parent().on('focus','button.guard',function(){
 				fullscreenBtn.trigger('click');
 			});
 			
@@ -1871,12 +1871,12 @@ if (typeof jQuery != 'undefined') {
 						if (isFullScreen) {
 							player.exitFullScreen();
 							// Remove guards
-							$("#"+t.id).parent().find('button.guard').remove();
+							t.container.parent().find('button.guard').remove();
 						} else {
 							player.enterFullScreen();
 							// Add guards to quit fullscreen on focus
-							$('#'+t.id).before(btnGuards);
-							$('#'+t.id).after(btnGuards);
+							t.container.before(btnGuards);
+							t.container.after(btnGuards);
 						}
 					});
 
@@ -2177,7 +2177,9 @@ if (typeof jQuery != 'undefined') {
 					t.media.setVideoSize($(window).width(),$(window).height());
 				//}
 			}
-
+			
+			t.container.find("video").height('100%').width('100%');
+			
 			t.layers.children('div')
 				.width('100%')
 				.height('100%');
