@@ -1544,7 +1544,7 @@ if (typeof jQuery != 'undefined') {
 
 	$.extend(MediaElementPlayer.prototype, {
 		buildvolume: function(player, controls, layers, media) {
-
+			
 			// Android and iOS don't support volume controls
 			if (mejs.MediaFeatures.hasTouch && this.options.hideVolumeOnTouchDevices)
 				return;
@@ -1733,22 +1733,25 @@ if (typeof jQuery != 'undefined') {
 					mouseIsOver = true;
 				})
 				.bind('mousedown', function (e) {
-					handleVolumeMove(e);
-					$(document)
-						.bind('mousemove.vol', function(e) {
-							handleVolumeMove(e);
-						})
-						.bind('mouseup.vol', function () {
-							mouseIsDown = false;
-							$(document).unbind('.vol');
-
-							if (!mouseIsOver && mode == 'vertical') {
-								volumeSlider.hide();
-							}
-						});
-					mouseIsDown = true;
-
-					return false;
+					// If event is initialize by mouse event and not keydown event (there was a bug with Chrome + NVDA)
+					if(e.offsetX != 0){
+						handleVolumeMove(e);
+						$(document)
+							.bind('mousemove.vol', function(e) {
+								handleVolumeMove(e);
+							})
+							.bind('mouseup.vol', function () {
+								mouseIsDown = false;
+								$(document).unbind('.vol');
+	
+								if (!mouseIsOver && mode == 'vertical') {
+									volumeSlider.hide();
+								}
+							});
+						mouseIsDown = true;
+	
+						return false;
+					}
 				});
 
 			// MUTE button
