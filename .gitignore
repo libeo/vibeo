@@ -12,3 +12,5 @@ newfeatures/*
 !build/jquery.ba-resize.min.js
 !build/flashmediaelement.swf
 !build/silverlightmediaelement.xap
+# Skins
+skin/*
