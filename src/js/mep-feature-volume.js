@@ -203,6 +203,7 @@
 				})
 				.bind('mousedown', function (e) {
 					// If event is initialize by mouse event and not keydown event (there was a bug with Chrome + NVDA)
+					console.log(e.offsetX);
 					if(e.offsetX != 0){
 						handleVolumeMove(e);
 						$(document)
