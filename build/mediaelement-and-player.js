@@ -3413,6 +3413,7 @@ if (typeof jQuery != 'undefined') {
 					fullscreenBtn.click(function() {
 						var isFullScreen = (mejs.MediaFeatures.hasTrueNativeFullScreen && mejs.MediaFeatures.isFullScreen()) || player.isFullScreen;
 						
+						t.container.find('#btnplaypause').focus();
 						if (isFullScreen) {
 							player.exitFullScreen();
 							// Remove guards
