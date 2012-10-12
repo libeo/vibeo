@@ -66,7 +66,13 @@
 			
 			// Check focus on guards button to quit fullscreen mode
 			t.container.parent().on('focus','button.guard',function(){
-				fullscreenBtn.trigger('click');
+				var isFullScreen = (mejs.MediaFeatures.hasTrueNativeFullScreen && mejs.MediaFeatures.isFullScreen()) || player.isFullScreen;
+				
+				if(isFullScreen){
+					fullscreenBtn.trigger('click');
+				} else {
+					t.container.parent().find('button.guard').remove();
+				}
 			});
 			
 				if (t.media.pluginType === 'native' || (!t.options.usePluginFullScreen && !mejs.MediaFeatures.isFirefox)) {
