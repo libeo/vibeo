@@ -17,21 +17,20 @@
 <h1>Lecteur Vidéo Libéo</h1>
 <a href="#">Lien avant le vidéo</a>
 <div id="application" role="application">
-<video width="640" height="360" id="player2" poster="media/echo-hereweare.jpg"  preload="none">
+<video width="640" height="360" id="player2" poster="media/libeo_ctf_2012_720p.jpg"  preload="none">
 	<!-- MP4 source must come first for iOS -->
-	<source type="video/mp4" src="media/echo-hereweare.mp4" />
+	<source type="video/mp4" src="media/libeo_ctf_2012_720p.mp4" />
 	<!-- WebM for Firefox 4 and Opera -->
-	<source type="video/webm" src="media/echo-hereweare.webm" />
+	<source type="video/webm" src="media/libeo_ctf_2012_720p.webm" />
 	<!-- OGG for Firefox 3 -->
-	<source type="video/ogg" src="media/echo-hereweare.ogv" />
-    <track kind="subtitles" src="media/mediaelement.srt" srclang="en" />
+	<source type="video/ogg" src="media/libeo_ctf_2012_720p.theora.ogv" />
+    <track kind="subtitles" src="media/libeo_ctf_2012_720p.srt" srclang="en" />
 	<!-- Fallback flash player for no-HTML5 browsers with JavaScript turned off -->
 	<object width="640" height="360" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">
 		<param name="movie" value="build/flashmediaelement.swf" />
-		<param name="flashvars" value="controls=true&amp;file=media/echo-hereweare.mp4" />
+		<param name="flashvars" value="controls=true&amp;file=media/libeo_ctf_2012_720p.mp4" />
 		<!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
-		<img src="media/echo-hereweare.jpg" width="640" height="360" alt="Here we are"
-			title="No video playback capabilities" />
+		<img src="media/libeo_ctf_2012_720p.jpg" width="640" height="360" alt="Aucune possibilité de jouer la vidéo." />
 	</object>
 </video>
 </div>
