@@ -1,63 +1,43 @@
-﻿1
-00:00:01,000 --> 00:00:03,300
-Regroupement des jeunes chambres de commerce du Québec       Ministère de la Famille et des Ainés du Québec
-
-2
-00:00:04,000 --> 00:00:06,300
-Le Prix Reconnaissance «Conciliation travail-famille»
-
-3
-00:00:06,300 --> 00:00:09,900
-Libéo - Jeune Chambre de commerce de Québec
-
-4
-00:00:10,300 --> 00:00:12,000
-Louis Buteau-Vaillancourt, Directeur de production chez Libéo
-
-5
+﻿0
 00:00:12,000 --> 00:00:16,000
 Libéo, c'est une jeune entreprise de Québec, née en 1996, orientée vers les applications libres, les logiciels libres. 
 
-6
+1
 00:00:16,000 --> 00:00:26,000
 Nous avions déjà un horaire flexible, des horaires réduits à 37,5 heures au lieu de 40 heures, mais, récemment, on a voulu se focaliser sur la conciliation travail/famille. 
 
-7
+2
 00:00:26,000 --> 00:00:32,000
 Donc, on a créé un groupe, on est allé interroger plusieurs personnes à travers l'entreprise pour connaître leurs besoins. 
 
-8
+3
 00:00:32,000 --> 00:00:35,000
 L'une des choses qu'on a mises en place, c'est l'horaire d'été. 
 
-9
+4
 00:00:35,000 --> 00:00:46,000
 Depuis l'été 2012, les gens peuvent quitter le travail à partir de midi s'ils ont terminé leur 37,5 ou 40 heures.
 
-10
+5
 00:00:46,000 --> 00:00:50,000
 En plus, le comité paie une heure à tout le monde.
 
-11
+6
 00:00:50,000 --> 00:00:59,000
 Donc, quelqu'un qui, généralement fait 37,5 heures, peut arriver et dire : j'ai 36,5 heures de fait, le comité me paie une heure, à midi je pars pour ma fin de semaine. 
 
-12
+7
 00:01:00,000 --> 00:01:03,000
 Ce sont les deux mesures principales qui ont été prises.
 
-13
+8
 00:01:03,000 --> 00:01:06,000
 Une mesure supplémentaire que nous sommes en train de regarder c'est le télétravail. 
 
-14
+9
 00:01:06,000 --> 00:01:14,000
 C'est sûr que dans le domaine de l'informatique, dans le domaine du web, c'est très agressif, c'est difficile de trouver des personnes compétentes.
 
-15
+10
 00:01:14,000 --> 00:01:24,000
 Donc, avec un attrait comme la conciliation travail/famille et tout ce qui est déjà en place chez Libéo, nous espérons être en mesure d'aller chercher de bons employés.
-
-16
-00:01:24,000 --> 00:01:27,000
-Regroupement des jeunes chambres de commerce du Québec       Ministère de la Famille et des Ainés du Québec
