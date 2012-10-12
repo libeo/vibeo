@@ -112,6 +112,12 @@ body {
   .mejs-mediaelement, video {
     width: 100%;
     height: 100%; } }
+    
+.mejs-container-fullscreen {
+	.mejs-captions-layer {
+		font-size:2em;
+	}
+}
 
 /* Start: LAYERS */
 

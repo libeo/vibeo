@@ -1,5 +1,5 @@
 ﻿0
-00:00:12,000 --> 00:00:16,000
+00:00:10,000 --> 00:00:16,000
 Libéo, c'est une jeune entreprise de Québec, née en 1996, orientée vers les applications libres, les logiciels libres. 
 
 1
