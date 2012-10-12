@@ -5,7 +5,7 @@
 
 /* line 82, sass/skin-gray.scss */
 .mejs-container {
-  font-size: 1em;
+  font-size: 1.1em;
   position: relative;
   background: #000;
   font-family: Helvetica, Arial;
@@ -953,8 +953,8 @@
   left: 0;
   text-align: center;
   /*font-weight: bold;*/
-  line-height: 1.375em;
-  font-size: 0.65em;
+  line-height: 1.575em;
+  font-size: 1em;
   color: #fff;
 }
 /* line 692, sass/skin-gray.scss */
@@ -972,7 +972,7 @@
 .mejs-captions-position {
   position: absolute;
   width: 100%;
-  bottom: 3em;
+  bottom: 2em;
   left: 0;
 }
 
