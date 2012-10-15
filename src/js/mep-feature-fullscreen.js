@@ -39,12 +39,17 @@
 				target.bind(mejs.MediaFeatures.fullScreenEventName, function(e) {
 				//player.container.bind('webkitfullscreenchange', function(e) {
 
-
 					if (mejs.MediaFeatures.isFullScreen()) {
 						player.isNativeFullScreen = true;
 						// reset the controls once we are fully in full screen
 						player.setControlsSize();
 					} else {
+						
+						// Remove guards if exit fullscreen
+						if(t.container.parent().find('button.guard').length > 0){
+							t.container.parent().find('button.guard').remove();
+						}
+						
 						player.isNativeFullScreen = false;
 						// when a user presses ESC
 						// make sure to put the player back into place
@@ -68,10 +73,9 @@
 			t.container.parent().on('focus','button.guard',function(){
 				var isFullScreen = (mejs.MediaFeatures.hasTrueNativeFullScreen && mejs.MediaFeatures.isFullScreen()) || player.isFullScreen;
 				
+				// Trigger exitfullscreen only if currently fullscreen
 				if(isFullScreen){
 					fullscreenBtn.trigger('click');
-				} else {
-					t.container.parent().find('button.guard').remove();
 				}
 			});
 			
