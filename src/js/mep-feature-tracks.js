@@ -5,8 +5,8 @@
 		// this will automatically turn on a <track>
 		startLanguage: '',
 
-		tracksTextTurnOn: 'Captions/Subtitles On',
-		tracksTextTurnOff: 'Captions/Subtitles Off'
+		tracksTextTurnOn: 'Sous-titres activés',
+		tracksTextTurnOff: 'Sous-titres désactivés'
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
@@ -36,7 +36,7 @@
 							'<ul>'+
 								'<li>'+
 									'<input type="radio" name="' + player.id + '_captions" id="' + player.id + '_captions_none" value="none" checked="checked" />' +
-									'<label for="' + player.id + '_captions_none">None</label>'+
+									'<label for="' + player.id + '_captions_none">Aucun</label>'+
 								'</li>'	+
 							'</ul>'+
 						'</div>'+
@@ -265,7 +265,7 @@
 			t.captionsButton.find('ul').append(
 				$('<li>'+
 					'<input type="radio" name="' + t.id + '_captions" id="' + t.id + '_captions_' + lang + '" value="' + lang + '" disabled="disabled" />' +
-					'<label for="' + t.id + '_captions_' + lang + '">' + label + ' (loading)' + '</label>'+
+					'<label for="' + t.id + '_captions_' + lang + '" lang="' + lang + '">' + label + ' (loading)' + '</label>'+
 				'</li>')
 			);
 
