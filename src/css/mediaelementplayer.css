@@ -133,7 +133,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   background-image: -moz-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   background-image: -o-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
-  background-image: -ms-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   background-image: linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF323232', endColorstr='#FF000000');
@@ -163,7 +162,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   background-image: -moz-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   background-image: -o-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
-  background-image: -ms-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   background-image: linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF323232', endColorstr='#FF000000');
@@ -458,11 +456,10 @@ body {
   display: block;
   width: 180px;
   height: 0.6em;
-  -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
-  -o-border-radius: 2px;
+  -moz-border-radius: 2px;
   -ms-border-radius: 2px;
-  -khtml-border-radius: 2px;
+  -o-border-radius: 2px;
   border-radius: 2px;
   cursor: pointer;
 }
@@ -484,7 +481,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
   background-image: -moz-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
   background-image: -o-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
-  background-image: -ms-linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
   background-image: linear-gradient(rgba(30, 30, 30, 0.8), rgba(60, 60, 60, 0.8));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF1E1E1E', endColorstr='#FF3C3C3C');
@@ -497,7 +493,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   background-image: -moz-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   background-image: -o-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
-  background-image: -ms-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   background-image: linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFDDDDDD', endColorstr='#FFDDDDDD');
@@ -523,7 +518,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
   background-image: -moz-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
   background-image: -o-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
-  background-image: -ms-linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
   background-image: linear-gradient(rgba(44, 124, 145, 0.8), rgba(78, 183, 212, 0.8));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF2C7C91', endColorstr='#FF4EB7D4');
@@ -537,7 +531,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
   background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
   background-image: -o-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
-  background-image: -ms-linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.8));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFFFF', endColorstr='#FFC8C8C8');
@@ -548,11 +541,10 @@ body {
   margin: 0;
   width: 10px;
   background: #fff;
-  -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
+  -o-border-radius: 5px;
   border-radius: 5px;
   cursor: pointer;
   border: solid 2px #333;
@@ -620,11 +612,10 @@ body {
   line-height: 0;
   border: solid 0.35em #eee;
   border-color: #eee transparent transparent transparent;
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  -o-border-radius: 0;
+  -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -khtml-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
   bottom: -0.57em;
   left: 50%;
@@ -679,11 +670,10 @@ body {
   width: 1em;
   background: url("background.png");
   background: rgba(50, 50, 50, 0.8);
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  -o-border-radius: 0;
+  -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -khtml-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
   bottom: 1em;
   z-index: 1;
@@ -692,11 +682,10 @@ body {
 }
 /* line 504, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-volume-button:hover {
-  -moz-border-radius: 0 0 4px 4px;
   -webkit-border-radius: 0 0 4px 4px;
-  -o-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
   -ms-border-radius: 0 0 4px 4px;
-  -khtml-border-radius: 0 0 4px 4px;
+  -o-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
 }
 /* line 507, sass/mediaelementplayer.scss */
@@ -731,11 +720,10 @@ body {
   background: #ddd;
   background: white;
   cursor: n-resize;
-  -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
-  -o-border-radius: 1px;
+  -moz-border-radius: 1px;
   -ms-border-radius: 1px;
-  -khtml-border-radius: 1px;
+  -o-border-radius: 1px;
   border-radius: 1px;
   margin: 0;
 }
@@ -838,11 +826,10 @@ body {
   border: solid 1px transparent;
   padding: 10px;
   overflow: hidden;
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  -o-border-radius: 0;
+  -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -khtml-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
 }
 /* line 612, sass/mediaelementplayer.scss */
@@ -901,7 +888,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   background-image: -moz-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   background-image: -o-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
-  background-image: -ms-linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   background-image: linear-gradient(rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.7));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF323232', endColorstr='#FF000000');
@@ -930,7 +916,6 @@ body {
   background-image: -webkit-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   background-image: -moz-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   background-image: -o-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
-  background-image: -ms-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   background-image: linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF666666', endColorstr='#FF323232');
@@ -1054,11 +1039,10 @@ body {
   position: absolute;
   width: 150px;
   padding: 10px;
-  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -khtml-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
   top: 0;
   left: 0;

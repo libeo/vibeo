@@ -695,16 +695,16 @@
   position: absolute;
   top: 1.2em;
   width: 0;
-  -moz-border-radius-topleft: 2px;
-  -webkit-border-top-left-radius: 2px;
-  -ms-border-top-left-radius: 2px;
-  -o-border-top-left-radius: 2px;
-  border-top-left-radius: 2px;
-  -moz-border-radius-bottomleft: 2px;
-  -webkit-border-bottom-left-radius: 2px;
-  -ms-border-bottom-left-radius: 2px;
-  -o-border-bottom-left-radius: 2px;
-  border-bottom-left-radius: 2px;
+  -moz-border-radius-topleft: 1px;
+  -webkit-border-top-left-radius: 1px;
+  -ms-border-top-left-radius: 1px;
+  -o-border-top-left-radius: 1px;
+  border-top-left-radius: 1px;
+  -moz-border-radius-bottomleft: 1px;
+  -webkit-border-bottom-left-radius: 1px;
+  -ms-border-bottom-left-radius: 1px;
+  -o-border-bottom-left-radius: 1px;
+  border-bottom-left-radius: 1px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7edefd), color-stop(100%, #27abdd));
   background-image: -webkit-linear-gradient(#7edefd, #27abdd);
   background-image: -moz-linear-gradient(#7edefd, #27abdd);
@@ -768,14 +768,18 @@
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-total {
   height: 0.813em;
   left: 1.500em;
-  top: 0.5em;
+  padding: 1px 0;
+  top: 0.450em;
   width: 5.300em;
 }
 /* line 339, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-current {
   height: 0.813em;
   left: 1.500em;
-  top: 0.5em;
+  margin-left: 1px;
+  margin-top: 1px;
+  max-width: 5.200em;
+  top: 0.450em;
   width: 5.300em;
 }
 /* line 340, sass/skin-vbo-light.scss */
@@ -794,7 +798,7 @@
 /* line 342, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
   left: 0.190em;
-  top: 0.325em;
+  top: 0.375em;
 }
 /* line 347, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button {
@@ -812,7 +816,7 @@
 }
 /* line 354, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .activeButton {
-  background-color: #323232;
+  background-color: transparent;
 }
 /* line 355, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector {

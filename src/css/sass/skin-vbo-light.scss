@@ -77,7 +77,7 @@ $background-controls-opacity: 1;
 
 //background controls buttons on focus
 $buttons-focus-bg: #666;
-$buttons-active-bg: #323232;
+$buttons-active-bg: transparent;
 
 //volume controls
 $volume-plus-minus-bg: #000000;
@@ -316,7 +316,7 @@ $chapter-hover-opacity: 0.6;
       }
       .mejs-volume-current {
         background: mix($time-current-start, $time-current-end); background: rgba($time-current-end, $time-rail-opacity); height: 5.7em; left: 0.5em; margin: 0; position: absolute; top: 1.2em; width: 0;
-        @include border-left-radius( 2px );
+        @include border-left-radius( 1px );
         @include vibeoBackground( $time-current-start, $time-current-end, $time-rail-opacity );       
       }
       .mejs-volume-handle { display: none; }
@@ -335,11 +335,11 @@ $chapter-hover-opacity: 0.6;
       bottom: 1.950em; height: 1.5em; margin-left: -4.5em; padding-bottom: 0.125em; width: 7.6em;
       &:after { background: transparent url($volume-arrow-img) no-repeat; content: ''; height: 7px; position: absolute; right: -45px; top: 23px; width: 5.900em; }
       
-      .mejs-volume-total { height: 0.813em; left: 1.500em; top: 0.5em; width: 5.300em; }
-      .mejs-volume-current { height: 0.813em; left: 1.500em; top: 0.5em; width: 5.300em;}
+      .mejs-volume-total { height: 0.813em; left: 1.500em; padding: 1px 0; top: 0.450em; width: 5.300em; }
+      .mejs-volume-current { height: 0.813em; left: 1.500em; margin-left: 1px; margin-top: 1px; max-width: 5.200em; top: 0.450em; width: 5.300em;}
       .mejs-volume-handle { cursor: e-resize; height: 0.8em; left: 1.1em; top: 0.15em; width: 6px; }
       .mejs-volume-plus { left: 6.410em; top: 0.325em; }
-      .mejs-volume-minus { left: 0.190em; top: 0.325em; }
+      .mejs-volume-minus { left: 0.190em; top: 0.375em; }
     } 
   }
 
