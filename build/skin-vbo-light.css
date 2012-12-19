@@ -1,0 +1,1266 @@
+/* line 174, sass/skin-vbo-light.scss */
+.mejs-time-float-current {
+  font-size: 0.688em;
+}
+
+/* line 175, sass/skin-vbo-light.scss */
+.mejs-time-total {
+  border: 1px solid #9b9b9b;
+}
+
+/* line 176, sass/skin-vbo-light.scss */
+.mejs-container {
+  background: #000;
+  font: 1.1em Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* line 177, sass/skin-vbo-light.scss */
+.me-plugin {
+  position: absolute;
+}
+
+/* line 178, sass/skin-vbo-light.scss */
+.mejs-embed {
+  background: #000;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+/* line 180, sass/skin-vbo-light.scss */
+.mejs-embed body {
+  background: #000;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+/* line 182, sass/skin-vbo-light.scss */
+.mejs-container-fullscreen {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+/* line 184, sass/skin-vbo-light.scss */
+.mejs-container-fullscreen .mejs-mediaelement, .mejs-container-fullscreen video {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 186, sass/skin-vbo-light.scss */
+.mejs-background {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+/* line 187, sass/skin-vbo-light.scss */
+.mejs-mediaelement {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* line 188, sass/skin-vbo-light.scss */
+.mejs-poster {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+/* line 190, sass/skin-vbo-light.scss */
+.mejs-poster img {
+  border: 0;
+  display: block;
+  padding: 0;
+}
+
+/* line 192, sass/skin-vbo-light.scss */
+.mejs-overlay {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+/* line 194, sass/skin-vbo-light.scss */
+.mejs-overlay:hover .mejs-overlay-button {
+  background-position: 0 -100px;
+}
+
+/* line 196, sass/skin-vbo-light.scss */
+.mejs-overlay-play {
+  cursor: pointer;
+}
+
+/* line 197, sass/skin-vbo-light.scss */
+.mejs-overlay-button {
+  background: url("bigplay.png") no-repeat;
+  height: 100px;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  position: absolute;
+  top: 50%;
+  width: 100px;
+}
+
+/* line 198, sass/skin-vbo-light.scss */
+.mejs-overlay-loading {
+  background: #191919;
+  background: rgba(0, 0, 0, 0.9);
+  height: 80px;
+  left: 50%;
+  margin: -40px 0 0 -40px;
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(50, 50, 50, 0.9)), color-stop(100%, rgba(0, 0, 0, 0.9)));
+  background-image: -webkit-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
+  background-image: -moz-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
+  background-image: -o-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
+  background-image: -ms-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
+  background-image: linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF323232', endColorstr='#FF000000');
+}
+/* line 202, sass/skin-vbo-light.scss */
+.mejs-overlay-loading span {
+  background: transparent url("loading.gif") 50% 50% no-repeat;
+  display: block;
+  height: 80px;
+  width: 80px;
+}
+
+/* line 204, sass/skin-vbo-light.scss */
+.mejs-container, .mejs-controls {
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -ms-border-bottom-left-radius: 5px;
+  -o-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -ms-border-bottom-right-radius: 5px;
+  -o-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* line 205, sass/skin-vbo-light.scss */
+.mejs-container .mejs-controls {
+  background: none;
+  background: #b1b1b1;
+  bottom: 0;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 0;
+  position: absolute;
+  width: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cbcbcb), color-stop(100%, #b1b1b1));
+  background-image: -webkit-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: -moz-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: -o-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: -ms-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: linear-gradient(#cbcbcb, #b1b1b1);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFCBCBCB', endColorstr='#FFB1B1B1');
+}
+/* line 209, sass/skin-vbo-light.scss */
+.mejs-container .mejs-controls div {
+  background: 0;
+  background-image: none;
+  border: 0;
+  display: inline-block;
+  font: 0.917em Arial, Helvetica, sans-serif;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+/* line 211, sass/skin-vbo-light.scss */
+.mejs-controls button, .mejs-tooltip button {
+  border: 0;
+  cursor: pointer;
+  display: block;
+  font-size: 100%;
+  height: 1.1em;
+  line-height: 0;
+  margin: 0.1em;
+  text-decoration: none;
+  width: 1.1em;
+}
+
+/* line 213, sass/skin-vbo-light.scss */
+.mejs-container .mejs-controls > div {
+  display: table-cell;
+  padding: 0 8px;
+  text-align: center;
+}
+/* line 214, sass/skin-vbo-light.scss */
+.mejs-container .mejs-controls .mejs-time-rail {
+  padding: 0;
+}
+/* line 215, sass/skin-vbo-light.scss */
+.mejs-container .mejs-controls .mejs-time {
+  color: #222222;
+  text-align: center;
+}
+/* line 217, sass/skin-vbo-light.scss */
+.mejs-container .mejs-controls .mejs-time span {
+  color: #222222;
+  font-size: 0.688em;
+  font-weight: normal;
+}
+
+/* line 222, sass/skin-vbo-light.scss */
+.mejs-tooltip {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1000;
+}
+/* line 224, sass/skin-vbo-light.scss */
+.mejs-tooltip button {
+  background: transparent url("controls-vbo-light/tooltip.svg") no-repeat;
+  filter: alpha(opacity=20);
+  height: 0.6em;
+  position: absolute;
+  opacity: 0.2;
+  right: 5px;
+  top: 5px;
+  width: 0.6em;
+}
+/* line 226, sass/skin-vbo-light.scss */
+.mejs-tooltip button:focus, .mejs-tooltip button:hover {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+/* line 229, sass/skin-vbo-light.scss */
+.bubble-text {
+  background-color: #222222;
+  border-radius: 10px;
+  bottom: -1.3em;
+  color: black;
+  display: none;
+  font-size: 0.6em;
+  line-height: 1em;
+  max-width: 8em;
+  padding: 0.4em;
+  position: absolute;
+  right: 0.8em;
+  text-align: left;
+  z-index: 1001;
+}
+
+/* line 232, sass/skin-vbo-light.scss */
+.mejs-controls {
+  /* End: TRACK (Captions and Chapters) */
+}
+/* line 233, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-play button {
+  background: transparent url("controls-vbo-light/play.svg") no-repeat;
+  background-size: contain;
+}
+/* line 143, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-play button:focus {
+  background-color: #666666;
+}
+/* line 234, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-pause button {
+  background: transparent url("controls-vbo-light/pause.svg") no-repeat;
+  background-size: contain;
+}
+/* line 143, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-pause button:focus {
+  background-color: #666666;
+}
+/* line 235, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-stop button {
+  background: transparent url("controls-vbo-light/stop.svg") no-repeat;
+  background-size: contain;
+}
+/* line 143, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-stop button:focus {
+  background-color: #666666;
+}
+/* line 236, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-fullscreen-button button {
+  background: transparent url("controls-vbo-light/fullscreen.svg") no-repeat;
+  background-size: contain;
+}
+/* line 143, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-fullscreen-button button:focus {
+  background-color: #666666;
+}
+/* line 237, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-unfullscreen button {
+  background: transparent url("controls-vbo-light/unfullscreen.svg") no-repeat;
+  background-size: contain;
+}
+/* line 143, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-unfullscreen button:focus {
+  background-color: #666666;
+}
+/* line 238, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-mute button {
+  background: transparent url("controls-vbo-light/mute.svg") no-repeat;
+  background-size: contain;
+}
+/* line 143, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-mute button:focus {
+  background-color: #666666;
+}
+/* line 239, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-unmute button {
+  background: transparent url("controls-vbo-light/unmute.svg") no-repeat;
+  background-size: contain;
+}
+/* line 143, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-unmute button:focus {
+  background-color: #666666;
+}
+/* line 240, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-playpause-button button {
+  position: relative;
+}
+/* line 242, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-playpause-button button:after {
+  right: -6px;
+  top: -6px;
+  background: url("controls-vbo-light/bkg-separator.png") repeat-y;
+  content: '';
+  height: 1.188em;
+  padding: 5px 0;
+  position: absolute;
+  width: 0.125em;
+}
+/* line 244, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button > button {
+  position: relative;
+}
+/* line 246, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button > button:after {
+  right: -11px;
+  top: -8px;
+  background: url("controls-vbo-light/bkg-separator.png") repeat-y;
+  content: '';
+  height: 1.188em;
+  padding: 5px 0;
+  position: absolute;
+  width: 0.125em;
+}
+/* line 248, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button button {
+  position: relative;
+}
+/* line 250, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button button:after {
+  right: -11px;
+  top: -7px;
+  background: url("controls-vbo-light/bkg-separator.png") repeat-y;
+  content: '';
+  height: 1.188em;
+  padding: 5px 0;
+  position: absolute;
+  width: 0.125em;
+}
+/* line 251, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button button:before {
+  left: -10px;
+  top: -7px;
+  background: url("controls-vbo-light/bkg-separator.png") repeat-y;
+  content: '';
+  height: 1.188em;
+  padding: 5px 0;
+  position: absolute;
+  width: 0.125em;
+}
+/* line 253, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail {
+  width: 100%;
+  @-webkit-keyframes buffering-stripes {
+    /* line 147, sass/skin-vbo-light.scss */
+    from {
+      background-position: 0 0;
+    }
+
+    /* line 147, sass/skin-vbo-light.scss */
+    to {
+      background-position: 30px 0;
+    }
+}
+
+  @-moz-keyframes buffering-stripes {
+    /* line 148, sass/skin-vbo-light.scss */
+    from {
+      background-position: 0 0;
+    }
+
+    /* line 148, sass/skin-vbo-light.scss */
+    to {
+      background-position: 30px 0;
+    }
+}
+
+  @-ms-keyframes buffering-stripes {
+    /* line 149, sass/skin-vbo-light.scss */
+    from {
+      background-position: 0 0;
+    }
+
+    /* line 149, sass/skin-vbo-light.scss */
+    to {
+      background-position: 30px 0;
+    }
+}
+
+  @-o-keyframes buffering-stripes {
+    /* line 150, sass/skin-vbo-light.scss */
+    from {
+      background-position: 0 0;
+    }
+
+    /* line 150, sass/skin-vbo-light.scss */
+    to {
+      background-position: 30px 0;
+    }
+}
+
+  @keyframes buffering-stripes {
+    /* line 151, sass/skin-vbo-light.scss */
+    from {
+      background-position: 0 0;
+    }
+
+    /* line 151, sass/skin-vbo-light.scss */
+    to {
+      background-position: 30px 0;
+    }
+}
+
+}
+/* line 257, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail span {
+  cursor: pointer;
+  display: block;
+  height: 0.6em;
+  width: 180px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+/* line 261, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail > span {
+  position: relative;
+}
+/* line 263, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail > span > span {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+/* line 265, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-total {
+  background: #9b9b9b;
+  background: #9b9b9b;
+  width: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9b9b9b), color-stop(100%, #9b9b9b));
+  background-image: -webkit-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: -moz-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: -o-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: -ms-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: linear-gradient(#9b9b9b, #9b9b9b);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF9B9B9B', endColorstr='#FF9B9B9B');
+}
+/* line 269, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-buffering {
+  background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(221, 221, 221, 0.2)), color-stop(100%, rgba(221, 221, 221, 0.2)));
+  background-image: -webkit-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
+  background-image: -moz-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
+  background-image: -o-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
+  background-image: -ms-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
+  background-image: linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFDDDDDD', endColorstr='#FFDDDDDD');
+}
+/* line 274, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-current {
+  background-size: 15px 15px;
+  -webkit-background-size: 15px 15px;
+  -moz-background-size: 15px 15px;
+  -o-background-size: 15px 15px;
+  animation: buffering-stripes 2s linear infinite;
+  -webkit-animation: buffering-stripes 2s linear infinite;
+  -moz-animation: buffering-stripes 2s linear infinite;
+  -ms-animation: buffering-stripes 2s linear infinite;
+  -o-animation: buffering-stripes 2s linear infinite;
+}
+/* line 275, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+  background: #5b5b5b;
+  background: #5b5b5b;
+  width: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5b5b5b), color-stop(100%, #5b5b5b));
+  background-image: -webkit-linear-gradient(#5b5b5b, #5b5b5b);
+  background-image: -moz-linear-gradient(#5b5b5b, #5b5b5b);
+  background-image: -o-linear-gradient(#5b5b5b, #5b5b5b);
+  background-image: -ms-linear-gradient(#5b5b5b, #5b5b5b);
+  background-image: linear-gradient(#5b5b5b, #5b5b5b);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF5B5B5B', endColorstr='#FF5B5B5B');
+}
+/* line 279, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-current {
+  background: #52c4ed;
+  background: #27abdd;
+  width: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7edefd), color-stop(100%, #27abdd));
+  background-image: -webkit-linear-gradient(#7edefd, #27abdd);
+  background-image: -moz-linear-gradient(#7edefd, #27abdd);
+  background-image: -o-linear-gradient(#7edefd, #27abdd);
+  background-image: -ms-linear-gradient(#7edefd, #27abdd);
+  background-image: linear-gradient(#7edefd, #27abdd);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF7EDEFD', endColorstr='#FF27ABDD');
+}
+/* line 283, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-handle {
+  background: #fff;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  width: 10px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+/* line 287, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
+  background: transparent url("controls-vbo-light/rail_-.svg") no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  height: 0.8em;
+  left: -0.2em;
+  position: absolute;
+  top: -0.2em;
+  width: 0.8em;
+}
+/* line 289, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-handle-rewind:focus {
+  background-color: #666666;
+}
+/* line 291, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-handle-forward {
+  background: transparent url("controls-vbo-light/rail_+.svg") no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  height: 0.8em;
+  position: absolute;
+  right: -1em;
+  top: -0.2em;
+  width: 0.8em;
+}
+/* line 293, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-handle-forward:focus {
+  background-color: #666666;
+}
+/* line 295, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-float {
+  background: #eee;
+  border: solid 1px #333;
+  color: #111;
+  display: none;
+  height: auto;
+  left: 0;
+  margin-left: -1.49em;
+  padding: 0.2em 0.2em 0;
+  position: absolute;
+  text-align: center;
+  top: -2.2em;
+  width: auto;
+}
+/* line 296, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-float-current {
+  display: block;
+  height: auto;
+  text-align: center;
+  width: auto;
+}
+/* line 297, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-time-rail .mejs-time-float-corner {
+  border: solid 0.35em #eee;
+  border-color: #eee transparent transparent transparent;
+  bottom: -0.57em;
+  display: block;
+  height: 0;
+  left: 50%;
+  line-height: 0;
+  margin-left: -0.3em;
+  position: absolute;
+  width: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+/* line 303, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button {
+  position: relative;
+  top: 0.125em;
+  /*horizontal version*/
+}
+/* line 305, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button:hover {
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+  -o-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+/* line 306, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider {
+  bottom: 1em;
+  display: none;
+  height: 7.4em;
+  margin: 0;
+  position: absolute;
+  width: 1em;
+  z-index: 1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cbcbcb), color-stop(100%, #b1b1b1));
+  background-image: -webkit-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: -moz-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: -o-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: -ms-linear-gradient(#cbcbcb, #b1b1b1);
+  background-image: linear-gradient(#cbcbcb, #b1b1b1);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFCBCBCB', endColorstr='#FFB1B1B1');
+}
+/* line 312, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-total {
+  background: #9b9b9b;
+  background: #9b9b9b;
+  height: 5.7em;
+  left: 0.5em;
+  margin: 0;
+  position: absolute;
+  top: 1.2em;
+  width: 0.1em;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9b9b9b), color-stop(100%, #9b9b9b));
+  background-image: -webkit-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: -moz-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: -o-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: -ms-linear-gradient(#9b9b9b, #9b9b9b);
+  background-image: linear-gradient(#9b9b9b, #9b9b9b);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF9B9B9B', endColorstr='#FF9B9B9B');
+}
+/* line 317, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-current {
+  background: #52c4ed;
+  background: #27abdd;
+  height: 5.7em;
+  left: 0.5em;
+  margin: 0;
+  position: absolute;
+  top: 1.2em;
+  width: 0;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-top-left-radius: 2px;
+  -ms-border-top-left-radius: 2px;
+  -o-border-top-left-radius: 2px;
+  border-top-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -ms-border-bottom-left-radius: 2px;
+  -o-border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7edefd), color-stop(100%, #27abdd));
+  background-image: -webkit-linear-gradient(#7edefd, #27abdd);
+  background-image: -moz-linear-gradient(#7edefd, #27abdd);
+  background-image: -o-linear-gradient(#7edefd, #27abdd);
+  background-image: -ms-linear-gradient(#7edefd, #27abdd);
+  background-image: linear-gradient(#7edefd, #27abdd);
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF7EDEFD', endColorstr='#FF27ABDD');
+}
+/* line 322, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-handle {
+  display: none;
+}
+/* line 323, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus {
+  background: transparent url("controls-vbo-light/volume_+.svg") no-repeat;
+  background-size: contain;
+  height: 0.8em;
+  left: 0.1em;
+  position: absolute;
+  top: 0.1em;
+  width: 0.8em;
+}
+/* line 325, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus:focus {
+  background-color: #666666;
+}
+/* line 327, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus {
+  background: transparent url("controls-vbo-light/volume_-.svg") no-repeat;
+  background-size: contain;
+  bottom: 0.1em;
+  height: 0.8em;
+  left: 0.1em;
+  position: absolute;
+  width: 0.8em;
+}
+/* line 329, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus:focus {
+  background-color: #666666;
+}
+/* line 334, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal {
+  bottom: 1.950em;
+  height: 1.5em;
+  margin-left: -4.5em;
+  padding-bottom: 0.125em;
+  width: 7.6em;
+}
+/* line 336, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal:after {
+  background: transparent url("controls-vbo-light/volume_box_arrow.png") no-repeat;
+  content: '';
+  height: 7px;
+  position: absolute;
+  right: -45px;
+  top: 23px;
+  width: 5.900em;
+}
+/* line 338, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-total {
+  height: 0.813em;
+  left: 1.500em;
+  top: 0.5em;
+  width: 5.300em;
+}
+/* line 339, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-current {
+  height: 0.813em;
+  left: 1.500em;
+  top: 0.5em;
+  width: 5.300em;
+}
+/* line 340, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-handle {
+  cursor: e-resize;
+  height: 0.8em;
+  left: 1.1em;
+  top: 0.15em;
+  width: 6px;
+}
+/* line 341, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-plus {
+  left: 6.410em;
+  top: 0.325em;
+}
+/* line 342, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
+  left: 0.190em;
+  top: 0.325em;
+}
+/* line 347, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button {
+  position: relative;
+  top: 1px;
+}
+/* line 350, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button button {
+  background: transparent url("controls-vbo-light/caption2x.png") no-repeat;
+  background-size: contain;
+}
+/* line 352, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button button:focus {
+  background-color: #666666;
+}
+/* line 354, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button .activeButton {
+  background-color: #323232;
+}
+/* line 355, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button .mejs-captions-selector {
+  background: url("background.png");
+  background: rgba(50, 50, 50, 0.7);
+  border: solid 1px transparent;
+  bottom: 26px;
+  height: 100px;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  right: -10px;
+  visibility: hidden;
+  width: 130px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+/* line 359, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button .mejs-captions-selector ul {
+  display: block;
+  list-style-type: none !important;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+/* line 361, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button .mejs-captions-selector ul li {
+  display: block;
+  color: #fff;
+  list-style-type: none !important;
+  margin: 0 0 6px 0;
+  overflow: hidden;
+  padding: 0;
+}
+/* line 363, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button .mejs-captions-selector ul li input {
+  clear: both;
+  float: left;
+  margin: 3px 3px 0 5px;
+}
+/* line 364, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button .mejs-captions-selector ul li label {
+  font: 10px Arial, Helvetica, sans-serif;
+  float: left;
+  line-height: 15px;
+  padding: 4px 0 0 0;
+  width: 100px;
+}
+/* line 368, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-captions-button .mejs-captions-translations {
+  font-size: 10px;
+  margin: 0 0 5px 0;
+}
+
+/* line 371, sass/skin-vbo-light.scss */
+.mejs-chapters {
+  left: 0;
+  position: absolute;
+  top: 0;
+  -xborder-right: solid 1px #fff;
+  width: 10000px;
+}
+/* line 373, sass/skin-vbo-light.scss */
+.mejs-chapters .mejs-chapter {
+  background: black;
+  background: rgba(0, 0, 0, 0.7);
+  border: 0;
+  float: left;
+  overflow: hidden;
+  position: absolute;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(102, 102, 102, 0.7)), color-stop(100%, rgba(0, 0, 0, 0.7)));
+  background-image: -webkit-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
+  background-image: -moz-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
+  background-image: -o-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
+  background-image: -ms-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
+  background-image: linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF666666', endColorstr='#FF000000');
+}
+/* line 378, sass/skin-vbo-light.scss */
+.mejs-chapters .mejs-chapter .mejs-chapter-block {
+  border-bottom: solid 1px #333;
+  border-right: solid 1px #333;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-size: 0.688em;
+  padding: 5px;
+}
+/* line 379, sass/skin-vbo-light.scss */
+.mejs-chapters .mejs-chapter .mejs-chapter-block-last {
+  border-right: none;
+}
+/* line 381, sass/skin-vbo-light.scss */
+.mejs-chapters .mejs-chapter .mejs-chapter-block:hover {
+  background: #323232;
+  background: rgba(50, 50, 50, 0.6);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(102, 102, 102, 0.6)), color-stop(100%, rgba(50, 50, 50, 0.6)));
+  background-image: -webkit-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
+  background-image: -moz-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
+  background-image: -o-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
+  background-image: -ms-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
+  background-image: linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF666666', endColorstr='#FF323232');
+}
+/* line 386, sass/skin-vbo-light.scss */
+.mejs-chapters .mejs-chapter .mejs-chapter-block .ch-title {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 12px;
+  margin: 0 0 3px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 387, sass/skin-vbo-light.scss */
+.mejs-chapters .mejs-chapter .mejs-chapter-block .ch-timespan {
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+  margin: 3px 0 4px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 391, sass/skin-vbo-light.scss */
+.mejs-captions-layer {
+  bottom: 0;
+  color: #fff;
+  font-size: 1em;
+  left: 0;
+  line-height: 1.575em;
+  position: absolute;
+  text-align: center;
+}
+/* line 393, sass/skin-vbo-light.scss */
+.mejs-captions-layer a {
+  color: #fff;
+  text-decoration: underline;
+}
+/* line 394, sass/skin-vbo-light.scss */
+.mejs-captions-layer[lang=ar] {
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
+/* line 396, sass/skin-vbo-light.scss */
+.mejs-captions-position {
+  bottom: 2em;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* line 397, sass/skin-vbo-light.scss */
+.mejs-captions-position-hover {
+  bottom: 2.5em;
+}
+
+/* line 398, sass/skin-vbo-light.scss */
+.mejs-captions-text {
+  background: url("background.png");
+  background: rgba(20, 20, 20, 0.8);
+  padding: 3px 5px;
+}
+
+/* line 399, sass/skin-vbo-light.scss */
+.mejs-clear {
+  clear: both;
+}
+
+/* line 401, sass/skin-vbo-light.scss */
+.me-cannotplay a {
+  color: #fff;
+  font-weight: bold;
+}
+/* line 402, sass/skin-vbo-light.scss */
+.me-cannotplay span {
+  display: block;
+  padding: 15px;
+}
+
+/* line 405, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-loop-off button {
+  background: transparent url("controls-vbo-light/loopoff.svg") no-repeat;
+  background-size: contain;
+}
+/* line 406, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-loop-on button {
+  background: transparent url("controls-vbo-light/loopon.svg") no-repeat;
+  background-size: contain;
+}
+/* line 407, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-backlight-off button {
+  background: transparent url("controls-vbo-light/backlightoff.svg") no-repeat;
+  background-size: contain;
+}
+/* line 408, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-backlight-on button {
+  background: transparent url("controls-vbo-light/backlighton.svg") no-repeat;
+  background-size: contain;
+}
+/* line 409, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-picturecontrols-button {
+  background: transparent url("controls-vbo-light/picturecontrols.svg") no-repeat;
+  background-size: contain;
+}
+
+/* line 411, sass/skin-vbo-light.scss */
+.mejs-contextmenu {
+  background: #fff;
+  border: solid 1px #999;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  width: 150px;
+  z-index: 1001;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  /* make sure it shows on fullscreen */
+}
+/* line 416, sass/skin-vbo-light.scss */
+.mejs-contextmenu .mejs-contextmenu-separator {
+  background: #333;
+  height: 1px;
+  font-size: 0;
+  margin: 5px 6px;
+}
+/* line 417, sass/skin-vbo-light.scss */
+.mejs-contextmenu .mejs-contextmenu-item {
+  color: #333;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75em;
+  padding: 4px 6px;
+}
+/* line 419, sass/skin-vbo-light.scss */
+.mejs-contextmenu .mejs-contextmenu-item:hover {
+  background: #2C7C91;
+  color: #fff;
+}
+
+/* line 422, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-sourcechooser-button {
+  position: relative;
+}
+
+/* line 423, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-sourcechooser-button button {
+  background-position: -128px 0;
+}
+
+/* line 424, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
+  background: url("background.png");
+  background: rgba(50, 50, 50, 0.7);
+  border: solid 1px transparent;
+  bottom: 26px;
+  height: 100px;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  right: -10px;
+  visibility: hidden;
+  width: 130px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+}
+
+/* line 428, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul {
+  display: block;
+  list-style-type: none !important;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* line 429, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li {
+  color: #fff;
+  display: block;
+  list-style-type: none !important;
+  margin: 0 0 6px 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* line 430, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input {
+  clear: both;
+  float: left;
+  margin: 3px 3px 0 5px;
+}
+
+/* line 431, sass/skin-vbo-light.scss */
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label {
+  float: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.625em;
+  line-height: 0.9375em;
+  padding: 4px 0 0 0;
+  width: 100px;
+}
+
+/* line 435, sass/skin-vbo-light.scss */
+.no-svg .mejs-tooltip {
+  background: url(05tooltip.png) no-repeat center center;
+}
+/* line 437, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-play button {
+  background: url("controls-vbo-light/play.png") no-repeat center center;
+}
+/* line 438, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-pause button {
+  background: url("controls-vbo-light/pause.png") no-repeat center center;
+}
+/* line 439, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-stop button {
+  background: url("controls-vbo-light/stop.png") no-repeat center center;
+}
+/* line 440, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-fullscreen-button button {
+  background: url("controls-vbo-light/fullscreen.png") no-repeat center center;
+}
+/* line 441, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-unfullscreen button {
+  background: url("controls-vbo-light/unfullscreen.png") no-repeat center center;
+}
+/* line 442, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-mute button {
+  background: url("controls-vbo-light/mute.png") no-repeat center center;
+}
+/* line 443, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-unmute button {
+  background: url("controls-vbo-light/unmute.png") no-repeat center center;
+}
+/* line 444, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-captions-button {
+  position: relative;
+}
+/* line 446, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-captions-button button {
+  background: transparent url("controls-vbo-light/caption.png") no-repeat center center;
+}
+/* line 448, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-loop-off button {
+  background: transparent url("controls-vbo-light/loopoff.png") no-repeat center center;
+}
+/* line 449, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-loop-on button {
+  background: transparent url("controls-vbo-light/loopon.png") no-repeat center center;
+}
+/* line 450, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-backlight-off button {
+  background: transparent url("controls-vbo-light/backlightoff.png") no-repeat center center;
+}
+/* line 451, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-backlight-on button {
+  background: transparent url("controls-vbo-light/backlighton.png") no-repeat center center;
+}
+/* line 452, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-picturecontrols-button {
+  background: transparent url("controls-vbo-light/picturecontrols.png") no-repeat center center;
+}
+/* line 454, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
+  background: transparent url("controls-vbo-light/rail_-.png") no-repeat center center;
+  background-color: transparent;
+}
+/* line 455, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-time-rail .mejs-time-handle-forward {
+  background: transparent url("controls-vbo-light/rail_+.png") no-repeat center center;
+  background-color: transparent;
+}
+/* line 458, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal {
+  background-color: #222222;
+}
+/* line 460, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-plus {
+  background: transparent url("controls-vbo-light/volume_+.png") no-repeat center center;
+  background-color: black;
+}
+/* line 461, sass/skin-vbo-light.scss */
+.no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
+  background: transparent url("controls-vbo-light/volume_-.png") no-repeat center center;
+  background-color: black;
+}
+/* line 468, sass/skin-vbo-light.scss */
+.no-svg .mejs-playpause-button,
+.no-svg .mejs-duration-container,
+.no-svg .mejs-captions-button,
+.no-svg .mejs-volume-button {
+  position: relative;
+}
+/* line 470, sass/skin-vbo-light.scss */
+.no-svg .mejs-playpause-button:after,
+.no-svg .mejs-duration-container:after,
+.no-svg .mejs-captions-button:after,
+.no-svg .mejs-volume-button:after {
+  right: 0;
+  top: -5px;
+  background: url("controls-vbo-light/bkg-separator.png") repeat-y;
+  content: '';
+  height: 1.188em;
+  padding: 5px 0;
+  position: absolute;
+  width: 0.125em;
+}
+/* line 472, sass/skin-vbo-light.scss */
+.no-svg .mejs-duration-container span:after {
+  position: static;
+}
+
+/* line 476, sass/skin-vbo-light.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/* line 479, sass/skin-vbo-light.scss */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* line 483, sass/skin-vbo-light.scss */
+.invisible {
+  display: none;
+}
