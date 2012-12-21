@@ -2253,7 +2253,11 @@ if (typeof jQuery != 'undefined') {
 
 				// adjust controls whenever window sizes (used to be in fullscreen only)
 				$(window).resize(function() {
-
+					
+					if(t.ieFullScreen){
+						t.fullscreenBtn.trigger('click');
+					}
+					
 					// don't resize for fullscreen mode
 					if ( !(t.isFullScreen || (mejs.MediaFeatures.hasTrueNativeFullScreen && document.webkitIsFullScreen)) ) {
 						t.setPlayerSize(t.width, t.height);
@@ -3582,7 +3586,53 @@ if (typeof jQuery != 'undefined') {
 					} else {
 
 						// the hover state will show the fullscreen button in Flash to hover up and click
-
+						
+						fullscreenBtn.click(function() {
+							
+							//$('.mejs-controls').hide();
+							
+							if (hideTimeout !== null) {
+								clearTimeout(hideTimeout);
+								delete hideTimeout;
+							}
+							//$('#main').css('overflow','visible');
+							var controlsH = $('.mejs-controls').outerHeight(true);
+							
+							setTimeout(function(){
+								var mediaW = $(window).width();
+								var mediaH = $(window).height() - controlsH;
+								
+								$('#application').css({
+									'position':'absolute',
+									'width':mediaW,
+									'height':mediaH,
+									'z-index':'100',
+									'top':0,
+									'left':0
+								});
+								
+								var mediaL = $('#application').offset().left;
+								var mediaT = $('#application').offset().top;
+								
+								$('#application').css({
+									'margin-left':'-'+mediaL+'px',
+									'margin-top':'-'+mediaT+'px'
+								});
+								
+								t.setPlayerSize(mediaW, mediaH);
+								
+								t.ieFullScreen = true;
+								media.setVideoSize(mediaW,mediaH);
+								media.enterFullScreen();
+								
+							},300);
+							
+							$('body').css({
+								'overflow':'hidden'
+							});
+							
+						});
+						
 						fullscreenBtn
 							.mouseover(function() {
 
@@ -4352,9 +4402,9 @@ $.extend(mejs.MepDefaults,
 					return null;
 
 				if (player.isFullScreen) {
-					return "Turn off Fullscreen";
+					return "Désactiver plein écran";
 				} else {
-					return "Go Fullscreen";
+					return "Activer plein écran";
 				}
 			},
 			click: function(player) {
@@ -4370,9 +4420,9 @@ $.extend(mejs.MepDefaults,
 		{
 			render: function(player) {
 				if (player.media.muted) {
-					return "Unmute";
+					return "Désactiver volume";
 				} else {
-					return "Mute";
+					return "Activer volume";
 				}
 			},
 			click: function(player) {
@@ -4391,7 +4441,7 @@ $.extend(mejs.MepDefaults,
 		// demo of simple download video
 		{
 			render: function(player) {
-				return "Download Video";
+				return "Télécharger la vidéo";
 			},
 			click: function(player) {
 				window.location.href = player.media.currentSrc;

@@ -243,7 +243,51 @@
 					} else {
 
 						// the hover state will show the fullscreen button in Flash to hover up and click
+						
+						/*fullscreenBtn.click(function() {
+														
+							if (hideTimeout !== null) {
+								clearTimeout(hideTimeout);
+								delete hideTimeout;
+							}
 
+							var controlsH = $('.mejs-controls').outerHeight(true);
+							
+							setTimeout(function(){
+								var mediaW = $(window).width();
+								var mediaH = $(window).height() - controlsH;
+								
+								$('#application').css({
+									'position':'absolute',
+									'width':mediaW,
+									'height':mediaH,
+									'z-index':'100',
+									'top':0,
+									'left':0
+								});
+								
+								var mediaL = $('#application').offset().left;
+								var mediaT = $('#application').offset().top;
+								
+								$('#application').css({
+									'margin-left':'-'+mediaL+'px',
+									'margin-top':'-'+mediaT+'px'
+								});
+								
+								t.setPlayerSize(mediaW, mediaH);
+								
+								t.ieFullScreen = true;
+								media.setVideoSize(mediaW,mediaH);
+								media.enterFullScreen();
+								
+							},300);
+							
+							$('body').css({
+								'overflow':'hidden'
+							});
+							
+						});*/
+						
 						fullscreenBtn
 							.mouseover(function() {
 

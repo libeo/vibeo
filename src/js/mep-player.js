@@ -698,7 +698,11 @@
 
 				// adjust controls whenever window sizes (used to be in fullscreen only)
 				$(window).resize(function() {
-
+					
+					if(t.ieFullScreen){
+						t.fullscreenBtn.trigger('click');
+					}
+					
 					// don't resize for fullscreen mode
 					if ( !(t.isFullScreen || (mejs.MediaFeatures.hasTrueNativeFullScreen && document.webkitIsFullScreen)) ) {
 						t.setPlayerSize(t.width, t.height);
