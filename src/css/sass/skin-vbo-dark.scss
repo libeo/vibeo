@@ -138,8 +138,8 @@ $chapter-hover-opacity: 0.6;
   @include filter-gradient( $start, $end );  
 }
 
-@mixin vibeoLoadSvg( $svgUrl ) {
-  background: transparent url( $svgUrl ) no-repeat; background-size: contain;
+@mixin vibeoLoadSvg( $svgUrl, $pos:"" ) {
+  background: transparent url( $svgUrl ) no-repeat #{$pos}; background-size: contain;
   &:focus { background-color: $buttons-focus-bg; }
 }
 
@@ -214,8 +214,13 @@ $chapter-hover-opacity: 0.6;
   .mejs-time-rail { padding: 0; }
   .mejs-time {
     color: $font-main-color; text-align: center;    
-    span { color: $font-main-color; font-size: $font-main-size; font-weight: $font-main-weight; } 
-  } 
+    span { color: $font-main-color; font-size: $font-main-size; font-weight: bold; }
+    .mejs-currenttime,
+    .mejs-duration{
+      position: relative;
+      bottom: 1px;
+    }
+  }
 }
 
 //Tooltip
@@ -233,10 +238,10 @@ $chapter-hover-opacity: 0.6;
   .mejs-play button { @include vibeoLoadSvg( $svg-play ); }
   .mejs-pause button { @include vibeoLoadSvg( $svg-pause ); }
   .mejs-stop button { @include vibeoLoadSvg( $svg-stop ); }
-  .mejs-fullscreen-button button { @include vibeoLoadSvg( $svg-fullscreen ); }
-  .mejs-unfullscreen button { @include vibeoLoadSvg( $svg-unfullscreen ); }
-  .mejs-mute button { @include vibeoLoadSvg( $svg-mute ); }
-  .mejs-unmute button { @include vibeoLoadSvg( $svg-unmute ); }
+  .mejs-fullscreen-button button { @include vibeoLoadSvg( $svg-fullscreen, "center 1px" ); }
+  .mejs-unfullscreen button { @include vibeoLoadSvg( $svg-unfullscreen, "center 1px" ); }
+  .mejs-mute button { @include vibeoLoadSvg( $svg-mute, "center -1px" ); }
+  .mejs-unmute button { @include vibeoLoadSvg( $svg-unmute, "center -1px" ); }
   .mejs-playpause-button button {
       position: relative;
       &:after { @include vibeoSeparatorAfter( -6px, -6px ); }
@@ -292,7 +297,7 @@ $chapter-hover-opacity: 0.6;
       background: transparent url( $svg-rail-forward ) no-repeat; background-color: $time-nav-bg; background-size: contain; height: 0.8em; position: absolute; right: -1em; top: -0.2em; width: 0.8em;
       &:focus { background-color: $buttons-focus-bg; }
     }
-    .mejs-time-float { background: #eee; border: solid 1px #333; color: #111; display: none; height: auto; left: 0; margin-left: -1.49em; padding: 0.2em 0.2em 0; position: absolute; text-align: center; top: -2.20em; width: auto; }
+    .mejs-time-float { background: #eee; border: none; color: #111; display: none; height: auto; left: 0; margin-left: -1.49em; padding: 0.2em 0.3em; position: absolute; text-align: center; top: -2.20em; width: auto; }
     .mejs-time-float-current { display: block; height: auto; text-align: center; width: auto; }
     .mejs-time-float-corner {
       border: solid 0.35em #eee; border-color: #eee transparent transparent transparent; bottom: -0.57em; display: block; height: 0; left: 50%; line-height: 0; margin-left: -0.3em; position: absolute; width: 0;
@@ -332,7 +337,7 @@ $chapter-hover-opacity: 0.6;
 
     /*horizontal version*/
     .mejs-volume-slider.horizontal {
-      bottom: 1.950em; height: 1.5em; margin-left: -4.5em; padding-bottom: 0.125em; width: 7.6em;
+      bottom: 2.2em; height: 1.5em; margin-left: -4.5em; padding-bottom: 0.125em; width: 7.6em;
       &:after { background: transparent url($volume-arrow-img) no-repeat; content: ''; height: 7px; position: absolute; right: -45px; top: 23px; width: 5.900em; }
       
       .mejs-volume-total { height: 0.813em; left: 1.500em; padding: 1px 0; top: 0.450em; width: 5.300em; }

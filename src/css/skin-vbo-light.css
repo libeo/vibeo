@@ -1,26 +1,41 @@
-/* line 174, sass/skin-vbo-light.scss */
+/* line 175, sass/skin-vbo-light.scss */
+:focus {
+  outline: none;
+  -moz-appearance: none;
+  background-color: transparent;
+}
+
+/* line 176, sass/skin-vbo-light.scss */
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  -moz-appearance: none;
+  background-color: transparent;
+}
+
+/* line 178, sass/skin-vbo-light.scss */
 .mejs-time-float-current {
   font-size: 0.688em;
 }
 
-/* line 175, sass/skin-vbo-light.scss */
+/* line 179, sass/skin-vbo-light.scss */
 .mejs-time-total {
   border: 1px solid #9b9b9b;
 }
 
-/* line 176, sass/skin-vbo-light.scss */
+/* line 180, sass/skin-vbo-light.scss */
 .mejs-container {
   background: #000;
   font: 1.1em Arial, Helvetica, sans-serif;
   position: relative;
 }
 
-/* line 177, sass/skin-vbo-light.scss */
+/* line 181, sass/skin-vbo-light.scss */
 .me-plugin {
   position: absolute;
 }
 
-/* line 178, sass/skin-vbo-light.scss */
+/* line 182, sass/skin-vbo-light.scss */
 .mejs-embed {
   background: #000;
   height: 100%;
@@ -29,7 +44,7 @@
   padding: 0;
   width: 100%;
 }
-/* line 180, sass/skin-vbo-light.scss */
+/* line 184, sass/skin-vbo-light.scss */
 .mejs-embed body {
   background: #000;
   height: 100%;
@@ -39,7 +54,7 @@
   width: 100%;
 }
 
-/* line 182, sass/skin-vbo-light.scss */
+/* line 186, sass/skin-vbo-light.scss */
 .mejs-container-fullscreen {
   bottom: 0;
   left: 0;
@@ -49,20 +64,20 @@
   top: 0;
   z-index: 1000;
 }
-/* line 184, sass/skin-vbo-light.scss */
+/* line 188, sass/skin-vbo-light.scss */
 .mejs-container-fullscreen .mejs-mediaelement, .mejs-container-fullscreen video {
   width: 100%;
   height: 100%;
 }
 
-/* line 186, sass/skin-vbo-light.scss */
+/* line 190, sass/skin-vbo-light.scss */
 .mejs-background {
   left: 0;
   position: absolute;
   top: 0;
 }
 
-/* line 187, sass/skin-vbo-light.scss */
+/* line 191, sass/skin-vbo-light.scss */
 .mejs-mediaelement {
   height: 100%;
   left: 0;
@@ -71,36 +86,36 @@
   width: 100%;
 }
 
-/* line 188, sass/skin-vbo-light.scss */
+/* line 192, sass/skin-vbo-light.scss */
 .mejs-poster {
   left: 0;
   position: absolute;
   top: 0;
 }
-/* line 190, sass/skin-vbo-light.scss */
+/* line 194, sass/skin-vbo-light.scss */
 .mejs-poster img {
   border: 0;
   display: block;
   padding: 0;
 }
 
-/* line 192, sass/skin-vbo-light.scss */
+/* line 196, sass/skin-vbo-light.scss */
 .mejs-overlay {
   left: 0;
   position: absolute;
   top: 0;
 }
-/* line 194, sass/skin-vbo-light.scss */
+/* line 198, sass/skin-vbo-light.scss */
 .mejs-overlay:hover .mejs-overlay-button {
   background-position: 0 -100px;
 }
 
-/* line 196, sass/skin-vbo-light.scss */
+/* line 200, sass/skin-vbo-light.scss */
 .mejs-overlay-play {
   cursor: pointer;
 }
 
-/* line 197, sass/skin-vbo-light.scss */
+/* line 201, sass/skin-vbo-light.scss */
 .mejs-overlay-button {
   background: url("bigplay.png") no-repeat;
   height: 100px;
@@ -111,7 +126,7 @@
   width: 100px;
 }
 
-/* line 198, sass/skin-vbo-light.scss */
+/* line 202, sass/skin-vbo-light.scss */
 .mejs-overlay-loading {
   background: #191919;
   background: rgba(0, 0, 0, 0.9);
@@ -125,12 +140,11 @@
   background-image: -webkit-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   background-image: -moz-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   background-image: -o-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
-  background-image: -ms-linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   background-image: linear-gradient(rgba(50, 50, 50, 0.9), rgba(0, 0, 0, 0.9));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF323232', endColorstr='#FF000000');
 }
-/* line 202, sass/skin-vbo-light.scss */
+/* line 206, sass/skin-vbo-light.scss */
 .mejs-overlay-loading span {
   background: transparent url("loading.gif") 50% 50% no-repeat;
   display: block;
@@ -138,21 +152,17 @@
   width: 80px;
 }
 
-/* line 204, sass/skin-vbo-light.scss */
+/* line 208, sass/skin-vbo-light.scss */
 .mejs-container, .mejs-controls {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
-  -ms-border-bottom-left-radius: 5px;
-  -o-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
-  -ms-border-bottom-right-radius: 5px;
-  -o-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-/* line 205, sass/skin-vbo-light.scss */
+/* line 209, sass/skin-vbo-light.scss */
 .mejs-container .mejs-controls {
   background: none;
   background: #b1b1b1;
@@ -167,12 +177,11 @@
   background-image: -webkit-linear-gradient(#cbcbcb, #b1b1b1);
   background-image: -moz-linear-gradient(#cbcbcb, #b1b1b1);
   background-image: -o-linear-gradient(#cbcbcb, #b1b1b1);
-  background-image: -ms-linear-gradient(#cbcbcb, #b1b1b1);
   background-image: linear-gradient(#cbcbcb, #b1b1b1);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFCBCBCB', endColorstr='#FFB1B1B1');
 }
-/* line 209, sass/skin-vbo-light.scss */
+/* line 213, sass/skin-vbo-light.scss */
 .mejs-container .mejs-controls div {
   background: 0;
   background-image: none;
@@ -185,7 +194,7 @@
   vertical-align: middle;
 }
 
-/* line 211, sass/skin-vbo-light.scss */
+/* line 215, sass/skin-vbo-light.scss */
 .mejs-controls button, .mejs-tooltip button {
   border: 0;
   cursor: pointer;
@@ -198,36 +207,42 @@
   width: 1.1em;
 }
 
-/* line 213, sass/skin-vbo-light.scss */
+/* line 217, sass/skin-vbo-light.scss */
 .mejs-container .mejs-controls > div {
   display: table-cell;
   padding: 0 8px;
   text-align: center;
 }
-/* line 214, sass/skin-vbo-light.scss */
+/* line 218, sass/skin-vbo-light.scss */
 .mejs-container .mejs-controls .mejs-time-rail {
   padding: 0;
 }
-/* line 215, sass/skin-vbo-light.scss */
+/* line 219, sass/skin-vbo-light.scss */
 .mejs-container .mejs-controls .mejs-time {
   color: #222222;
   text-align: center;
 }
-/* line 217, sass/skin-vbo-light.scss */
+/* line 221, sass/skin-vbo-light.scss */
 .mejs-container .mejs-controls .mejs-time span {
   color: #222222;
   font-size: 0.688em;
-  font-weight: normal;
+  font-weight: bold;
+}
+/* line 223, sass/skin-vbo-light.scss */
+.mejs-container .mejs-controls .mejs-time .mejs-currenttime,
+.mejs-container .mejs-controls .mejs-time .mejs-duration {
+  position: relative;
+  bottom: 1px;
 }
 
-/* line 222, sass/skin-vbo-light.scss */
+/* line 231, sass/skin-vbo-light.scss */
 .mejs-tooltip {
   position: absolute;
   right: 5px;
   top: 5px;
   z-index: 1000;
 }
-/* line 224, sass/skin-vbo-light.scss */
+/* line 233, sass/skin-vbo-light.scss */
 .mejs-tooltip button {
   background: transparent url("controls-vbo-light/tooltip.svg") no-repeat;
   filter: alpha(opacity=20);
@@ -238,13 +253,13 @@
   top: 5px;
   width: 0.6em;
 }
-/* line 226, sass/skin-vbo-light.scss */
+/* line 235, sass/skin-vbo-light.scss */
 .mejs-tooltip button:focus, .mejs-tooltip button:hover {
   filter: alpha(opacity=100);
   opacity: 1;
 }
 
-/* line 229, sass/skin-vbo-light.scss */
+/* line 238, sass/skin-vbo-light.scss */
 .bubble-text {
   background-color: #222222;
   border-radius: 10px;
@@ -261,78 +276,78 @@
   z-index: 1001;
 }
 
-/* line 232, sass/skin-vbo-light.scss */
+/* line 241, sass/skin-vbo-light.scss */
 .mejs-controls {
   /* End: TRACK (Captions and Chapters) */
 }
-/* line 233, sass/skin-vbo-light.scss */
+/* line 242, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-play button {
-  background: transparent url("controls-vbo-light/play.svg") no-repeat;
+  background: transparent url("controls-vbo-light/play.svg") no-repeat ;
   background-size: contain;
 }
 /* line 143, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-play button:focus {
   background-color: #666666;
 }
-/* line 234, sass/skin-vbo-light.scss */
+/* line 243, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-pause button {
-  background: transparent url("controls-vbo-light/pause.svg") no-repeat;
+  background: transparent url("controls-vbo-light/pause.svg") no-repeat ;
   background-size: contain;
 }
 /* line 143, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-pause button:focus {
   background-color: #666666;
 }
-/* line 235, sass/skin-vbo-light.scss */
+/* line 244, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-stop button {
-  background: transparent url("controls-vbo-light/stop.svg") no-repeat;
+  background: transparent url("controls-vbo-light/stop.svg") no-repeat ;
   background-size: contain;
 }
 /* line 143, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-stop button:focus {
   background-color: #666666;
 }
-/* line 236, sass/skin-vbo-light.scss */
+/* line 245, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-fullscreen-button button {
-  background: transparent url("controls-vbo-light/fullscreen.svg") no-repeat;
+  background: transparent url("controls-vbo-light/fullscreen.svg") no-repeat ;
   background-size: contain;
 }
 /* line 143, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-fullscreen-button button:focus {
   background-color: #666666;
 }
-/* line 237, sass/skin-vbo-light.scss */
+/* line 246, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-unfullscreen button {
-  background: transparent url("controls-vbo-light/unfullscreen.svg") no-repeat;
+  background: transparent url("controls-vbo-light/unfullscreen.svg") no-repeat ;
   background-size: contain;
 }
 /* line 143, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-unfullscreen button:focus {
   background-color: #666666;
 }
-/* line 238, sass/skin-vbo-light.scss */
+/* line 247, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-mute button {
-  background: transparent url("controls-vbo-light/mute.svg") no-repeat;
+  background: transparent url("controls-vbo-light/mute.svg") no-repeat ;
   background-size: contain;
 }
 /* line 143, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-mute button:focus {
   background-color: #666666;
 }
-/* line 239, sass/skin-vbo-light.scss */
+/* line 248, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-unmute button {
-  background: transparent url("controls-vbo-light/unmute.svg") no-repeat;
+  background: transparent url("controls-vbo-light/unmute.svg") no-repeat ;
   background-size: contain;
 }
 /* line 143, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-unmute button:focus {
   background-color: #666666;
 }
-/* line 240, sass/skin-vbo-light.scss */
+/* line 249, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-playpause-button button {
   position: relative;
 }
-/* line 242, sass/skin-vbo-light.scss */
+/* line 251, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-playpause-button button:after {
   right: -6px;
   top: -6px;
@@ -343,11 +358,11 @@
   position: absolute;
   width: 0.125em;
 }
-/* line 244, sass/skin-vbo-light.scss */
+/* line 253, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button > button {
   position: relative;
 }
-/* line 246, sass/skin-vbo-light.scss */
+/* line 255, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button > button:after {
   right: -11px;
   top: -8px;
@@ -358,11 +373,11 @@
   position: absolute;
   width: 0.125em;
 }
-/* line 248, sass/skin-vbo-light.scss */
+/* line 257, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button button {
   position: relative;
 }
-/* line 250, sass/skin-vbo-light.scss */
+/* line 259, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button button:after {
   right: -11px;
   top: -7px;
@@ -373,7 +388,7 @@
   position: absolute;
   width: 0.125em;
 }
-/* line 251, sass/skin-vbo-light.scss */
+/* line 260, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button button:before {
   left: -10px;
   top: -7px;
@@ -384,7 +399,7 @@
   position: absolute;
   width: 0.125em;
 }
-/* line 253, sass/skin-vbo-light.scss */
+/* line 262, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail {
   width: 100%;
   @-webkit-keyframes buffering-stripes {
@@ -448,7 +463,7 @@
 }
 
 }
-/* line 257, sass/skin-vbo-light.scss */
+/* line 266, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail span {
   cursor: pointer;
   display: block;
@@ -460,17 +475,17 @@
   -o-border-radius: 0;
   border-radius: 0;
 }
-/* line 261, sass/skin-vbo-light.scss */
+/* line 270, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail > span {
   position: relative;
 }
-/* line 263, sass/skin-vbo-light.scss */
+/* line 272, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail > span > span {
   left: 0;
   position: absolute;
   top: 0;
 }
-/* line 265, sass/skin-vbo-light.scss */
+/* line 274, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-total {
   background: #9b9b9b;
   background: #9b9b9b;
@@ -479,12 +494,11 @@
   background-image: -webkit-linear-gradient(#9b9b9b, #9b9b9b);
   background-image: -moz-linear-gradient(#9b9b9b, #9b9b9b);
   background-image: -o-linear-gradient(#9b9b9b, #9b9b9b);
-  background-image: -ms-linear-gradient(#9b9b9b, #9b9b9b);
   background-image: linear-gradient(#9b9b9b, #9b9b9b);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF9B9B9B', endColorstr='#FF9B9B9B');
 }
-/* line 269, sass/skin-vbo-light.scss */
+/* line 278, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-buffering {
   background: rgba(255, 255, 255, 0.15);
   width: 100%;
@@ -492,12 +506,11 @@
   background-image: -webkit-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   background-image: -moz-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   background-image: -o-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
-  background-image: -ms-linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   background-image: linear-gradient(rgba(221, 221, 221, 0.2), rgba(221, 221, 221, 0.2));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFDDDDDD', endColorstr='#FFDDDDDD');
 }
-/* line 274, sass/skin-vbo-light.scss */
+/* line 283, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-current {
   background-size: 15px 15px;
   -webkit-background-size: 15px 15px;
@@ -509,7 +522,7 @@
   -ms-animation: buffering-stripes 2s linear infinite;
   -o-animation: buffering-stripes 2s linear infinite;
 }
-/* line 275, sass/skin-vbo-light.scss */
+/* line 284, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
   background: #5b5b5b;
   background: #5b5b5b;
@@ -518,12 +531,11 @@
   background-image: -webkit-linear-gradient(#5b5b5b, #5b5b5b);
   background-image: -moz-linear-gradient(#5b5b5b, #5b5b5b);
   background-image: -o-linear-gradient(#5b5b5b, #5b5b5b);
-  background-image: -ms-linear-gradient(#5b5b5b, #5b5b5b);
   background-image: linear-gradient(#5b5b5b, #5b5b5b);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF5B5B5B', endColorstr='#FF5B5B5B');
 }
-/* line 279, sass/skin-vbo-light.scss */
+/* line 288, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-current {
   background: #52c4ed;
   background: #27abdd;
@@ -532,12 +544,11 @@
   background-image: -webkit-linear-gradient(#7edefd, #27abdd);
   background-image: -moz-linear-gradient(#7edefd, #27abdd);
   background-image: -o-linear-gradient(#7edefd, #27abdd);
-  background-image: -ms-linear-gradient(#7edefd, #27abdd);
   background-image: linear-gradient(#7edefd, #27abdd);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF7EDEFD', endColorstr='#FF27ABDD');
 }
-/* line 283, sass/skin-vbo-light.scss */
+/* line 292, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle {
   background: #fff;
   border: 0;
@@ -554,7 +565,7 @@
   -o-border-radius: 0;
   border-radius: 0;
 }
-/* line 287, sass/skin-vbo-light.scss */
+/* line 296, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
   background: transparent url("controls-vbo-light/rail_-.svg") no-repeat;
   background-color: transparent;
@@ -565,11 +576,11 @@
   top: -0.2em;
   width: 0.8em;
 }
-/* line 289, sass/skin-vbo-light.scss */
+/* line 298, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-rewind:focus {
   background-color: #666666;
 }
-/* line 291, sass/skin-vbo-light.scss */
+/* line 300, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-forward {
   background: transparent url("controls-vbo-light/rail_+.svg") no-repeat;
   background-color: transparent;
@@ -580,36 +591,36 @@
   top: -0.2em;
   width: 0.8em;
 }
-/* line 293, sass/skin-vbo-light.scss */
+/* line 302, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-forward:focus {
   background-color: #666666;
 }
-/* line 295, sass/skin-vbo-light.scss */
+/* line 304, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-float {
   background: #eee;
-  border: solid 1px #333;
+  border: none;
   color: #111;
   display: none;
   height: auto;
   left: 0;
   margin-left: -1.49em;
-  padding: 0.2em 0.2em 0;
+  padding: 0.2em 0.3em;
   position: absolute;
   text-align: center;
-  top: -2.2em;
+  top: -2.20em;
   width: auto;
 }
-/* line 296, sass/skin-vbo-light.scss */
+/* line 305, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-float-current {
   display: block;
   height: auto;
   text-align: center;
   width: auto;
 }
-/* line 297, sass/skin-vbo-light.scss */
+/* line 306, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-time-rail .mejs-time-float-corner {
-  border: solid 0.35em #eee;
-  border-color: #eee transparent transparent transparent;
+  border: solid 0.35em #eeeeee;
+  border-color: #eeeeee transparent transparent transparent;
   bottom: -0.57em;
   display: block;
   height: 0;
@@ -624,13 +635,13 @@
   -o-border-radius: 0;
   border-radius: 0;
 }
-/* line 303, sass/skin-vbo-light.scss */
+/* line 312, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button {
   position: relative;
   top: 0.125em;
   /*horizontal version*/
 }
-/* line 305, sass/skin-vbo-light.scss */
+/* line 314, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button:hover {
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
@@ -638,7 +649,7 @@
   -o-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
 }
-/* line 306, sass/skin-vbo-light.scss */
+/* line 315, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider {
   bottom: 1em;
   display: none;
@@ -656,12 +667,11 @@
   background-image: -webkit-linear-gradient(#cbcbcb, #b1b1b1);
   background-image: -moz-linear-gradient(#cbcbcb, #b1b1b1);
   background-image: -o-linear-gradient(#cbcbcb, #b1b1b1);
-  background-image: -ms-linear-gradient(#cbcbcb, #b1b1b1);
   background-image: linear-gradient(#cbcbcb, #b1b1b1);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFCBCBCB', endColorstr='#FFB1B1B1');
 }
-/* line 312, sass/skin-vbo-light.scss */
+/* line 321, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-total {
   background: #9b9b9b;
   background: #9b9b9b;
@@ -680,12 +690,11 @@
   background-image: -webkit-linear-gradient(#9b9b9b, #9b9b9b);
   background-image: -moz-linear-gradient(#9b9b9b, #9b9b9b);
   background-image: -o-linear-gradient(#9b9b9b, #9b9b9b);
-  background-image: -ms-linear-gradient(#9b9b9b, #9b9b9b);
   background-image: linear-gradient(#9b9b9b, #9b9b9b);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF9B9B9B', endColorstr='#FF9B9B9B');
 }
-/* line 317, sass/skin-vbo-light.scss */
+/* line 326, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-current {
   background: #52c4ed;
   background: #27abdd;
@@ -697,28 +706,23 @@
   width: 0;
   -moz-border-radius-topleft: 1px;
   -webkit-border-top-left-radius: 1px;
-  -ms-border-top-left-radius: 1px;
-  -o-border-top-left-radius: 1px;
   border-top-left-radius: 1px;
   -moz-border-radius-bottomleft: 1px;
   -webkit-border-bottom-left-radius: 1px;
-  -ms-border-bottom-left-radius: 1px;
-  -o-border-bottom-left-radius: 1px;
   border-bottom-left-radius: 1px;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7edefd), color-stop(100%, #27abdd));
   background-image: -webkit-linear-gradient(#7edefd, #27abdd);
   background-image: -moz-linear-gradient(#7edefd, #27abdd);
   background-image: -o-linear-gradient(#7edefd, #27abdd);
-  background-image: -ms-linear-gradient(#7edefd, #27abdd);
   background-image: linear-gradient(#7edefd, #27abdd);
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF7EDEFD', endColorstr='#FF27ABDD');
 }
-/* line 322, sass/skin-vbo-light.scss */
+/* line 331, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-handle {
   display: none;
 }
-/* line 323, sass/skin-vbo-light.scss */
+/* line 332, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus {
   background: transparent url("controls-vbo-light/volume_+.svg") no-repeat;
   background-size: contain;
@@ -728,11 +732,11 @@
   top: 0.1em;
   width: 0.8em;
 }
-/* line 325, sass/skin-vbo-light.scss */
+/* line 334, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus:focus {
   background-color: #666666;
 }
-/* line 327, sass/skin-vbo-light.scss */
+/* line 336, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus {
   background: transparent url("controls-vbo-light/volume_-.svg") no-repeat;
   background-size: contain;
@@ -742,19 +746,19 @@
   position: absolute;
   width: 0.8em;
 }
-/* line 329, sass/skin-vbo-light.scss */
+/* line 338, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus:focus {
   background-color: #666666;
 }
-/* line 334, sass/skin-vbo-light.scss */
+/* line 343, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal {
-  bottom: 1.950em;
+  bottom: 30px;
   height: 1.5em;
   margin-left: -4.5em;
   padding-bottom: 0.125em;
   width: 7.6em;
 }
-/* line 336, sass/skin-vbo-light.scss */
+/* line 345, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal:after {
   background: transparent url("controls-vbo-light/volume_box_arrow.png") no-repeat;
   content: '';
@@ -764,7 +768,7 @@
   top: 23px;
   width: 5.900em;
 }
-/* line 338, sass/skin-vbo-light.scss */
+/* line 347, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-total {
   height: 0.813em;
   left: 1.500em;
@@ -772,7 +776,7 @@
   top: 0.450em;
   width: 5.300em;
 }
-/* line 339, sass/skin-vbo-light.scss */
+/* line 348, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-current {
   height: 0.813em;
   left: 1.500em;
@@ -782,7 +786,7 @@
   top: 0.450em;
   width: 5.300em;
 }
-/* line 340, sass/skin-vbo-light.scss */
+/* line 349, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-handle {
   cursor: e-resize;
   height: 0.8em;
@@ -790,35 +794,35 @@
   top: 0.15em;
   width: 6px;
 }
-/* line 341, sass/skin-vbo-light.scss */
+/* line 350, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-plus {
   left: 6.410em;
   top: 0.325em;
 }
-/* line 342, sass/skin-vbo-light.scss */
+/* line 351, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
   left: 0.190em;
   top: 0.375em;
 }
-/* line 347, sass/skin-vbo-light.scss */
+/* line 356, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button {
   position: relative;
   top: 1px;
 }
-/* line 350, sass/skin-vbo-light.scss */
+/* line 359, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button button {
   background: transparent url("controls-vbo-light/caption2x.png") no-repeat;
   background-size: contain;
 }
-/* line 352, sass/skin-vbo-light.scss */
+/* line 361, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button button:focus {
   background-color: #666666;
 }
-/* line 354, sass/skin-vbo-light.scss */
+/* line 363, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .activeButton {
   background-color: transparent;
 }
-/* line 355, sass/skin-vbo-light.scss */
+/* line 364, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector {
   background: url("background.png");
   background: rgba(50, 50, 50, 0.7);
@@ -837,7 +841,7 @@
   -o-border-radius: 0;
   border-radius: 0;
 }
-/* line 359, sass/skin-vbo-light.scss */
+/* line 368, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul {
   display: block;
   list-style-type: none !important;
@@ -845,7 +849,7 @@
   overflow: hidden;
   padding: 0;
 }
-/* line 361, sass/skin-vbo-light.scss */
+/* line 370, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul li {
   display: block;
   color: #fff;
@@ -854,13 +858,13 @@
   overflow: hidden;
   padding: 0;
 }
-/* line 363, sass/skin-vbo-light.scss */
+/* line 372, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul li input {
   clear: both;
   float: left;
   margin: 3px 3px 0 5px;
 }
-/* line 364, sass/skin-vbo-light.scss */
+/* line 373, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul li label {
   font: 10px Arial, Helvetica, sans-serif;
   float: left;
@@ -868,21 +872,21 @@
   padding: 4px 0 0 0;
   width: 100px;
 }
-/* line 368, sass/skin-vbo-light.scss */
+/* line 377, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-translations {
   font-size: 10px;
   margin: 0 0 5px 0;
 }
 
-/* line 371, sass/skin-vbo-light.scss */
+/* line 380, sass/skin-vbo-light.scss */
 .mejs-chapters {
   left: 0;
   position: absolute;
   top: 0;
-  -xborder-right: solid 1px #fff;
+  -xborder-right: solid 1px white;
   width: 10000px;
 }
-/* line 373, sass/skin-vbo-light.scss */
+/* line 382, sass/skin-vbo-light.scss */
 .mejs-chapters .mejs-chapter {
   background: black;
   background: rgba(0, 0, 0, 0.7);
@@ -894,26 +898,25 @@
   background-image: -webkit-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
   background-image: -moz-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
   background-image: -o-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
-  background-image: -ms-linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
   background-image: linear-gradient(rgba(102, 102, 102, 0.7), rgba(0, 0, 0, 0.7));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF666666', endColorstr='#FF000000');
 }
-/* line 378, sass/skin-vbo-light.scss */
+/* line 387, sass/skin-vbo-light.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block {
-  border-bottom: solid 1px #333;
-  border-right: solid 1px #333;
+  border-bottom: solid 1px #333333;
+  border-right: solid 1px #333333;
   color: #222222;
   cursor: pointer;
   display: block;
   font-size: 0.688em;
   padding: 5px;
 }
-/* line 379, sass/skin-vbo-light.scss */
+/* line 388, sass/skin-vbo-light.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block-last {
   border-right: none;
 }
-/* line 381, sass/skin-vbo-light.scss */
+/* line 390, sass/skin-vbo-light.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block:hover {
   background: #323232;
   background: rgba(50, 50, 50, 0.6);
@@ -921,12 +924,11 @@
   background-image: -webkit-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   background-image: -moz-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   background-image: -o-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
-  background-image: -ms-linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   background-image: linear-gradient(rgba(102, 102, 102, 0.6), rgba(50, 50, 50, 0.6));
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF666666', endColorstr='#FF323232');
 }
-/* line 386, sass/skin-vbo-light.scss */
+/* line 395, sass/skin-vbo-light.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block .ch-title {
   display: block;
   font-size: 12px;
@@ -936,7 +938,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* line 387, sass/skin-vbo-light.scss */
+/* line 396, sass/skin-vbo-light.scss */
 .mejs-chapters .mejs-chapter .mejs-chapter-block .ch-timespan {
   display: block;
   font-size: 12px;
@@ -946,7 +948,7 @@
   white-space: nowrap;
 }
 
-/* line 391, sass/skin-vbo-light.scss */
+/* line 400, sass/skin-vbo-light.scss */
 .mejs-captions-layer {
   bottom: 0;
   color: #fff;
@@ -956,18 +958,18 @@
   position: absolute;
   text-align: center;
 }
-/* line 393, sass/skin-vbo-light.scss */
+/* line 402, sass/skin-vbo-light.scss */
 .mejs-captions-layer a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 394, sass/skin-vbo-light.scss */
+/* line 403, sass/skin-vbo-light.scss */
 .mejs-captions-layer[lang=ar] {
   font-size: 1.25em;
   font-weight: normal;
 }
 
-/* line 396, sass/skin-vbo-light.scss */
+/* line 405, sass/skin-vbo-light.scss */
 .mejs-captions-position {
   bottom: 2em;
   left: 0;
@@ -975,64 +977,64 @@
   width: 100%;
 }
 
-/* line 397, sass/skin-vbo-light.scss */
+/* line 406, sass/skin-vbo-light.scss */
 .mejs-captions-position-hover {
   bottom: 2.5em;
 }
 
-/* line 398, sass/skin-vbo-light.scss */
+/* line 407, sass/skin-vbo-light.scss */
 .mejs-captions-text {
   background: url("background.png");
   background: rgba(20, 20, 20, 0.8);
   padding: 3px 5px;
 }
 
-/* line 399, sass/skin-vbo-light.scss */
+/* line 408, sass/skin-vbo-light.scss */
 .mejs-clear {
   clear: both;
 }
 
-/* line 401, sass/skin-vbo-light.scss */
+/* line 410, sass/skin-vbo-light.scss */
 .me-cannotplay a {
   color: #fff;
   font-weight: bold;
 }
-/* line 402, sass/skin-vbo-light.scss */
+/* line 411, sass/skin-vbo-light.scss */
 .me-cannotplay span {
   display: block;
   padding: 15px;
 }
 
-/* line 405, sass/skin-vbo-light.scss */
+/* line 414, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-loop-off button {
   background: transparent url("controls-vbo-light/loopoff.svg") no-repeat;
   background-size: contain;
 }
-/* line 406, sass/skin-vbo-light.scss */
+/* line 415, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-loop-on button {
   background: transparent url("controls-vbo-light/loopon.svg") no-repeat;
   background-size: contain;
 }
-/* line 407, sass/skin-vbo-light.scss */
+/* line 416, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-backlight-off button {
   background: transparent url("controls-vbo-light/backlightoff.svg") no-repeat;
   background-size: contain;
 }
-/* line 408, sass/skin-vbo-light.scss */
+/* line 417, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-backlight-on button {
   background: transparent url("controls-vbo-light/backlighton.svg") no-repeat;
   background-size: contain;
 }
-/* line 409, sass/skin-vbo-light.scss */
+/* line 418, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-picturecontrols-button {
   background: transparent url("controls-vbo-light/picturecontrols.svg") no-repeat;
   background-size: contain;
 }
 
-/* line 411, sass/skin-vbo-light.scss */
+/* line 420, sass/skin-vbo-light.scss */
 .mejs-contextmenu {
   background: #fff;
-  border: solid 1px #999;
+  border: solid 1px #999999;
   left: 0;
   padding: 10px;
   position: absolute;
@@ -1046,14 +1048,14 @@
   border-radius: 4px;
   /* make sure it shows on fullscreen */
 }
-/* line 416, sass/skin-vbo-light.scss */
+/* line 425, sass/skin-vbo-light.scss */
 .mejs-contextmenu .mejs-contextmenu-separator {
   background: #333;
   height: 1px;
   font-size: 0;
   margin: 5px 6px;
 }
-/* line 417, sass/skin-vbo-light.scss */
+/* line 426, sass/skin-vbo-light.scss */
 .mejs-contextmenu .mejs-contextmenu-item {
   color: #333;
   cursor: pointer;
@@ -1061,23 +1063,23 @@
   font-size: 0.75em;
   padding: 4px 6px;
 }
-/* line 419, sass/skin-vbo-light.scss */
+/* line 428, sass/skin-vbo-light.scss */
 .mejs-contextmenu .mejs-contextmenu-item:hover {
   background: #2C7C91;
   color: #fff;
 }
 
-/* line 422, sass/skin-vbo-light.scss */
+/* line 431, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-sourcechooser-button {
   position: relative;
 }
 
-/* line 423, sass/skin-vbo-light.scss */
+/* line 432, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-sourcechooser-button button {
   background-position: -128px 0;
 }
 
-/* line 424, sass/skin-vbo-light.scss */
+/* line 433, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
   background: url("background.png");
   background: rgba(50, 50, 50, 0.7);
@@ -1097,7 +1099,7 @@
   border-radius: 0px;
 }
 
-/* line 428, sass/skin-vbo-light.scss */
+/* line 437, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul {
   display: block;
   list-style-type: none !important;
@@ -1106,7 +1108,7 @@
   padding: 0;
 }
 
-/* line 429, sass/skin-vbo-light.scss */
+/* line 438, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li {
   color: #fff;
   display: block;
@@ -1116,14 +1118,14 @@
   padding: 0;
 }
 
-/* line 430, sass/skin-vbo-light.scss */
+/* line 439, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input {
   clear: both;
   float: left;
   margin: 3px 3px 0 5px;
 }
 
-/* line 431, sass/skin-vbo-light.scss */
+/* line 440, sass/skin-vbo-light.scss */
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label {
   float: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -1133,98 +1135,98 @@
   width: 100px;
 }
 
-/* line 435, sass/skin-vbo-light.scss */
+/* line 444, sass/skin-vbo-light.scss */
 .no-svg .mejs-tooltip {
   background: url(05tooltip.png) no-repeat center center;
 }
-/* line 437, sass/skin-vbo-light.scss */
+/* line 446, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-play button {
   background: url("controls-vbo-light/play.png") no-repeat center center;
 }
-/* line 438, sass/skin-vbo-light.scss */
+/* line 447, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-pause button {
   background: url("controls-vbo-light/pause.png") no-repeat center center;
 }
-/* line 439, sass/skin-vbo-light.scss */
+/* line 448, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-stop button {
   background: url("controls-vbo-light/stop.png") no-repeat center center;
 }
-/* line 440, sass/skin-vbo-light.scss */
+/* line 449, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-fullscreen-button button {
   background: url("controls-vbo-light/fullscreen.png") no-repeat center center;
 }
-/* line 441, sass/skin-vbo-light.scss */
+/* line 450, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-unfullscreen button {
   background: url("controls-vbo-light/unfullscreen.png") no-repeat center center;
 }
-/* line 442, sass/skin-vbo-light.scss */
+/* line 451, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-mute button {
   background: url("controls-vbo-light/mute.png") no-repeat center center;
 }
-/* line 443, sass/skin-vbo-light.scss */
+/* line 452, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-unmute button {
   background: url("controls-vbo-light/unmute.png") no-repeat center center;
 }
-/* line 444, sass/skin-vbo-light.scss */
+/* line 453, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-captions-button {
   position: relative;
 }
-/* line 446, sass/skin-vbo-light.scss */
+/* line 455, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-captions-button button {
   background: transparent url("controls-vbo-light/caption.png") no-repeat center center;
 }
-/* line 448, sass/skin-vbo-light.scss */
+/* line 457, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-loop-off button {
   background: transparent url("controls-vbo-light/loopoff.png") no-repeat center center;
 }
-/* line 449, sass/skin-vbo-light.scss */
+/* line 458, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-loop-on button {
   background: transparent url("controls-vbo-light/loopon.png") no-repeat center center;
 }
-/* line 450, sass/skin-vbo-light.scss */
+/* line 459, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-backlight-off button {
   background: transparent url("controls-vbo-light/backlightoff.png") no-repeat center center;
 }
-/* line 451, sass/skin-vbo-light.scss */
+/* line 460, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-backlight-on button {
   background: transparent url("controls-vbo-light/backlighton.png") no-repeat center center;
 }
-/* line 452, sass/skin-vbo-light.scss */
+/* line 461, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-picturecontrols-button {
   background: transparent url("controls-vbo-light/picturecontrols.png") no-repeat center center;
 }
-/* line 454, sass/skin-vbo-light.scss */
+/* line 463, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
   background: transparent url("controls-vbo-light/rail_-.png") no-repeat center center;
   background-color: transparent;
 }
-/* line 455, sass/skin-vbo-light.scss */
+/* line 464, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-time-rail .mejs-time-handle-forward {
   background: transparent url("controls-vbo-light/rail_+.png") no-repeat center center;
   background-color: transparent;
 }
-/* line 458, sass/skin-vbo-light.scss */
+/* line 467, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal {
   background-color: #222222;
 }
-/* line 460, sass/skin-vbo-light.scss */
+/* line 469, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-plus {
   background: transparent url("controls-vbo-light/volume_+.png") no-repeat center center;
   background-color: black;
 }
-/* line 461, sass/skin-vbo-light.scss */
+/* line 470, sass/skin-vbo-light.scss */
 .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
   background: transparent url("controls-vbo-light/volume_-.png") no-repeat center center;
   background-color: black;
 }
-/* line 468, sass/skin-vbo-light.scss */
+/* line 477, sass/skin-vbo-light.scss */
 .no-svg .mejs-playpause-button,
 .no-svg .mejs-duration-container,
 .no-svg .mejs-captions-button,
 .no-svg .mejs-volume-button {
   position: relative;
 }
-/* line 470, sass/skin-vbo-light.scss */
+/* line 479, sass/skin-vbo-light.scss */
 .no-svg .mejs-playpause-button:after,
 .no-svg .mejs-duration-container:after,
 .no-svg .mejs-captions-button:after,
@@ -1238,12 +1240,12 @@
   position: absolute;
   width: 0.125em;
 }
-/* line 472, sass/skin-vbo-light.scss */
+/* line 481, sass/skin-vbo-light.scss */
 .no-svg .mejs-duration-container span:after {
   position: static;
 }
 
-/* line 476, sass/skin-vbo-light.scss */
+/* line 485, sass/skin-vbo-light.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1254,7 +1256,7 @@
   position: absolute;
   width: 1px;
 }
-/* line 479, sass/skin-vbo-light.scss */
+/* line 488, sass/skin-vbo-light.scss */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   clip: auto;
   height: auto;
@@ -1264,7 +1266,7 @@
   width: auto;
 }
 
-/* line 483, sass/skin-vbo-light.scss */
+/* line 492, sass/skin-vbo-light.scss */
 .invisible {
   display: none;
 }
