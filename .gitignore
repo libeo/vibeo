@@ -1,7 +1,11 @@
 # silverlight stuff
 src/silverlight/obj/*
 src/silverlight/Bin/*
-#Sass cache
+
+# --- OSX ---
+.DS_Store
+
+# --- Sass cache ---
 src/css/.sass-cache*
 
 tests/*

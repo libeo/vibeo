@@ -210,35 +210,35 @@
 /* background for IE */
 /* line 243, sass/skin-gray.scss */
 .no-svg .mejs-tooltip {
-  background: url(05tooltip.png) no-repeat center center;
+  background: url(controls/gray/tooltip.png) no-repeat center center;
 }
 /* line 245, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-play button {
-  background: url(controls-grey/play.png) no-repeat center center;
+  background: url(controls/gray/play.png) no-repeat center center;
 }
 /* line 247, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-pause button {
-  background: url(controls-grey/pause.png) no-repeat center center;
+  background: url(controls/gray/pause.png) no-repeat center center;
 }
 /* line 249, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-stop button {
-  background: url(controls-grey/stop.png) no-repeat center center;
+  background: url(controls/gray/stop.png) no-repeat center center;
 }
 /* line 251, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-fullscreen-button button {
-  background: url(controls-grey/fullscreen.png) no-repeat center center;
+  background: url(controls/gray/fullscreen.png) no-repeat center center;
 }
 /* line 253, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-unfullscreen button {
-  background: url(controls-grey/unfullscreen.png) no-repeat center center;
+  background: url(controls/gray/unfullscreen.png) no-repeat center center;
 }
 /* line 256, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-mute button {
-  background: url(controls-grey/mute.png) no-repeat center center;
+  background: url(controls/gray/mute.png) no-repeat center center;
 }
 /* line 258, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-unmute button {
-  background: url(controls-grey/unmute.png) no-repeat center center;
+  background: url(controls/gray/unmute.png) no-repeat center center;
 }
 /* line 260, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-captions-button {
@@ -246,36 +246,36 @@
 }
 /* line 262, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-captions-button button {
-  background: transparent url(controls-grey/caption.png) no-repeat center center;
+  background: transparent url(controls/gray/caption.png) no-repeat center center;
 }
 /* line 264, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-loop-off button {
-  background: transparent url(controls-grey/loopoff.png) no-repeat center center;
+  background: transparent url(controls/gray/loopoff.png) no-repeat center center;
 }
 /* line 266, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-loop-on button {
-  background: transparent url(controls-grey/loopon.png) no-repeat center center;
+  background: transparent url(controls/gray/loopon.png) no-repeat center center;
 }
 /* line 268, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-backlight-off button {
-  background: transparent url(controls-grey/backlightoff.png) no-repeat center center;
+  background: transparent url(controls/gray/backlightoff.png) no-repeat center center;
 }
 /* line 270, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-backlight-on button {
-  background: transparent url(controls-grey/backlighton.png) no-repeat center center;
+  background: transparent url(controls/gray/backlighton.png) no-repeat center center;
 }
 /* line 272, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-picturecontrols-button {
-  background: transparent url(controls-grey/picturecontrols.png) no-repeat center center;
+  background: transparent url(controls/gray/picturecontrols.png) no-repeat center center;
 }
 /* line 275, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
-  background: transparent url(controls-grey/rail_-.png) no-repeat center center;
+  background: transparent url(controls/gray/rail_-.png) no-repeat center center;
   background-color: transparent;
 }
 /* line 277, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-time-rail .mejs-time-handle-forward {
-  background: transparent url(controls-grey/rail_+.png) no-repeat center center;
+  background: transparent url(controls/gray/rail_+.png) no-repeat center center;
   background-color: transparent;
 }
 /* line 280, sass/skin-gray.scss */
@@ -284,12 +284,12 @@
 }
 /* line 282, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-plus {
-  background: transparent url(controls-grey/volume_+.png) no-repeat center center;
+  background: transparent url(controls/gray/volume_+.png) no-repeat center center;
   background-color: black;
 }
 /* line 284, sass/skin-gray.scss */
 .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus, .no-svg .mejs-controls .mejs-volume-button .mejs-volume-slider.horizontal .mejs-volume-minus {
-  background: transparent url(controls-grey/volume_-.png) no-repeat center center;
+  background: transparent url(controls/gray/volume_-.png) no-repeat center center;
   background-color: black;
 }
 
@@ -307,7 +307,7 @@
   right: 5px;
   height: 0.6em;
   width: 0.6em;
-  background: transparent url(controls-grey/tooltip.svg) no-repeat;
+  background: transparent url(controls/gray/tooltip.svg) no-repeat;
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
@@ -345,7 +345,7 @@
 }
 /* line 326, sass/skin-gray.scss */
 .mejs-controls .mejs-play button {
-  background: transparent url(controls-grey/play.svg) no-repeat;
+  background: transparent url(controls/gray/play.svg) no-repeat;
   background-size: contain;
 }
 /* line 329, sass/skin-gray.scss */
@@ -354,7 +354,7 @@
 }
 /* line 332, sass/skin-gray.scss */
 .mejs-controls .mejs-pause button {
-  background: transparent url(controls-grey/pause.svg) no-repeat;
+  background: transparent url(controls/gray/pause.svg) no-repeat;
   background-size: contain;
 }
 /* line 335, sass/skin-gray.scss */
@@ -363,7 +363,7 @@
 }
 /* line 338, sass/skin-gray.scss */
 .mejs-controls .mejs-stop button {
-  background: transparent url(controls-grey/stop.svg) no-repeat;
+  background: transparent url(controls/gray/stop.svg) no-repeat;
   background-size: contain;
 }
 /* line 341, sass/skin-gray.scss */
@@ -544,7 +544,7 @@
 }
 /* line 410, sass/skin-gray.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-rewind {
-  background: transparent url(controls-grey/rail_-.svg) no-repeat;
+  background: transparent url(controls/gray/rail_-.svg) no-repeat;
   background-color: transparent;
   background-size: contain;
   height: 0.8em;
@@ -559,7 +559,7 @@
 }
 /* line 421, sass/skin-gray.scss */
 .mejs-controls .mejs-time-rail .mejs-time-handle-forward {
-  background: transparent url(controls-grey/rail_+.svg) no-repeat;
+  background: transparent url(controls/gray/rail_+.svg) no-repeat;
   background-color: transparent;
   background-size: contain;
   height: 0.8em;
@@ -579,7 +579,7 @@
   background: #eee;
   width: auto;
   height: auto;
-  border: solid 1px #333;
+  border: solid 1px #333333;
   top: -2.3em;
   text-align: center;
   color: #111;
@@ -601,8 +601,8 @@
   width: 0;
   height: 0;
   line-height: 0;
-  border: solid 0.35em #eee;
-  border-color: #eee transparent transparent transparent;
+  border: solid 0.35em #eeeeee;
+  border-color: #eeeeee transparent transparent transparent;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -614,7 +614,7 @@
 }
 /* line 464, sass/skin-gray.scss */
 .mejs-controls .mejs-fullscreen-button button {
-  background: transparent url(controls-grey/fullscreen.svg) no-repeat;
+  background: transparent url(controls/gray/fullscreen.svg) no-repeat;
   background-size: contain;
 }
 /* line 467, sass/skin-gray.scss */
@@ -623,7 +623,7 @@
 }
 /* line 469, sass/skin-gray.scss */
 .mejs-controls .mejs-unfullscreen button {
-  background: transparent url(controls-grey/unfullscreen.svg) no-repeat;
+  background: transparent url(controls/gray/unfullscreen.svg) no-repeat;
   background-size: contain;
 }
 /* line 472, sass/skin-gray.scss */
@@ -632,7 +632,7 @@
 }
 /* line 476, sass/skin-gray.scss */
 .mejs-controls .mejs-mute button {
-  background: transparent url(controls-grey/mute.svg) no-repeat;
+  background: transparent url(controls/gray/mute.svg) no-repeat;
   background-size: contain;
 }
 /* line 479, sass/skin-gray.scss */
@@ -641,7 +641,7 @@
 }
 /* line 481, sass/skin-gray.scss */
 .mejs-controls .mejs-unmute button {
-  background: transparent url(controls-grey/unmute.svg) no-repeat;
+  background: transparent url(controls/gray/unmute.svg) no-repeat;
   background-size: contain;
 }
 /* line 484, sass/skin-gray.scss */
@@ -720,7 +720,7 @@
 }
 /* line 532, sass/skin-gray.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-plus {
-  background: transparent url(controls-grey/volume_+.svg) no-repeat;
+  background: transparent url(controls/gray/volume_+.svg) no-repeat;
   background-color: rgba(0, 0, 0, 0.3);
   background-size: contain;
   height: 0.8em;
@@ -735,7 +735,7 @@
 }
 /* line 543, sass/skin-gray.scss */
 .mejs-controls .mejs-volume-button .mejs-volume-slider .mejs-volume-minus {
-  background: transparent url(controls-grey/volume_-.svg) no-repeat;
+  background: transparent url(controls/gray/volume_-.svg) no-repeat;
   background-color: rgba(0, 0, 0, 0.3);
   background-size: contain;
   height: 0.8em;
@@ -793,7 +793,7 @@
 }
 /* line 589, sass/skin-gray.scss */
 .mejs-controls .mejs-captions-button button {
-  background: transparent url(controls-grey/caption.svg) no-repeat;
+  background: transparent url(controls/gray/caption.svg) no-repeat;
   background-size: contain;
 }
 /* line 592, sass/skin-gray.scss */
@@ -866,7 +866,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  -xborder-right: solid 1px #fff;
+  -xborder-right: solid 1px white;
   width: 10000px;
 }
 /* line 642, sass/skin-gray.scss */
@@ -891,8 +891,8 @@
   color: #fff;
   padding: 5px;
   display: block;
-  border-right: solid 1px #333;
-  border-bottom: solid 1px #333;
+  border-right: solid 1px #333333;
+  border-bottom: solid 1px #333333;
   cursor: pointer;
 }
 /* line 659, sass/skin-gray.scss */
@@ -995,27 +995,27 @@
 /* Start: Loop */
 /* line 733, sass/skin-gray.scss */
 .mejs-controls .mejs-loop-off button {
-  background: transparent url(controls-grey/loopoff.svg) no-repeat;
+  background: transparent url(controls/gray/loopoff.svg) no-repeat;
   background-size: contain;
 }
 /* line 736, sass/skin-gray.scss */
 .mejs-controls .mejs-loop-on button {
-  background: transparent url(controls-grey/loopon.svg) no-repeat;
+  background: transparent url(controls/gray/loopon.svg) no-repeat;
   background-size: contain;
 }
 /* line 739, sass/skin-gray.scss */
 .mejs-controls .mejs-backlight-off button {
-  background: transparent url(controls-grey/backlightoff.svg) no-repeat;
+  background: transparent url(controls/gray/backlightoff.svg) no-repeat;
   background-size: contain;
 }
 /* line 742, sass/skin-gray.scss */
 .mejs-controls .mejs-backlight-on button {
-  background: transparent url(controls-grey/backlighton.svg) no-repeat;
+  background: transparent url(controls/gray/backlighton.svg) no-repeat;
   background-size: contain;
 }
 /* line 745, sass/skin-gray.scss */
 .mejs-controls .mejs-picturecontrols-button {
-  background: transparent url(controls-grey/picturecontrols.svg) no-repeat;
+  background: transparent url(controls/gray/picturecontrols.svg) no-repeat;
   background-size: contain;
 }
 
@@ -1038,7 +1038,7 @@
   top: 0;
   left: 0;
   background: #fff;
-  border: solid 1px #999;
+  border: solid 1px #999999;
   z-index: 1001;
   /* make sure it shows on fullscreen */
 }

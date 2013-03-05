@@ -244,49 +244,49 @@ body {
 
 /* background for IE */
 .no-svg {
-  .mejs-tooltip { background: url(controls/tooltip.png) no-repeat center center; }
+  .mejs-tooltip { background: url(controls/black/tooltip.png) no-repeat center center; }
   .mejs-controls {
     .mejs-play button {
-      background: url(controls/play.png) no-repeat center center; }
+      background: url(controls/black/play.png) no-repeat center center; }
     .mejs-pause button {
-      background: url(controls/pause.png) no-repeat center center; }
+      background: url(controls/black/pause.png) no-repeat center center; }
     .mejs-stop button {
-      background: url(controls/stop.png) no-repeat center center; }
+      background: url(controls/black/stop.png) no-repeat center center; }
     .mejs-fullscreen-button button {
-      background: url(controls/fullscreen.png) no-repeat center center; }
+      background: url(controls/black/fullscreen.png) no-repeat center center; }
     .mejs-unfullscreen button {
-      background: url(controls/unfullscreen.png) no-repeat center center; }
+      background: url(controls/black/unfullscreen.png) no-repeat center center; }
     .mejs-volume-button {}
     .mejs-mute button {
-      background: url(controls/mute.png) no-repeat center center; }
+      background: url(controls/black/mute.png) no-repeat center center; }
     .mejs-unmute button {
-      background: url(controls/unmute.png) no-repeat center center; }
+      background: url(controls/black/unmute.png) no-repeat center center; }
     .mejs-captions-button {
       position: relative;
       button {
-        background: transparent url(controls/caption.png) no-repeat center center; } }
+        background: transparent url(controls/black/caption.png) no-repeat center center; } }
     .mejs-loop-off button {
-      background: transparent url(controls/loopoff.png) no-repeat center center; }
+      background: transparent url(controls/black/loopoff.png) no-repeat center center; }
     .mejs-loop-on button {
-      background: transparent url(controls/loopon.png) no-repeat center center; }
+      background: transparent url(controls/black/loopon.png) no-repeat center center; }
     .mejs-backlight-off button {
-      background: transparent url(controls/backlightoff.png) no-repeat center center; }
+      background: transparent url(controls/black/backlightoff.png) no-repeat center center; }
     .mejs-backlight-on button {
-      background: transparent url(controls/backlighton.png) no-repeat center center;}
+      background: transparent url(controls/black/backlighton.png) no-repeat center center;}
     .mejs-picturecontrols-button {
-      background: transparent url(controls/picturecontrols.png) no-repeat center center; }
+      background: transparent url(controls/black/picturecontrols.png) no-repeat center center; }
     .mejs-time-rail {
       .mejs-time-handle-rewind {
-        background: transparent url(controls/rail_-.png) no-repeat center center; background-color: $time-nav-bg;}
+        background: transparent url(controls/black/rail_-.png) no-repeat center center; background-color: $time-nav-bg;}
       .mejs-time-handle-forward {
-        background: transparent url(controls/rail_+.png) no-repeat center center; background-color: $time-nav-bg;}}
+        background: transparent url(controls/black/rail_+.png) no-repeat center center; background-color: $time-nav-bg;}}
     .mejs-volume-button {
       .mejs-volume-slider, .mejs-volume-slider.horizontal {
         background-color: $volume-slider-bg;
         .mejs-volume-plus {
-          background: transparent url(controls/volume_+.png) no-repeat center center; background-color: $volume-plus-minus-bg;}
+          background: transparent url(controls/black/volume_+.png) no-repeat center center; background-color: $volume-plus-minus-bg;}
         .mejs-volume-minus {
-          background: transparent url(controls/volume_-.png) no-repeat center center; background-color: $volume-plus-minus-bg;}}
+          background: transparent url(controls/black/volume_-.png) no-repeat center center; background-color: $volume-plus-minus-bg;}}
     } }}
 
 //Tooltip
@@ -301,7 +301,7 @@ body {
     right: 5px;
     height: 0.6em;
     width: 0.6em;
-    background: transparent url(controls/tooltip.svg) no-repeat; 
+    background: transparent url(controls/black/tooltip.svg) no-repeat; 
     opacity:0.2;
     filter:alpha(opacity=20);
    &:focus, &:hover {
@@ -328,19 +328,19 @@ body {
 .mejs-controls {
   //play
   .mejs-play button {
-    background: transparent url(controls/play.svg) no-repeat;
+    background: transparent url(controls/black/play.svg) no-repeat;
     background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
   //pause
   .mejs-pause button {
-    background: transparent url(controls/pause.svg) no-repeat;
+    background: transparent url(controls/black/pause.svg) no-repeat;
     background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
   //stop
   .mejs-stop button {
-    background: transparent url(controls/stop.svg) no-repeat;
+    background: transparent url(controls/black/stop.svg) no-repeat;
     background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
@@ -412,7 +412,7 @@ body {
       top: -2px;
       text-align: center; }
     .mejs-time-handle-rewind {
-      background: transparent url(controls/rail_-.svg) no-repeat;
+      background: transparent url(controls/black/rail_-.svg) no-repeat;
       background-color: $time-nav-bg;
       background-size: contain;
       height: 0.8em;
@@ -423,7 +423,7 @@ body {
       &:focus {
       background-color: $buttons-focus-bg;}}
     .mejs-time-handle-forward {
-      background: transparent url(controls/rail_+.svg) no-repeat;
+      background: transparent url(controls/black/rail_+.svg) no-repeat;
       background-color: $time-nav-bg;
       background-size: contain;
       height: 0.8em;
@@ -466,24 +466,24 @@ body {
   /*End:; time trail*/
   //fullscreen
   .mejs-fullscreen-button button {
-    background: transparent url(controls/fullscreen.svg) no-repeat;
+    background: transparent url(controls/black/fullscreen.svg) no-repeat;
     background-size: contain;
     &:focus {
      background-color: $buttons-focus-bg;}}
   .mejs-unfullscreen button {
-    background: transparent url(controls/unfullscreen.svg) no-repeat;
+    background: transparent url(controls/black/unfullscreen.svg) no-repeat;
     background-size: contain;
     &:focus {
      background-color: $buttons-focus-bg;}}
   /*Start: volume control*/
   .mejs-volume-button {}
   .mejs-mute button {
-    background: transparent url(controls/mute.svg) no-repeat;
+    background: transparent url(controls/black/mute.svg) no-repeat;
     background-size: contain;
    &:focus {
       background-color: $buttons-focus-bg;}}
   .mejs-unmute button {
-    background: transparent url(controls/unmute.svg) no-repeat;
+    background: transparent url(controls/black/unmute.svg) no-repeat;
     background-size: contain;
     &:focus {
       background-color: $buttons-focus-bg;}}
@@ -534,7 +534,7 @@ body {
         @include border-radius(1px);
         margin: 0;}
       .mejs-volume-plus {
-        background: transparent url(controls/volume_+.svg) no-repeat;
+        background: transparent url(controls/black/volume_+.svg) no-repeat;
         background-color: rgba($volume-plus-minus-bg, $volume-plus-minus-opacity);
         background-size: contain;
         height: 0.8em;
@@ -545,7 +545,7 @@ body {
         &:focus {
           background-color: $buttons-focus-bg;}}
       .mejs-volume-minus{
-        background: transparent url(controls/volume_-.svg) no-repeat;
+        background: transparent url(controls/black/volume_-.svg) no-repeat;
         background-color: rgba($volume-plus-minus-bg, $volume-plus-minus-opacity);
         background-size: contain;
         height: 0.8em;
@@ -591,7 +591,7 @@ body {
   .mejs-captions-button {
     position: relative;
     button {
-      background: transparent url(controls/caption.svg) no-repeat;
+      background: transparent url(controls/black/caption.svg) no-repeat;
       background-size: contain; }
     button:focus {
     background-color: $buttons-focus-bg;}
@@ -735,19 +735,19 @@ body {
 
 .mejs-controls {
   .mejs-loop-off button {
-    background: transparent url(controls/loopoff.svg) no-repeat;
+    background: transparent url(controls/black/loopoff.svg) no-repeat;
     background-size: contain; }
   .mejs-loop-on button {
-    background: transparent url(controls/loopon.svg) no-repeat;
+    background: transparent url(controls/black/loopon.svg) no-repeat;
     background-size: contain; }
   .mejs-backlight-off button {
-    background: transparent url(controls/backlightoff.svg) no-repeat;
+    background: transparent url(controls/black/backlightoff.svg) no-repeat;
     background-size: contain; }
   .mejs-backlight-on button {
-    background: transparent url(controls/backlighton.svg) no-repeat;
+    background: transparent url(controls/black/backlighton.svg) no-repeat;
     background-size: contain; }
   .mejs-picturecontrols-button {
-    background: transparent url(controls/picturecontrols.svg) no-repeat;
+    background: transparent url(controls/black/picturecontrols.svg) no-repeat;
     background-size: contain; } }
 
 /* End: Loop */

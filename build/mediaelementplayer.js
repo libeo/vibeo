@@ -2048,15 +2048,13 @@ if (typeof jQuery != 'undefined') {
 
 						// the hover state will show the fullscreen button in Flash to hover up and click
 						
-						fullscreenBtn.click(function() {
-							
-							//$('.mejs-controls').hide();
-							
+						/*fullscreenBtn.click(function() {
+														
 							if (hideTimeout !== null) {
 								clearTimeout(hideTimeout);
 								delete hideTimeout;
 							}
-							//$('#main').css('overflow','visible');
+
 							var controlsH = $('.mejs-controls').outerHeight(true);
 							
 							setTimeout(function(){
@@ -2092,7 +2090,7 @@ if (typeof jQuery != 'undefined') {
 								'overflow':'hidden'
 							});
 							
-						});
+						});*/
 						
 						fullscreenBtn
 							.mouseover(function() {

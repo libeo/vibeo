@@ -1,488 +1,1044 @@
+/* Table of Contents */
+/* ------------------------------------------ */
+// ::Import Compass
+
+// ::Variables
+    //:: Media folder
+    //:: Player default image
+    //:: Components
+    //:: Fonts
+    //:: Player config
+
+// ::Mixins
+// ::Import Vibéo basic styles
+// ::Overwrite
+
+/* ::Imports Compass */
+/* ------------------------------------------ */
 @import "compass";
 
-// ************* SASS CONFIGURATION VARIABLES *************
 
-// media folder
-$main-media-folder: 'controls-vbo-dark';
+/* ::Variables */
+/* ------------------------------------------ */
 
-// background
-$background: "background.png";
+// ::Media folder
+$main-media-folder          : 'controls/vbo-dark';
 
-// components svg
-$svg-play: '#{ $main-media-folder }/play.svg';
-$svg-pause: '#{ $main-media-folder }/pause.svg';
-$svg-stop: '#{ $main-media-folder }/stop.svg';
-$svg-mute: '#{ $main-media-folder }/mute.svg';
-$svg-unmute: '#{ $main-media-folder }/unmute.svg';
-$svg-caption: '#{ $main-media-folder }/caption2x.png';
-$svg-fullscreen: '#{ $main-media-folder }/fullscreen.svg';
-$svg-unfullscreen: '#{ $main-media-folder }/unfullscreen.svg';
-$svg-volume-up: '#{ $main-media-folder }/volume_+.svg';
-$svg-volume-down: '#{ $main-media-folder }/volume_-.svg';
-$svg-rail-rewind: '#{ $main-media-folder }/rail_-.svg';
-$svg-rail-forward: '#{ $main-media-folder }/rail_+.svg';
-$svg-backlight-on: '#{ $main-media-folder }/backlighton.svg';
-$svg-backlight-off: '#{ $main-media-folder }/backlightoff.svg';
-$svg-loop-on: '#{ $main-media-folder }/loopon.svg';
-$svg-loop-off: '#{ $main-media-folder }/loopoff.svg';
-$svg-picturecontrols: '#{ $main-media-folder }/picturecontrols.svg';
-$svg-tooltip: '#{ $main-media-folder }/tooltip.svg';
+// ::Player default image
+$img-background             : "background.png";
+$img-play                   : "bigplay.png";
+$img-loading                : "loading.gif";
 
-// components png
-$png-play: '#{ $main-media-folder }/play.png';
-$png-pause: '#{ $main-media-folder }/pause.png';
-$png-stop: '#{ $main-media-folder }/stop.png';
-$png-mute: '#{ $main-media-folder }/mute.png';
-$png-unmute: '#{ $main-media-folder }/unmute.png';
-$png-caption: '#{ $main-media-folder }/caption.png';
-$png-fullscreen: '#{ $main-media-folder }/fullscreen.png';
-$png-unfullscreen: '#{ $main-media-folder }/unfullscreen.png';
-$png-volume-up: '#{ $main-media-folder }/volume_+.png';
-$png-volume-down: '#{ $main-media-folder }/volume_-.png';
-$png-rail-rewind: '#{ $main-media-folder }/rail_-.png';
-$png-rail-forward: '#{ $main-media-folder }/rail_+.png';
-$png-backlight-on: '#{ $main-media-folder }/backlighton.png';
-$png-backlight-off: '#{ $main-media-folder }/backlightoff.png';
-$png-loop-on: '#{ $main-media-folder }/loopon.png';
-$png-loop-off: '#{ $main-media-folder }/loopoff.png';
-$png-picturecontrols: '#{ $main-media-folder }/picturecontrols.png';
-$png-tooltip: '#{ $main-media-folder }/tooltip.png';
+// ::Components << Use name of icon only, no need for the ext or the path. Files must use the same name
+$cmp-play               : 'play';
+$cmp-pause              : 'pause';
+$cmp-stop               : 'stop';
+$cmp-mute               : 'mute';
+$cmp-unmute             : 'unmute';
+$cmp-caption            : 'caption';
+$cmp-fullscreen         : 'fullscreen';
+$cmp-unfullscreen       : 'unfullscreen';
+$cmp-volume-up          : 'volume_up';
+$cmp-volume-down        : 'volume_down';
+$cmp-rail-rewind        : 'rail_rewind';
+$cmp-rail-forward       : 'rail_forward';
+$cmp-backlight-on       : 'backlighton';
+$cmp-backlight-off      : 'backlightoff';
+$cmp-loop-on            : 'loopon';
+$cmp-loop-off           : 'loopoff';
+$cmp-picturecontrols    : 'picturecontrols';
+$cmp-tooltip            : 'tooltip';
 
-// separator
-$separator-img: '#{ $main-media-folder }/bkg-separator.png';
+// ::Fonts
+$font-main              : Arial, Helvetica, sans-serif;
+$font-main-size         : 0.688em;
+$font-main-color        : #FFFFFF;
+$font-main-weight       : normal;
+$font-caption-size      : 1em;
 
-// arrow volume
-$volume-arrow-img: '#{ $main-media-folder }/volume_box_arrow.png';
+// ::Specific images for this skin
+$separator-img          : 'bkg-separator';  // Value can either be null for no separator or the name of image used
+$vol-arrow-img          : 'volume_box_arrow';
 
-// font
-$font-main: Arial, Helvetica, sans-serif;
-$font-main-size: 0.688em;
-$font-main-color: #FFFFFF;
-$font-main-weight: normal;
-$font-caption-size: 1em;
+// ::Loading overlay
+$ovl-loading-start      : #323232;
+$ovl-loading-end        : #000000;
+$ovl-loading-opacity    : 0.9;
 
-//loading overlay
-$overlay-loading-start: #323232;
-$overlay-loading-end: #000000;
-$overlay-loading-opacity: 0.9;
+// ::Tooltip
+$tooltip-bg-color       : #ffffff;
+$tooltip-font-color     : #000000;
 
-//tooltip
-$tooltip-bg-color: #ffffff;
-$tooltip-font-color: #000000;
+// ::Background controls
+$bkg-controls-start     : #4f4f4f;
+$bkg-controls-end       : #2e2e2e;
+$bkg-controls-opacity   : 1;
 
-//background controls
-$background-controls-start: #4f4f4f;
-$background-controls-end: #2e2e2e;
-$background-controls-opacity: 1;
+// ::Background controls buttons on focus
+$buttons-focus-bg       : #666;
+$buttons-active-bg      : transparent;
 
-//background controls buttons on focus
-$buttons-focus-bg: #666;
-$buttons-active-bg: transparent;
+// ::Volume controls
+$vol-plus-minus-bg      : #000000;
+$vol-plus-minus-opacity : 0.3;
+$vol-slider-bg          : #222;
+$vol-total-bg           : #fff;
+$vol-current-bg         : #fff;
+$vol-handle-bg          : #fff;
+$vol-slider-opacity     : 0.8;
+$vol-total-opacity      : 1;
+$vol-current-opacity    : 0.9;
+$vol-handle-opacity     : 1;
 
-//volume contols
-$volume-plus-minus-bg: #000000;
-$volume-plus-minus-opacity: 0.3;
-$volume-slider-bg: #222;
-$volume-total-bg: #fff;
-$volume-current-bg: #fff;
-$volume-handle-bg: #fff;
-$volume-slider-opacity: 0.8;
-$volume-total-opacity: 1;
-$volume-current-opacity: 0.9;
-$volume-handle-opacity: 1;
+// ::Total time bar
+$total-time-start       : #2a2a2a;
+$total-time-end         : #2a2a2a;
+$total-time-border      : #2a2a2a;
 
-//total time bar
-$total-time-start: #2a2a2a;
-$total-time-end: #2a2a2a;
-$total-time-border: #2a2a2a;
+// ::Buffer bar
+$bkg-buffer             : #ffffff;
+$buffer-opacity         : 0.15;
+$buffer-start           : #ddd;
+$buffer-end             : #ddd;
+$buffer-grdt-opacity    : 0.2;
 
-//buffering bar
-$background-buffering: #ffffff;
-$buffering-opacity: 0.15;
-$buffering-start: #ddd;
-$buffering-end: #ddd;
-$buffering-gradient-opacity: 0.2;
+// ::Loaded time progess bar
+$time-loaded-start      : #5b5b5b;
+$time-loaded-end        : #5b5b5b;
 
-//loaded time progess bar
-$time-loaded-start: #5b5b5b;
-$time-loaded-end: #5b5b5b;
+// ::Current time  bar
+$time-current-start     : #7edefd;
+$time-current-end       : #27abdd;
 
-//current time  bar
-$time-current-start: #7edefd;
-$time-current-end: #27abdd;
+// ::Time rail opacity
+$time-rail-opacity      : 1;
 
-//time rail opacity
-$time-rail-opacity: 1;
+// ::Time hanfle show / hide
+$time-handle-opacity    : 0;
 
-//time hanfle show / hide
-$mejs-time-handle-opacity: 0;
+// ::Rewind/forward
+$time-nav-bg            : transparent;
 
-//rewind/forward
-$time-nav-bg: transparent;
-
-//chapters
-$chapter-start: #666666 ;
-$chapter-end: #000000;
-$chapter-opacity: 0.7;
-$chapter-hover-start: #666666;
-$chapter-hover-end: #323232;
-$chapter-hover-opacity: 0.6;
-
-// ************* END OF SASS CONFIGURATION VARIABLES *************
+// ::Chapters
+$chapter-start          : #666666 ;
+$chapter-end            : #000000;
+$chapter-opacity        : 0.7;
+$chapter-hover-start    : #666666;
+$chapter-hover-end      : #323232;
+$chapter-hover-opacity  : 0.6;
 
 
-// ************* SASS CONFIGURATION MIXINS *************
+/* ::Mixins */
+/* ------------------------------------------ */
 
 @mixin vibeoBackground( $start, $end, $opacity ) {
-  @include background-image( linear-gradient( rgba( $start, $opacity ), rgba( $end, $opacity ) ) );
-  @include filter-gradient( $start, $end );  
+    @include background-image( linear-gradient( rgba( $start, $opacity ), rgba( $end, $opacity ) ) );
+    @include filter-gradient( $start, $end );  
 }
 
-@mixin vibeoLoadSvg( $svgUrl, $pos:"" ) {
-  background: transparent url( $svgUrl ) no-repeat #{$pos}; background-size: contain;
-  &:focus { background-color: $buttons-focus-bg; }
+@mixin vibeoLoadSvg( $svgUrl, $pos:'' ) {
+    background: transparent url( "#{ $main-media-folder }/#{ $svgUrl }.svg" ) no-repeat #{$pos}; 
+    background-size: contain;
+
+    &:focus { 
+        background-color: $buttons-focus-bg; 
+    }
+}
+
+@mixin vibeoLoadPng( $pngUrl, $pos:'' ) {
+    background: transparent url( "#{ $main-media-folder }/#{ $pngUrl }.png" ) no-repeat #{$pos};
 }
 
 @mixin vibeoAnimate {
-  @-webkit-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
-  @-moz-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
-  @-ms-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
-  @-o-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
-  @keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @-webkit-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @-moz-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @-ms-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @-o-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
+    @keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
 }
 
 @mixin vibeoSeparator { 
     $separator-img: null !default;
-    background: url( $separator-img ) repeat-y; content: ''; height: 1.188em; padding: 5px 0; position: absolute; width: 0.125em; 
+
+    background: url( "#{ $main-media-folder }/#{$separator-img}.png" ) repeat-y; 
+    content: ''; 
+    height: 1.188em; 
+    padding: 5px 0; 
+    position: absolute; 
+    width: 0.125em; 
 }
 
 @mixin vibeoSeparatorAfter( $top, $right ) {
-    right: $right; top: $top;
+    right: $right; 
+    top: $top;
     @include vibeoSeparator;
 }
 
 @mixin vibeoSeparatorBefore( $top, $left ) {
-    left: $left; top: $top;  
+    left: $left; 
+    top: $top;  
     @include vibeoSeparator;
 }
 
-// ************* END OF SASS CONFIGURATION MIXINS *************
 
+/* ::Vibéo basic styles */
+/* ------------------------------------------ */
 
-// ************* SKIN VIBEO DARK *************
-
-.mejs-time-float-current { font-size: $font-main-size; }
-.mejs-time-total { border: 1px solid $total-time-border; }
-.mejs-container { background: #000; font: 1.1em $font-main; position: relative; }
-.me-plugin { position: absolute; }
+.mejs-time-float-current { 
+    font-size: $font-main-size; 
+}
+.mejs-time-total { 
+    border: 1px solid $total-time-border; 
+}
+.mejs-container { 
+    background: #000; 
+    font: 1.1em $font-main; 
+    position: relative; 
+}
+.me-plugin { 
+    position: absolute; 
+}
 .mejs-embed {
-  background: #000; height: 100%; margin: 0; overflow: hidden; padding: 0; width: 100%;
-  body { background: #000; height: 100%; margin: 0; overflow: hidden; padding: 0; width: 100%; } 
+    background: #000; 
+    height: 100%; 
+    margin: 0; 
+    overflow: hidden; 
+    padding: 0; 
+    width: 100%;
+    body { 
+        background: #000; 
+        height: 100%; 
+        margin: 0; 
+        overflow: hidden; 
+        padding: 0; 
+        width: 100%; 
+    } 
 }
 .mejs-container-fullscreen { 
-  bottom: 0; left: 0; overflow: hidden; position: fixed; right: 0; top: 0; z-index: 1000;
-  .mejs-mediaelement, video { width: 100%; height: 100%; } 
+    bottom: 0; 
+    left: 0; 
+    overflow: hidden; 
+    position: fixed; 
+    right: 0; 
+    top: 0; 
+    z-index: 1000;
+    .mejs-mediaelement, 
+    video { 
+        width: 100%; 
+        height: 100%; 
+    } 
 }
-.mejs-background { left: 0; position: absolute; top: 0; }
-.mejs-mediaelement { height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+.mejs-background { 
+    left: 0; 
+    position: absolute; 
+    top: 0; 
+}
+.mejs-mediaelement { 
+    height: 100%; 
+    left: 0; 
+    position: absolute; 
+    top: 0; 
+    width: 100%; 
+}
 .mejs-poster {
-  left: 0; position: absolute; top: 0;
-  img { border: 0; display: block; padding: 0; } 
+    left: 0; 
+    position: absolute; 
+    top: 0;
+    img { 
+        border: 0; 
+        display: block; 
+        padding: 0; 
+    } 
 }
 .mejs-overlay { 
-  left: 0; position: absolute; top: 0;
-  &:hover .mejs-overlay-button { background-position: 0 -100px; } 
+    left: 0; 
+    position: absolute; 
+    top: 0;
+    &:hover .mejs-overlay-button { 
+        background-position: 0 -100px; 
+    } 
 }
-.mejs-overlay-play { cursor: pointer; }
-.mejs-overlay-button { background: url('bigplay.png') no-repeat; height: 100px; left: 50%; margin: -50px 0 0 -50px; position: absolute; top: 50%; width: 100px; }
+.mejs-overlay-play { 
+    cursor: pointer; 
+}
+.mejs-overlay-button { 
+    background: url( $img-play ) no-repeat; 
+    height: 100px; left: 50%; 
+    margin: -50px 0 0 -50px; 
+    position: absolute; 
+    top: 50%; 
+    width: 100px; 
+}
 .mejs-overlay-loading {
-  background: mix( $overlay-loading-start, $overlay-loading-end ); background: rgba( $overlay-loading-end, $overlay-loading-opacity ); height: 80px; left: 50%; margin: -40px 0 0 -40px; position: absolute; top: 50%; width: 80px;
-  @include vibeoBackground( $overlay-loading-start, $overlay-loading-end, $overlay-loading-opacity );
-  
-  span { background: transparent url('loading.gif') 50% 50% no-repeat; display: block; height: 80px; width: 80px; } 
+    background: mix( $ovl-loading-start, $ovl-loading-end ); 
+    background: rgba( $ovl-loading-end, $ovl-loading-opacity ); 
+    height: 80px; 
+    left: 50%; 
+    margin: -40px 0 0 -40px; 
+    position: absolute; 
+    top: 50%; 
+    width: 80px;
+    @include vibeoBackground( $ovl-loading-start, $ovl-loading-end, $ovl-loading-opacity );
+    span { 
+        background: transparent url( $img-loading ) 50% 50% no-repeat; 
+        display: block; 
+        height: 80px; 
+        width: 80px; 
+    } 
 }
-.mejs-container, .mejs-controls { @include border-bottom-radius( 5px ); }
+.mejs-container, 
+.mejs-controls { 
+    @include border-bottom-radius( 5px ); 
+}
 .mejs-container .mejs-controls {
-  background: none; background: rgba( $background-controls-end, $background-controls-opacity ); bottom: 0; left: 0; list-style-type: none; margin: 0; padding: 5px 0; position: absolute; width: 100%;
-  @include vibeoBackground( $background-controls-start, $background-controls-end, $background-controls-opacity );
-  
-  div { background: 0; background-image: none; border: 0; display: inline-block; font: 0.917em $font-main; list-style-type: none; margin: 0; padding: 0; vertical-align: middle; } 
-}
-.mejs-controls button, .mejs-tooltip button { border: 0; cursor: pointer; display: block; font-size: 100%; height: 1.1em; line-height: 0; margin: 0.1em; text-decoration: none; width: 1.1em; }
-.mejs-container .mejs-controls {
-  > div { display: table-cell; padding: 0 8px; text-align: center; }
-  .mejs-time-rail { padding: 0; }
-  .mejs-time {
-    color: $font-main-color; text-align: center;    
-    span { color: $font-main-color; font-size: $font-main-size; font-weight: bold; }
-    .mejs-currenttime,
-    .mejs-duration{
-      position: relative;
-      bottom: 1px;
-    }
-  }
-}
-
-//Tooltip
-.mejs-tooltip {
-  position: absolute; right: 5px; top: 5px; z-index: 1000;
-  button {
-    background: transparent url( $svg-tooltip ) no-repeat; filter: alpha( opacity = 20 ); height: 0.6em; position: absolute; opacity: 0.2; right: 5px; top: 5px; width: 0.6em;   
-    &:focus, &:hover { filter: alpha( opacity = 100 ); opacity: 1; }
-  }
-}
-.bubble-text { background-color: $tooltip-bg-color; border-radius: 10px; bottom: -1.3em; color: $tooltip-font-color; display: none; font-size: 0.6em; line-height: 1em; max-width: 8em; padding: 0.4em; position: absolute; right: 0.8em; text-align: left; z-index: 1001; }
-
-// Controls
-.mejs-controls {
-  .mejs-play button { @include vibeoLoadSvg( $svg-play ); }
-  .mejs-pause button { @include vibeoLoadSvg( $svg-pause ); }
-  .mejs-stop button { @include vibeoLoadSvg( $svg-stop ); }
-  .mejs-fullscreen-button button { @include vibeoLoadSvg( $svg-fullscreen, "center 1px" ); }
-  .mejs-unfullscreen button { @include vibeoLoadSvg( $svg-unfullscreen, "center 1px" ); }
-  .mejs-mute button { @include vibeoLoadSvg( $svg-mute, "center -1px" ); }
-  .mejs-unmute button { @include vibeoLoadSvg( $svg-unmute, "center -1px" ); }
-  .mejs-playpause-button button {
-      position: relative;
-      &:after { @include vibeoSeparatorAfter( -6px, -6px ); }
-  }
-  .mejs-volume-button > button {
-      position: relative;
-      &:after { @include vibeoSeparatorAfter( -8px, -11px ); }
-  }
-  .mejs-captions-button button {
-      position: relative;
-      &:after { @include vibeoSeparatorAfter( -7px, -11px ); }
-      &:before { @include vibeoSeparatorBefore( -7px, -10px ); }  
-  }
-  .mejs-time-rail {
+    background: none; 
+    background: rgba( $bkg-controls-end, $bkg-controls-opacity ); 
+    bottom: 0; 
+    left: 0; 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 5px 0; 
+    position: absolute; 
     width: 100%;
-    @include vibeoAnimate;
-
-    span {
-      cursor: pointer; display: block; height: 0.6em; width: 180px; 
-      @include border-radius( 0 );
-    }
-    > span {
-      position: relative;
-      > span { left: 0; position: absolute; top: 0; } 
-    }
-    .mejs-time-total {
-      background: mix( $total-time-start, $total-time-end ); background: rgba( $total-time-end, $time-rail-opacity ); width: 100%;
-      @include vibeoBackground( $total-time-start, $total-time-end, $time-rail-opacity );
-    }
-    .mejs-time-buffering {
-      background: rgba( $background-buffering, $buffering-opacity );
-      width:100%;
-      @include vibeoBackground( $buffering-start, $buffering-end, $buffering-gradient-opacity );
-    }
-    .mejs-time-current { background-size: 15px 15px; -webkit-background-size: 15px 15px; -moz-background-size: 15px 15px; -o-background-size: 15px 15px; animation: buffering-stripes 2s linear infinite; -webkit-animation: buffering-stripes 2s linear infinite; -moz-animation: buffering-stripes 2s linear infinite; -ms-animation: buffering-stripes 2s linear infinite; -o-animation: buffering-stripes 2s linear infinite; }
-    .mejs-time-loaded {
-      background: mix( $time-loaded-start, $time-loaded-end ); background: rgba( $time-loaded-end, $time-rail-opacity ); width: 0;
-      @include vibeoBackground( $time-loaded-start, $time-loaded-end, $time-rail-opacity );
-    }
-    .mejs-time-current {
-      background: mix( $time-current-start, $time-current-end ); background: rgba( $time-current-end, $time-rail-opacity ); width: 0;
-      @include vibeoBackground( $time-current-start, $time-current-end, $time-rail-opacity );
-    }
-    .mejs-time-handle {
-      background: #fff; border: 0; cursor: pointer; margin: 0; opacity: $mejs-time-handle-opacity; position: absolute; text-align: center; top: 0px; width: 10px;
-      @include border-radius( 0 );
-    }
-    .mejs-time-handle-rewind {
-      background: transparent url( $svg-rail-rewind ) no-repeat; background-color: $time-nav-bg; background-size: contain; height: 0.8em; left: -0.2em; position: absolute; top: -0.2em; width: 0.8em;
-      &:focus { background-color: $buttons-focus-bg; }
-    }
-    .mejs-time-handle-forward {
-      background: transparent url( $svg-rail-forward ) no-repeat; background-color: $time-nav-bg; background-size: contain; height: 0.8em; position: absolute; right: -1em; top: -0.2em; width: 0.8em;
-      &:focus { background-color: $buttons-focus-bg; }
-    }
-    .mejs-time-float { background: #eee; border: none; color: #111; display: none; height: auto; left: 0; margin-left: -1.49em; padding: 0.2em 0.3em; position: absolute; text-align: center; top: -2.20em; width: auto; }
-    .mejs-time-float-current { display: block; height: auto; text-align: center; width: auto; }
-    .mejs-time-float-corner {
-      border: solid 0.35em #eee; border-color: #eee transparent transparent transparent; bottom: -0.57em; display: block; height: 0; left: 50%; line-height: 0; margin-left: -0.3em; position: absolute; width: 0;
-      @include border-radius( 0 );
+    @include vibeoBackground( $bkg-controls-start, $bkg-controls-end, $bkg-controls-opacity );  
+    div { 
+        background: 0; 
+        background-image: none; 
+        border: 0; 
+        display: inline-block; 
+        font: 0.917em $font-main; 
+        list-style-type: none; 
+        margin: 0; 
+        padding: 0; 
+        vertical-align: middle; 
     } 
-  }
-
-  .mejs-volume-button {
-    position: relative; top: 0.125em;
-    &:hover { @include border-radius( 0 0 4px 4px ); }
-    .mejs-volume-slider {
-      bottom: 1em; display: none; height: 7.4em; margin: 0; position: absolute; width: 1em; z-index: 1;
-      @include border-radius( 5px );
-      @include vibeoBackground( $background-controls-start, $background-controls-end, $background-controls-opacity ); 
+}
+.mejs-controls button, 
+.mejs-tooltip button { 
+    border: 0; 
+    cursor: pointer; 
+    display: block; 
+    font-size: 100%; 
+    height: 1.200em; 
+    line-height: 0; 
+    margin: 0.1em; 
+    text-decoration: none; 
+    width: 1.1em; 
+}
+.mejs-container .mejs-controls {
+    > div { 
+        display: table-cell; 
+        padding: 0 8px; 
+        text-align: center; 
     }
-    .mejs-volume-slider {
-      .mejs-volume-total {
-        background: mix($total-time-start, $total-time-end); background: rgba($total-time-end, $time-rail-opacity); height: 5.7em; left: 0.5em; margin: 0;  position: absolute; top: 1.2em; width: 0.1em;
-        @include border-radius( 2px );
-        @include vibeoBackground( $total-time-start, $total-time-end, $time-rail-opacity ); 
-      }
-      .mejs-volume-current {
-        background: mix($time-current-start, $time-current-end); background: rgba($time-current-end, $time-rail-opacity); height: 5.7em; left: 0.5em; margin: 0; position: absolute; top: 1.2em; width: 0;
-        @include border-left-radius( 1px );
-        @include vibeoBackground( $time-current-start, $time-current-end, $time-rail-opacity );       
-      }
-      .mejs-volume-handle { display: none; }
-      .mejs-volume-plus {
-        background: transparent url( $svg-volume-up ) no-repeat; background-size: contain; height: 0.8em; left: 0.1em; position: absolute; top: 0.1em; width: 0.8em;
-        &:focus { background-color: $buttons-focus-bg; }
-      }
-      .mejs-volume-minus{
-        background: transparent url( $svg-volume-down ) no-repeat; background-size: contain; bottom: 0.1em; height: 0.8em; left: 0.1em; position: absolute; width: 0.8em;
-        &:focus { background-color: $buttons-focus-bg; }
-      }
+    .mejs-time-rail { 
+        padding: 0; 
     }
-
-    /*horizontal version*/
-    .mejs-volume-slider.horizontal {
-      bottom: 2.2em; height: 1.5em; margin-left: -4.5em; padding-bottom: 0.125em; width: 7.6em;
-      &:after { background: transparent url($volume-arrow-img) no-repeat; content: ''; height: 7px; position: absolute; right: -45px; top: 23px; width: 5.900em; }
-      
-      .mejs-volume-total { height: 0.813em; left: 1.500em; padding: 1px 0; top: 0.450em; width: 5.300em; }
-      .mejs-volume-current { height: 0.813em; left: 1.500em; margin-left: 1px; margin-top: 1px; max-width: 5.200em; top: 0.450em; width: 5.300em;}
-      .mejs-volume-handle { cursor: e-resize; height: 0.8em; left: 1.1em; top: 0.15em; width: 6px; }
-      .mejs-volume-plus { left: 6.410em; top: 0.325em; }
-      .mejs-volume-minus { left: 0.190em; top: 0.375em; }
-    } 
-  }
-
-  /* End: TRACK (Captions and Chapters) */
-  .mejs-captions-button {
-    position: relative; top: 1px;
-
+    .mejs-time {
+        color: $font-main-color; 
+        text-align: center;
+        span { 
+            color: $font-main-color; 
+            font-size: $font-main-size; 
+            font-weight: bold; 
+        }
+        .mejs-currenttime,
+        .mejs-duration{
+            position: relative;
+            bottom: 1px;
+        }
+    }
+}
+// ::Tooltip
+.mejs-tooltip {
+    position: absolute; 
+    right: 5px; 
+    top: 5px; 
+    z-index: 1000;
     button {
-      background: transparent url( $svg-caption ) no-repeat; background-size: contain; 
-      &:focus { background-color: $buttons-focus-bg; }
+        background: transparent url( $cmp-tooltip ) no-repeat; 
+        filter: alpha( opacity = 20 ); 
+        height: 0.6em; 
+        position: absolute; 
+        opacity: 0.2; 
+        right: 5px; 
+        top: 5px; 
+        width: 0.6em; 
+        &:focus, 
+        &:hover { 
+            filter: alpha( opacity = 100 ); 
+            opacity: 1; 
+        }
     }
-    .activeButton { background-color: $buttons-active-bg; }
-    .mejs-captions-selector { 
-      background: url($background); background: rgba(50, 50, 50, 0.7); border: solid 1px transparent; bottom: 26px; height: 100px; overflow: hidden; padding: 10px; position: absolute; right: -10px; visibility: hidden; width: 130px;
-      @include border-radius( 0 );
-      
-      ul {
-        display: block; list-style-type: none !important; margin: 0; overflow: hidden; padding: 0;
-        li {
-          display: block; color: #fff; list-style-type: none !important; margin: 0 0 6px 0; overflow: hidden; padding: 0; 
-          input { clear: both; float: left; margin: 3px 3px 0 5px; }
-          label { font: 10px $font-main; float: left; line-height: 15px; padding: 4px 0 0 0; width: 100px; } 
-        } 
-      } 
-    }
-    .mejs-captions-translations { font-size: 10px; margin: 0 0 5px 0; } 
-  } 
 }
-.mejs-chapters {
-  left: 0; position: absolute; top: 0; -xborder-right: solid 1px #fff; width: 10000px;
-  .mejs-chapter {    
-    background: $chapter-end; background: rgba($chapter-end, $chapter-opacity); border: 0; float: left; overflow: hidden; position: absolute; 
-    @include background-image(linear-gradient(rgba($chapter-start, $chapter-opacity), rgba($chapter-end, $chapter-opacity)));
-    @include filter-gradient($chapter-start, $chapter-end);
-
-    .mejs-chapter-block { border-bottom: solid 1px #333; border-right: solid 1px #333; color: $font-main-color; cursor: pointer; display: block; font-size: $font-main-size; padding: 5px; }
-    .mejs-chapter-block-last { border-right: none; }
-    .mejs-chapter-block {
-      &:hover {
-        background: $chapter-hover-end; background: rgba($chapter-hover-end, $chapter-hover-opacity);
-        @include background-image(linear-gradient(rgba($chapter-hover-start, $chapter-hover-opacity), rgba($chapter-hover-end, $chapter-hover-opacity)));
-        @include filter-gradient($chapter-hover-start, $chapter-hover-end); 
-      }
-      .ch-title { display: block; font-size: 12px; font-weight: bold; line-height: 12px; margin: 0 0 3px 0; text-overflow: ellipsis; white-space: nowrap; }
-      .ch-timespan { display: block; font-size: 12px; line-height: 12px; margin: 3px 0 4px 0; text-overflow: ellipsis; white-space: nowrap; } 
-    } 
-  } 
+.bubble-text { 
+    background-color: $tooltip-bg-color; 
+    border-radius: 10px; 
+    bottom: -1.3em; 
+    color: $tooltip-font-color; 
+    display: none; 
+    font-size: 0.6em; 
+    line-height: 1em; 
+    max-width: 8em; 
+    padding: 0.4em; 
+    position: absolute; 
+    right: 0.8em; 
+    text-align: left; 
+    z-index: 1001; 
 }
-.mejs-captions-layer {
-  bottom: 0; color: #fff; font-size: $font-caption-size; left: 0; line-height: 1.575em; position: absolute; text-align: center;
-  a { color: #fff; text-decoration: underline; }
-  &[lang=ar] { font-size: 1.25em; font-weight: normal; } 
-}
-.mejs-captions-position { bottom: 2em; left: 0; position: absolute; width: 100%; }
-.mejs-captions-position-hover { bottom: 2.5em; }
-.mejs-captions-text { background: url($background); background: rgba(20, 20, 20, 0.8); padding: 3px 5px; }
-.mejs-clear { clear: both; }
-.me-cannotplay {
-  a { color: #fff; font-weight: bold; }
-  span { display: block; padding: 15px; } 
-}
+// ::Controls
 .mejs-controls {
-  .mejs-loop-off button { background: transparent url( $svg-loop-off ) no-repeat; background-size: contain; }
-  .mejs-loop-on button { background: transparent url( $svg-loop-on ) no-repeat; background-size: contain; }
-  .mejs-backlight-off button { background: transparent url( $svg-backlight-off ) no-repeat; background-size: contain; }
-  .mejs-backlight-on button { background: transparent url( $svg-backlight-on ) no-repeat; background-size: contain; }
-  .mejs-picturecontrols-button { background: transparent url( $svg-picturecontrols ) no-repeat; background-size: contain; } 
-}
-.mejs-contextmenu {
-  background: #fff; border: solid 1px #999; left: 0; padding: 10px; position: absolute; top: 0; width: 150px; z-index: 1001;
-  @include border-radius(4px);
-
-  /* make sure it shows on fullscreen */
-  .mejs-contextmenu-separator { background: #333; height: 1px; font-size: 0; margin: 5px 6px; }
-  .mejs-contextmenu-item { 
-    color: #333; cursor: pointer; font-family: $font-main; font-size: 0.75em; padding: 4px 6px;
-    &:hover { background: #2C7C91; color: #fff; } 
-  } 
-}
-.mejs-controls .mejs-sourcechooser-button { position: relative; }
-.mejs-controls .mejs-sourcechooser-button button { background-position: -128px 0; }
-.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
-  background: url('background.png'); background: rgba(50,50,50,0.7); border: solid 1px transparent; bottom: 26px; height: 100px; overflow: hidden; padding: 10px; position: absolute; right: -10px; visibility: hidden; width: 130px;   
-  @include border-radius( 0px );
-}
-.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul { display: block; list-style-type: none !important; margin: 0; overflow: hidden; padding: 0; }
-.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li { color: #fff; display:block; list-style-type: none !important; margin: 0 0 6px 0; overflow: hidden; padding: 0; }
-.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li input { clear: both; float: left; margin: 3px 3px 0 5px; }
-.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector ul li label { float: left; font-family: $font-main; font-size: 0.625em; line-height: 0.9375em; padding: 4px 0 0 0; width: 100px; }
-
-// *** IE ***
-.no-svg {
-  .mejs-tooltip { background: url(05tooltip.png) no-repeat center center; }
-  .mejs-controls {
-    .mejs-play button { background: url( $png-play ) no-repeat center center; }    
-    .mejs-pause button { background: url( $png-pause ) no-repeat center center; }   
-    .mejs-stop button { background: url( $png-stop ) no-repeat center center; }    
-    .mejs-fullscreen-button button { background: url( $png-fullscreen ) no-repeat center center; }    
-    .mejs-unfullscreen button { background: url( $png-unfullscreen ) no-repeat center center; }    
-    .mejs-mute button { background: url( $png-mute ) no-repeat center center; }    
-    .mejs-unmute button { background: url( $png-unmute ) no-repeat center center; }    
-    .mejs-captions-button {
-      position: relative;
-      button { background: transparent url( $png-caption ) no-repeat center center; } 
+    .mejs-play button { 
+        @include vibeoLoadSvg( $cmp-play ); 
     }
-    .mejs-loop-off button { background: transparent url( $png-loop-off ) no-repeat center center; }    
-    .mejs-loop-on button { background: transparent url( $png-loop-on ) no-repeat center center; }    
-    .mejs-backlight-off button { background: transparent url( $png-backlight-off ) no-repeat center center; }    
-    .mejs-backlight-on button { background: transparent url( $png-backlight-on ) no-repeat center center;}    
-    .mejs-picturecontrols-button { background: transparent url( $png-picturecontrols ) no-repeat center center; }    
-    .mejs-time-rail {      
-      .mejs-time-handle-rewind { background: transparent url( $png-rail-rewind ) no-repeat center center; background-color: $time-nav-bg; }      
-      .mejs-time-handle-forward { background: transparent url( $png-rail-forward ) no-repeat center center; background-color: $time-nav-bg; }
+    .mejs-pause button { 
+        @include vibeoLoadSvg( $cmp-pause ); 
+    }
+    .mejs-stop button { 
+        @include vibeoLoadSvg( $cmp-stop ); 
+    }
+    .mejs-fullscreen-button button { 
+        @include vibeoLoadSvg( $cmp-fullscreen, "center 1px" ); 
+    }
+    .mejs-unfullscreen button { 
+        @include vibeoLoadSvg( $cmp-unfullscreen, "center 1px" ); 
+    }
+    .mejs-mute button { 
+        @include vibeoLoadSvg( $cmp-mute, "center -1px" ); 
+    }
+    .mejs-unmute button { 
+        @include vibeoLoadSvg( $cmp-unmute, "center -1px" ); 
+    }
+    .mejs-playpause-button button {
+        position: relative;
+        
+        // ::Check if separator variable is set
+        $separator-img: null !default;
+        @if $separator-img != null {
+            &:after { 
+                @include vibeoSeparatorAfter( -6px, -6px ); 
+            }
+        }
+    }
+    .mejs-volume-button > button {
+        position: relative;
+        
+        // ::Check if separator variable is set
+        $separator-img: null !default;
+        @if $separator-img != null {
+            &:after { 
+                @include vibeoSeparatorAfter( -8px, -11px ); 
+            }
+        }
+    }
+    .mejs-captions-button button {
+        position: relative;
+
+        // ::Check if separator variable is set
+        $separator-img: null !default;
+        @if $separator-img != null {
+            &:after { 
+                @include vibeoSeparatorAfter( -7px, -11px ); 
+            }
+            &:before { 
+                @include vibeoSeparatorBefore( -7px, -10px ); 
+            }  
+        }
+    }
+    .mejs-time-rail {
+        width: 100%;
+        @include vibeoAnimate;
+        span {
+            cursor: pointer; 
+            display: block; 
+            height: 0.6em; 
+            width: 180px; 
+            @include border-radius( 0 );
+        }
+        > span {
+            position: relative;
+            > span { 
+                left: 0; 
+                position: absolute; 
+                top: 0; 
+            } 
+        }
+        .mejs-time-total {
+            background: mix( $total-time-start, $total-time-end ); 
+            background: rgba( $total-time-end, $time-rail-opacity ); 
+            width: 100%;
+            @include vibeoBackground( $total-time-start, $total-time-end, $time-rail-opacity );
+        }
+
+        .mejs-time-buffer {
+            background: rgba( $bkg-buffer, $buffer-opacity );
+            width:100%;
+            @include vibeoBackground( $buffer-start, $buffer-end, $buffer-grdt-opacity );
+        }
+        .mejs-time-current { 
+            background-size: 15px 15px; 
+            -webkit-background-size: 15px 15px; 
+            -moz-background-size: 15px 15px; 
+            -o-background-size: 15px 15px; 
+            animation: buffer-stripes 2s linear infinite; 
+            -webkit-animation: buffer-stripes 2s linear infinite; 
+            -moz-animation: buffer-stripes 2s linear infinite; 
+            -ms-animation: buffer-stripes 2s linear infinite; 
+            -o-animation: buffer-stripes 2s linear infinite; 
+        }
+        .mejs-time-loaded {
+            background: mix( $time-loaded-start, $time-loaded-end ); 
+            background: rgba( $time-loaded-end, $time-rail-opacity ); 
+            width: 0;
+            @include vibeoBackground( $time-loaded-start, $time-loaded-end, $time-rail-opacity );
+        }
+        .mejs-time-current {
+            background: mix( $time-current-start, $time-current-end ); 
+            background: rgba( $time-current-end, $time-rail-opacity ); 
+            width: 0;
+            @include vibeoBackground( $time-current-start, $time-current-end, $time-rail-opacity );
+        }
+        .mejs-time-handle {
+            background: #fff; 
+            border: 0; 
+            cursor: pointer; 
+            margin: 0; 
+            opacity: $time-handle-opacity; 
+            position: absolute; 
+            text-align: center; 
+            top: 0px; 
+            width: 10px;
+            @include border-radius( 0 );
+        }
+        .mejs-time-handle-rewind {
+            @include vibeoLoadSvg( $cmp-rail-rewind );
+            background-color: $time-nav-bg; 
+            background-size: contain; 
+            height: 0.8em; 
+            left: -0.2em; 
+            position: absolute; 
+            top: -0.2em; 
+            width: 0.8em;
+            &:focus { 
+                background-color: $buttons-focus-bg; 
+            }
+        }
+        .mejs-time-handle-forward {
+            @include vibeoLoadSvg( $cmp-rail-forward );
+            background-color: $time-nav-bg; 
+            height: 0.8em; 
+            position: absolute; 
+            right: -1em; 
+            top: -0.2em; 
+            width: 0.8em;
+            &:focus { 
+                background-color: $buttons-focus-bg; 
+            }
+        }
+        .mejs-time-float { 
+            background: #eee; 
+            border: none; 
+            color: #111; 
+            display: none; 
+            height: auto; 
+            left: 0; 
+            margin-left: -1.49em; 
+            padding: 0.2em 0.3em; 
+            position: absolute; 
+            text-align: center; 
+            top: -2.20em; 
+            width: auto; 
+        }
+        .mejs-time-float-current { 
+            display: block; 
+            height: auto; 
+            text-align: center; 
+            width: auto; 
+        }
+        .mejs-time-float-corner {
+            border: solid 0.35em #eee; 
+            border-color: #eee transparent transparent transparent; 
+            bottom: -0.57em; 
+            display: block; 
+            height: 0; 
+            left: 50%; 
+            line-height: 0; 
+            margin-left: -0.3em; 
+            position: absolute; 
+            width: 0;
+            @include border-radius( 0 );
+        } 
     }
     .mejs-volume-button {
-      .mejs-volume-slider, .mejs-volume-slider.horizontal {
-        background-color: $volume-slider-bg;        
-        .mejs-volume-plus { background: transparent url( $png-volume-up ) no-repeat center center; background-color: $volume-plus-minus-bg; }        
-        .mejs-volume-minus { background: transparent url( $png-volume-down ) no-repeat center center; background-color: $volume-plus-minus-bg; }
-      }
+        position: relative; 
+        top: 0.125em;
+        &:hover { 
+            @include border-radius( 0 0 4px 4px ); 
+        }
+        .mejs-volume-slider {
+            bottom: 1em; 
+            display: none; 
+            height: 7.4em; 
+            margin: 0; 
+            position: absolute; 
+            width: 1em; 
+            z-index: 1;
+            @include border-radius( 5px );
+            @include vibeoBackground( $bkg-controls-start, $bkg-controls-end, $bkg-controls-opacity ); 
+        }
+        .mejs-volume-slider {
+            .mejs-volume-total,
+            .mejs-volume-current {
+                height: 5.7em; 
+                left: 0.5em; 
+                margin: 0; 
+                position: absolute; 
+                top: 1.2em;                 
+            }
+            .mejs-volume-total {
+                background: mix($total-time-start, $total-time-end); 
+                background: rgba($total-time-end, $time-rail-opacity); 
+                width: 0.1em;
+                @include border-radius( 2px );
+                @include vibeoBackground( $total-time-start, $total-time-end, $time-rail-opacity ); 
+            }
+            .mejs-volume-current {
+                background: mix($time-current-start, $time-current-end); 
+                background: rgba($time-current-end, $time-rail-opacity); 
+                width: 0;
+                @include border-left-radius( 1px );
+                @include vibeoBackground( $time-current-start, $time-current-end, $time-rail-opacity );       
+            }
+            .mejs-volume-handle { display: none; }
+            .mejs-volume-plus {
+                height: 0.8em; 
+                left: 0.1em; 
+                position: absolute; 
+                top: 0.1em; 
+                width: 0.8em;
+                @include vibeoLoadSvg( $cmp-volume-up );
+                &:focus { 
+                    background-color: $buttons-focus-bg; 
+                }
+            }
+            .mejs-volume-minus{
+                bottom: 0.1em; 
+                height: 0.8em; 
+                left: 0.1em; 
+                position: absolute; 
+                width: 0.8em;
+                @include vibeoLoadSvg( $cmp-volume-down );
+                &:focus { 
+                    background-color: $buttons-focus-bg; 
+                }
+            }
+        }
+        // ::Horizontal version
+        .mejs-volume-slider.horizontal {
+            bottom: 2.100em; 
+            height: 1.5em; 
+            margin-left: -4.5em; 
+            padding-bottom: 0.125em; 
+            width: 7.6em;
+            &:after { 
+                @include vibeoLoadPng ($vol-arrow-img ); 
+                content: ''; 
+                height: 0.438em; 
+                position: absolute; 
+                right: -2.813em; 
+                top: 1.600em; 
+                width: 5.900em; 
+            }
+            .mejs-volume-total { 
+                height: 0.813em; 
+                left: 1.500em; 
+                padding: 1px 0; 
+                top: 0.450em; 
+                width: 5.300em; 
+            }
+            .mejs-volume-current { 
+                height: 0.813em; 
+                left: 1.500em; 
+                margin-left: 1px; 
+                margin-top: 1px; 
+                max-width: 5.200em; 
+                top: 0.450em; 
+                width: 5.300em;
+            }
+            .mejs-volume-handle { 
+                cursor: e-resize; 
+                height: 0.8em; 
+                left: 1.1em; 
+                top: 0.15em; 
+                width: 6px; 
+            }
+            .mejs-volume-plus { 
+                left: 6.410em; 
+                top: 0.325em; 
+            }
+            .mejs-volume-minus { 
+                left: 0.190em; 
+                top: 0.375em; 
+            }
+        } 
+    }
+
+    // ::End > TRACK (Captions and Chapters)
+    .mejs-captions-button {
+        position: relative; top: 1px;
+        button { 
+            @include vibeoLoadSvg( $cmp-caption ); 
+        }
+        .activeButton { 
+            background-color: $buttons-active-bg; 
+        }
+        .mejs-captions-selector { 
+            background: url( $img-background ); 
+            background: rgba(50, 50, 50, 0.7); 
+            border: solid 1px transparent; 
+            bottom: 26px; 
+            height: 100px; 
+            overflow: hidden; 
+            padding: 10px; 
+            position: absolute; 
+            right: -10px; 
+            visibility: hidden; 
+            width: 130px;
+            @include border-radius( 0 );
+            ul {
+                display: block; 
+                list-style-type: none !important; 
+                margin: 0; 
+                overflow: hidden; 
+                padding: 0;
+                li {
+                    display: block; 
+                    color: #fff; 
+                    list-style-type: none !important; 
+                    margin: 0 0 6px 0; 
+                    overflow: hidden; 
+                    padding: 0; 
+                    input { 
+                        clear: both; 
+                        float: left; 
+                        margin: 3px 3px 0 5px; 
+                    }
+                    label { 
+                        font: 10px $font-main; 
+                        float: left; 
+                        line-height: 15px; 
+                        padding: 4px 0 0 0; 
+                        width: 100px; 
+                    } 
+                } 
+            } 
+        }
+        .mejs-captions-translations { 
+            font-size: 10px; 
+            margin: 0 0 5px 0; 
+        } 
     } 
-  }
-  .mejs-playpause-button, 
-  .mejs-duration-container, 
-  .mejs-captions-button,
-  .mejs-volume-button { 
-    position: relative;
-    &:after { @include vibeoSeparatorAfter( -5px, 0 ); }
-  }
-  .mejs-duration-container span:after { position: static; }
 }
-
-// *** Helpers ***
+.mejs-chapters {
+    left: 0; 
+    position: absolute; 
+    top: 0; 
+    -xborder-right: solid 1px #fff; 
+    width: 10000px;
+    .mejs-chapter {    
+        background: $chapter-end; 
+        background: rgba($chapter-end, $chapter-opacity); 
+        border: 0; 
+        float: left; 
+        overflow: hidden; 
+        position: absolute; 
+        @include background-image(linear-gradient(rgba($chapter-start, $chapter-opacity), rgba($chapter-end, $chapter-opacity)));
+        @include filter-gradient($chapter-start, $chapter-end);
+        .mejs-chapter-block { 
+            border-bottom: solid 1px #333; 
+            border-right: solid 1px #333; 
+            color: $font-main-color; 
+            cursor: pointer; 
+            display: block; 
+            font-size: $font-main-size; 
+            padding: 5px; 
+        }
+        .mejs-chapter-block-last { 
+            border-right: none; 
+        }
+        .mejs-chapter-block {
+            &:hover {
+                background: $chapter-hover-end; 
+                background: rgba($chapter-hover-end, $chapter-hover-opacity);
+                @include background-image(linear-gradient(rgba($chapter-hover-start, $chapter-hover-opacity), rgba($chapter-hover-end, $chapter-hover-opacity)));
+                @include filter-gradient($chapter-hover-start, $chapter-hover-end); 
+            }
+            .ch-title,
+            .ch-timespan {
+                display: block; 
+                font-size: 12px;
+                line-height: 12px; 
+                text-overflow: ellipsis; 
+                white-space: nowrap; 
+            }
+            .ch-title {                  
+                font-weight: bold;                 
+                margin: 0 0 3px 0;  
+            }
+            .ch-timespan { 
+                margin: 3px 0 4px 0; 
+            } 
+        } 
+    } 
+}
+.mejs-captions-layer {
+    bottom: 0; 
+    color: #fff; 
+    font-size: $font-caption-size; 
+    left: 0; 
+    line-height: 1.575em; 
+    position: absolute; 
+    text-align: center;
+    a { 
+        color: #fff; 
+        text-decoration: underline; 
+    }
+    &[lang=ar] { 
+        font-size: 1.25em; 
+        font-weight: normal; 
+    } 
+}
+.mejs-captions-position { 
+    bottom: 2em; 
+    left: 0; 
+    position: absolute; 
+    width: 100%; 
+}
+.mejs-captions-position-hover { 
+    bottom: 2.5em; 
+}
+.mejs-captions-text { 
+    background: url( $img-background ); 
+    background: rgba(20, 20, 20, 0.8); 
+    padding: 3px 5px; 
+}
+.mejs-clear { 
+    clear: both; 
+}
+.me-cannotplay {
+    a { 
+        color: #fff; 
+        font-weight: bold; 
+    }
+    span { 
+        display: block; 
+        padding: 15px; 
+    } 
+}
+.mejs-controls {
+    .mejs-loop-off button { 
+        background: transparent url( $cmp-loop-off ) no-repeat; 
+        background-size: contain; 
+    }
+    .mejs-loop-on button { 
+        background: transparent url( $cmp-loop-on ) no-repeat; 
+        background-size: contain; 
+    }
+    .mejs-backlight-off button { 
+        background: transparent url( $cmp-backlight-off ) no-repeat; 
+        background-size: contain; 
+    }
+    .mejs-backlight-on button { 
+        background: transparent url( $cmp-backlight-on ) no-repeat; 
+        background-size: contain; 
+    }
+    .mejs-picturecontrols-button { 
+        background: transparent url( $cmp-picturecontrols ) no-repeat; 
+        background-size: contain; 
+    } 
+}
+.mejs-contextmenu {
+    background: #fff; 
+    border: solid 1px #999; 
+    left: 0; 
+    padding: 10px; 
+    position: absolute; 
+    top: 0; 
+    width: 150px; 
+    z-index: 1001;
+    @include border-radius(4px);
+    // ::Fullscreen
+    .mejs-contextmenu-separator { 
+        background: #333; 
+        height: 1px; 
+        font-size: 0; 
+        margin: 5px 6px; 
+    }
+    .mejs-contextmenu-item { 
+        color: #333; 
+        cursor: pointer; 
+        font-family: $font-main; 
+        font-size: 0.75em; 
+        padding: 4px 6px;
+        &:hover { 
+            background: #2C7C91; 
+            color: #fff; 
+        } 
+    } 
+}
+.mejs-controls .mejs-sourcechooser-button { 
+    position: relative; 
+}
+.mejs-controls .mejs-sourcechooser-button button { 
+    background-position: -128px 0; 
+}
+.mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
+    background: url('background.png'); 
+    background: rgba(50,50,50,0.7); 
+    border: solid 1px transparent; 
+    bottom: 26px; 
+    height: 100px; 
+    overflow: hidden; 
+    padding: 10px; 
+    position: absolute; 
+    right: -10px; 
+    visibility: hidden; 
+    width: 130px;   
+    @include border-radius( 0px );
+    ul {
+        display: block; 
+        list-style-type: none !important; 
+        margin: 0; 
+        overflow: hidden; 
+        padding: 0;
+        li {
+            color: #fff; 
+            display:block; 
+            list-style-type: none !important; 
+            margin: 0 0 6px 0; 
+            overflow: hidden; 
+            padding: 0; 
+            input {
+                clear: both; 
+                float: left; 
+                margin: 3px 3px 0 5px;
+            }
+            label {
+                float: left; 
+                font-family: $font-main; 
+                font-size: 0.625em; 
+                line-height: 0.9375em; 
+                padding: 4px 0 0 0; 
+                width: 100px;
+            }
+        }        
+    }
+}
+// ::IE
+.no-svg {
+    .mejs-tooltip { 
+        @include vibeoLoadPng( $cmp-tooltip, "center center" ); 
+    }
+    .mejs-controls {
+        .mejs-play button { 
+            @include vibeoLoadPng( $cmp-play, "center center" ); 
+        }    
+        .mejs-pause button { 
+            @include vibeoLoadPng( $cmp-pause, "center center" ); 
+        }   
+        .mejs-stop button { 
+            @include vibeoLoadPng( $cmp-stop, "center center" ); 
+        }    
+        .mejs-fullscreen-button button { 
+            @include vibeoLoadPng( $cmp-fullscreen, "center center" ); 
+        }    
+        .mejs-unfullscreen button { 
+            @include vibeoLoadPng( $cmp-unfullscreen, "center center" ); 
+        }    
+        .mejs-mute button { 
+            @include vibeoLoadPng( $cmp-mute, "center center" ); 
+        }    
+        .mejs-unmute button { 
+            @include vibeoLoadPng( $cmp-unmute, "center center" ); 
+        }    
+        .mejs-captions-button {
+            position: relative;
+            button { 
+                @include vibeoLoadPng( $cmp-caption, "center center" ); 
+            } 
+        }
+        .mejs-loop-off button { 
+            @include vibeoLoadPng( $cmp-loop-off, "center center" ); 
+        }    
+        .mejs-loop-on button { 
+            @include vibeoLoadPng( $cmp-loop-on, "center center" ); 
+        }    
+        .mejs-backlight-off button { 
+            @include vibeoLoadPng( $cmp-backlight-off, "center center" ); 
+        }    
+        .mejs-backlight-on button { 
+            @include vibeoLoadPng( $cmp-backlight-on, "center center" );
+        }    
+        .mejs-picturecontrols-button { 
+            @include vibeoLoadPng( $cmp-picturecontrols, "center center" ); 
+        }    
+        .mejs-time-rail {      
+            .mejs-time-handle-rewind { 
+                background-color: $time-nav-bg; }  
+                @include vibeoLoadPng( $cmp-rail-rewind, "center center" );     
+            .mejs-time-handle-forward { 
+                background-color: $time-nav-bg; 
+                @include vibeoLoadPng( $cmp-rail-forward, "center center" ); 
+            }
+        }
+        .mejs-volume-button {
+            .mejs-volume-slider, .mejs-volume-slider.horizontal {
+                background-color: $vol-slider-bg;        
+                .mejs-volume-plus { 
+                    background-color: $vol-plus-minus-bg;
+                    @include vibeoLoadPng( $cmp-volume-up, "center center" );  
+                }        
+                .mejs-volume-minus {  
+                    background-color: $vol-plus-minus-bg; 
+                    @include vibeoLoadPng( $cmp-volume-down, "center center" );
+                }
+            }
+        } 
+    }
+    .mejs-playpause-button, 
+    .mejs-duration-container, 
+    .mejs-captions-button,
+    .mejs-volume-button { 
+        position: relative;
+        &:after { 
+            @include vibeoSeparatorAfter( -5px, 0 ); 
+        }
+    }
+    .mejs-duration-container span:after { 
+        position: static; 
+    }
+}
+// ::Helpers
 .visuallyhidden {
-  border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;
-  &.focusable {
-    &:active, &:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; } 
-  } 
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px;
+    &.focusable {
+        &:active, &:focus { 
+            clip: auto; 
+            height: auto; 
+            margin: 0; 
+            overflow: visible; 
+            position: static; 
+            width: auto; 
+        } 
+    } 
 }
-
-.invisible { display: none; }
+.invisible { 
+    display: none; 
+}
