@@ -586,12 +586,12 @@ $chapter-hover-opacity: 0.6;
   /* End: TRACK (Captions and Chapters) */
   .mejs-captions-button {
     position: relative;
+    &.activeButton button { background-color: $buttons-active-bg;}
     button {
       background: transparent url(controls/gray/caption.svg) no-repeat;
       background-size: contain; }
     button:focus {
     background-color: $buttons-focus-bg;}
-    .activeButton { background-color: $buttons-active-bg;}
     .mejs-captions-selector {
       visibility: hidden;
       position: absolute;

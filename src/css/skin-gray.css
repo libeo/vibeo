@@ -792,17 +792,17 @@
   position: relative;
 }
 /* line 589, sass/skin-gray.scss */
+.mejs-controls .mejs-captions-button.activeButton button {
+  background-color: #323232;
+}
+/* line 590, sass/skin-gray.scss */
 .mejs-controls .mejs-captions-button button {
   background: transparent url(controls/gray/caption.svg) no-repeat;
   background-size: contain;
 }
-/* line 592, sass/skin-gray.scss */
+/* line 593, sass/skin-gray.scss */
 .mejs-controls .mejs-captions-button button:focus {
   background-color: #666666;
-}
-/* line 594, sass/skin-gray.scss */
-.mejs-controls .mejs-captions-button .activeButton {
-  background-color: #323232;
 }
 /* line 595, sass/skin-gray.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector {

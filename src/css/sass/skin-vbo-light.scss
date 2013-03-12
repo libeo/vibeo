@@ -1,35 +1,41 @@
-/* Table of Contents */
-/* ------------------------------------------ */
+// Table of Contents 
+// ------------------------------------------ 
 // ::Import Compass
 
 // ::Variables
     // ::Media folder
-    //:: Player default image
-    //:: Components
-    //:: Fonts
-    //:: Player config
+    // ::Player default
+    // ::FX
+    // ::Components
+    // ::Fonts
+    // ::Player config
 
 // ::Mixins
+// ::Functions
 // ::Import Vibéo basic styles
 // ::Overwrite
 
-/* ::Imports Compass */
-/* ------------------------------------------ */
+// ::Imports Compass 
+// ------------------------------------------ 
 @import "compass";
 
+// ::Variables 
+// ------------------------------------------ 
 
-/* ::Variables */
-/* ------------------------------------------ */
 
 // ::Media folder
-$main-media-folder          : 'controls/vbo-light';
+$main-media-folder      : 'controls/vbo-light';
 
-// ::Player default image
-$img-background             : "background.png";
-$img-play                   : "bigplay.png";
-$img-loading                : "loading.gif";
+// ::Player default
+$img-background         : "background.png";
+$img-play               : "bigplay.png";
+$img-loading            : "loading.gif";
 
-// ::Components << Use name of icon only, no need for the ext or the path. Files must use the same name
+// ::FX
+$turn-on-the-noise      : true; // < Set to true / false to toggle background noise in your control bar
+$img-noise              : 'noise.png';
+
+// ::Components < Use name of icon only, no need for the ext or the path. Files must use the same name
 $cmp-play               : 'play';
 $cmp-pause              : 'pause';
 $cmp-stop               : 'stop';
@@ -55,9 +61,10 @@ $font-main-size         : 0.688em;
 $font-main-color        : #222222;
 $font-main-weight       : normal;
 $font-caption-size      : 1em;
+$font-base-size         : 16px; // Size of base font in px. Unit is optional
 
-// ::Specific images for this skin
-$separator-img          : 'bkg-separator';  // Value can either be null for no separator OR the name of image used
+// ::Specific images for this skin < Value can either be set to false or the name of the image used
+$separator-img          : 'bkg-separator';
 $vol-arrow-img          : 'volume_box_arrow';
 
 // ::Loading overlay
@@ -76,7 +83,7 @@ $bkg-controls-opacity   : 1;
 
 // ::Background controls buttons on focus
 $buttons-focus-bg       : #666;
-$buttons-active-bg      : transparent;
+$buttons-active-bg      : #b1b1b1;
 
 // ::Volume controls
 $vol-plus-minus-bg      : #000000;
@@ -128,26 +135,27 @@ $chapter-hover-end      : #323232;
 $chapter-hover-opacity  : 0.6;
 
 
-/* ::Mixins */
-/* ------------------------------------------ */
+// ::Mixins 
+// ------------------------------------------ 
 
-@mixin vibeoBackground( $start, $end, $opacity ) {
+@mixin bkg( $start, $end, $opacity ) {
     @include background-image( linear-gradient( rgba( $start, $opacity ), rgba( $end, $opacity ) ) );
     @include filter-gradient( $start, $end );  
 }
 
-@mixin vibeoLoadSvg( $svgUrl, $pos:'' ) {
-    background: transparent url( "#{ $main-media-folder }/#{ $svgUrl }.svg" ) no-repeat #{$pos}; background-size: contain;
-    &:focus { 
-        background-color: $buttons-focus-bg; 
+@mixin load-component( $imgName, $ext: svg, $pos:'' ) {
+    background: transparent url( get-img( $imgName, $ext ) ) no-repeat #{ $pos };
+    
+    // ::Check if component is in svg
+    @if( $ext == svg ) {
+        background-size: contain;
+        &:focus { 
+            background-color: $buttons-focus-bg; 
+        }  
     }
 }
 
-@mixin vibeoLoadPng( $pngUrl, $pos:'' ) {
-    background: transparent url( "#{ $main-media-folder }/#{ $pngUrl }.png" ) no-repeat #{$pos};
-}
-
-@mixin vibeoAnimate {
+@mixin custom-animation {
     @-webkit-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
     @-moz-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
     @-ms-keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
@@ -155,8 +163,8 @@ $chapter-hover-opacity  : 0.6;
     @keyframes buffering-stripes { from {background-position: 0 0;} to {background-position: 30px 0;} }
 }
 
-@mixin vibeoSeparator { 
-    background: url( "#{ $main-media-folder }/#{$separator-img}.png" ) repeat-y; 
+@mixin separator { 
+    background: url( get-img( $separator-img, png ) ) repeat-y; 
     content: ''; 
     height: 1.188em; 
     padding: 6px 0; 
@@ -164,21 +172,47 @@ $chapter-hover-opacity  : 0.6;
     width: 0.125em; 
 }
 
-@mixin vibeoSeparatorAfter( $top, $right ) {
+@mixin separator-after( $top: 0, $right: 0 ) {
     right: $right; 
     top: $top;
-    @include vibeoSeparator;
+    @include separator;
 }
 
-@mixin vibeoSeparatorBefore( $top, $left ) {
+@mixin separator-before( $top: 0, $left: 0 ) {
     left: $left; 
     top: $top;  
-    @include vibeoSeparator;
+    @include separator;
 }
 
 
-/* ::Vibéo basic styles */
-/* ------------------------------------------ */
+// ::Functions 
+// ------------------------------------------ 
+
+@function get-img( $imgName, $ext ) {
+    @return '#{ $main-media-folder }/#{ $imgName }.#{ $ext }';
+}
+
+@function emify( $target, $base: 16 ) {
+    $values: ();
+    $baseFixed: remove-px( $base );
+
+    @each $t in $target {
+        $tFixed: remove-px( $t );
+        $values: append( $values, if( type-of( $t ) == number, $tFixed / $baseFixed + 0em, $tFixed ) );
+    }
+
+    @return $values;
+}
+@function remove-px( $target ) {
+    @if not unitless( $target ) {
+        @return $target / 1px ;
+    } @else {
+        @return $target;
+    }
+}
+
+// ::Vibéo basic styles 
+// ------------------------------------------ 
 
 .mejs-time-float-current { 
     font-size: $font-main-size; 
@@ -274,7 +308,7 @@ $chapter-hover-opacity  : 0.6;
     position: absolute; 
     top: 50%; 
     width: 80px;
-    @include vibeoBackground( $ovl-loading-start, $ovl-loading-end, $ovl-loading-opacity );
+    @include bkg( $ovl-loading-start, $ovl-loading-end, $ovl-loading-opacity );
     span { 
         background: transparent url( $img-loading ) 50% 50% no-repeat; 
         display: block; 
@@ -293,19 +327,23 @@ $chapter-hover-opacity  : 0.6;
     left: 0; 
     list-style-type: none; 
     margin: 0; 
-    padding: 5px 0; 
+    // padding: 5px 0; 
     position: absolute; 
     width: 100%;
-    @include vibeoBackground( $bkg-controls-start, $bkg-controls-end, $bkg-controls-opacity );  
+    @include bkg( $bkg-controls-start, $bkg-controls-end, $bkg-controls-opacity );  
     div { 
         background: 0; 
-        background-image: none; 
+
+        $turn-on-the-noise: false !default;
+        @if $turn-on-the-noise {
+            background-image: url( $img-noise  ); 
+        }
+        
         border: 0; 
         display: inline-block; 
         font: 0.917em $font-main; 
         list-style-type: none; 
         margin: 0; 
-        padding: 0; 
         vertical-align: middle; 
     } 
 }
@@ -324,7 +362,7 @@ $chapter-hover-opacity  : 0.6;
 .mejs-container .mejs-controls {
     > div { 
         display: table-cell; 
-        padding: 0 8px; 
+        padding: 5px 8px; 
         text-align: center; 
     }
     .mejs-time-rail { 
@@ -384,66 +422,69 @@ $chapter-hover-opacity  : 0.6;
 }
 // ::Controls
 .mejs-controls {
+    button {
+        overflow: visible;
+    }
     .mejs-play button { 
-        @include vibeoLoadSvg( $cmp-play ); 
+        @include load-component( $cmp-play );
     }
     .mejs-pause button { 
-        @include vibeoLoadSvg( $cmp-pause ); 
+        @include load-component( $cmp-pause ); 
     }
     .mejs-stop button { 
-        @include vibeoLoadSvg( $cmp-stop ); 
+        @include load-component( $cmp-stop );
     }
     .mejs-fullscreen-button button { 
-        @include vibeoLoadSvg( $cmp-fullscreen, "center 1px" ); 
+        @include load-component( $cmp-fullscreen );
     }
     .mejs-unfullscreen button { 
-        @include vibeoLoadSvg( $cmp-unfullscreen, "center 1px" ); 
+        @include load-component( $cmp-unfullscreen );
     }
     .mejs-mute button { 
-        @include vibeoLoadSvg( $cmp-mute, "center -1px" ); 
+        @include load-component( $cmp-mute );
     }
     .mejs-unmute button { 
-        @include vibeoLoadSvg( $cmp-unmute, "center -1px" ); 
+        @include load-component( $cmp-unmute ); 
     }
     .mejs-playpause-button button {
-        position: relative;
-        
         // ::Check if separator variable is set
-        $separator-img: null !default;
-        @if $separator-img != null {
+        $separator-img: false !default;
+        @if $separator-img {
+            position: relative;
             &:after { 
-                @include vibeoSeparatorAfter( -6px, -6px ); 
+                @include separator-after( -6px, -6px ); 
             }
         }
     }
     .mejs-volume-button > button {
-        position: relative;
-        
         // ::Check if separator variable is set
-        $separator-img: null !default;
-        @if $separator-img != null {
+        margin-top: 2px;
+        $separator-img: false !default;
+        @if $separator-img {
+            position: relative;
             &:after { 
-                @include vibeoSeparatorAfter( -8px, -11px ); 
+                @include separator-after( -6px, -11px ); 
             }
         }
     }
     .mejs-captions-button button {
-        position: relative;
-
+        @include load-component( $cmp-caption ); 
+        margin-top: 2px;
         // ::Check if separator variable is set
-        $separator-img: null !default;
-        @if $separator-img != null {
+        $separator-img: false !default;
+        @if $separator-img {
+            position: relative;
             &:after { 
-                @include vibeoSeparatorAfter( -7px, -11px ); 
+                @include separator-after( -6px, -11px ); 
             }
             &:before { 
-                @include vibeoSeparatorBefore( -7px, -10px ); 
+                @include separator-before( -6px, -10px ); 
             }  
         }
     }
     .mejs-time-rail {
         width: 100%;
-        @include vibeoAnimate;
+        @include custom-animation;
         span {
             cursor: pointer; 
             display: block; 
@@ -463,13 +504,13 @@ $chapter-hover-opacity  : 0.6;
             background: mix( $total-time-start, $total-time-end ); 
             background: rgba( $total-time-end, $time-rail-opacity ); 
             width: 100%;
-            @include vibeoBackground( $total-time-start, $total-time-end, $time-rail-opacity );
+            @include bkg( $total-time-start, $total-time-end, $time-rail-opacity );
         }
 
         .mejs-time-buffer {
             background: rgba( $bkg-buffer, $buffer-opacity );
             width:100%;
-            @include vibeoBackground( $buffer-start, $buffer-end, $buffer-grdt-opacity );
+            @include bkg( $buffer-start, $buffer-end, $buffer-grdt-opacity );
         }
         .mejs-time-current { 
             background-size: 15px 15px; 
@@ -486,13 +527,13 @@ $chapter-hover-opacity  : 0.6;
             background: mix( $time-loaded-start, $time-loaded-end ); 
             background: rgba( $time-loaded-end, $time-rail-opacity ); 
             width: 0;
-            @include vibeoBackground( $time-loaded-start, $time-loaded-end, $time-rail-opacity );
+            @include bkg( $time-loaded-start, $time-loaded-end, $time-rail-opacity );
         }
         .mejs-time-current {
             background: mix( $time-current-start, $time-current-end ); 
             background: rgba( $time-current-end, $time-rail-opacity ); 
             width: 0;
-            @include vibeoBackground( $time-current-start, $time-current-end, $time-rail-opacity );
+            @include bkg( $time-current-start, $time-current-end, $time-rail-opacity );
         }
         .mejs-time-handle {
             background: #fff; 
@@ -507,7 +548,6 @@ $chapter-hover-opacity  : 0.6;
             @include border-radius( 0 );
         }
         .mejs-time-handle-rewind {
-            @include vibeoLoadSvg( $cmp-rail-rewind );
             background-color: $time-nav-bg; 
             background-size: contain; 
             height: 0.8em; 
@@ -515,22 +555,24 @@ $chapter-hover-opacity  : 0.6;
             position: absolute; 
             top: -0.2em; 
             width: 0.8em;
+            @include load-component( $cmp-rail-rewind, svg );
             &:focus { 
                 background-color: $buttons-focus-bg; 
             }
         }
         .mejs-time-handle-forward {
-            @include vibeoLoadSvg( $cmp-rail-forward );
             background-color: $time-nav-bg; 
             height: 0.8em; 
             position: absolute; 
             right: -1em; 
             top: -0.2em; 
             width: 0.8em;
+            @include load-component( $cmp-rail-forward, svg );
             &:focus { 
                 background-color: $buttons-focus-bg; 
             }
         }
+       
         .mejs-time-float { 
             background: #eee; 
             border: none; 
@@ -566,8 +608,6 @@ $chapter-hover-opacity  : 0.6;
         } 
     }
     .mejs-volume-button {
-        position: relative; 
-        top: 0.125em;
         &:hover { 
             @include border-radius( 0 0 4px 4px ); 
         }
@@ -580,7 +620,7 @@ $chapter-hover-opacity  : 0.6;
             width: 1em; 
             z-index: 1;
             @include border-radius( 5px );
-            @include vibeoBackground( $bkg-controls-start, $bkg-controls-end, $bkg-controls-opacity ); 
+            @include bkg( $bkg-controls-start, $bkg-controls-end, $bkg-controls-opacity ); 
         }
         .mejs-volume-slider {
             .mejs-volume-total,
@@ -596,14 +636,14 @@ $chapter-hover-opacity  : 0.6;
                 background: rgba($total-time-end, $time-rail-opacity); 
                 width: 0.1em;
                 @include border-radius( 2px );
-                @include vibeoBackground( $total-time-start, $total-time-end, $time-rail-opacity ); 
+                @include bkg( $total-time-start, $total-time-end, $time-rail-opacity ); 
             }
             .mejs-volume-current {
                 background: mix($time-current-start, $time-current-end); 
                 background: rgba($time-current-end, $time-rail-opacity); 
                 width: 0;
                 @include border-left-radius( 1px );
-                @include vibeoBackground( $time-current-start, $time-current-end, $time-rail-opacity );       
+                @include bkg( $time-current-start, $time-current-end, $time-rail-opacity );       
             }
             .mejs-volume-handle { display: none; }
             .mejs-volume-plus {
@@ -612,7 +652,7 @@ $chapter-hover-opacity  : 0.6;
                 position: absolute; 
                 top: 0.1em; 
                 width: 0.8em;
-                @include vibeoLoadSvg( $cmp-volume-up );
+                @include load-component( $cmp-volume-up, svg );
                 &:focus { 
                     background-color: $buttons-focus-bg; 
                 }
@@ -623,7 +663,7 @@ $chapter-hover-opacity  : 0.6;
                 left: 0.1em; 
                 position: absolute; 
                 width: 0.8em;
-                @include vibeoLoadSvg( $cmp-volume-down );
+                @include load-component( $cmp-volume-down, svg );
                 &:focus { 
                     background-color: $buttons-focus-bg; 
                 }
@@ -631,19 +671,26 @@ $chapter-hover-opacity  : 0.6;
         }
         // ::Horizontal version
         .mejs-volume-slider.horizontal {
-            bottom: 2.100em; 
             height: 1.5em; 
             margin-left: -4.5em; 
             padding-bottom: 0.125em; 
             width: 7.6em;
-            &:after { 
-                @include vibeoLoadPng ($vol-arrow-img ); 
-                content: ''; 
-                height: 0.438em; 
-                position: absolute; 
-                right: -2.813em; 
-                top: 1.600em; 
-                width: 5.900em; 
+            
+            // ::Check if arrow image is set
+            $vol-arrow-img: false !default;
+
+            @if $vol-arrow-img {
+                bottom: 2.300em;
+                overflow: visible;
+                &:after { 
+                    @include load-component( $vol-arrow-img ); 
+                    content: ''; 
+                    height: 1.1em; 
+                    position: absolute; 
+                    right: -2.813em; 
+                    top: 0.875em; 
+                    width: 5.662em; 
+                }
             }
             .mejs-volume-total { 
                 height: 0.813em; 
@@ -681,12 +728,8 @@ $chapter-hover-opacity  : 0.6;
 
     // ::End > TRACK (Captions and Chapters)
     .mejs-captions-button {
-        position: relative; top: 1px;
-        button { 
-            @include vibeoLoadSvg( $cmp-caption ); 
-        }
-        .activeButton { 
-            background-color: $buttons-active-bg; 
+        &.activeButton { 
+            background-color: $buttons-active-bg;
         }
         .mejs-captions-selector { 
             background: url( $img-background ); 
@@ -889,7 +932,7 @@ $chapter-hover-opacity  : 0.6;
     background-position: -128px 0; 
 }
 .mejs-controls .mejs-sourcechooser-button .mejs-sourcechooser-selector {
-    background: url('background.png'); 
+    background: url( 'background.png' ); 
     background: rgba(50,50,50,0.7); 
     border: solid 1px transparent; 
     bottom: 26px; 
@@ -933,58 +976,60 @@ $chapter-hover-opacity  : 0.6;
 // ::IE
 .no-svg {
     .mejs-tooltip { 
-        @include vibeoLoadPng( $cmp-tooltip, "center center" ); 
+        @include load-component( $cmp-tooltip, png, "center center" ); 
     }
     .mejs-controls {
         .mejs-play button { 
-            @include vibeoLoadPng( $cmp-play, "center center" ); 
+            @include load-component( $cmp-play, png, "center center" ); 
         }    
         .mejs-pause button { 
-            @include vibeoLoadPng( $cmp-pause, "center center" ); 
+            @include load-component( $cmp-pause, png, "center center" ); 
         }   
         .mejs-stop button { 
-            @include vibeoLoadPng( $cmp-stop, "center center" ); 
+            @include load-component( $cmp-stop, png, "center center" ); 
         }    
         .mejs-fullscreen-button button { 
-            @include vibeoLoadPng( $cmp-fullscreen, "center center" ); 
+            @include load-component( $cmp-fullscreen, png, "center center" );
+            margin: 0; 
         }    
         .mejs-unfullscreen button { 
-            @include vibeoLoadPng( $cmp-unfullscreen, "center center" ); 
-        }    
+            @include load-component( $cmp-unfullscreen, png, "center center" );
+            margin: 0; 
+        }
         .mejs-mute button { 
-            @include vibeoLoadPng( $cmp-mute, "center center" ); 
+            @include load-component( $cmp-mute, png, "center center" ); 
         }    
         .mejs-unmute button { 
-            @include vibeoLoadPng( $cmp-unmute, "center center" ); 
+            @include load-component( $cmp-unmute, png, "center center" ); 
         }    
         .mejs-captions-button {
             position: relative;
             button { 
-                @include vibeoLoadPng( $cmp-caption, "center center" ); 
+                @include load-component( $cmp-caption, png, "center center" ); 
             } 
         }
         .mejs-loop-off button { 
-            @include vibeoLoadPng( $cmp-loop-off, "center center" ); 
+            @include load-component( $cmp-loop-off, png, "center center" ); 
         }    
         .mejs-loop-on button { 
-            @include vibeoLoadPng( $cmp-loop-on, "center center" ); 
+            @include load-component( $cmp-loop-on, png, "center center" ); 
         }    
         .mejs-backlight-off button { 
-            @include vibeoLoadPng( $cmp-backlight-off, "center center" ); 
+            @include load-component( $cmp-backlight-off, png, "center center" ); 
         }    
         .mejs-backlight-on button { 
-            @include vibeoLoadPng( $cmp-backlight-on, "center center" );
+            @include load-component( $cmp-backlight-on, png, "center center" );
         }    
         .mejs-picturecontrols-button { 
-            @include vibeoLoadPng( $cmp-picturecontrols, "center center" ); 
+            @include load-component( $cmp-picturecontrols, png, "center center" ); 
         }    
         .mejs-time-rail {      
             .mejs-time-handle-rewind { 
                 background-color: $time-nav-bg; }  
-                @include vibeoLoadPng( $cmp-rail-rewind, "center center" );     
+                @include load-component( $cmp-rail-rewind, png, "center center" );     
             .mejs-time-handle-forward { 
                 background-color: $time-nav-bg; 
-                @include vibeoLoadPng( $cmp-rail-forward, "center center" ); 
+                @include load-component( $cmp-rail-forward, png, "center center" ); 
             }
         }
         .mejs-volume-button {
@@ -992,22 +1037,23 @@ $chapter-hover-opacity  : 0.6;
                 background-color: $vol-slider-bg;        
                 .mejs-volume-plus { 
                     background-color: $vol-plus-minus-bg;
-                    @include vibeoLoadPng( $cmp-volume-up, "center center" );  
+                    @include load-component( $cmp-volume-up, png, "center center" );  
                 }        
                 .mejs-volume-minus {  
                     background-color: $vol-plus-minus-bg; 
-                    @include vibeoLoadPng( $cmp-volume-down, "center center" );
+                    @include load-component( $cmp-volume-down, png, "center center" );
                 }
             }
         } 
     }
-    .mejs-playpause-button, 
-    .mejs-duration-container, 
-    .mejs-captions-button,
-    .mejs-volume-button { 
-        position: relative;
-        &:after { 
-            @include vibeoSeparatorAfter( -5px, 0 ); 
+    .mejs-volume-slider.horizontal {
+        @if $vol-arrow-img {
+            &:after { 
+                @include load-component( $vol-arrow-img, png ); 
+                height: emify( image-height( get-img( $vol-arrow-img, png ) ) ); 
+                position: absolute; 
+                top: 1.600em; 
+            }
         }
     }
     .mejs-duration-container span:after { 

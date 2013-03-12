@@ -801,17 +801,17 @@ body {
   position: relative;
 }
 /* line 593, sass/mediaelementplayer.scss */
+.mejs-controls .mejs-captions-button.activeButton button {
+  background-color: #323232;
+}
+/* line 594, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button button {
   background: transparent url(controls/black/caption.svg) no-repeat;
   background-size: contain;
 }
-/* line 596, sass/mediaelementplayer.scss */
+/* line 597, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button button:focus {
   background-color: #666666;
-}
-/* line 598, sass/mediaelementplayer.scss */
-.mejs-controls .mejs-captions-button .activeButton {
-  background-color: #323232;
 }
 /* line 599, sass/mediaelementplayer.scss */
 .mejs-controls .mejs-captions-button .mejs-captions-selector {
