@@ -107,14 +107,14 @@
 				// move with controls
 				var hover_timeout;
 				player.container
-					.bind('mouseenter mouseover focusin', function () {
+					.bind('controlsshown', function () {
 						clearTimeout(hover_timeout);
 						hover_timeout = null;
 						// push captions above controls
 						player.container.find('.mejs-captions-position').addClass('mejs-captions-position-hover');
 
 					})
-					.bind('mouseleave focusout', function () {
+					.bind('controlshidden', function () {
 						if (!media.paused) {
 							// move back to normal place
 							if(!hover_timeout) {
@@ -219,8 +219,12 @@
 					
 					after();
 
-					if (track.kind == 'chapters' && t.media.duration > 0) {
-						t.drawChapters(track);
+					if (track.kind == 'chapters') {
+						t.media.addEventListener('play', function(e) {
+							if (t.media.duration > 0) {
+								t.displayChapters(track);
+							}
+						}, false);
 					}
 				},
 				error: function() {
