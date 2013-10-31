@@ -2,11 +2,10 @@
 
 * Author: John Dyer [http://j.hn/](http://j.hn/)
 * Website: [http://mediaelementjs.com/](http://mediaelementjs.com/)
-* License: GPLv2/MIT
-* Meaning: Please use this everywhere and it'd be swell if you'd 
-link back here.
+* License: MIT
+* Meaning: Use everywhere, keep copyright, it'd be swell if you'd link back here.
 * Thanks: my employer, [Dallas Theological Seminary](http://www.dts.edu/)
-* Contributors: [mikesten](https://github.com/mikesten), [sylvinus](https://github.com/sylvinus), [mattfarina](https://github.com/mattfarina), [romaninsh](https://github.com/romaninsh), [fmalk](https://github.com/fmalk), [jeffrafter](https://github.com/jeffrafter), [sompylasar](https://github.com/sompylasar), [andyfowler](https://github.com/andyfowler), [RobRoy](https://github.com/RobRoy), [jakearchibald](https://github.com/jakearchibald), [seanhellwig](https://github.com/seanhellwig), [CJ-Jackson](https://github.com/CJ-Jackson), [kaichen](https://github.com/kaichen), [gselva](https://github.com/gselva), [erktime](https://github.com/erktime), [bradleyboy](https://github.com/bradleyboy), [kristerkari](https://github.com/kristerkari), [rmhall](https://github.com/rmhall), [tantalic](https://github.com/tantalic), [madesign](http://github.com/madesign), [aschempp](http://github.com/aschempp), [gavinlynch](https://github.com/gavinlynch), [Birol2010](http://github.com/Birol2010)
+* Contributors: [mikesten](https://github.com/mikesten), [sylvinus](https://github.com/sylvinus), [mattfarina](https://github.com/mattfarina), [romaninsh](https://github.com/romaninsh), [fmalk](https://github.com/fmalk), [jeffrafter](https://github.com/jeffrafter), [sompylasar](https://github.com/sompylasar), [andyfowler](https://github.com/andyfowler), [RobRoy](https://github.com/RobRoy), [jakearchibald](https://github.com/jakearchibald), [seanhellwig](https://github.com/seanhellwig), [CJ-Jackson](https://github.com/CJ-Jackson), [kaichen](https://github.com/kaichen), [gselva](https://github.com/gselva), [erktime](https://github.com/erktime), [bradleyboy](https://github.com/bradleyboy), [kristerkari](https://github.com/kristerkari), [rmhall](https://github.com/rmhall), [tantalic](https://github.com/tantalic), [madesign](http://github.com/madesign), [aschempp](http://github.com/aschempp), [gavinlynch](https://github.com/gavinlynch), [Birol2010](http://github.com/Birol2010), tons of others (see pulls)
 
 
 ## Installation and Usage
@@ -78,14 +77,186 @@ You can use this as a standalone library if you wish, or just stick with the ful
 
 *Proposed features*
 
-* deeper WebVTT support (alignment, color, etc.) - include captionator, remove google translate?
+* deeper WebVTT support (alignment, color, etc.) - include captionator
 * Full support for Ender.js, including mediaelement-and-player-standalone which includes ender.
-* quality switcher (low, high, normal)
-* loading state on loading bar (animated?)
 * thin line when controls are off
 * system-wide events
-* playlist builder
 * Ogg/Theora playback
+* Better alignment with native MediaElement (using shimichanga.com techniques)
+
+
+*2.13.1 (2013/09/?06)*
+
+* Support for fullscreen in IE11 beta
+
+*2.13.0 (2013/09/01)*
+
+* BREAKING FLASH SECURITY CHANGE: Removed `allowDomain("*")` by default. If you use MediaElement.js on a different domain use the `flashmediaelement-cdn.swf` file (nacin) https://github.com/johndyer/mediaelement/pull/956
+* Use only FlashVars and ignore parameters passed via query string.
+* Force LTR in controls (for RTL users) (nacin) https://github.com/johndyer/mediaelement/pull/958
+
+*2.12.1 (2013/08/26)*
+
+* Remove all `console.log` statements in `Builder.py` JD
+* More i18n fixes for Wordpress (SergeyBiryukov) https://github.com/johndyer/mediaelement/pull/940
+* Fix touch detection in QtWebKit (peterbrook) https://github.com/johndyer/mediaelement/pull/939
+* Added configuration option httpsBasicAuthSite fix sites using HTTPS basic authentication (benroy73) https://github.com/johndyer/mediaelement/pull/937
+* Fixed backlight plugin error (eviweb) https://github.com/johndyer/mediaelement/pull/932
+* Fix some wrong dates on the change log (heartcode) https://github.com/johndyer/mediaelement/pull/930
+* Add a mejs-fullscreen css class on the root element (fbuecklers) https://github.com/johndyer/mediaelement/pull/925
+* fix for ff switch between fullscreen and normal mode (fbuecklers) https://github.com/johndyer/mediaelement/pull/924
+* Multiple fixes: old issue #548, current issues #754 and #902 (peterh-capella) https://github.com/johndyer/mediaelement/pull/923
+* fix firefox detect 100% mode issue (KaptinLin ) https://github.com/johndyer/mediaelement/pull/919
+* Option to show the poster when the video is ended (LeResKP) https://github.com/johndyer/mediaelement/pull/891
+* Fix for Chrome autoplaying when forcing Flash (tjsnyder) https://github.com/johndyer/mediaelement/pull/889
+* Allow SWF to work over insecure domain (sebablanco ) https://github.com/johndyer/mediaelement/pull/897
+* Corrected buffering height on CSS (SourceR85 ) https://github.com/johndyer/mediaelement/pull/875
+* CSS cleanup (awittdesigns) https://github.com/johndyer/mediaelement/pull/883
+
+
+*2.12.0 (2013/06/02)*
+
+* Removed old media files from repo (reduced filesize from 150MB to 25MB)
+* Added `test.html` to `/tests/` folder to use JS files in `/src/` folder
+* Fullscreen plugin player toggles play/pause when controls are clicked (JeffreyATW) https://github.com/johndyer/mediaelement/pull/742 
+* Making use of pluginWidth & pluginHeight (simonschuh) https://github.com/johndyer/mediaelement/pull/837
+* Proportional poster images (IE9+ Chrome, Safari, Firefox) (eyefood) https://github.com/johndyer/mediaelement/pull/838
+* Fixed video resolution on seek in flash (efEris) https://github.com/johndyer/mediaelement/pull/839
+* Option for custom error message when no plugins are found. (svoynow-lz) https://github.com/johndyer/mediaelement/pull/842
+* Fix for Safari to play video on HTTPS site (benroy73) https://github.com/johndyer/mediaelement/pull/845
+* Fixes Mute/UnMute when playing from a YouTube source (mbaker3) https://github.com/johndyer/mediaelement/pull/848
+* i18n fixes for better compatibility with WordPress (SergeyBiryukov) https://github.com/johndyer/mediaelement/pull/850
+* Fixing invalid characters restrictions for URLs (sebablanco) https://github.com/johndyer/mediaelement/pull/859
+* Checking for pluginType on media instead of mediaelementplayer in Fullscreen (JeffreyATW) https://github.com/johndyer/mediaelement/pull/865
+* Problem with IE9 on Windows 7 N / Windows 7 KN without WMP installed (sarvaje) https://github.com/johndyer/mediaelement/pull/868
+* Cleanup stylesheet (jawittdesigns)  https://github.com/johndyer/mediaelement/pull/867
+* Properly treat namespace-only events for `globalUnbind()` (odnamrataizem) https://github.com/johndyer/mediaelement/pull/878
+* Fixed issue with slash character separating time (S2) https://github.com/johndyer/mediaelement/pull/879
+
+*2.11.3	(2013/04/13)*
+
+* Change to `getScriptPath` to allow querystring variables to be added (for Wordpress Core)
+
+*2.11.2	(2013/04/12)*
+
+* Fixed overly aggressive XSS testing (excluding forward slashes)
+* Fixed line endings on Flash (*.as) files (markjaquith) (https://github.com/johndyer/mediaelement/pull/834)
+* Included protocol relative URL for YouTube (Dan Tsosie) (https://github.com/johndyer/mediaelement/pull/832)
+
+*2.11.1	(2013/04/11)*
+
+Major changes
+
+* Removed Ogg, WebM, and MP3 files to keep download under 10MB. Files are now at https://github.com/johndyer/mediaelement-files
+* Simple Flash Pseudo-streaming [set enablePseudoStreaming:true, pseudoStreamingStartQueryParam:'start'] (BryanMorgan) (https://github.com/johndyer/mediaelement/pull/814)
+* Fixed possible XSS attack through `file=` parameter in `flashmediaelement.swf`
+
+Fixes and updates
+
+* Protocol relative YouTube URLs for `iframe` API (dtsosie) (https://github.com/johndyer/mediaelement/pull/825)
+* Added aria-label to all button elements (Luzifer) (https://github.com/johndyer/mediaelement/pull/824)
+* Fixed preroll adclick URL (johndyer)
+* Traditional chinese locale strings for i18n module (latzt) (https://github.com/johndyer/mediaelement/pull/820)
+* Allow captions on audio player (LeResKP) (https://github.com/johndyer/mediaelement/pull/819)
+* Fix incorrect path returned by `getScriptPath()` (Ciki) (Fix incorrect path returned by getScriptPath())
+* Overhauling hover div creation and placement (JeffreyATW) (https://github.com/johndyer/mediaelement/pull/813)
+* Clear timeout for second fullscreen stretch attempt (JeffreyATW) (https://github.com/johndyer/mediaelement/pull/812)
+* fix type resolution when extension is uppercased (jbdemonte) (https://github.com/johndyer/mediaelement/pull/801)
+* "splice is not a function" fix on `MediaElementPlayer.remove()` (odnamrataizem) (https://github.com/johndyer/mediaelement/pull/799)
+* Make Flash stage handle CLICK rather than MOUSE_DOWN (odnamrataizem) (https://github.com/johndyer/mediaelement/pull/804)
+
+
+*2.11.0 (2013/03/13)*
+
+* Preroll ads manager
+* VAST ads plugin (sponsored by Minito Video)
+* Slides `<track>` type (non-standard HTML5 use)
+* Calculate rails size only with visible elements (romanbsd) (https://github.com/johndyer/mediaelement/pull/773)
+* Round calculations of progress bar to prevent fractions (romanbsd) (https://github.com/johndyer/mediaelement/pull/768)
+* Fix AndroidUseNativeControls (LeResKP) (https://github.com/johndyer/mediaelement/pull/749)
+* Muting the volume icon if startVolume is set to 0 (heartcode) (https://github.com/johndyer/mediaelement/pull/747)
+* Make YouTube URL protocol relative (strworkstation) (https://github.com/johndyer/mediaelement/pull/761)
+* Prevent Flash audio player from sending too many 'progress' events (johndyer)
+* Properly clean up player when calling MediaElementPlayer.remove() (odnamrataizem) (https://github.com/johndyer/mediaelement/pull/779)
+* Add "mejs-shim" class to all shims to prevent improper resizing (JeffreyATW) (https://github.com/johndyer/mediaelement/pull/789)
+* Bug fix for the error "this.pluginApi.pauseMedia is not a function" when using the flash player and removing the dom element. (Jmaharman) https://github.com/johndyer/mediaelement/pull/788
+* Make possible to open youtube links as audio only (Seb33300) https://github.com/johndyer/mediaelement/pull/784
+* Add a few basic Jasmine tests (msgilligan) https://github.com/johndyer/mediaelement/pull/781
+* Add option to hide the video controls on load (eResKP) https://github.com/johndyer/mediaelement/pull/780#issuecomment-14781622
+* [cc] button can now be a toggle when there's just one track (LeResKP) https://github.com/johndyer/mediaelement/pull/793
+* fixed error when srclang was missing
+
+*2.10.3 (2013/01/27)*
+
+* Fix broken scrollbar from API reference error (peterbrook) (https://github.com/johndyer/mediaelement/pull/739)
+
+*2.10.2 (2013/01/26)*
+
+* The project is now MIT-only, instead of dual licensed MIT and GPL (just as jQuery has done: http://jquery.org/license/)
+* Fix audio height in 100% mode (https://github.com/johndyer/mediaelement/pull/667)
+* Make rewinding at the end optional (https://github.com/johndyer/mediaelement/pull/725)
+* Bugfix: attributes for PluginMediaElement (https://github.com/johndyer/mediaelement/pull/722)
+* Add mejs-long-video class when capture is 1hr or longer, custom styles (https://github.com/johndyer/mediaelement/pull/715)
+* Fix for dragging playhead horizontally off the video (https://github.com/johndyer/mediaelement/pull/711)
+* Align timing of captions with show/hide controls (https://github.com/johndyer/mediaelement/pull/708)
+* Missing semicolon (https://github.com/johndyer/mediaelement/pull/737)
+* Don't send timeupdate event after ended event (https://github.com/johndyer/mediaelement/pull/727)
+* Added option to disable pause/play on main div click (https://github.com/johndyer/mediaelement/pull/735)
+
+*2.10.1 (2012/12/31)*
+
+* New postroll feature (https://github.com/johndyer/mediaelement/pull/660)
+* PluginMediaElement click-to-pause behavior doesn't work (https://github.com/johndyer/mediaelement/pull/691)
+* Use the normal CSS property name after the vendor prefix (https://github.com/johndyer/mediaelement/pull/686) 
+* Select first source that is supported by the browser (https://github.com/johndyer/mediaelement/pull/679)
+* fixed outerWidth for jQuery 1.8 compatiability (https://github.com/johndyer/mediaelement/pull/680)
+* Fix for Issue #676 when Stop button does not behaves as expected in selected browsers (https://github.com/johndyer/mediaelement/pull/678)
+* Fix source switching on Webkit in SourceChooser (https://github.com/johndyer/mediaelement/pull/675)
+* Better 100% mode handling within non-visible container (https://github.com/johndyer/mediaelement/pull/668)
+* Display chapter tracks for late-loading video sources, including YouTube (https://github.com/johndyer/mediaelement/pull/665)
+* Added SVG Stop icon (https://github.com/johndyer/mediaelement/pull/696)
+* Added SVG source chooser icon (https://github.com/johndyer/mediaelement/pull/669)
+* Adding rounding to volume slider left, top, and and width setters (https://github.com/johndyer/mediaelement/pull/684)
+* Display chapter tracks for late-loading video sources, including YouTube (https://github.com/johndyer/mediaelement/pull/665)
+
+*2.10.0 (2012/11/23)*
+
+* Support of matchMedia where possible	[zachleat]
+* Fix for 100% audio using correct sizing [dougwilson]
+* SVG icons for better Retina support [johndyer]
+* Localized buttons [latzt] https://github.com/johndyer/mediaelement/pull/627
+* Volume handle doesn't set initial position properly [JeffreyATW] https://github.com/johndyer/mediaelement/pull/625
+* Cleaned up some CSS whitespace https://github.com/johndyer/mediaelement/pull/656
+* Vimeo - updated to iframe code (from old megaloop)
+
+*2.9.5 (2012/09/26)*
+
+* Fixed faulty FlashMediaElement.swf (due to Git program mashing it)
+* Fixed track element issues introduced by DFXP captions
+
+*2.9.4 (2012/09/24)*
+
+* Improved RTMP parsing [pansapien] https://github.com/johndyer/mediaelement/pull/574
+* Added `flashStreamer` option to separate streamer from file
+* Raise an error for unknown video size in Flash [denmarkin] https://github.com/johndyer/mediaelement/pull/571
+* Fix for alwaysShowControls with keyboard interaction [peterh-capella] https://github.com/johndyer/mediaelement/pull/569
+* Support for DFXP captions [justinl-capella] https://github.com/johndyer/mediaelement/pull/420
+
+*2.9.3 (2012/08/23) *
+
+* Allows use of `style="max-width: 100%;"` for responsive video
+* Added type to source buttons in mep-feature-sourcechooser.js:48 [flamadiddle ]
+* Fix use of inArray and $ in src/js/me-shim.js [lftl, Seb33300, eusonic and others] (this was a regression bug from another fix)
+* Fixing syntax error in events demo [JeffreyATW]
+
+*2.9.2 (2012/07/06) *
+
+* Added a few height checks (from Joe Anderson)
+* Removed console.log statements
+* Better file MIME type detection when the "type" attribute is not set (Seb33300)
+* Pass the event keyCode to the keyActions handler, and make seek interval configurable (bborn)
+* Responsive flash fix, YouTube edits (heikki)
+* New `auto_plugin` mode that starts with plugins then tries HTML5 (savil)
 
 *2.9.1 (2012/06/01)*
 

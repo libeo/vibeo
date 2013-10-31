@@ -10,6 +10,7 @@ src/css/.sass-cache*
 
 tests/*
 newfeatures/*
+/mejs3/
 #exceptions
 !build/jquery.js
 !build/modernizr-2.5.3.js

@@ -58,7 +58,7 @@
 			positionVolumeHandle = function(volume) {
 
 				var volumeSliderIsVisible = volumeSlider.is(':visible');
-				if (!volumeSliderIsVisible) {
+				if (!volumeSliderIsVisible && typeof secondTry == 'undefined') {
 					volumeSlider.show();
 				}
 
@@ -88,8 +88,8 @@
 						newTop = totalHeight - (totalHeight * volume);
 
 					// handle
-					volumeHandle.css('top', totalPosition.top + newTop - (volumeHandle.height() / 2));
-
+					volumeHandle.css('top', Math.round(totalPosition.top + newTop - (volumeHandle.height() / 2)));
+	
 					// show the current visibility
 					volumeCurrent.height(totalHeight - newTop );
 					volumeCurrent.css('top', totalPosition.top + newTop);
@@ -106,10 +106,10 @@
 						newLeft = totalWidth * volume;
 
 					// handle
-					volumeHandle.css('left', totalPosition.left + newLeft - (volumeHandle.width() / 2));
-
+					volumeHandle.css('left', Math.round(totalPosition.left + newLeft - (volumeHandle.width() / 2)));
+	
 					// rezize the current part of the volume bar
-					volumeCurrent.width( newLeft );
+					volumeCurrent.width( Math.round(newLeft) );
 				}
 				if (!volumeSliderIsVisible) {
 					volumeSlider.hide();
@@ -206,18 +206,17 @@
 					console.log(e.offsetX);
 					if(e.offsetX != 0){
 						handleVolumeMove(e);
-						$(document)
-							.bind('mousemove.vol', function(e) {
-								handleVolumeMove(e);
-							})
-							.bind('mouseup.vol', function () {
-								mouseIsDown = false;
-								$(document).unbind('.vol');
-	
-								if (!mouseIsOver && mode == 'vertical') {
-									volumeSlider.hide();
-								}
-							});
+						t.globalBind('mousemove.vol', function(e) {
+							handleVolumeMove(e);
+						});
+						t.globalBind('mouseup.vol', function () {
+							mouseIsDown = false;
+							t.globalUnbind('.vol');
+
+							if (!mouseIsOver && mode == 'vertical') {
+								volumeSlider.hide();
+							}
+						});
 						mouseIsDown = true;
 	
 						return false;
@@ -254,6 +253,11 @@
 			if (t.container.is(':visible')) {
 				// set initial volume
 				positionVolumeHandle(player.options.startVolume);
+
+				// mutes the media and sets the volume icon muted if the initial volume is set to 0
+        if (player.options.startVolume === 0) {
+          media.setMuted(true);
+        }
 
 				// shim gets the startvolume as a parameter, but we have to set it on the native <video> and <audio> elements
 				if (media.pluginType === 'native') {

@@ -4,6 +4,8 @@
 	mejs.MepDefaults = {
 		// url to poster (to fix iOS 3.x)
 		poster: '',
+		// When the video is ended, we can show the poster.
+		showPosterWhenEnded: false,
 		// default if the <video width> is not specified
 		defaultVideoWidth: 480,
 		// default if the <video height> is not specified
@@ -16,6 +18,16 @@
 		defaultAudioWidth: 400,
 		// default if the user doesn't specify
 		defaultAudioHeight: 30,
+
+		// default amount to move back when back key is pressed
+		defaultSeekBackwardInterval: function(media) {
+			return (media.duration * 0.05);
+		},
+		// default amount to move forward when forward key is pressed
+		defaultSeekForwardInterval: function(media) {
+			return (media.duration * 0.05);
+		},
+
 		// width of audio player
 		audioWidth: -1,
 		// height of audio player
@@ -24,6 +36,8 @@
 		startVolume: 0.8,
 		// useful for <audio> player loops
 		loop: false,
+		// rewind to beginning when media ends
+                autoRewind: true,
 		// resize to media dimensions
 		enableAutosize: true,
 		// forces the hour marker (##:00:00)
@@ -44,6 +58,10 @@
 		alwaysShowControls: false,
 		// option to set if controls overlay the video or not
 		overlayControls: true,
+		// Display the video control
+		hideVideoControlsOnLoad: false,
+        // Enable click video element to toggle play/pause
+        clickToPlayPause: true,
 		// force iPad's native controls
 		iPadUseNativeControls: false,
 		// force iPhone's native controls
@@ -103,8 +121,9 @@
 												player.showControls();
 												//player.startControlsTimer();
 										}
+
 										// 5%
-										var newTime = Math.max(media.currentTime - (media.duration * 0.05), 0);
+										var newTime = Math.max(media.currentTime - player.options.defaultSeekBackwardInterval(media), 0);
 										media.setCurrentTime(newTime);
 										$('.mejs-time-temp').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(newTime), player.options.hours, player.options.minutes, player.options.seconds));
 								}
@@ -119,11 +138,11 @@
 								if (!isNaN(media.duration) && media.duration > 0) {
 										if (player.isVideo) {
 												player.showControls();
-												//player.startControlsTimer();
+												player.startControlsTimer();
 										}
 
 										// 5%
-										var newTime = Math.min(media.currentTime + (media.duration * 0.05), media.duration);
+										var newTime = Math.min(media.currentTime + player.options.defaultSeekForwardInterval(media), media.duration);
 										media.setCurrentTime(newTime);
 										$('.mejs-time-temp').text(mejs.Utility.formatTimeForScreenReaders(mejs.Utility.secondsToTimeCode(newTime), player.options.hours, player.options.minutes, player.options.seconds));
 								}
@@ -146,7 +165,7 @@
 
 	mejs.mepIndex = 0;
 
-	mejs.players = [];
+	mejs.players = {};
 
 	// wraps a MediaElement object in player controls
 	mejs.MediaElementPlayer = function(node, o) {
@@ -178,8 +197,11 @@
 		// extend default options
 		t.options = $.extend({},mejs.MepDefaults,o);
 
+		// unique ID
+		t.id = 'mep_' + mejs.mepIndex++;
+
 		// add to player array (for focus events)
-		mejs.players.push(t);
+		mejs.players[t.id] = t;
 
 		// start up
 		t.init();
@@ -195,6 +217,7 @@
 		controlsAreVisible: true,
 
 		init: function() {
+
 			var
 				t = this,
 				mf = mejs.MediaFeatures,
@@ -230,7 +253,7 @@
 					t.media.play();
 				}
 
-			} else if (mf.isAndroid && t.AndroidUseNativeControls) {
+			} else if (mf.isAndroid && t.options.AndroidUseNativeControls) {
 
 				// leave default player
 
@@ -241,18 +264,11 @@
 				// remove native controls
 				t.$media.removeAttr('controls');
 
-				// unique ID
-				t.id = 'mep_' + mejs.mepIndex++;
-
 				// build container
 				t.container =
-					$('<div id="' + t.id + '" class="mejs-container">'+
+					$('<div id="' + t.id + '" class="mejs-container ' + (mejs.MediaFeatures.svg ? 'svg' : 'no-svg') + '">'+
 						'<div class="mejs-inner">'+
 							'<div class="mejs-mediaelement"></div>'+
-							/*'<div class="mejs-button mejs-tooltip">'+
-								'<button type="button" aria-live="polite"><span class="visuallyhidden">'+ t.options.tooltip +'</span></button>'+
-								'<span class="bubble-text">'+ t.options.tooltip +'</span>'+
-							'</div>'+*/
 							'<div class="mejs-layers"></div>'+
 							'<div class="mejs-controls"></div>'+
 							'<div class="mejs-clear"></div>'+
@@ -296,6 +312,7 @@
 						videoContainer.removeAttr('tabindex');
 					}
 				},200);
+
 				// find parts
 				t.controls = t.container.find('.mejs-controls');
 				t.layers = t.container.find('.mejs-layers');
@@ -309,10 +326,12 @@
 					(4) defaultVideoWidth (for unspecified cases)
 				*/
 
-				var capsTagName = tagName.substring(0,1).toUpperCase() + tagName.substring(1);
+				var tagType = (t.isVideo ? 'video' : 'audio'),
+					capsTagName = tagType.substring(0,1).toUpperCase() + tagType.substring(1);
 
-				if (t.options[tagName + 'Width'] > 0 || t.options[tagName + 'Width'].toString().indexOf('%') > -1) {
-					t.width = t.options[tagName + 'Width'];
+
+				if (t.options[tagType + 'Width'] > 0 || t.options[tagType + 'Width'].toString().indexOf('%') > -1) {
+					t.width = t.options[tagType + 'Width'];
 				} else if (t.media.style.width !== '' && t.media.style.width !== null) {
 					t.width = t.media.style.width;
 				} else if (t.media.getAttribute('width') !== null) {
@@ -321,8 +340,8 @@
 					t.width = t.options['default' + capsTagName + 'Width'];
 				}
 
-				if (t.options[tagName + 'Height'] > 0 || t.options[tagName + 'Height'].toString().indexOf('%') > -1) {
-					t.height = t.options[tagName + 'Height'];
+				if (t.options[tagType + 'Height'] > 0 || t.options[tagType + 'Height'].toString().indexOf('%') > -1) {
+					t.height = t.options[tagType + 'Height'];
 				} else if (t.media.style.height !== '' && t.media.style.height !== null) {
 					t.height = t.media.style.height;
 				} else if (t.$media[0].getAttribute('height') !== null) {
@@ -332,7 +351,7 @@
 				}
 
 				// set the size, while we wait for the plugins to load below
-				t.setPlayerSize(t.width,t.height);
+				t.setPlayerSize(t.width, t.height);
 
 				// create MediaElementShim
 				meOptions.pluginWidth = t.height;
@@ -355,8 +374,12 @@
 
 			// create MediaElement shim
 			mejs.MediaElement(t.$media[0], meOptions);
-		},
 
+			if (typeof(t.container) != 'undefined' && t.controlsAreVisible){
+			    // controls are shown when loaded
+			    t.container.trigger('controlsshown');
+			}
+		},
 
 		showControls: function(doAnimation) {
 			var t = this;
@@ -369,7 +392,10 @@
 			if (doAnimation) {
 				t.controls
 					.css('visibility','visible')
-					.stop(true, true).fadeIn(200, function() {t.controlsAreVisible = true;});
+					.stop(true, true).fadeIn(200, function() {
+					      t.controlsAreVisible = true;
+					      t.container.trigger('controlsshown');
+					});
 
 				// any additional controls people might add and want to hide
 				t.container.find('.mejs-control')
@@ -387,6 +413,7 @@
 					.css('display','block');
 
 				t.controlsAreVisible = true;
+				t.container.trigger('controlsshown');
 			}
 
 			t.setControlsSize();
@@ -398,7 +425,7 @@
 
 			doAnimation = typeof doAnimation == 'undefined' || doAnimation;
 
-			if (!t.controlsAreVisible)
+			if (!t.controlsAreVisible || t.options.alwaysShowControls)
 				return;
 
 			if (doAnimation) {
@@ -409,6 +436,7 @@
 						.css('display','block');
 
 					t.controlsAreVisible = false;
+					t.container.trigger('controlshidden');
 				});
 
 				// any additional controls people might add and want to hide
@@ -430,6 +458,7 @@
 					.css('display','block');
 
 				t.controlsAreVisible = false;
+				t.container.trigger('controlshidden');
 			}
 		},
 
@@ -492,10 +521,11 @@
 				feature;
 
 			// make sure it can't create itself again if a plugin reloads
-			if (t.created)
+			if (t.created) {
 				return;
-			else
+			} else {
 				t.created = true;
+			}
 
 			t.media = media;
 			t.domNode = domNode;
@@ -558,27 +588,33 @@
 						});
 
 					} else {
-						// click controls
-						var clickElement = (t.media.pluginType == 'native') ? t.$media : $(t.media.pluginElement);
 
-						// click to play/pause
-						clickElement.click(function() {
-							if (media.paused) {
-								media.play();
-							} else {
-								media.pause();
+						// create callback here since it needs access to current
+						// MediaElement object
+						mejs.MediaElementPlayer.prototype.clickToPlayPauseCallback = function() {
+							//console.log('media clicked', t.media, t.media.paused);
+
+							if (t.options.clickToPlayPause) {
+								if (t.media.paused) {
+									t.media.play();
+								} else {
+									t.media.pause();
+								}
 							}
-						});
+						};
 
+			            // click to play/pause
+			            t.media.addEventListener('click', t.clickToPlayPauseCallback, false);
 
 						// show/hide controls
 						t.container
-							.bind('mouseenter mouseover focusin', function () {
+							.bind('mouseenter mouseover', function () {
 								if (t.controlsEnabled) {
 									if (!t.options.alwaysShowControls) {
 										t.killControlsTimer('enter');
 										t.showControls();
 										//t.container.focus();
+										//t.startControlsTimer(2500);
 									}
 								}
 							})
@@ -600,6 +636,10 @@
 									}
 								}
 							});
+					}
+
+					if(t.options.hideVideoControlsOnLoad) {
+						t.hideControls(false);
 					}
 
 					// check for autoplay
@@ -625,17 +665,18 @@
 
 				// FOCUS: when a video starts playing, it takes focus from other players (possibily pausing them)
 				media.addEventListener('play', function() {
+					var playerIndex;
 
-						// go through all other players
-						for (var i=0, il=mejs.players.length; i<il; i++) {
-							var p = mejs.players[i];
-							if (p.id != t.id && t.options.pauseOtherPlayers && !p.paused && !p.ended) {
-								p.pause();
-							}
-							p.hasFocus = false;
+					// go through all other players
+					for (playerIndex in mejs.players) {
+						var p = mejs.players[playerIndex];
+						if (p.id != t.id && t.options.pauseOtherPlayers && !p.paused && !p.ended) {
+							p.pause();
 						}
+						p.hasFocus = false;
+					}
 
-						t.hasFocus = true;
+					t.hasFocus = true;
 				},false);
 
                 // check if we focused on the player using the keyboard and give it the focus
@@ -655,17 +696,21 @@
 
 				// ended for all
 				t.media.addEventListener('ended', function (e) {
-					try{
-						t.media.setCurrentTime(0);
-					} catch (exp) {
+					if(t.options.autoRewind) {
+						try{
+							t.media.setCurrentTime(0);
+						} catch (exp) {
 
+						}
 					}
 					t.media.pause();
 
-					if (t.setProgressRail)
+					if (t.setProgressRail) {
 						t.setProgressRail();
-					if (t.setCurrentRail)
+					}
+					if (t.setCurrentRail) {
 						t.setCurrentRail();
+					}
 
 					if (t.options.loop) {
 						t.media.play();
@@ -697,12 +742,8 @@
 				}, 50);
 
 				// adjust controls whenever window sizes (used to be in fullscreen only)
-				$(window).resize(function() {
-					
-					if(t.ieFullScreen){
-						t.fullscreenBtn.trigger('click');
-					}
-					
+				t.globalBind('resize', function() {
+
 					// don't resize for fullscreen mode
 					if ( !(t.isFullScreen || (mejs.MediaFeatures.hasTrueNativeFullScreen && document.webkitIsFullScreen)) ) {
 						t.setPlayerSize(t.width, t.height);
@@ -728,9 +769,9 @@
 			if (t.options.success) {
 
 				if (typeof t.options.success == 'string') {
-						window[t.options.success](t.media, t.domNode, t);
+					window[t.options.success](t.media, t.domNode, t);
 				} else {
-						t.options.success(t.media, t.domNode, t);
+					t.options.success(t.media, t.domNode, t);
 				}
 			}
 		},
@@ -749,69 +790,73 @@
 		setPlayerSize: function(width,height) {
 			var t = this;
 
-			if (typeof width != 'undefined')
+			if (typeof width != 'undefined') {
 				t.width = width;
+			}
 
-			if (typeof height != 'undefined')
+			if (typeof height != 'undefined') {
 				t.height = height;
+			}
 
-			// detect 100% mode
-			if (t.height.toString().indexOf('%') > 0) {
+			// detect 100% mode - use currentStyle for IE since css() doesn't return percentages
+      		if (t.height.toString().indexOf('%') > 0 || t.$node.css('max-width') === '100%' || parseInt(t.$node.css('max-width').replace(/px/,''), 10) / t.$node.offsetParent().width() === 1 || (t.$node[0].currentStyle && t.$node[0].currentStyle.maxWidth === '100%')) {
 
 				// do we have the native dimensions yet?
 				var
-					nativeWidth = (t.media.videoWidth && t.media.videoWidth > 0) ? t.media.videoWidth : t.options.defaultVideoWidth,
-					nativeHeight = (t.media.videoHeight && t.media.videoHeight > 0) ? t.media.videoHeight : t.options.defaultVideoHeight,
-					parentWidth = t.container.parent().width(),
-					newHeight = parseInt(parentWidth * nativeHeight/nativeWidth, 10);
+					nativeWidth = t.isVideo ? ((t.media.videoWidth && t.media.videoWidth > 0) ? t.media.videoWidth : t.options.defaultVideoWidth) : t.options.defaultAudioWidth,
+					nativeHeight = t.isVideo ? ((t.media.videoHeight && t.media.videoHeight > 0) ? t.media.videoHeight : t.options.defaultVideoHeight) : t.options.defaultAudioHeight,
+					parentWidth = t.container.parent().closest(':visible').width(),
+					newHeight = t.isVideo || !t.options.autosizeProgress ? parseInt(parentWidth * nativeHeight/nativeWidth, 10) : nativeHeight;
 
 				if (t.container.parent()[0].tagName.toLowerCase() === 'body') { // && t.container.siblings().count == 0) {
 					parentWidth = $(window).width();
 					newHeight = $(window).height();
 				}
 
+				if ( newHeight != 0 && parentWidth != 0 ) {
+					// set outer container size
+					t.container
+						.width(parentWidth)
+						.height(newHeight);
 
-				// set outer container size
-				t.container
-					.width(parentWidth)
-					.height(newHeight);
+					// set native <video> or <audio> and shims
+					t.$media.add(t.container.find('.mejs-shim'))
+						.width('100%')
+						.height('100%');
 
-				// set native <video>
-				t.$media
-					.width('100%')
-					.height('100%');
+					// if shim is ready, send the size to the embeded plugin
+					if (t.isVideo) {
+						if (t.media.setVideoSize) {
+							t.media.setVideoSize(parentWidth, newHeight);
+						}
+					}
 
-				// set shims
-				t.container.find('object, embed, iframe')
-					.width('100%')
-					.height('100%');
-
-				// if shim is ready, send the size to the embeded plugin
-				if (t.media.setVideoSize)
-					t.media.setVideoSize(parentWidth, newHeight);
-
-				// set the layers
-				t.layers.children('.mejs-layer')
-					.width('100%')
-					.height('100%');
+					// set the layers
+					t.layers.children('.mejs-layer')
+						.width('100%')
+						.height('100%');
+				}
 
 
 			} else {
-				if(!t.options.overlayControls){
-					t.container
-						.width(t.width)
-						.height(parseInt(t.height)+ t.controls.outerHeight());
-				} else {
+
 				t.container
 					.width(t.width)
 					.height(t.height);
-				}
 
 				t.layers.children('.mejs-layer')
 					.width(t.width)
 					.height(t.height);
 
 			}
+
+			// special case for big play button so it doesn't go over the controls area
+			var playLayer = t.layers.find('.mejs-overlay-play'),
+				playButton = playLayer.find('.mejs-overlay-button');
+
+			playLayer.height(t.container.height() - t.controls.height());
+			playButton.css('margin-top', '-' + (playButton.height()/2 - t.controls.height()/2).toString() + 'px'  );
+
 		},
 
 		setControlsSize: function() {
@@ -837,7 +882,8 @@
 
 				// find the size of all the other controls besides the rail
 				others.each(function() {
-					if ($(this).css('position') != 'absolute') {
+					var $this = $(this);
+					if ($this.css('position') != 'absolute' && $this.is(':visible')) {
 						usedWidth += $(this).outerWidth(true);
 					}
 				});
@@ -881,6 +927,12 @@
 			media.addEventListener('play',function() {
 				poster.hide();
 			}, false);
+
+			if(player.options.showPosterWhenEnded && player.options.autoRewind){
+				media.addEventListener('ended',function() {
+					poster.show();
+				}, false);
+			}
 		},
 
 		setPoster: function(url) {
@@ -893,9 +945,11 @@
 			}
 
 			posterImg.attr('src', url);
+			posterDiv.css({'background-image' : 'url(' + url + ')'});
 		},
 
 		buildoverlays: function(player, controls, layers, media) {
+            var t = this;
 			if (!player.isVideo)
 				return;
 
@@ -919,11 +973,13 @@
 				'</div>')
 				.appendTo(layers)
 				.click(function() {
-					if (media.paused) {
-						media.play();
-					} else {
-						media.pause();
-					}
+                    if (t.options.clickToPlayPause) {
+                        if (media.paused) {
+                            media.play();
+                        } else {
+                            media.pause();
+                        }
+                    }
 				});
 
 			/*
@@ -999,7 +1055,7 @@
 				var t = this;
 
 				// listen for key presses
-				$(document).keydown(function(e) {
+				t.globalBind('keydown', function(e) {
 
 						if (player.hasFocus && player.options.enableKeyboard) {
 
@@ -1010,7 +1066,7 @@
 										for (var j=0, jl=keyAction.keys.length; j<jl; j++) {
 												if (e.keyCode == keyAction.keys[j]) {
 														e.preventDefault();
-														keyAction.action(player, media);
+														keyAction.action(player, media, e.keyCode);
 														return false;
 												}
 										}
@@ -1021,11 +1077,12 @@
 				});
 
 				// check if someone clicked outside a player region, then kill its focus
-				$(document).click(function(event) {
+				t.globalBind('click', function(event) {
 						if ($(event.target).closest('.mejs-container').length == 0) {
 								player.hasFocus = false;
 						}
 				});
+
 		},
 
 		findTracks: function() {
@@ -1039,7 +1096,7 @@
 				track = $(track);
 
 				t.tracks.push({
-					srclang: track.attr('srclang').toLowerCase(),
+					srclang: (track.attr('srclang')) ? track.attr('srclang').toLowerCase() : '',
 					src: track.attr('src'),
 					kind: track.attr('kind'),
 					label: track.attr('label') || '',
@@ -1057,7 +1114,9 @@
 			this.media.play();
 		},
 		pause: function() {
-			this.media.pause();
+			try {
+				this.media.pause();
+			} catch (e) {}
 		},
 		load: function() {
 			this.media.load();
@@ -1081,29 +1140,102 @@
 			this.media.setSrc(src);
 		},
 		remove: function() {
-			var t = this;
+			var t = this, featureIndex, feature;
 
-			if (t.media.pluginType == 'flash') {
-				t.media.remove();
-			} else if (t.media.pluginType == 'native') {
-				t.media.prop('controls', true);
+			// invoke features cleanup
+			for (featureIndex in t.options.features) {
+				feature = t.options.features[featureIndex];
+				if (t['clean' + feature]) {
+					try {
+						t['clean' + feature](t);
+					} catch (e) {
+						// TODO: report control error
+						//throw e;
+						//console.log('error building ' + feature);
+						//console.log(e);
+					}
+				}
 			}
 
 			// grab video and put it back in place
 			if (!t.isDynamic) {
-				t.$node.insertBefore(t.container)
+				t.$media.prop('controls', true);
+				// detach events from the video
+				// TODO: detach event listeners better than this;
+				//       also detach ONLY the events attached by this plugin!
+				t.$node.clone().show().insertBefore(t.container);
+				t.$node.remove();
+			} else {
+				t.$node.insertBefore(t.container);
 			}
 
+			if (t.media.pluginType !== 'native') {
+				t.media.remove();
+			}
+
+			// Remove the player from the mejs.players object so that pauseOtherPlayers doesn't blow up when trying to pause a non existance flash api.
+			delete mejs.players[t.id];
+
 			t.container.remove();
+			t.globalUnbind();
+			delete t.node.player;
 		}
 	};
+
+	(function(){
+		var rwindow = /^((after|before)print|(before)?unload|hashchange|message|o(ff|n)line|page(hide|show)|popstate|resize|storage)\b/;
+
+		function splitEvents(events, id) {
+			// add player ID as an event namespace so it's easier to unbind them all later
+			var ret = {d: [], w: []};
+			$.each((events || '').split(' '), function(k, v){
+				var eventname = v + '.' + id;
+				if (eventname.indexOf('.') === 0) {
+					ret.d.push(eventname);
+					ret.w.push(eventname);
+				}
+				else {
+					ret[rwindow.test(v) ? 'w' : 'd'].push(eventname);
+				}
+			});
+			ret.d = ret.d.join(' ');
+			ret.w = ret.w.join(' ');
+			return ret;
+		}
+
+		mejs.MediaElementPlayer.prototype.globalBind = function(events, data, callback) {
+			var t = this;
+			events = splitEvents(events, t.id);
+			if (events.d) $(document).bind(events.d, data, callback);
+			if (events.w) $(window).bind(events.w, data, callback);
+		};
+
+		mejs.MediaElementPlayer.prototype.globalUnbind = function(events, callback) {
+			var t = this;
+			events = splitEvents(events, t.id);
+			if (events.d) $(document).unbind(events.d, callback);
+			if (events.w) $(window).unbind(events.w, callback);
+		};
+	})();
 
 	// turn into jQuery plugin
 	if (typeof jQuery != 'undefined') {
 		jQuery.fn.mediaelementplayer = function (options) {
-			return this.each(function () {
-				new mejs.MediaElementPlayer(this, options);
-			});
+			if (options === false) {
+				this.each(function () {
+					var player = jQuery(this).data('mediaelementplayer');
+					if (player) {
+						player.remove();
+					}
+					jQuery(this).removeData('mediaelementplayer');
+				});
+			}
+			else {
+				this.each(function () {
+					jQuery(this).data('mediaelementplayer', new mejs.MediaElementPlayer(this, options));
+				});
+			}
+			return this;
 		};
 	}
 

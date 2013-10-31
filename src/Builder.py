@@ -1,6 +1,10 @@
 import sys
 import os
 import shutil
+import re
+
+def remove_console(text):
+	return re.sub('console.(log|debug)\((.*)\);?', '', text) 
 
 me_filename = 'mediaelement'
 mep_filename = 'mediaelementplayer'
@@ -17,12 +21,17 @@ me_files.append('me-plugindetector.js')
 me_files.append('me-featuredetection.js')
 me_files.append('me-mediaelements.js')
 me_files.append('me-shim.js')
+me_files.append('me-i18n.js')
+me_files.append('me-i18n-locale-de.js')
+me_files.append('me-i18n-locale-zh.js')
 
 code = ''
 
 for item in me_files:
 	src_file = open('js/' + item,'r')
 	code += src_file.read() + "\n"
+	
+code = remove_console(code)
 
 tmp_file = open('../build/' + me_filename + '.js','w')
 tmp_file.write(code)
@@ -42,13 +51,16 @@ mep_files.append('mep-feature-volume.js')
 mep_files.append('mep-feature-fullscreen.js')
 mep_files.append('mep-feature-tracks.js')
 mep_files.append('mep-feature-contextmenu.js')
+mep_files.append('mep-feature-postroll.js')
 # mep_files.append('mep-feature-sourcechooser.js')
 
 code = ''
 
 for item in mep_files:
-        src_file = open('js/' + item,'r')
-        code += src_file.read() + "\n"
+    src_file = open('js/' + item,'r')
+    code += src_file.read() + "\n"
+        
+code = remove_console(code)
 
 tmp_file = open('../build/' + mep_filename + '.js','w')
 tmp_file.write(code)
@@ -74,7 +86,7 @@ def addHeader(headerFilename, filename):
 	tmp_file = open(filename)
 	file_txt = tmp_file.read()
 	tmp_file.close()
-	
+
 	# open the file again for writing
 	tmp_file = open(filename, 'w')
 	tmp_file.write(header_txt)
@@ -82,6 +94,7 @@ def addHeader(headerFilename, filename):
 	tmp_file.write(file_txt)
 	tmp_file.close()
 	
+
 addHeader('js/me-header.js', '../build/' + me_filename + '.min.js')
 addHeader('js/mep-header.js', '../build/' + mep_filename + '.min.js')
 
@@ -111,48 +124,37 @@ tmp_file.close()
 
 # MINIFY CSS
 print('Minifying CSS')
-src_file = open('css/mediaelementplayer.css', 'r')
-tmp_file = open('../build/mediaelementplayer.css', 'w')
+src_file = open('css/mediaelementplayer.css','r')
+tmp_file = open('../build/mediaelementplayer.css','w')
 tmp_file.write(src_file.read())
 tmp_file.close()
 os.system("java -jar yuicompressor-2.4.2.jar ../build/mediaelementplayer.css -o ../build/mediaelementplayer.min.css --charset utf-8 -v")
 
-src_file = open('css/mediaelementplayernosvg.css', 'r')
-tmp_file = open('../build/mediaelementplayernosvg.css', 'w')
+src_file = open('css/mediaelementplayernosvg.css','r')
+tmp_file = open('../build/mediaelementplayernosvg.css','w')
 tmp_file.write(src_file.read())
 tmp_file.close()
 os.system("java -jar yuicompressor-2.4.2.jar ../build/mediaelementplayernosvg.css -o ../build/mediaelementplayernosvg.min.css --charset utf-8 -v")
 
-src_file = open('css/skin-gray.css', 'r')
-tmp_file = open('../build/skin-gray.css', 'w')
+src_file = open('css/skin-gray.css','r')
+tmp_file = open('../build/skin-gray.css','w')
 tmp_file.write(src_file.read())
 tmp_file.close()
 os.system("java -jar yuicompressor-2.4.2.jar ../build/skin-gray.css -o ../build/skin-gray.min.css --charset utf-8 -v")
-
-src_file = open('css/skin-vbo-dark.css', 'r')
-tmp_file = open('../build/skin-vbo-dark.css', 'w')
-tmp_file.write(src_file.read())
-tmp_file.close()
-os.system("java -jar yuicompressor-2.4.2.jar ../build/skin-vbo-dark.css -o ../build/skin-vbo-dark.min.css --charset utf-8 -v")
-
-src_file = open('css/skin-vbo-light.css', 'r')
-tmp_file = open('../build/skin-vbo-light.css', 'w')
-tmp_file.write(src_file.read())
-tmp_file.close()
-os.system("java -jar yuicompressor-2.4.2.jar ../build/skin-vbo-light.css -o ../build/skin-vbo-light.min.css --charset utf-8 -v")
-
 #COPY skin files
 print('Copying Skin Files')
-shutil.copy2('css/controls.png', '../build/controls.png')
-shutil.copy2('css/bigplay.png', '../build/bigplay.png')
-shutil.copy2('css/loading.gif', '../build/loading.gif')
+shutil.copy2('css/controls.png','../build/controls.png')
+shutil.copy2('css/controls.svg','../build/controls.svg')
+shutil.copy2('css/bigplay.png','../build/bigplay.png')
+shutil.copy2('css/bigplay.svg','../build/bigplay.svg')
+shutil.copy2('css/loading.gif','../build/loading.gif')
 
-shutil.copy2('css/mejs-skins.css', '../build/mejs-skins.css')
-shutil.copy2('css/controls-ted.png', '../build/controls-ted.png')
-shutil.copy2('css/controls-wmp.png', '../build/controls-wmp.png')
-shutil.copy2('css/controls-wmp-bg.png', '../build/controls-wmp-bg.png')
+shutil.copy2('css/mejs-skins.css','../build/mejs-skins.css')
+shutil.copy2('css/controls-ted.png','../build/controls-ted.png')
+shutil.copy2('css/controls-wmp.png','../build/controls-wmp.png')
+shutil.copy2('css/controls-wmp-bg.png','../build/controls-wmp-bg.png')
 
 shutil.rmtree('../build/controls', True)
-shutil.copytree('css/controls', '../build/controls')
+shutil.copytree('css/controls','../build/controls')
 
 print('DONE!')
