@@ -6,7 +6,14 @@
 		startLanguage: '',
 
 		tracksTextTurnOn: 'Captions/Subtitles On',
-		tracksTextTurnOff: 'Captions/Subtitles Off'
+		tracksTextTurnOff: 'Captions/Subtitles Off',
+		tracksText: 'Captions/Subtitles',
+		
+		// option to remove the [cc] button when no <track kind="subtitles"> are present
+		hideCaptionsButtonWhenEmpty: true,
+
+		// #id or .class		
+		slidesSelector: ''
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
@@ -14,19 +21,18 @@
 		hasChapters: false,
 
 		buildtracks: function(player, controls, layers, media) {
-			if (!player.isVideo)
-				return;
-
 			if (player.tracks.length == 0)
 				return;
 
-			var t= this, i, options = '';
+			var t = this, 
+				i, 
+				options = '';
 
 			player.chapters =
 					$('<div class="mejs-chapters mejs-layer"></div>')
 						.prependTo(layers).hide();
-			player.captions =
-					$('<div class="mejs-captions-layer mejs-layer"><div class="mejs-captions-position"><span class="mejs-captions-text"></span></div></div>')
+			player.captions = 
+					$('<div class="mejs-captions-layer mejs-layer"><div class="mejs-captions-position mejs-captions-position-hover"><span class="mejs-captions-text"></span></div></div>')
 						.prependTo(layers).hide();
 			player.captionsText = player.captions.find('.mejs-captions-text');
 			player.captionsButton =
@@ -84,23 +90,8 @@
 				// handle clicks to the language radio buttons
 				.delegate('input[type=radio]','click',function() {
 					lang = this.value;
-
-					if (lang == 'none') {
-						player.selectedTrack = null;
-					} else {
-						for (i=0; i<player.tracks.length; i++) {
-							if (player.tracks[i].srclang == lang) {
-								player.selectedTrack = player.tracks[i];
-								player.captions.attr('lang', player.selectedTrack.srclang);
-								player.displayCaptions();
-								break;
-							}
-						}
-					}
+					player.setTrack(lang);
 				});
-				//.bind('mouseenter', function() {
-				//	player.captionsButton.find('.mejs-captions-selector').css('visibility','visible')
-				//});
 			}
 
 			if (!player.options.alwaysShowControls && player.options.overlayControls) {
@@ -141,12 +132,22 @@
 				}
 			}
 
+			// start loading tracks
 			player.loadNextTrack();
 
 
 			media.addEventListener('timeupdate',function(e) {
 				player.displayCaptions();
 			}, false);
+			
+			if (player.options.slidesSelector != '') {
+				player.slidesContainer = $(player.options.slidesSelector);
+
+				media.addEventListener('timeupdate',function(e) {
+					player.displaySlides();	
+				}, false);
+			
+			}
 
 			media.addEventListener('loadedmetadata', function(e) {
 				player.displayChapters();
@@ -174,6 +175,28 @@
 				player.chapters.css('visibility','hidden');
 			}
 		},
+		
+		setTrack: function(lang){
+		
+			var t = this,
+				i;
+		
+			if (lang == 'none') {
+				t.selectedTrack = null;
+				t.captionsButton.removeClass('mejs-captions-enabled');
+			} else {
+				for (i=0; i<t.tracks.length; i++) {
+					if (t.tracks[i].srclang == lang) {
+						if (t.selectedTrack == null)
+						    t.captionsButton.addClass('mejs-captions-enabled');
+						t.selectedTrack = t.tracks[i];
+						t.captions.attr('lang', t.selectedTrack.srclang);
+						t.displayCaptions();
+						break;
+					}
+				}
+			}
+		},
 
 		loadNextTrack: function() {
 			var t = this;
@@ -185,6 +208,8 @@
 			} else {
 				// add done?
 				t.isLoadingTrack = false;
+				
+				t.checkForTracks();	
 			}
 		},
 
@@ -226,6 +251,10 @@
 							}
 						}, false);
 					}
+					
+					if (track.kind == 'slides') {
+						t.setupSlides(track);
+					}					
 				},
 				error: function() {
 					t.loadNextTrack();
@@ -281,6 +310,27 @@
 				t.captionsButton.find('.mejs-captions-translations').outerHeight(true)
 			);
 		},
+		
+		checkForTracks: function() {
+			var
+				t = this,
+				hasSubtitles = false;
+			
+			// check if any subtitles
+			if (t.options.hideCaptionsButtonWhenEmpty) {
+				for (i=0; i<t.tracks.length; i++) {
+					if (t.tracks[i].kind == 'subtitles') {
+						hasSubtitles = true;
+						break;
+					}
+				}	
+					
+				if (!hasSubtitles) {
+					t.captionsButton.hide();
+					t.setControlsSize();
+				}													
+			}		
+		},
 
 		displayCaptions: function() {
 
@@ -303,6 +353,70 @@
 				t.captions.hide();
 			} else {
 				t.captions.hide();
+			}
+		},
+		
+		setupSlides: function(track) {
+			var t = this;
+				
+			t.slides = track;
+			t.slides.entries.imgs = [t.slides.entries.text.length];
+			t.showSlide(0);
+			
+		},
+		
+		showSlide: function(index) {
+			if (typeof this.tracks == 'undefined' || typeof this.slidesContainer == 'undefined') {
+				return;			
+			}
+								
+			var t = this,
+				url = t.slides.entries.text[index],
+				img = t.slides.entries.imgs[index];
+				
+			if (typeof img == 'undefined' || typeof img.fadeIn == 'undefined') {
+
+				t.slides.entries.imgs[index] = img = $('<img src="' + url + '">')
+						.on('load', function() {
+							img.appendTo(t.slidesContainer)
+								.hide()
+								.fadeIn()
+								.siblings(':visible')
+									.fadeOut();							
+						
+						});
+			
+			} else {
+			
+				if (!img.is(':visible') && !img.is(':animated')) {
+				
+					console.log('showing existing slide');			
+					
+					img.fadeIn()
+						.siblings(':visible')
+							.fadeOut();			
+				}
+			}
+				
+		},
+		
+		displaySlides: function() {
+		
+			if (typeof this.slides == 'undefined')
+				return;	
+				
+			var 
+				t = this,
+				slides = t.slides,
+				i;				
+		
+			for (i=0; i<slides.entries.times.length; i++) {
+				if (t.media.currentTime >= slides.entries.times[i].start && t.media.currentTime <= slides.entries.times[i].stop){
+				
+					t.showSlide(i);
+					
+					return; // exit out if one is visible;
+				}
 			}
 		},
 
