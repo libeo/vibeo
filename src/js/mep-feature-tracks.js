@@ -8,6 +8,7 @@
 		tracksTextTurnOn: 'Captions/Subtitles On',
 		tracksTextTurnOff: 'Captions/Subtitles Off',
 		tracksText: 'Captions/Subtitles',
+		tracksText: mejs.i18n.t('Captions/Subtitles'),
 		
 		// option to remove the [cc] button when no <track kind="subtitles"> are present
 		hideCaptionsButtonWhenEmpty: true,
@@ -42,7 +43,7 @@
 							'<ul>'+
 								'<li>'+
 									'<input type="radio" name="' + player.id + '_captions" id="' + player.id + '_captions_none" value="none" checked="checked" />' +
-									'<label for="' + player.id + '_captions_none">None</label>'+
+									'<label for="' + player.id + '_captions_none">' + mejs.i18n.t('None') +'</label>'+
 								'</li>'	+
 							'</ul>'+
 						'</div>'+
