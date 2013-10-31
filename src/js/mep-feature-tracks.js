@@ -29,7 +29,12 @@
 				i, 
 				options = '';
 
-			player.chapters =
+			if (t.domNode.textTracks) { // if browser will do native captions, prefer mejs captions, loop through tracks and hide
+				for (var i = t.domNode.textTracks.length - 1; i >= 0; i--) {
+					t.domNode.textTracks[i].mode = "hidden";
+				}
+			}
+			player.chapters = 
 					$('<div class="mejs-chapters mejs-layer"></div>')
 						.prependTo(layers).hide();
 			player.captions = 
@@ -391,7 +396,7 @@
 			
 				if (!img.is(':visible') && !img.is(':animated')) {
 				
-					console.log('showing existing slide');			
+					//console.log('showing existing slide');			
 					
 					img.fadeIn()
 						.siblings(':visible')

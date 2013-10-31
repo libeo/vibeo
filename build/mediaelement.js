@@ -15,7 +15,8 @@
 var mejs = mejs || {};
 
 // version number
-mejs.version = '2.12.0';
+mejs.version = '2.13.1'; 
+
 
 // player number (for missing, same id attr)
 mejs.meIndex = 0;
@@ -337,13 +338,13 @@ mejs.MediaFeatures = {
 		t.isAndroid = (ua.match(/android/i) !== null);
 		t.isBustedAndroid = (ua.match(/android 2\.[12]/) !== null);
 		t.isBustedNativeHTTPS = (location.protocol === 'https:' && (ua.match(/android [12]\./) !== null || ua.match(/macintosh.* version.* safari/) !== null));
-		t.isIE = (nav.appName.toLowerCase().indexOf("microsoft") != -1);
+		t.isIE = (nav.appName.toLowerCase().match(/trident/gi) !== null);
 		t.isChrome = (ua.match(/chrome/gi) !== null);
 		t.isFirefox = (ua.match(/firefox/gi) !== null);
 		t.isWebkit = (ua.match(/webkit/gi) !== null);
-		t.isGecko = (ua.match(/gecko/gi) !== null) && !t.isWebkit;
+		t.isGecko = (ua.match(/gecko/gi) !== null) && !t.isWebkit && !t.isIE;
 		t.isOpera = (ua.match(/opera/gi) !== null);
-		t.hasTouch = ('ontouchstart' in window);
+		t.hasTouch = ('ontouchstart' in window && window.ontouchstart != null);
 		
 		// borrowed from Modernizr
 		t.svg = !! document.createElementNS &&
@@ -367,31 +368,51 @@ mejs.MediaFeatures = {
 
 		// iOS
 		t.hasSemiNativeFullScreen = (typeof v.webkitEnterFullscreen !== 'undefined');
-
-		// Webkit/firefox
+		
+		// W3C
+		t.hasNativeFullscreen = (typeof v.requestFullscreen !== 'undefined');
+		
+		// webkit/firefox/IE11+
 		t.hasWebkitNativeFullScreen = (typeof v.webkitRequestFullScreen !== 'undefined');
 		t.hasMozNativeFullScreen = (typeof v.mozRequestFullScreen !== 'undefined');
-
-		t.hasTrueNativeFullScreen = (t.hasWebkitNativeFullScreen || t.hasMozNativeFullScreen);
+		t.hasMsNativeFullScreen = (typeof v.msRequestFullscreen !== 'undefined');
+		
+		t.hasTrueNativeFullScreen = (t.hasWebkitNativeFullScreen || t.hasMozNativeFullScreen || t.hasMsNativeFullScreen);
 		t.nativeFullScreenEnabled = t.hasTrueNativeFullScreen;
+		
+		// Enabled?
 		if (t.hasMozNativeFullScreen) {
-			t.nativeFullScreenEnabled = v.mozFullScreenEnabled;
+			t.nativeFullScreenEnabled = document.mozFullScreenEnabled;
+		} else if (t.hasMsNativeFullScreen) {
+			t.nativeFullScreenEnabled = document.msFullscreenEnabled;		
 		}
-
-
-		if (this.isChrome) {
+		
+		if (t.isChrome) {
 			t.hasSemiNativeFullScreen = false;
 		}
 
 		if (t.hasTrueNativeFullScreen) {
-			t.fullScreenEventName = (t.hasWebkitNativeFullScreen) ? 'webkitfullscreenchange' : 'mozfullscreenchange';
-
-
+			
+			t.fullScreenEventName = '';
+			if (t.hasWebkitNativeFullScreen) { 
+				t.fullScreenEventName = 'webkitfullscreenchange';
+				
+			} else if (t.hasMozNativeFullScreen) {
+				t.fullScreenEventName = 'mozfullscreenchange';
+				
+			} else if (t.hasMsNativeFullScreen) {
+				t.fullScreenEventName = 'MSFullscreenChange';
+			}
+			
 			t.isFullScreen = function() {
 				if (v.mozRequestFullScreen) {
 					return d.mozFullScreen;
+				
 				} else if (v.webkitRequestFullScreen) {
 					return d.webkitIsFullScreen;
+				
+				} else if (v.hasMsNativeFullScreen) {
+					return d.msFullscreenElement !== null;
 				}
 			}
 
@@ -399,16 +420,26 @@ mejs.MediaFeatures = {
 
 				if (t.hasWebkitNativeFullScreen) {
 					el.webkitRequestFullScreen();
+					
 				} else if (t.hasMozNativeFullScreen) {
 					el.mozRequestFullScreen();
+
+				} else if (t.hasMsNativeFullScreen) {
+					el.msRequestFullscreen();
+
 				}
 			}
 
 			t.cancelFullScreen = function() {
 				if (t.hasWebkitNativeFullScreen) {
 					document.webkitCancelFullScreen();
+					
 				} else if (t.hasMozNativeFullScreen) {
 					document.mozCancelFullScreen();
+					
+				} else if (t.hasMsNativeFullScreen) {
+					document.msExitFullscreen();
+					
 				}
 			}
 
@@ -803,6 +834,10 @@ mejs.MediaPluginBridge = {
 			bufferedTime,
 			pluginMediaElement = this.pluginMediaElements[id];
 
+		if(!pluginMediaElement){
+            return;
+        }
+        
 		// fake event object to mimic real HTML media event.
 		e = {
 			type: eventName,
@@ -847,6 +882,8 @@ mejs.MediaElementDefaults = {
 	plugins: ['flash','silverlight','youtube','vimeo'],
 	// shows debug errors on screen
 	enablePluginDebug: false,
+	// use plugin for browsers that have trouble with Basic Authentication on HTTPS sites
+	httpsBasicAuthSite: false,
 	// overrides the type specified, useful for dynamic instantiation
 	type: '',
 	// path to Flash and Silverlight plugins
@@ -1017,7 +1054,7 @@ mejs.HtmlMediaElementShim = {
 
 
 		// test for native playback first
-		if (supportsMediaTag && (options.mode === 'auto' || options.mode === 'auto_plugin' || options.mode === 'native')  && !(mejs.MediaFeatures.isBustedNativeHTTPS)) {
+		if (supportsMediaTag && (options.mode === 'auto' || options.mode === 'auto_plugin' || options.mode === 'native')  && !(mejs.MediaFeatures.isBustedNativeHTTPS && options.httpsBasicAuthSite === true)) {
 						
 			if (!isMediaTag) {
 
@@ -1348,7 +1385,7 @@ mejs.HtmlMediaElementShim = {
 
 			// DEMO Code. Does NOT work.
 			case 'vimeo':
-				//console.log('vimeoid');
+				//
 				
 				pluginMediaElement.vimeoid = playback.url.substr(playback.url.lastIndexOf('/')+1);
 				
@@ -1369,6 +1406,8 @@ mejs.HtmlMediaElementShim = {
 		}
 		// hide original element
 		htmlMediaElement.style.display = 'none';
+		// prevent browser from autoplaying when using a plugin
+		htmlMediaElement.removeAttribute('autoplay');
 
 		// FYI: options.success will be fired by the MediaPluginBridge
 
@@ -1697,6 +1736,7 @@ window.MediaElement = mejs.MediaElement;
     "use strict";
     var i18n = {
         "locale": {
+            "language" : '',
             "strings" : {}
         },
         "methods" : {}
@@ -1710,10 +1750,12 @@ window.MediaElement = mejs.MediaElement;
      * @see: i18n.methods.t()
      */
     i18n.locale.getLanguage = function () {
-        return i18n.locale || {
-            "language" : navigator.language
-        };
+        return i18n.locale.language || navigator.language;
     };
+
+    if ( typeof mejsL10n != 'undefined' ) {
+        i18n.locale.language = mejsL10n.language;
+    }
 
     /**
      * Store the language the locale object was initialized with
@@ -1823,12 +1865,12 @@ window.MediaElement = mejs.MediaElement;
 
         if (typeof str === 'string' && str.length > 0) {
 
-            // check every time due languge can change for
+            // check every time due language can change for
             // different reasons (translation, lang switcher ..)
-            var lang = i18n.locale.getLanguage();
+            var language = i18n.locale.getLanguage();
 
             options = options || {
-                "context" : lang.language
+                "context" : language
             };
 
             return i18n.methods.t(str, args, options);
@@ -1847,11 +1889,11 @@ window.MediaElement = mejs.MediaElement;
 
 ;(function(exports, undefined) {
 
-	"use strict";
+    "use strict";
 
-	if ( mejs.i18n.locale.language && mejs.i18n.locale.strings ) {
-		exports[mejs.i18n.locale.language] = mejs.i18n.locale.strings;
-	}
+    if ( typeof mejsL10n != 'undefined' ) {
+        exports[mejsL10n.language] = mejsL10n.strings;
+    };
 
 }(mejs.i18n.locale.strings));
 
