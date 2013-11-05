@@ -141,6 +141,19 @@ tmp_file = open('../build/skin-gray.css','w')
 tmp_file.write(src_file.read())
 tmp_file.close()
 os.system("java -jar yuicompressor-2.4.2.jar ../build/skin-gray.css -o ../build/skin-gray.min.css --charset utf-8 -v")
+
+src_file = open('css/skin-vbo-light.css','r')
+tmp_file = open('../build/skin-vbo-light.css','w')
+tmp_file.write(src_file.read())
+tmp_file.close()
+os.system("java -jar yuicompressor-2.4.2.jar ../build/skin-vbo-light.css -o ../build/skin-vbo-light.min.css --charset utf-8 -v")
+
+src_file = open('css/skin-vbo-dark.css','r')
+tmp_file = open('../build/skin-vbo-dark.css','w')
+tmp_file.write(src_file.read())
+tmp_file.close()
+os.system("java -jar yuicompressor-2.4.2.jar ../build/skin-vbo-dark.css -o ../build/skin-vbo-dark.min.css --charset utf-8 -v")
+
 #COPY skin files
 print('Copying Skin Files')
 shutil.copy2('css/controls.png','../build/controls.png')

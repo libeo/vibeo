@@ -121,7 +121,7 @@ $time-current-end       : #27abdd;
 $time-rail-opacity      : 1;
 
 // ::Time hanfle show / hide
-$time-handle-opacity    : 0;
+$time-handle-opacity    : 1;
 
 // ::Rewind/forward
 $time-nav-bg            : transparent;
@@ -318,7 +318,7 @@ $chapter-hover-opacity  : 0.6;
 }
 .mejs-container, 
 .mejs-controls { 
-    @include border-bottom-radius( 5px ); 
+    // @include border-bottom-radius( 5px ); 
 }
 .mejs-container .mejs-controls {
     background: none; 

@@ -138,17 +138,6 @@
   width: 80px;
 }
 
-/* line 320, sass/skin-vbo-light.scss */
-.mejs-container,
-.mejs-controls {
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
 /* line 323, sass/skin-vbo-light.scss */
 .mejs-container .mejs-controls {
   background: none;
@@ -548,7 +537,7 @@
   border: 0;
   cursor: pointer;
   margin: 0;
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   text-align: center;
   top: 0px;
