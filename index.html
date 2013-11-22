@@ -42,6 +42,32 @@
 </div>
 <a href="#">Lien après le vidéo</a>
 
+<hr>
+
+<h1>Lecteur Vidéo Libéo - Responsive</h1>
+<div style="max-width:800px;">
+    <a href="#">Lien avant le vidéo</a>
+    <div id="application" role="application">
+    <video width="100%" height="100%" style="width: 100%; height: 100%;" id="player2" poster="media/libeo_ctf_2012_720p.jpg"  preload="none">
+        <!-- MP4 source must come first for iOS -->
+        <source type="video/mp4" src="media/libeo_ctf_2012_720p.mp4" />
+        <!-- WebM for Firefox 4 and Opera -->
+        <source type="video/webm" src="media/libeo_ctf_2012_720p.webm" />
+        <!-- OGG for Firefox 3 -->
+        <source type="video/ogg" src="media/libeo_ctf_2012_720p.theora.ogv" />
+        <track kind="subtitles" src="media/libeo_ctf_2012_720p.srt" srclang="en" />
+        <!-- Fallback flash player for no-HTML5 browsers with JavaScript turned off -->
+        <object width="100%" height="100%" style="width: 100%; height: 100%;" type="application/x-shockwave-flash" data="build/flashmediaelement.swf">
+            <param name="movie" value="build/flashmediaelement.swf" />
+            <param name="flashvars" value="controls=true&amp;file=media/libeo_ctf_2012_720p.mp4" />
+            <!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
+            <img src="media/libeo_ctf_2012_720p.jpg" width="640" height="360" style="width:100%; height:auto;" alt="Aucune possibilité de jouer la vidéo." />
+        </object>
+    </video>
+    </div>
+    <a href="#">Lien après le vidéo</a>
+    <p>Pour rendre le lecteur responsive, il suffit simplement de mettre les width et height à 100% et mettre aussi un attribut "style" avec width et height à 100%. Il prendra donc l'espace disponible dans le parent. Ici, le parent est limité à 800px. <br>Référence: <a href="http://www.coolestguidesontheplanet.com/videodrome/mediaelementjs/">http://www.coolestguidesontheplanet.com/videodrome/mediaelementjs/</a></p>
+</div>
 <script>
 
 $('video').mediaelementplayer({
